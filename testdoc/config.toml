@@ -2,7 +2,7 @@ baseURL = "https://example.com"
 
 languageCode = "en-us"
 DefaultContentLanguage = "en"
-title = "Hugo Techdoc Theme"
+title = "Brightsec"
 theme = "techdoc"
 
 hasCJKLanguage = true
@@ -15,7 +15,7 @@ enableMissingTranslationPlaceholders = false
 [params]
 
     # Source Code repository section
-    description = "put your description"
+    # description = "put your description"
     github_repository = "https://github.com/thingsym/hugo-theme-techdoc"
     version = "0.9.9"
 
@@ -39,12 +39,12 @@ enableMissingTranslationPlaceholders = false
     # Theme settings section
     # Theme color
     # See color value reference https://developer.mozilla.org/en-US/docs/Web/CSS/color
-    custom_font_color = ""
-    custom_background_color = ""
+    custom_font_color = "black"
+    custom_background_color = "white"
 
     # Documentation Menu section
     # Menu style settings
-    menu_style = "open-menu" # "open-menu" or "slide-menu" or "" blank is as no sidebar
+    menu_style = "slide-menu" # "open-menu" or "slide-menu" or "" blank is as no sidebar
 
     # Date format
     dateformat = "" # default "2 Jan 2006"
@@ -75,15 +75,15 @@ enableMissingTranslationPlaceholders = false
         url = "/"
         weight = 1
         identifier = 'home'
-        pre = "<i class='fa fa-heart'></i>&nbsp;"
+        # pre = "<i class='fa fa-heart'></i>&nbsp;"
 
     [[menu.main]]
-        name = "Twitter"
-        url = "https://twitter.com/thingsym"
+        name = "Changelog"
+        url = "/changelog"
         weight = 2
-        identifier = 'twitter'
-        pre = "<b>pre!</b> "
-        post = " <b>post!</b>"
+        identifier = 'changelog'
+        # pre = "<b>pre!</b> "
+        # post = " <b>post!</b>"
         [menu.main.params]
           class = 'twitter-menu-item'
 
