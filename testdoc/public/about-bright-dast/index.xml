@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About Bright DASTs on Brightsec</title>
+    <link>https://example.com/about-bright-dast/</link>
+    <description>Recent content in About Bright DASTs on Brightsec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://example.com/about-bright-dast/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deployment Options</title>
+      <link>https://example.com/about-bright-dast/deployment-options/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/about-bright-dast/deployment-options/</guid>
+      <description>Bright offers the following deployment options for accessing the scan targets:
+SaaS (Offering hosting on various hosting platforms) Private Cloud Repeater (Scan Proxy) [block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/1cf545a-private-cloud.png&amp;rdquo;, &amp;ldquo;private-cloud.png&amp;rdquo;, 792, 622, &amp;ldquo;#edecec&amp;rdquo; ], &amp;ldquo;sizing&amp;rdquo;: &amp;ldquo;80&amp;rdquo; } ] } [/block]</description>
+    </item>
+    
+    <item>
+      <title>Media</title>
+      <link>https://example.com/about-bright-dast/media-1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/about-bright-dast/media-1/</guid>
+      <description>What is Nexploit? [block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/d06a15e-pdf_nexploit_logo_720-transp.png&amp;rdquo;, &amp;ldquo;pdf_nexploit_logo_720-transp.png&amp;rdquo;, 718, 125, &amp;ldquo;#63767b&amp;rdquo; ] } ] } [/block]</description>
+    </item>
+    
+    <item>
+      <title>Private Cloud Deployment</title>
+      <link>https://example.com/about-bright-dast/deployment-options/private-cloud/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/about-bright-dast/deployment-options/private-cloud/</guid>
+      <description>Overview Unlike the standard SaaS offering that uses a multi-tenant architecture for the databases and static network configurations, the Private Cloud provides a completely separate, configurable cloud environment for your organization.
+📘 Note
+The private cloud instance is hosted on the Bright infrastructure.
+The Private Cloud’s separate, non-multi-tenant environment offers the following benefits over a standard SaaS environment:
+Separate databases at the instance level. Standard SaaS only accommodates some databases at a logical level.</description>
+    </item>
+    
+    <item>
+      <title>Repeater (Scan Proxy)</title>
+      <link>https://example.com/about-bright-dast/deployment-options/on-premises-repeater-local-agent/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/about-bright-dast/deployment-options/on-premises-repeater-local-agent/</guid>
+      <description>Overview The Bright Repeater is a scan proxy which provides a secure connection between the Bright cloud engine and a target on a local network. The Repeater mode enables you to securely scan targets on a local network, without having to allowlist the Bright IP address in your firewall for incoming traffic.
+The Repeater mode is designed for:
+Organizations that cannot open a port in the firewall for inbound traffic. A Repeater enables you to scan either from the Bright SaaS or a private cloud.</description>
+    </item>
+    
+    <item>
+      <title>SaaS Deployment</title>
+      <link>https://example.com/about-bright-dast/deployment-options/saas-deployment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/about-bright-dast/deployment-options/saas-deployment/</guid>
+      <description>Overview Using the Bright SaaS deployment option is simple. There is no need to install anything locally.
+Simply log in to the Bright app and select the target application to be scanned.
+How the SaaS deployment works The Bright cloud engines begin scanning the target for issues. Reports that show identified issues start displaying immediately, with no false positives.
+The standard SaaS solution uses a multi-tenant architecture for the databases and static network configurations.</description>
+    </item>
+    
+    <item>
+      <title>What is Bright DAST?</title>
+      <link>https://example.com/about-bright-dast/introducing-to-bright/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/about-bright-dast/introducing-to-bright/</guid>
+      <description>Bright is a powerful dynamic application &amp;amp; API security testing (DAST) platform. With its powerful automation and integration capabilities, Bright allows developers to scan multiple targets, uncover security vulnerabilities without false positives, get detailed reports on every finding, and quickly fix security issues by following the remediation guidelines.
+Features Automatically Tests Every Aspect of Your Apps &amp;amp; APIs
+Scans any target, whether Web Apps, APIs (REST &amp;amp; SOAP, GraphQL &amp;amp; more), Web sockets or mobile, providing actionable reports.</description>
+    </item>
+    
+  </channel>
+</rss>

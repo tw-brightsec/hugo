@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CI Pipeline Integrations on Brightsec</title>
+    <link>https://example.com/ci-pipeline-integrations/</link>
+    <description>Recent content in CI Pipeline Integrations on Brightsec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://example.com/ci-pipeline-integrations/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Azure Pipelines</title>
+      <link>https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/azure-pipelines/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/azure-pipelines/</guid>
+      <description>[block:html] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;table id=&amp;quot;integrations&amp;quot; &amp;gt;\n \n \n \n &amp;lt;td width=&amp;quot;70%&amp;quot;&amp;gt;\n \n \n &amp;lt;td width=&amp;quot;30%&amp;quot; style=&amp;quot;text-align:center&amp;quot; rowspan=&amp;quot;3&amp;quot;&amp;gt;\n &amp;lt;img src=&amp;quot;https://files.readme.io/b478b0c-azure-int.png&amp;quot; width=&amp;quot;170&amp;quot; height=&amp;quot;200&amp;quot;&amp;gt;\n \n \n \n &amp;lt;td style=&amp;quot;text-align:left;vertical-align:text-top;padding:0px&amp;quot;&amp;gt;\n If you are using Azure DevOps for development automation, you can integrate Bright with your Azure CI pipeline using the &amp;lt;a href=&amp;quot;https://marketplace.visualstudio.com/items?itemName=Neuralegion.nexploit&amp;quot;&amp;gt;Nexploit DevOps Integration extension. The integration allows you to automate the security testing flow by running the Bright scans on every new build within your development environment.</description>
+    </item>
+    
+    <item>
+      <title>Azure Pipelines Old</title>
+      <link>https://example.com/ci-pipeline-integrations/azure-pipelines-oldy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ci-pipeline-integrations/azure-pipelines-oldy/</guid>
+      <description>[block:html] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;table id=&amp;quot;integrations&amp;quot; &amp;gt;\n \n \n \n &amp;lt;td width=&amp;quot;70%&amp;quot;&amp;gt;\n \n \n &amp;lt;td width=&amp;quot;30%&amp;quot; style=&amp;quot;text-align:center&amp;quot; rowspan=&amp;quot;3&amp;quot;&amp;gt;\n &amp;lt;img src=&amp;quot;https://files.readme.io/b478b0c-azure-int.png&amp;quot; width=&amp;quot;170&amp;quot; height=&amp;quot;200&amp;quot;&amp;gt;\n \n \n \n &amp;lt;td style=&amp;quot;text-align:left;vertical-align:text-top;padding:0px&amp;quot;&amp;gt;\n If you are using Azure DevOps for development automation, you can integrate Bright with your Azure CI pipeline using the &amp;lt;a href=&amp;quot;https://marketplace.visualstudio.com/items?itemName=Neuralegion.nexploit&amp;quot;&amp;gt;Nexploit DevOps Integration extension. The integration allows you to automate the security testing flow by running the Bright scans on every new build within your development environment.</description>
+    </item>
+    
+    <item>
+      <title>CircleCI</title>
+      <link>https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/circleci/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/circleci/</guid>
+      <description>[block:html] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;table id=&amp;quot;integrations&amp;quot; &amp;gt;\n \n \n \n &amp;lt;td width=&amp;quot;70%&amp;quot;&amp;gt;\n \n &amp;lt;td width=&amp;quot;30%&amp;quot; style=&amp;quot;text-align:center&amp;quot; rowspan=&amp;quot;3&amp;quot;&amp;gt;\n &amp;lt;img src=&amp;quot;https://files.readme.io/20283ed-circleci-int.png&amp;quot; width=&amp;quot;170&amp;quot; height=&amp;quot;200&amp;quot;&amp;gt;\n \n \n \n &amp;lt;td style=&amp;quot;text-align:left;vertical-align:text-top;padding:0px&amp;quot;&amp;gt;\n You can configure your CircleCI pipeline to automatically run a Bright scan with every new build. Once a build is made to the pipeline, Bright initiates security tests and provides all the information that developers need to fix the detected vulnerabilities, without having to leave their development environment.</description>
+    </item>
+    
+    <item>
+      <title>GitHub Actions</title>
+      <link>https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/github-actions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/github-actions/</guid>
+      <description>In this section, you will learn how to integrate the GitHub actions in to your CI pipeline to trigger a Bright scan on every new commit automatically.
+A full working example of a GitHub Actions pipeline with Bright can be found here.
+[block:embed] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;iframe class=&amp;quot;embedly-embed&amp;quot; src=&amp;quot;//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FcmTaVhQxAyI%3Ffeature%3Doembed&amp;amp;display_name=YouTube&amp;amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DcmTaVhQxAyI&amp;amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FcmTaVhQxAyI%2Fhqdefault.jpg&amp;amp;key=f2aa6fc3595946d0afc3d76cbbd25dc3&amp;amp;type=text%2Fhtml&amp;amp;schema=youtube&amp;quot; width=&amp;quot;854&amp;quot; height=&amp;quot;480&amp;quot; scrolling=&amp;quot;no&amp;quot; title=&amp;quot;YouTube embed&amp;quot; frameborder=&amp;quot;0&amp;quot; allow=&amp;quot;autoplay; fullscreen&amp;quot; allowfullscreen=&amp;quot;true&amp;quot;&amp;gt;&amp;rdquo;, &amp;ldquo;url&amp;rdquo;: &amp;ldquo;https://www.youtube.com/watch?v=cmTaVhQxAyI&amp;quot;, &amp;ldquo;title&amp;rdquo;: &amp;ldquo;Running a Scan as Part of GitHub CI Pipeline&amp;rdquo;, &amp;ldquo;favicon&amp;rdquo;: &amp;ldquo;https://www.</description>
+    </item>
+    
+    <item>
+      <title>GitLab</title>
+      <link>https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/gitlab/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/gitlab/</guid>
+      <description>[block:html] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;table id=&amp;quot;integrations&amp;quot; &amp;gt;\n \n \n \n &amp;lt;td width=&amp;quot;70%&amp;quot;&amp;gt;\n \n \n &amp;lt;td width=&amp;quot;30%&amp;quot; style=&amp;quot;text-align:center&amp;quot; rowspan=&amp;quot;3&amp;quot;&amp;gt;\n &amp;lt;img src=&amp;quot;https://files.readme.io/2736cff-gitlab-int.png&amp;quot; width=&amp;quot;170&amp;quot; height=&amp;quot;200&amp;quot;&amp;gt;\n \n \n \n &amp;lt;td style=&amp;quot;text-align:left;vertical-align:text-top;padding:0px&amp;quot;&amp;gt;\n If you are using the GitLab pipeline for development automation, you can integrate it with Bright to run security scans on every new build within your development environment.
+\n \n \n\n &amp;lt;td style=&amp;quot;text-align:left;vertical-align:text-top;padding:0px&amp;quot;&amp;gt;\n Depending on the use case, you can apply multiple options for running scans from your CI pipeline.</description>
+    </item>
+    
+    <item>
+      <title>GitLab Integration Examples</title>
+      <link>https://example.com/ci-pipeline-integrations/integration-examples/gitlab-integration-examples/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ci-pipeline-integrations/integration-examples/gitlab-integration-examples/</guid>
+      <description>Example 1. Scan from the cloud using the Bright CLI (NPM installation) To apply this option, you only need to install the &amp;laquo;glossary:Bright CLI&amp;raquo; globally on your GitLab machine using the relative NPM command.
+Prerequisites You have a valid organization API key or personal API key (BRIGHT_TOKEN) with the following scopes: bot,
+scans : run,scan : read, and scans : stop. You have set the BRIGHT_TOKEN variable in your GitLab pipeline: Settings &amp;gt; CI/CD &amp;gt; Variables.</description>
+    </item>
+    
+    <item>
+      <title>Integrating Bright with Your CI Pipeline</title>
+      <link>https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/</guid>
+      <description>You can initiate a Bright scan on every new build in your application or API directly from your CI pipeline. The integration allows you to simplify the security testing process without leaving your development environment. You can configure the Bright integration with the following CI pipelines:
+[block:html] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;table id=&amp;quot;integrations&amp;quot; &amp;gt;\n \n \n \n &amp;lt;td width=&amp;quot;50%&amp;quot;&amp;gt;\n &amp;lt;a href=&amp;quot;/docs/circleci&amp;quot;&amp;gt;&amp;lt;img src=&amp;quot;https://files.readme.io/155f9b9-41597205-a57442ea-73c4-11e8-9591-61f5c83c7e66.png&amp;quot; width=&amp;quot;225&amp;quot; height=&amp;quot;60&amp;quot;&amp;gt;\n \n &amp;lt;td width=&amp;quot;50%&amp;quot;&amp;gt;\n &amp;lt;a href=&amp;quot;/docs/github-actions&amp;quot;&amp;gt;&amp;lt;img src=&amp;quot;https://files.readme.io/13baa72-unnamed_1.png&amp;quot; width=&amp;quot;280&amp;quot; height=&amp;quot;50&amp;quot;&amp;gt;\n \n \n \n &amp;lt;td width=&amp;quot;50%&amp;quot;&amp;gt;\n &amp;lt;a href=&amp;quot;/docs/jenkins&amp;quot;&amp;gt;&amp;lt;img src=&amp;quot;https://files.</description>
+    </item>
+    
+    <item>
+      <title>Integration Examples</title>
+      <link>https://example.com/ci-pipeline-integrations/integration-examples/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ci-pipeline-integrations/integration-examples/</guid>
+      <description>Select a CI pipeline to see the examples:
+Jenkins Integration Examples Travis CI Integration Examples GitLab Integration Examples </description>
+    </item>
+    
+    <item>
+      <title>Jenkins</title>
+      <link>https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jenkins/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jenkins/</guid>
+      <description>[block:html] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;table id=&amp;quot;integrations&amp;quot; &amp;gt;\n \n \n \n &amp;lt;td width=&amp;quot;70%&amp;quot;&amp;gt;\n \n \n &amp;lt;td width=&amp;quot;30%&amp;quot; style=&amp;quot;text-align:center&amp;quot; rowspan=&amp;quot;3&amp;quot;&amp;gt;\n &amp;lt;img src=&amp;quot;https://files.readme.io/d789574-jenkins-int.png&amp;quot; width=&amp;quot;170&amp;quot; height=&amp;quot;200&amp;quot;&amp;gt;\n \n \n \n &amp;lt;td style=&amp;quot;text-align:left;vertical-align:text-top;padding:0px&amp;quot;&amp;gt;\n If you are using the Jenkins pipeline for development automation, you can integrate it with Bright to run security scans on every new build within your development environment.
+\n Depending on the use case, you can apply multiple options for running scans from your CI pipeline.</description>
+    </item>
+    
+    <item>
+      <title>Jenkins Integration Examples</title>
+      <link>https://example.com/ci-pipeline-integrations/integration-examples/jenkins-integration-examples/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ci-pipeline-integrations/integration-examples/jenkins-integration-examples/</guid>
+      <description>Example 1. Scan from the cloud using the Bright CLI (NPM installation) To apply this option, you only need to install the Bright CLI globally on your Jenkins machine using the relative NPM command.
+Prerequisites You have a valid organization API key or personal API key (BRIGHT_TOKEN) with the following scopes: bot,
+scans : run,scan : read, and scans : stop. You have downloaded the Node.js plug-in to your Jenkins machine.</description>
+    </item>
+    
+    <item>
+      <title>JFrog</title>
+      <link>https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jfrog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jfrog/</guid>
+      <description>[block:html] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;table id=&amp;quot;integrations&amp;quot; &amp;gt;\n \n \n \n &amp;lt;td width=&amp;quot;70%&amp;quot;&amp;gt;\n \n \n &amp;lt;td width=&amp;quot;30%&amp;quot; style=&amp;quot;text-align:center&amp;quot; rowspan=&amp;quot;3&amp;quot;&amp;gt;\n &amp;lt;img src=&amp;quot;https://files.readme.io/dcce3bb-jfrog-int.png&amp;quot; width=&amp;quot;170&amp;quot; height=&amp;quot;200&amp;quot;&amp;gt;\n \n \n \n &amp;lt;td style=&amp;quot;text-align:left;vertical-align:text-top;padding:0px&amp;quot;&amp;gt;\n If you are using JFrog Pipelines for development automation, you can integrate it with Bright to run security scans on every new build as part of your SDLC.\n \n \n \n &amp;lt;td style=&amp;quot;text-align:left;vertical-align:text-top;padding:0px&amp;quot;&amp;gt;\n For this example, we use a sample vulnerable application in a public &amp;lt;a href=&amp;quot;https://github.</description>
+    </item>
+    
+    <item>
+      <title>Media</title>
+      <link>https://example.com/ci-pipeline-integrations/media-8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ci-pipeline-integrations/media-8/</guid>
+      <description>[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/695863a-TeamCity_Icon.png&amp;rdquo;, &amp;ldquo;TeamCity_Icon.png&amp;rdquo;, 2000, 2000, &amp;ldquo;#2a647e&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/264ccf1-team-city.png&amp;rdquo;, &amp;ldquo;team-city.png&amp;rdquo;, 900, 1080, &amp;ldquo;#e2e9ec&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/2736cff-gitlab-int.png&amp;rdquo;, &amp;ldquo;gitlab-int.png&amp;rdquo;, 900, 1080, &amp;ldquo;#f4f3f3&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/dcce3bb-jfrog-int.png&amp;rdquo;, &amp;ldquo;jfrog-int.</description>
+    </item>
+    
+    <item>
+      <title>TeamCity</title>
+      <link>https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/team-city/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/team-city/</guid>
+      <description>[block:html] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;table id=&amp;quot;integrations&amp;quot; &amp;gt;\n \n \n \n &amp;lt;td width=&amp;quot;70%&amp;quot;&amp;gt;\n \n &amp;lt;td width=&amp;quot;30%&amp;quot; style=&amp;quot;text-align:center&amp;quot; rowspan=&amp;quot;3&amp;quot;&amp;gt;\n &amp;lt;img src=&amp;quot;https://files.readme.io/264ccf1-team-city.png&amp;quot; width=&amp;quot;170&amp;quot; height=&amp;quot;200&amp;quot;&amp;gt;\n \n \n \n &amp;lt;td style=&amp;quot;text-align:left;vertical-align:text-top;padding:0px&amp;quot;&amp;gt;\n You can configure your TeamCity CI/CD pipeline to automatically run a Bright scan with every new build. Once a build is made to the pipeline, Bright initiates security tests and provides all the information that developers need to fix the detected vulnerabilities, without having to leave their development environment.</description>
+    </item>
+    
+    <item>
+      <title>Travis CI</title>
+      <link>https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/travis-ci/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/travis-ci/</guid>
+      <description>[block:html] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;table id=&amp;quot;integrations&amp;quot; &amp;gt;\n \n \n \n &amp;lt;td width=&amp;quot;70%&amp;quot;&amp;gt;\n \n &amp;lt;td width=&amp;quot;30%&amp;quot; style=&amp;quot;text-align:center&amp;quot; rowspan=&amp;quot;3&amp;quot;&amp;gt;\n &amp;lt;img src=&amp;quot;https://files.readme.io/47244d6-travis-int.png&amp;quot; width=&amp;quot;170&amp;quot; height=&amp;quot;200&amp;quot;&amp;gt;\n \n \n \n &amp;lt;td style=&amp;quot;text-align:left;vertical-align:text-top;padding:0px&amp;quot;&amp;gt;\n Travis CI is a Continuous Integration / Continuous Delivery (CI/CD) platform that enables developers to quickly and easily build, test and deploy code. The easy-of-use and flexibility offered by Travis CI is core to software development as part of a modern DevOps toolchain. Travis CI supports the development process by automatically building and testing code changes in smaller increments, providing immediate feedback on the success of the change.</description>
+    </item>
+    
+    <item>
+      <title>Travis CI Integration Examples</title>
+      <link>https://example.com/ci-pipeline-integrations/integration-examples/travis-ci-integration-examples/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ci-pipeline-integrations/integration-examples/travis-ci-integration-examples/</guid>
+      <description>Example 1. Scan from the cloud using the Bright CLI (NPM installation) To apply this option, you only need to install the Bright CLI globally on your Travis CI machine using the relative NPM command.
+Prerequisites You have a valid organization API key or personal API key (BRIGHT_TOKEN) with the following scopes: bot,
+scans : run,scan : read, and scans : stop. You have created the BRIGHT_TOKEN variable on your Travis CI machine: more options &amp;gt; settings &amp;gt; add the environmental variable.</description>
+    </item>
+    
+    <item>
+      <title>Travis CI old</title>
+      <link>https://example.com/ci-pipeline-integrations/travis-ci-old/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ci-pipeline-integrations/travis-ci-old/</guid>
+      <description>First title Second one Third one text here description notes [block:html] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;table id=&amp;quot;integrations&amp;quot; &amp;gt;\n \n \n \n &amp;lt;td width=&amp;quot;70%&amp;quot;&amp;gt;\n \n \n &amp;lt;td width=&amp;quot;30%&amp;quot; style=&amp;quot;text-align:center&amp;quot; rowspan=&amp;quot;3&amp;quot;&amp;gt;\n &amp;lt;img src=&amp;quot;https://files.readme.io/b478b0c-azure-int.png&amp;quot; width=&amp;quot;170&amp;quot; height=&amp;quot;200&amp;quot;&amp;gt;\n \n \n \n &amp;lt;td style=&amp;quot;text-align:left;vertical-align:text-top;padding:0px&amp;quot;&amp;gt;\n If you are using Azure DevOps for development automation, you can integrate Bright with your Azure CI pipeline using the &amp;lt;a href=&amp;quot;https://marketplace.visualstudio.com/items?itemName=Neuralegion.nexploit&amp;quot;&amp;gt;Nexploit DevOps Integration extension. The integration allows you to automate the security testing flow by running the Bright scans on every new build within your development environment.</description>
+    </item>
+    
+  </channel>
+</rss>

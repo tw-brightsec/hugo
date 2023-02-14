@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ticketing Integrations on Brightsec</title>
+    <link>https://example.com/ticketing-integrations/</link>
+    <description>Recent content in Ticketing Integrations on Brightsec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://example.com/ticketing-integrations/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adding Ticketing Integration to a Project</title>
+      <link>https://example.com/ticketing-integrations/adding-ticketing-integration-to-a-project/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ticketing-integrations/adding-ticketing-integration-to-a-project/</guid>
+      <description>You can integrate one or several ticketing systems with a specific Bright project. Therefore, you are able to select any of the repositories available for the specified Bright project when you start a new scan.
+Prerequisites Integration flow is divided into organization and project levels. At the organization level, basic integration settings are performed - in some cases, just turning it on or off. Complete integration setup is done at the project level.</description>
+    </item>
+    
+    <item>
+      <title>Adding Ticketing Integration to a Project old</title>
+      <link>https://example.com/ticketing-integrations/add-ticketing-integration-to-a-project-old/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ticketing-integrations/add-ticketing-integration-to-a-project-old/</guid>
+      <description>You can integrate one or multiple repositories (projects, channels) of your ticketing systems with a specific Bright project. Therefore, you are able to select any of the repositories available for the specified Bright project when you start a new scan.
+🚧 Important
+Only the users with the Admin and Owner roles have access to integrate a connected ticketing system with a specific project.
+Prerequisites Bright is connected to your ticketing systems with the repositories you want to add to a certain project.</description>
+    </item>
+    
+    <item>
+      <title>Azure Boards</title>
+      <link>https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/azure-boards/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/azure-boards/</guid>
+      <description>[block:html] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;table id=&amp;quot;integrations&amp;quot; &amp;gt;\n \n \n \n &amp;lt;td width=&amp;quot;70%&amp;quot;&amp;gt;\n \n \n &amp;lt;td width=&amp;quot;30%&amp;quot; style=&amp;quot;text-align:center&amp;quot; rowspan=&amp;quot;3&amp;quot;&amp;gt;\n &amp;lt;img src=&amp;quot;https://files.readme.io/c2b2140-Integration_logo_template02.png&amp;quot; width=&amp;quot;170&amp;quot; height=&amp;quot;200&amp;quot;&amp;gt;\n \n \n \n &amp;lt;td style=&amp;quot;text-align:left;vertical-align:text-top;padding:0px&amp;quot;&amp;gt;\n You can connect your Azure board to a Nexploit scan to get all the discovered issues on automatically created Azure tickets. Bright opens each new ticket for one specific issue and provides the following information:\n \n Issue severity level\n Details of discovery\n Possible exposure\n Remediation suggestions \n \n For each new scan, you can select any of multiple boards connected to the account of your Azure DevOps organization.</description>
+    </item>
+    
+    <item>
+      <title>GitHub</title>
+      <link>https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/github/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/github/</guid>
+      <description>[block:html] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;table id=&amp;quot;integrations&amp;quot; &amp;gt;\n \n \n \n &amp;lt;td width=&amp;quot;70%&amp;quot;&amp;gt;\n \n &amp;lt;td width=&amp;quot;30%&amp;quot; style=&amp;quot;text-align:center&amp;quot; rowspan=&amp;quot;3&amp;quot;&amp;gt;\n &amp;lt;img src=&amp;quot;https://files.readme.io/416b140-gh-int.png&amp;quot; width=&amp;quot;170&amp;quot; height=&amp;quot;200&amp;quot;&amp;gt;\n \n \n \n &amp;lt;td style=&amp;quot;text-align:left;vertical-align:text-top;padding:0px&amp;quot;&amp;gt;\n You can connect your GitHub repository to Bright to automatically open the details of all detected vulnerabilies as GitHub issues and code scanning alerts. The details contain the following information:\n \n Issue severity level\n Details of discovery\n Possible exposure\n Remediation suggestions \n \n \n \n\n &amp;lt;td style=&amp;quot;text-align:left;vertical-align:text-top;padding:0px&amp;quot;&amp;gt;\n For each new scan, you can select any of your GitHub repositories integrated with your Bright projects.</description>
+    </item>
+    
+    <item>
+      <title>GitLab Boards</title>
+      <link>https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/gitlab-boards/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/gitlab-boards/</guid>
+      <description>[block:html] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;table id=&amp;quot;integrations&amp;quot; &amp;gt;\n \n \n \n &amp;lt;td width=&amp;quot;70%&amp;quot;&amp;gt;\n \n \n &amp;lt;td width=&amp;quot;30%&amp;quot; style=&amp;quot;text-align:center&amp;quot; rowspan=&amp;quot;3&amp;quot;&amp;gt;\n &amp;lt;img src=&amp;quot;https://files.readme.io/9369e75-gitlab-int.png&amp;quot; width=&amp;quot;170&amp;quot; height=&amp;quot;200&amp;quot;&amp;gt;\n \n \n \n &amp;lt;td style=&amp;quot;text-align:left;vertical-align:text-top;padding:0px&amp;quot;&amp;gt;\n You can connect your GiLab repository to a Bright scan to get the reports on every detected vulnerability in automatically opened GitLab issues. Each report provides the following information:\n \n Issue severity level\n Details of discovery\n Possible exposure\n Remediation suggestions \n \n For each new scan, you can select any of your GitLab repositories integrated with your Bright projects.</description>
+    </item>
+    
+    <item>
+      <title>Integrating Bright with Your Ticketing System</title>
+      <link>https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/</guid>
+      <description>You can view and manage the Bright reports on every detected vulnerability in the ticketing and communication systems that you use in your development environment. The integration allows you to simplify and accelerate fixing the security issues of your application or API by using automatically created tickets and distributing them among your development team.
+[block:embed] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;iframe class=&amp;quot;embedly-embed&amp;quot; src=&amp;quot;//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F7vriwHUvSWw%3Ffeature%3Doembed&amp;amp;display_name=YouTube&amp;amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D7vriwHUvSWw&amp;amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2F7vriwHUvSWw%2Fhqdefault.jpg&amp;amp;key=f2aa6fc3595946d0afc3d76cbbd25dc3&amp;amp;type=text%2Fhtml&amp;amp;schema=youtube&amp;quot; width=&amp;quot;854&amp;quot; height=&amp;quot;480&amp;quot; scrolling=&amp;quot;no&amp;quot; title=&amp;quot;YouTube embed&amp;quot; frameborder=&amp;quot;0&amp;quot; allow=&amp;quot;autoplay; fullscreen&amp;quot; allowfullscreen=&amp;quot;true&amp;quot;&amp;gt;&amp;rdquo;, &amp;ldquo;url&amp;rdquo;: &amp;ldquo;https://www.</description>
+    </item>
+    
+    <item>
+      <title>Jira</title>
+      <link>https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/jira/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/jira/</guid>
+      <description>[block:html] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;table id=&amp;quot;integrations&amp;quot; &amp;gt;\n \n \n \n &amp;lt;td width=&amp;quot;70%&amp;quot;&amp;gt;\n \n \n &amp;lt;td width=&amp;quot;30%&amp;quot; style=&amp;quot;text-align:center&amp;quot; rowspan=&amp;quot;3&amp;quot;&amp;gt;\n &amp;lt;img src=&amp;quot;https://files.readme.io/aa51ba2-jira-int.png&amp;quot; width=&amp;quot;170&amp;quot; height=&amp;quot;200&amp;quot;&amp;gt;\n \n \n \n &amp;lt;td style=&amp;quot;text-align:left;vertical-align:text-top;padding:0px&amp;quot;&amp;gt;\n You can connect your Jira project board to a Bright scan, for tickets to be automatically opened for each security vulnerability detected. Each ticket contains the following information:\n \n Issue severity level\n Details of discovery\n Possible exposure\n Remediation suggestions \n \n \n For each new scan, you can select different Jira projects integrated with your Bright projects.</description>
+    </item>
+    
+    <item>
+      <title>Media</title>
+      <link>https://example.com/ticketing-integrations/media-9/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ticketing-integrations/media-9/</guid>
+      <description>[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/9369e75-gitlab-int.png&amp;rdquo;, &amp;ldquo;gitlab-int.png&amp;rdquo;, 900, 1080, &amp;ldquo;#f4f3f3&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/c2b2140-Integration_logo_template02.png&amp;rdquo;, &amp;ldquo;Integration_logo_template02.png&amp;rdquo;, 900, 1080, &amp;ldquo;#e8f2f2&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/aa51ba2-jira-int.png&amp;rdquo;, &amp;ldquo;jira-int.png&amp;rdquo;, 900, 1080, &amp;ldquo;#f3f6f7&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/0b1e923-slack-int.png&amp;rdquo;, &amp;ldquo;slack-int.png&amp;rdquo;, 900, 1080, &amp;ldquo;#f2f4f5&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.</description>
+    </item>
+    
+    <item>
+      <title>monday.com</title>
+      <link>https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/mondaycom/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/mondaycom/</guid>
+      <description>🚧 Disclaimer
+The integration with monday.com is currently under development and is not available to customers yet. Contact us at support@neuralegion.com to learn more.
+[block:html] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;table id=&amp;quot;integrations&amp;quot; &amp;gt;\n \n \n \n &amp;lt;td width=&amp;quot;70%&amp;quot;&amp;gt;\n \n \n &amp;lt;td width=&amp;quot;30%&amp;quot; style=&amp;quot;text-align:center&amp;quot; rowspan=&amp;quot;3&amp;quot;&amp;gt;\n &amp;lt;img src=&amp;quot;https://files.readme.io/b337334-Integration_logo_template14.png&amp;quot; width=&amp;quot;170&amp;quot; height=&amp;quot;200&amp;quot;&amp;gt;\n \n \n \n &amp;lt;td style=&amp;quot;text-align:left;vertical-align:text-top;padding:0px&amp;quot;&amp;gt;\n You can integrate your monday.com board with the NeuraLegion App to automtically create tickets with the reports of detected issues.</description>
+    </item>
+    
+    <item>
+      <title>Slack</title>
+      <link>https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/slack/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/slack/</guid>
+      <description>[block:html] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;table id=&amp;quot;integrations&amp;quot; &amp;gt;\n \n \n \n &amp;lt;td width=&amp;quot;70%&amp;quot;&amp;gt;\n\n \n &amp;lt;td width=&amp;quot;30%&amp;quot; style=&amp;quot;text-align:center&amp;quot; rowspan=&amp;quot;3&amp;quot;&amp;gt;\n &amp;lt;img src=&amp;quot;https://files.readme.io/0b1e923-slack-int.png&amp;quot; width=&amp;quot;170&amp;quot; height=&amp;quot;200&amp;quot;&amp;gt;\n \n \n \n &amp;lt;td style=&amp;quot;text-align:left;vertical-align:text-top;padding:0px&amp;quot;&amp;gt;\n You can configure the Bright app to automatically send messages about detected issues to your selected Slack channels. Each message is a report which includes the following information:\n \n Issue severity level\n Details of discovery\n Possible exposure\n Remediation suggestions \n \n For each new scan, you can select any of your Slack channels integrated with your Brigth projects.</description>
+    </item>
+    
+  </channel>
+</rss>

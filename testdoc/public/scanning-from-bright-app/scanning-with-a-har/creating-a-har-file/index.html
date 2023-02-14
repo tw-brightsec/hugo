@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Creating a .HAR file - Brightsec</title>
+<meta name="generator" content="Hugo 0.109.0">
+<link href="https://example.com/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://example.com/scanning-from-bright-app/scanning-with-a-har/creating-a-har-file/">
+<link rel="stylesheet" href="https://example.com/css/theme.min.css">
+<link rel="stylesheet" href="https://example.com/css/chroma.min.css">
+<script defer src="https://example.com/js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://example.com/js/bundle.js"></script><style>
+:root {--custom-font-color: black;--custom-background-color: white;}
+</style>
+<meta property="og:title" content="Creating a .HAR file" />
+<meta property="og:description" content="[block:embed] { &ldquo;html&rdquo;: &ldquo;&lt;iframe class=&quot;embedly-embed&quot; src=&quot;//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FHMpBQ7JkxHI%3Ffeature%3Doembed&amp;display_name=YouTube&amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DHMpBQ7JkxHI&amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FHMpBQ7JkxHI%2Fhqdefault.jpg&amp;key=f2aa6fc3595946d0afc3d76cbbd25dc3&amp;type=text%2Fhtml&amp;schema=youtube&quot; width=&quot;854&quot; height=&quot;480&quot; scrolling=&quot;no&quot; title=&quot;YouTube embed&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen&quot; allowfullscreen=&quot;true&quot;&gt;&rdquo;, &ldquo;url&rdquo;: &ldquo;https://www.youtube.com/embed/HMpBQ7JkxHI&quot;%20title=&quot;YouTube%20video%20player&quot;%20frameborder=&quot;0&quot;%20allow=&quot;accelerometer;%20autoplay;%20clipboard-write;%20encrypted-media;%20gyroscope;%20picture-in-picture&rdquo;, &ldquo;title&rdquo;: &ldquo;How to create a HAR file for your application security scan&rdquo;, &ldquo;favicon&rdquo;: &ldquo;https://www.youtube.com/favicon.ico&quot;, &ldquo;image&rdquo;: &ldquo;https://i.ytimg.com/vi/HMpBQ7JkxHI/hqdefault.jpg&quot;, &ldquo;provider&rdquo;: &ldquo;youtube.com&rdquo;, &ldquo;href&rdquo;: &ldquo;https://www.youtube.com/embed/HMpBQ7JkxHI&quot;%20title=&quot;YouTube%20video%20player&quot;%20frameborder=&quot;0&quot;%20allow=&quot;accelerometer;%20autoplay;%20clipboard-write;%20encrypted-media;%20gyroscope;%20picture-in-picture&rdquo; } [/block]
+You can use various methods to get a capture of an HTTP session, for example, by using specialized tools, such as Selenium or Fiddler debugging proxy. Alternatively, you can explore network traffic and export it as a ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/scanning-from-bright-app/scanning-with-a-har/creating-a-har-file/" /><meta property="og:image" content="https://example.com/images/og-image.png"/><meta property="article:section" content="Scanning from Bright App" />
+
+<meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.com/images/og-image.png"/>
+
+<meta name="twitter:title" content="Creating a .HAR file"/>
+<meta name="twitter:description" content="[block:embed] { &ldquo;html&rdquo;: &ldquo;&lt;iframe class=&quot;embedly-embed&quot; src=&quot;//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FHMpBQ7JkxHI%3Ffeature%3Doembed&amp;display_name=YouTube&amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DHMpBQ7JkxHI&amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FHMpBQ7JkxHI%2Fhqdefault.jpg&amp;key=f2aa6fc3595946d0afc3d76cbbd25dc3&amp;type=text%2Fhtml&amp;schema=youtube&quot; width=&quot;854&quot; height=&quot;480&quot; scrolling=&quot;no&quot; title=&quot;YouTube embed&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen&quot; allowfullscreen=&quot;true&quot;&gt;&rdquo;, &ldquo;url&rdquo;: &ldquo;https://www.youtube.com/embed/HMpBQ7JkxHI&quot;%20title=&quot;YouTube%20video%20player&quot;%20frameborder=&quot;0&quot;%20allow=&quot;accelerometer;%20autoplay;%20clipboard-write;%20encrypted-media;%20gyroscope;%20picture-in-picture&rdquo;, &ldquo;title&rdquo;: &ldquo;How to create a HAR file for your application security scan&rdquo;, &ldquo;favicon&rdquo;: &ldquo;https://www.youtube.com/favicon.ico&quot;, &ldquo;image&rdquo;: &ldquo;https://i.ytimg.com/vi/HMpBQ7JkxHI/hqdefault.jpg&quot;, &ldquo;provider&rdquo;: &ldquo;youtube.com&rdquo;, &ldquo;href&rdquo;: &ldquo;https://www.youtube.com/embed/HMpBQ7JkxHI&quot;%20title=&quot;YouTube%20video%20player&quot;%20frameborder=&quot;0&quot;%20allow=&quot;accelerometer;%20autoplay;%20clipboard-write;%20encrypted-media;%20gyroscope;%20picture-in-picture&rdquo; } [/block]
+You can use various methods to get a capture of an HTTP session, for example, by using specialized tools, such as Selenium or Fiddler debugging proxy. Alternatively, you can explore network traffic and export it as a ."/>
+<meta itemprop="name" content="Creating a .HAR file">
+<meta itemprop="description" content="[block:embed] { &ldquo;html&rdquo;: &ldquo;&lt;iframe class=&quot;embedly-embed&quot; src=&quot;//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FHMpBQ7JkxHI%3Ffeature%3Doembed&amp;display_name=YouTube&amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DHMpBQ7JkxHI&amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FHMpBQ7JkxHI%2Fhqdefault.jpg&amp;key=f2aa6fc3595946d0afc3d76cbbd25dc3&amp;type=text%2Fhtml&amp;schema=youtube&quot; width=&quot;854&quot; height=&quot;480&quot; scrolling=&quot;no&quot; title=&quot;YouTube embed&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen&quot; allowfullscreen=&quot;true&quot;&gt;&rdquo;, &ldquo;url&rdquo;: &ldquo;https://www.youtube.com/embed/HMpBQ7JkxHI&quot;%20title=&quot;YouTube%20video%20player&quot;%20frameborder=&quot;0&quot;%20allow=&quot;accelerometer;%20autoplay;%20clipboard-write;%20encrypted-media;%20gyroscope;%20picture-in-picture&rdquo;, &ldquo;title&rdquo;: &ldquo;How to create a HAR file for your application security scan&rdquo;, &ldquo;favicon&rdquo;: &ldquo;https://www.youtube.com/favicon.ico&quot;, &ldquo;image&rdquo;: &ldquo;https://i.ytimg.com/vi/HMpBQ7JkxHI/hqdefault.jpg&quot;, &ldquo;provider&rdquo;: &ldquo;youtube.com&rdquo;, &ldquo;href&rdquo;: &ldquo;https://www.youtube.com/embed/HMpBQ7JkxHI&quot;%20title=&quot;YouTube%20video%20player&quot;%20frameborder=&quot;0&quot;%20allow=&quot;accelerometer;%20autoplay;%20clipboard-write;%20encrypted-media;%20gyroscope;%20picture-in-picture&rdquo; } [/block]
+You can use various methods to get a capture of an HTTP session, for example, by using specialized tools, such as Selenium or Fiddler debugging proxy. Alternatively, you can explore network traffic and export it as a .">
+
+<meta itemprop="wordCount" content="870"><meta itemprop="image" content="https://example.com/images/og-image.png"/>
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>Brightsec</h1><span class="version">Version 0.9.9</span><a href="https://github.com/thingsym/hugo-theme-techdoc" class="github"><i class="fab fa-github"></i></a>
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li id="home" class=""><a href="/">Home</a></li>
+<li id="changelog" class="twitter-menu-item"><a href="/changelog">Changelog</a></li></ul>
+</nav>
+</div>
+
+<div class="content-container">
+<main><h1>Creating a .HAR file</h1>
+<p>[block:embed]
+{
+&ldquo;html&rdquo;: &ldquo;&lt;iframe class=&quot;embedly-embed&quot; src=&quot;//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FHMpBQ7JkxHI%3Ffeature%3Doembed&amp;display_name=YouTube&amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DHMpBQ7JkxHI&amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FHMpBQ7JkxHI%2Fhqdefault.jpg&amp;key=f2aa6fc3595946d0afc3d76cbbd25dc3&amp;type=text%2Fhtml&amp;schema=youtube&quot; width=&quot;854&quot; height=&quot;480&quot; scrolling=&quot;no&quot; title=&quot;YouTube embed&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen&quot; allowfullscreen=&quot;true&quot;&gt;</iframe>&rdquo;,
+&ldquo;url&rdquo;: &ldquo;<a href="https://www.youtube.com/embed/HMpBQ7JkxHI">https://www.youtube.com/embed/HMpBQ7JkxHI</a>&quot;%20title=&quot;YouTube%20video%20player&quot;%20frameborder=&quot;0&quot;%20allow=&quot;accelerometer;%20autoplay;%20clipboard-write;%20encrypted-media;%20gyroscope;%20picture-in-picture&rdquo;,
+&ldquo;title&rdquo;: &ldquo;How to create a HAR file for your application security scan&rdquo;,
+&ldquo;favicon&rdquo;: &ldquo;<a href="https://www.youtube.com/favicon.ico%22">https://www.youtube.com/favicon.ico&quot;</a>,
+&ldquo;image&rdquo;: &ldquo;<a href="https://i.ytimg.com/vi/HMpBQ7JkxHI/hqdefault.jpg%22">https://i.ytimg.com/vi/HMpBQ7JkxHI/hqdefault.jpg&quot;</a>,
+&ldquo;provider&rdquo;: &ldquo;youtube.com&rdquo;,
+&ldquo;href&rdquo;: &ldquo;<a href="https://www.youtube.com/embed/HMpBQ7JkxHI">https://www.youtube.com/embed/HMpBQ7JkxHI</a>&quot;%20title=&quot;YouTube%20video%20player&quot;%20frameborder=&quot;0&quot;%20allow=&quot;accelerometer;%20autoplay;%20clipboard-write;%20encrypted-media;%20gyroscope;%20picture-in-picture&rdquo;
+}
+[/block]</p>
+<p>You can use various methods to get a capture of an HTTP session, for example, by using specialized tools, such as <a href="https://www.selenium.dev/">Selenium</a> or <a href="https://www.telerik.com/fiddler">Fiddler debugging proxy</a>. Alternatively, you can explore network traffic and export it as a .HAR file in many web browsers, such as <a href="https://www.google.com/chrome/">Chrome</a>, <a href="https://www.microsoft.com/en-us/download/internet-explorer.aspx">Internet Explorer/Edge</a>, <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a>, and <a href="https://www.apple.com/safari/">Safari</a>.</p>
+<blockquote>
+<p>📘 Note</p>
+<p>The quality of the scan depends directly on the .HAR file quality. The more detailed the .HAR file, the larger the scan scope can be covered by Bright.</p>
+</blockquote>
+<h2 id="step-by-step-guide">Step-by-step guide</h2>
+<h3 id="creating-a-har-file-with-chrome">Creating a .HAR file with Chrome</h3>
+<ol>
+<li>In the browser, open the DevTools panel by selecting the <strong>Inspect</strong> option from the context menu.</li>
+<li>Select the <strong>Network</strong> tab.</li>
+<li>Make sure that the <strong>Preserve log</strong> and <strong>Disable cache</strong> checkboxes are selected. This will allow you to preserve logs between page refreshes and see the page updates.</li>
+<li>Leave the DevTools panel open and browse to your web application. All the application requests are then displayed and recorded in the DevTools panel.</li>
+<li>Interact with the application in the same way as a normal user would. Remember to use all the resources (parts, options) of the application that you want to be covered by the Bright scan.</li>
+<li>Once you complete the recording, right-click any of the requests in the DevTools panel and select the <strong>Save all as HAR</strong> option.</li>
+<li>Save the file in your desired location so that you can select it when <a href="/docs/creating-a-new-scan">defining a new scan</a>.</li>
+</ol>
+<h3 id="creating-a-har-file-with-firefox">Creating a .HAR file with Firefox</h3>
+<ol>
+<li>In the browser, open the DevTools panel by selecting the <strong>Inspect</strong> option from the context menu.</li>
+<li>Select the <strong>Network</strong> tab.</li>
+<li>Make sure that the <strong>Preserve log</strong> and <strong>Disable cache</strong> options are enabled. This will allow you to preserve logs between page refreshes and see the page updates.</li>
+<li>Leave the DevTools panel open and browse to your web application. All the application requests are then displayed and recorded in the DevTools panel.</li>
+<li>Interact with the application in the same way as a normal user would. Remember to use all the resources (parts, options) of the application that you want to be covered by a Bright scan.</li>
+<li>Once you complete the recording, right-click any of the requests in the DevTools panel and select the <strong>Save All As HAR</strong> option.</li>
+<li>Save the file in your desired location so that you can select it when <a href="/docs/creating-a-new-scan">defining a new scan</a>.</li>
+</ol>
+<h3 id="creating-a-har-file-with-safari">Creating a .HAR file with Safari</h3>
+<ol>
+<li>Enable the <strong>Develop</strong> menu item:<br>
+a) Open the Safari’s preferences. For that, press <strong>Command+</strong> or, form the menu, select <strong>Safari &gt; Preferences….</strong>.<br>
+b) Select the <strong>Advanced</strong> tab, and then select <strong>Show Develop menu item in menu bar</strong>.<br>
+c) Close the <strong>Preferences</strong> window.</li>
+<li>Open the Web Inspector. For that, press <strong>Option</strong>+<strong>Command</strong>+<strong>i</strong>, or from the menu, select <strong>Develop</strong> &gt; <strong>Show Web Inspector</strong>.</li>
+<li>Select the <strong>Network</strong> tab.</li>
+<li>Make sure that the <strong>Preserve log</strong> and <strong>Disable cache</strong> options are enabled. This will allow you to preserve logs between page refreshes and see the page updates.</li>
+<li>Leave the DevTools panel open and browse to your web application. All the application requests are then displayed and recorded in the DevTools panel.</li>
+<li>Interact with the application in the same way as a normal user would. Remember to use all the resources (parts, options) of the application that you want to be covered by a Bright scan.</li>
+<li>Once you complete the recording, right-click any of the requests and select <strong>Export HAR</strong>.</li>
+<li>Save the file in your desired location so that you can select it when <a href="/docs/creating-a-new-scan">defining a new scan</a>.</li>
+</ol>
+<h3 id="creating-a-har-file-with-fiddler-debugging-proxy">Creating a .HAR file with Fiddler debugging proxy</h3>
+<p><a href="https://www.telerik.com/fiddler">Fiddler</a> is a web debugger tool. It captures HTTP and HTTP(S) network traffic and allows you to examine each request. It also lets you export the requests and responses as a .HAR file.</p>
+<ol>
+<li>Sign in to Fiddler. If you do not have a Fiddler account yet, create it first.</li>
+<li>Browse to your web application and interact with it in the same way as a normal user would. Remember to use all the resources (parts, options) of the application that you want to be covered by a Bright scan. Fiddler automatically captures the requests.</li>
+<li>Once you complete the interaction, right-click any of the requests and, from the context menu, select <strong>Export</strong> &gt; <strong>Selected Sessions</strong>.</li>
+<li>From the <strong>Choose Format</strong> dropdown menu,  select <strong>HTTPArchive v1.2</strong>.</li>
+<li>Enter a filename and select <strong>Save</strong>.<br>
+Fiddler shows a popup message confirming the export has succeeded.</li>
+</ol>
+<h3 id="reviewing-har-file-content">Reviewing .HAR file content</h3>
+<p>Before using a .HAR file for a scan we recommend that you verify its formatting and structure using a .HAR file viewer.<br>
+Specified .HAR file viewers can present the content of a .HAR file in a structured way. Several of them are available online. If you would prefer not to upload the .HAR file, you can use a tool installed locally on your machine.</p>
+<p>Tools recommended for reviewing .HAR files include:</p>
+<ul>
+<li><a href="http://www.softwareishard.com/har/viewer/">HAR Viewer</a> (online)</li>
+<li><a href="https://toolbox.googleapps.com/apps/har_analyzer/">Google Admin Toolbox HAR Analyzer</a> (online)</li>
+<li><a href="https://www.telerik.com/fiddler">Fiddler</a> (local)</li>
+<li><a href="https://insomnia.rest/">Insomnia API Client</a> (local)</li>
+</ul>
+<p>These kinds of files (.HAR and .JSON files) can be also viewed and edited in any text editor, for example, <a href="https://code.visualstudio.com/">Visual Studio Code</a>.</p>
+<div class="edit-meta">
+
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/Scanning%20from%20Bright%20App/scanning-with-a-har/creating-a-har-file.md" class="edit-page"><i class="fas fa-pen-square"></i>&nbsp;Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/" title="Scanning API Endpoints"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Scanning API Endpoints</a>
+<a class="nav nav-next" href="https://example.com/scanning-from-bright-app/crawler/" title="Scanning with a Crawler">Next - Scanning with a Crawler <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://example.com">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://example.com/about-bright-dast/">About Bright DASTs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/">Deployment Options</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/private-cloud/">Private Cloud Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/on-premises-repeater-local-agent/">Repeater (Scan Proxy)</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/saas-deployment/">SaaS Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/introducing-to-bright/">What is Bright DAST?</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/accounting-and-billing/">Accounting and Billings<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/accounting-and-billing/about-accounting-and-billing/">About Accounting and Billing</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-history/">Managing Payment History</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-information/">Managing Payment Information</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-your-plan/">Managing Plan</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/advanced-integration-use-cases/">Advanced Integration Use Cases<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-integration-use-cases/integrating-a-bright-project-with-webhooks/">Integrating a Bright Project with Webhooks</a></li>
+<li class=""><a href="https://example.com/advanced-integration-use-cases/sending-detected-issues-to-jira-from-cicd-pipelines/">Sending Detected Issues from CI/CD Pipelines to Jira</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/advanced-setup-in-bright-app/">Advanced Setup in Bright Apps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/">Managing Access Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/managing-bright-file-storage/">Managing Bright File Storage</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-custom-roles/">Managing Custom Roles</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/">Managing Organization</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-groups/">Managing Organization Groups</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-users/">Managing Organization Users</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-personal-account/">Managing Personal Account</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-projects/">Managing Projects</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/manage-repeater-scripts/">Managing Repeater Scripts</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-repeaters/">Managing Repeaters</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/organization-api-key-scopes/">Organization API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/personal-api-key-scopes/">Personal API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/project-api-key-scopes/">Project API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/role-management-scopes/">Role Management Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/use-cases/">Use Cases</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/">Using Repeater Scripts</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/ci-pipeline-integrations/">CI Pipeline Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/azure-pipelines/">Azure Pipelines</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/circleci/">CircleCI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/github-actions/">GitHub Actions</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/gitlab/">GitLab</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/gitlab-integration-examples/">GitLab Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/">Integrating Bright with Your CI Pipeline</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/">Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jenkins/">Jenkins</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/jenkins-integration-examples/">Jenkins Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jfrog/">JFrog</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/team-city/">TeamCity</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/travis-ci/">Travis CI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/travis-ci-integration-examples/">Travis CI Integration Examples</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/general/">Generals<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/general/faqs/">FAQs</a></li>
+<li class=""><a href="https://example.com/general/privacy-policy/">Privacy Policy</a></li>
+<li class=""><a href="https://example.com/general/terms-of-use/">Terms of Use</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/getting-started-with-bright/">Getting Started with Brights<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/getting-started-with-bright/quick-tour-of-the-web-interface/">Quick Tour of the User Interface</a></li>
+<li class=""><a href="https://example.com/getting-started-with-bright/quickstart/">Quickstart</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/managing-authentications/">Managing Authentications<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-authentications/adding-your-authentication-object-to-a-scan/">Adding an Authentication Object to a Scan</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-an-authentication-object-in-bright/">Authentication Types</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-api-call-authentication/">Configuring API Call Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-multi-step-browser-based-form-authentication/">Configuring Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-custom-multi-step-authentication/">Configuring Custom API Authentication Flow</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-form-authentication/">Configuring Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-header-authentication-in-bright/">Configuring Header Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-ntlm-authentication/">Configuring NTLM Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-oidc-connect-oauth/">Configuring OIDC Connect (OAuth)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-recorded-browser-based-form-authentication/">Configuring Recorded Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configuring-recorded-browser-based-form-authentication-internal-copy/">Configuring Recorded Browser-Based Form Authentication (Internal Copy)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/">Creating Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/string-interpolation-syntax/">String Interpolation Syntax</a></li>
+<li class=""><a href="https://example.com/managing-authentications/troubleshooting-authentication-issues-internal/">Troubleshooting Authentication Issues</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/managing-scan-results/">Managing Scan Results<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-scan-results/deleting-a-scan/">Deleting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/exporting-a-scan/">Exporting a Scan Report</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/handling-discovered-issues/">Handling Discovered Issues</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/how-to-add-bright-to-the-waf-allowlist/">How to Add Bright to the WAF Allowlist</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/modifying-future-scan-settings/">Modifying Future Scan Settings</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/retesting-a-scan/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scans/">Reviewing All Scans</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-details/">Reviewing Scan Details</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-history/">Reviewing Scan History</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/troubleshooting-for-problematic-scans/">Troubleshooting Scans</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/pages-after-new-scan-dialog-analytics/">Pages after New scan dialog analytics<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://example.com/scanning-from-bright-app/">Scanning from Bright Apps<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/configuring-an-api-schema-for-scanning/">Configuring an API Schema</a></li>
+<li class="active"><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/creating-a-har-file/">Creating a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/creating-a-new-scan/">Creating a Scan</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/edit-an-uploaded-api-schema/">Editing an Uploaded API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/managing-scan-templates/">Managing Scan Templates</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/">Scanning API Endpoints</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/">Scanning with a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/crawler/">Scanning with a Crawler</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/troubleshooting/">Troubleshooting</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/sso-integrations/">SSO Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/azure-sso-and-provisioning/">Azure SSO and Provisioning</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/">Configuring Single Sign-On</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/google-sso/">Google SSO</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/okta-sso-and-provisioning/">Okta SSO and Provisioning</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/ticketing-integrations/">Ticketing Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ticketing-integrations/adding-ticketing-integration-to-a-project/">Adding Ticketing Integration to a Project</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/azure-boards/">Azure Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/github/">GitHub</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/gitlab-boards/">GitLab Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/">Integrating Bright with Your Ticketing System</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/jira/">Jira</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/slack/">Slack</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/using-bright-cli/">Using Bright CLI<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-cli/about-bright-cli/">About Bright CLI</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/checking-scan-status/">Checking Scan Status</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/command-language-syntax/">Command Language Syntax</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/">Command List</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/configuration-files/">Configuration Files</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/generating-an-archive-with-nexmock/">Generating an Archive with NexMock</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/">Getting Started</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/initializing-the-repeater/">Initializing the Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/installation-options/">Installation Guide</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/integrating-with-a-service/">Integrating with an On-Premise Ticketing Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/retesting-a-scan-1/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/running-a-scan/">Running a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-as-part-of-ci-pipeline/">Scanning as Part of CI Pipeline</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-at-the-enterprise-level/">Scanning at the Enterprise Level</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/security-scanning-as-self-service/">Security Scanning as Self-Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/stopping-a-scan/">Stopping a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/testing-network-connectivity/">Testing Network Connectivity</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/repeater-troubleshooting/">Troubleshooting Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/uploading-an-archive/">Uploading an Archive</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/using-bright-rest-api/">Using Bright REST APIs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-rest-api/about-bright-api/">About Bright API</a></li>
+<li class=""><a href="https://example.com/using-bright-rest-api/response-status-codes/">Response Status Codes</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/vulnerability-guide/">Vulnerability Guides<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/vulnerability-guide/vulnerability-guide/">Vulnerability Guide</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/welcome/">Welcomes<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/welcome/about-docs/">About Docs</a></li>
+<li class=""><a href="https://example.com/welcome/accessibility/">Accessibility</a></li>
+<li class=""><a href="https://example.com/welcome/support/">Support</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

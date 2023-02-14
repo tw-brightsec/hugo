@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>monday.com - Brightsec</title>
+<meta name="generator" content="Hugo 0.109.0">
+<link href="https://example.com/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/mondaycom/">
+<link rel="stylesheet" href="https://example.com/css/theme.min.css">
+<link rel="stylesheet" href="https://example.com/css/chroma.min.css">
+<script defer src="https://example.com/js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://example.com/js/bundle.js"></script><style>
+:root {--custom-font-color: black;--custom-background-color: white;}
+</style>
+<meta property="og:title" content="monday.com" />
+<meta property="og:description" content="🚧 Disclaimer
+The integration with monday.com is currently under development and is not available to customers yet. Contact us at support@neuralegion.com to learn more.
+[block:html] { &ldquo;html&rdquo;: &ldquo;&lt;table id=&quot;integrations&quot; &gt;\n \n \n \n &lt;td width=&quot;70%&quot;&gt;\n \n \n &lt;td width=&quot;30%&quot; style=&quot;text-align:center&quot; rowspan=&quot;3&quot;&gt;\n &lt;img src=&quot;https://files.readme.io/b337334-Integration_logo_template14.png&quot; width=&quot;170&quot; height=&quot;200&quot;&gt;\n \n \n \n &lt;td style=&quot;text-align:left;vertical-align:text-top;padding:0px&quot;&gt;\n You can integrate your monday.com board with the NeuraLegion App to automtically create tickets with the reports of detected issues." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/mondaycom/" /><meta property="og:image" content="https://example.com/images/og-image.png"/><meta property="article:section" content="Ticketing Integrations" />
+
+<meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.com/images/og-image.png"/>
+
+<meta name="twitter:title" content="monday.com"/>
+<meta name="twitter:description" content="🚧 Disclaimer
+The integration with monday.com is currently under development and is not available to customers yet. Contact us at support@neuralegion.com to learn more.
+[block:html] { &ldquo;html&rdquo;: &ldquo;&lt;table id=&quot;integrations&quot; &gt;\n \n \n \n &lt;td width=&quot;70%&quot;&gt;\n \n \n &lt;td width=&quot;30%&quot; style=&quot;text-align:center&quot; rowspan=&quot;3&quot;&gt;\n &lt;img src=&quot;https://files.readme.io/b337334-Integration_logo_template14.png&quot; width=&quot;170&quot; height=&quot;200&quot;&gt;\n \n \n \n &lt;td style=&quot;text-align:left;vertical-align:text-top;padding:0px&quot;&gt;\n You can integrate your monday.com board with the NeuraLegion App to automtically create tickets with the reports of detected issues."/>
+<meta itemprop="name" content="monday.com">
+<meta itemprop="description" content="🚧 Disclaimer
+The integration with monday.com is currently under development and is not available to customers yet. Contact us at support@neuralegion.com to learn more.
+[block:html] { &ldquo;html&rdquo;: &ldquo;&lt;table id=&quot;integrations&quot; &gt;\n \n \n \n &lt;td width=&quot;70%&quot;&gt;\n \n \n &lt;td width=&quot;30%&quot; style=&quot;text-align:center&quot; rowspan=&quot;3&quot;&gt;\n &lt;img src=&quot;https://files.readme.io/b337334-Integration_logo_template14.png&quot; width=&quot;170&quot; height=&quot;200&quot;&gt;\n \n \n \n &lt;td style=&quot;text-align:left;vertical-align:text-top;padding:0px&quot;&gt;\n You can integrate your monday.com board with the NeuraLegion App to automtically create tickets with the reports of detected issues.">
+
+<meta itemprop="wordCount" content="769"><meta itemprop="image" content="https://example.com/images/og-image.png"/>
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>Brightsec</h1><span class="version">Version 0.9.9</span><a href="https://github.com/thingsym/hugo-theme-techdoc" class="github"><i class="fab fa-github"></i></a>
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li id="home" class=""><a href="/">Home</a></li>
+<li id="changelog" class="twitter-menu-item"><a href="/changelog">Changelog</a></li></ul>
+</nav>
+</div>
+
+<div class="content-container">
+<main><h1>monday.com</h1>
+<blockquote>
+<p>🚧 Disclaimer</p>
+<p>The integration with <a href="https://monday.com">monday.com</a> is currently under development and is not available to customers yet. Contact us at <a href="mailto:support@neuralegion.com">support@neuralegion.com</a> to learn more.</p>
+</blockquote>
+<p>[block:html]
+{
+&ldquo;html&rdquo;: &ldquo;&lt;table id=&quot;integrations&quot; &gt;\n   <style>\n #integrations {\n    border-collapse: separate;\n    width: 100%;\n    display: block;\n    display: table;\n  }\n #integrations td,\n  th {\n    border: 0px solid #ddd;\n    padding-left: 0px;\n    background-color: #FFFFFF;\n  }\n  </style>\n  <body>\n  <tr>\n    &lt;td width=&quot;70%&quot;&gt;\n      <h1></h1>\n    </td>\n    &lt;td width=&quot;30%&quot; style=&quot;text-align:center&quot; rowspan=&quot;3&quot;&gt;\n      &lt;img src=&quot;https://files.readme.io/b337334-Integration_logo_template14.png&quot; width=&quot;170&quot; height=&quot;200&quot;&gt;</img>\n    </td>\n  </tr>\n  <tr>\n    &lt;td style=&quot;text-align:left;vertical-align:text-top;padding:0px&quot;&gt;\n      You can integrate your <b>monday.com</b> board with the NeuraLegion App to automtically create tickets with the reports of detected issues. The integration is configured on the <b>monday.com</b> side, via the NeuraLegion integration app available on the <b>monday.com</b> markeplace. Any changes on the NeuraLegion App side are disabled.<br></br>  You simply need to add the app to your board to enable the integration configuration. Each ticket with an issue report will include the following information:\n      <ul>\n        <li>Issue severity level</li>\n        <li>Details of discovery</li>\n        <li>Possible exposure</li>\n        <li>Remediation suggestions </li>\n</ul>\n    </td>\n  </tr>\n  <tr><td></td></tr>\n</table>\n</body>&rdquo;
+}
+[/block]</p>
+<p>The NeuraLegion integration app allows you to integrate different <b>monday.com</b> boards with different NeuraLegion projects. This means that the results of the scan run under a particular project will be provided on a separate board.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>You are an active user in the <a href="https://app.neuralegion.com">NeuraLegion App</a>.</li>
+</ul>
+<h2 id="step-by-step-guide">Step-by-step guide</h2>
+<h3 id="connect-your-mondaycom-domain-to-bright-organization">Connect your monday.com domain to Bright organization</h3>
+<p>To enable the integration, you need to connect your NeuraLegion organization to your <strong>monday.com</strong> domain first:</p>
+<ol>
+<li>Go to the NeuraLegion App.</li>
+<li>In the left pane, select <strong>Organization</strong>.</li>
+<li>On the <strong>Organization</strong> page, scroll down to the <strong>TICKET MANAGEMENT INTEGRATION</strong> section.</li>
+<li>Click <img src="https://files.readme.io/60c9313-dots-button.png" width="23" height="26"> next to <strong>monday.com</strong>, and then select <strong>Settings</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/0611c51-monday-settings.png&rdquo;,
+&ldquo;monday-settings.png&rdquo;,
+1898
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="5">
+<li>In the dialog box, enter your <strong>monday.com</strong> domain and click <strong>Connect</strong>.<br>
+You are redirected to the <strong>monday.com</strong> marketplace. You need to close the marketplace window, since the integration is configured for a specific board.</li>
+</ol>
+<h3 id="integrate-your-mondaycom-board-with-bright">Integrate your monday.com board with Bright</h3>
+<ol>
+<li>From the <strong>Workspaces</strong>, select the board that you want to integrate with NeuraLegion.</li>
+<li>In the board header, click <strong>Integrate</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/6996559-integrate.png&rdquo;,
+&ldquo;integrate.png&rdquo;,
+1908
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="3">
+<li>From the apps list, select the <strong>NeuraLegion integration</strong> app and add it to your board.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/0d332e1-nl-recipe.png&rdquo;,
+&ldquo;nl-recipe.png&rdquo;,
+1815
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="4">
+<li>On the <strong>monday.com</strong> web page,  click <strong>Authorize</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/3dd8129-monday-authorize.png&rdquo;,
+&ldquo;monday-authorize.png&rdquo;,
+1920
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="5">
+<li>Set the recipe according to which the tickets for detected issues will be created on the board.<br>
+The <strong>item</strong> configuration allows you to adjust the default board columns based on the issue information. For example, you can set a severity level to be displayed in a separate column, or next to the issue title in the <strong>Title</strong> column.  The recommended board setup is the following:
+<ul>
+<li>Set <strong>Name</strong> to <strong>Title</strong> to create a separate column for an issue title.</li>
+<li>Set <strong>Status</strong> to <strong>Severity</strong> to create a separate column for an issue severity level.</li>
+<li>Set <strong>Item Update</strong> to <strong>CWE ID</strong>, <strong>ID</strong>, <strong>CVSS</strong>, <strong>Description</strong>, and <strong>Remedy</strong> to get a complete issue report as a comment to the issue item. You can customize this field by excluding the information that might be redundant for you.</li>
+</ul>
+</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/d2647d3-item-setup.png&rdquo;,
+&ldquo;item-setup.png&rdquo;,
+1804
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="6">
+<li>Click <strong>Done</strong>, and then click <strong>Add to board</strong>.<br>
+The integration is enabled. This is also indicated in the <strong>TICKET MANAGEMENT INTEGRATION</strong> section in the NeuraLegion App.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/47e8b66-monday-enabled.png&rdquo;,
+&ldquo;monday-enabled.png&rdquo;,
+1899
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<p>Now you can run a scan from the NeuraLegion App under the selected project and check the detected issues on the integrated board.</p>
+<h3 id="edit-the-integration">Edit the integration</h3>
+<p>You can only edit the integration configuration on the <strong>monday.com</strong> side. To do that, follow these steps:</p>
+<ol>
+<li>Select the board integrated with NeuraLegion.</li>
+<li>In the board header, click <strong>Integrate</strong>, and then open the <strong>Board Integrations</strong> tab.</li>
+<li>In the upper-right corner of the NeuraLegion integration, click the settings icon, and then select <strong>Edit Integration</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/27e2769-edit-integration.png&rdquo;,
+&ldquo;edit-integration.png&rdquo;,
+1815
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="4">
+<li>Make the required changes to the integration configuration and click <strong>Update Integration</strong>.</li>
+</ol>
+<h3 id="delete-the-integration">Delete the integration</h3>
+<p>You can only delete the integration configuration on the <strong>monday.com</strong> side. To do that, follow these steps:</p>
+<ol>
+<li>Select the board integrated with NeuraLegion.</li>
+<li>In the board header, click <strong>Integrate</strong>, and then open the <strong>Board Integrations</strong> tab.</li>
+<li>In the upper-right corner of the NeuraLegion integration, click the settings icon, and then select <strong>Delete Integration</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/129fa86-delete-integration.png&rdquo;,
+&ldquo;delete-integration.png&rdquo;,
+1808
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="4">
+<li>Confirm the deletion by clicking <strong>Delete permanently</strong>.</li>
+</ol>
+<div class="edit-meta">
+
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/Ticketing%20Integrations/integrate-bright-with-your-ticketing-system/mondaycom.md" class="edit-page"><i class="fas fa-pen-square"></i>&nbsp;Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://example.com/ticketing-integrations/media-9/" title="Media"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Media</a>
+<a class="nav nav-next" href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/slack/" title="Slack">Next - Slack <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://example.com">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://example.com/about-bright-dast/">About Bright DASTs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/">Deployment Options</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/private-cloud/">Private Cloud Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/on-premises-repeater-local-agent/">Repeater (Scan Proxy)</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/saas-deployment/">SaaS Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/introducing-to-bright/">What is Bright DAST?</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/accounting-and-billing/">Accounting and Billings<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/accounting-and-billing/about-accounting-and-billing/">About Accounting and Billing</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-history/">Managing Payment History</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-information/">Managing Payment Information</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-your-plan/">Managing Plan</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/advanced-integration-use-cases/">Advanced Integration Use Cases<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-integration-use-cases/integrating-a-bright-project-with-webhooks/">Integrating a Bright Project with Webhooks</a></li>
+<li class=""><a href="https://example.com/advanced-integration-use-cases/sending-detected-issues-to-jira-from-cicd-pipelines/">Sending Detected Issues from CI/CD Pipelines to Jira</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/advanced-setup-in-bright-app/">Advanced Setup in Bright Apps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/">Managing Access Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/managing-bright-file-storage/">Managing Bright File Storage</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-custom-roles/">Managing Custom Roles</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/">Managing Organization</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-groups/">Managing Organization Groups</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-users/">Managing Organization Users</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-personal-account/">Managing Personal Account</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-projects/">Managing Projects</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/manage-repeater-scripts/">Managing Repeater Scripts</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-repeaters/">Managing Repeaters</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/organization-api-key-scopes/">Organization API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/personal-api-key-scopes/">Personal API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/project-api-key-scopes/">Project API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/role-management-scopes/">Role Management Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/use-cases/">Use Cases</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/">Using Repeater Scripts</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/ci-pipeline-integrations/">CI Pipeline Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/azure-pipelines/">Azure Pipelines</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/circleci/">CircleCI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/github-actions/">GitHub Actions</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/gitlab/">GitLab</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/gitlab-integration-examples/">GitLab Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/">Integrating Bright with Your CI Pipeline</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/">Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jenkins/">Jenkins</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/jenkins-integration-examples/">Jenkins Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jfrog/">JFrog</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/team-city/">TeamCity</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/travis-ci/">Travis CI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/travis-ci-integration-examples/">Travis CI Integration Examples</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/general/">Generals<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/general/faqs/">FAQs</a></li>
+<li class=""><a href="https://example.com/general/privacy-policy/">Privacy Policy</a></li>
+<li class=""><a href="https://example.com/general/terms-of-use/">Terms of Use</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/getting-started-with-bright/">Getting Started with Brights<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/getting-started-with-bright/quick-tour-of-the-web-interface/">Quick Tour of the User Interface</a></li>
+<li class=""><a href="https://example.com/getting-started-with-bright/quickstart/">Quickstart</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/managing-authentications/">Managing Authentications<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-authentications/adding-your-authentication-object-to-a-scan/">Adding an Authentication Object to a Scan</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-an-authentication-object-in-bright/">Authentication Types</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-api-call-authentication/">Configuring API Call Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-multi-step-browser-based-form-authentication/">Configuring Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-custom-multi-step-authentication/">Configuring Custom API Authentication Flow</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-form-authentication/">Configuring Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-header-authentication-in-bright/">Configuring Header Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-ntlm-authentication/">Configuring NTLM Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-oidc-connect-oauth/">Configuring OIDC Connect (OAuth)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-recorded-browser-based-form-authentication/">Configuring Recorded Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configuring-recorded-browser-based-form-authentication-internal-copy/">Configuring Recorded Browser-Based Form Authentication (Internal Copy)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/">Creating Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/string-interpolation-syntax/">String Interpolation Syntax</a></li>
+<li class=""><a href="https://example.com/managing-authentications/troubleshooting-authentication-issues-internal/">Troubleshooting Authentication Issues</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/managing-scan-results/">Managing Scan Results<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-scan-results/deleting-a-scan/">Deleting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/exporting-a-scan/">Exporting a Scan Report</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/handling-discovered-issues/">Handling Discovered Issues</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/how-to-add-bright-to-the-waf-allowlist/">How to Add Bright to the WAF Allowlist</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/modifying-future-scan-settings/">Modifying Future Scan Settings</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/retesting-a-scan/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scans/">Reviewing All Scans</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-details/">Reviewing Scan Details</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-history/">Reviewing Scan History</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/troubleshooting-for-problematic-scans/">Troubleshooting Scans</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/pages-after-new-scan-dialog-analytics/">Pages after New scan dialog analytics<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/scanning-from-bright-app/">Scanning from Bright Apps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/configuring-an-api-schema-for-scanning/">Configuring an API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/creating-a-har-file/">Creating a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/creating-a-new-scan/">Creating a Scan</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/edit-an-uploaded-api-schema/">Editing an Uploaded API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/managing-scan-templates/">Managing Scan Templates</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/">Scanning API Endpoints</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/">Scanning with a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/crawler/">Scanning with a Crawler</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/troubleshooting/">Troubleshooting</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/sso-integrations/">SSO Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/azure-sso-and-provisioning/">Azure SSO and Provisioning</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/">Configuring Single Sign-On</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/google-sso/">Google SSO</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/okta-sso-and-provisioning/">Okta SSO and Provisioning</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://example.com/ticketing-integrations/">Ticketing Integrations<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ticketing-integrations/adding-ticketing-integration-to-a-project/">Adding Ticketing Integration to a Project</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/azure-boards/">Azure Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/github/">GitHub</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/gitlab-boards/">GitLab Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/">Integrating Bright with Your Ticketing System</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/jira/">Jira</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/slack/">Slack</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/using-bright-cli/">Using Bright CLI<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-cli/about-bright-cli/">About Bright CLI</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/checking-scan-status/">Checking Scan Status</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/command-language-syntax/">Command Language Syntax</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/">Command List</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/configuration-files/">Configuration Files</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/generating-an-archive-with-nexmock/">Generating an Archive with NexMock</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/">Getting Started</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/initializing-the-repeater/">Initializing the Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/installation-options/">Installation Guide</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/integrating-with-a-service/">Integrating with an On-Premise Ticketing Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/retesting-a-scan-1/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/running-a-scan/">Running a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-as-part-of-ci-pipeline/">Scanning as Part of CI Pipeline</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-at-the-enterprise-level/">Scanning at the Enterprise Level</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/security-scanning-as-self-service/">Security Scanning as Self-Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/stopping-a-scan/">Stopping a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/testing-network-connectivity/">Testing Network Connectivity</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/repeater-troubleshooting/">Troubleshooting Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/uploading-an-archive/">Uploading an Archive</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/using-bright-rest-api/">Using Bright REST APIs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-rest-api/about-bright-api/">About Bright API</a></li>
+<li class=""><a href="https://example.com/using-bright-rest-api/response-status-codes/">Response Status Codes</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/vulnerability-guide/">Vulnerability Guides<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/vulnerability-guide/vulnerability-guide/">Vulnerability Guide</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/welcome/">Welcomes<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/welcome/about-docs/">About Docs</a></li>
+<li class=""><a href="https://example.com/welcome/accessibility/">Accessibility</a></li>
+<li class=""><a href="https://example.com/welcome/support/">Support</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Security Scanning as Self-Service - Brightsec</title>
+<meta name="generator" content="Hugo 0.109.0">
+<link href="https://example.com/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://example.com/using-bright-cli/getting-started-with-bright-cli/security-scanning-as-self-service/">
+<link rel="stylesheet" href="https://example.com/css/theme.min.css">
+<link rel="stylesheet" href="https://example.com/css/chroma.min.css">
+<script defer src="https://example.com/js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://example.com/js/bundle.js"></script><style>
+:root {--custom-font-color: black;--custom-background-color: white;}
+</style>
+<meta property="og:title" content="Security Scanning as Self-Service" />
+<meta property="og:description" content="This guide is designed to match the needs of the following users:
+Users who decided to try the Bright CLI for the first time and want to run a simple scan to see how it works. Developers who need to run security scans against a target on their own local machine. There is no need for deployment, they can scan whenever they need it, throughout the development process. If you have not found your situation in the list above, please check out other use cases in the Getting Started section." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/using-bright-cli/getting-started-with-bright-cli/security-scanning-as-self-service/" /><meta property="og:image" content="https://example.com/images/og-image.png"/><meta property="article:section" content="Using Bright CLI" />
+
+<meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.com/images/og-image.png"/>
+
+<meta name="twitter:title" content="Security Scanning as Self-Service"/>
+<meta name="twitter:description" content="This guide is designed to match the needs of the following users:
+Users who decided to try the Bright CLI for the first time and want to run a simple scan to see how it works. Developers who need to run security scans against a target on their own local machine. There is no need for deployment, they can scan whenever they need it, throughout the development process. If you have not found your situation in the list above, please check out other use cases in the Getting Started section."/>
+<meta itemprop="name" content="Security Scanning as Self-Service">
+<meta itemprop="description" content="This guide is designed to match the needs of the following users:
+Users who decided to try the Bright CLI for the first time and want to run a simple scan to see how it works. Developers who need to run security scans against a target on their own local machine. There is no need for deployment, they can scan whenever they need it, throughout the development process. If you have not found your situation in the list above, please check out other use cases in the Getting Started section.">
+
+<meta itemprop="wordCount" content="1736"><meta itemprop="image" content="https://example.com/images/og-image.png"/>
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>Brightsec</h1><span class="version">Version 0.9.9</span><a href="https://github.com/thingsym/hugo-theme-techdoc" class="github"><i class="fab fa-github"></i></a>
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li id="home" class=""><a href="/">Home</a></li>
+<li id="changelog" class="twitter-menu-item"><a href="/changelog">Changelog</a></li></ul>
+</nav>
+</div>
+
+<div class="content-container">
+<main><h1>Security Scanning as Self-Service</h1>
+<p>This guide is designed to match the needs of the following users:</p>
+<ul>
+<li>Users who decided to try the Bright CLI for the first time and want to run a simple scan to see how it works.</li>
+<li>Developers who need to run security scans against a target on their own local machine. There is no need for deployment, they can scan whenever they need it, throughout the development process.</li>
+</ul>
+<p>If you have not found your situation in the list above, please check out other use cases in the <a href="/docs/getting-started-with-nexploit-cli">Getting Started</a> section. You can also reach out to us at <a href="mailto:support@brightsec.com">support@brightsec.com</a> or join our <a href="https://cmnbp04.na1.hubspotlinks.com/Btc/W1+113/cMnBp04/VVpmWg3C6Ft7W6qmJKp6mcW4FW8_npSB4DtSmXN2jjSxk3q905V1-WJV7CgLN-W6G6Zb21vL4dSW52pMws4_v10bVqz4CH6wnL-5W6K7Yst8FPtdxW2fCWJP2F3LJQW3TsF_C1TCytsW3bLtV12gc722W2dWwlL5nSP_ZW8vdHvH9dM7P-M3LNg6YV4CPN879WmM15R7lW4Vqcz_76RsjKN7VpcL08xMfXW1FWS3v7DGLkYW6n_dhw93YFJ8W1Wr6FD2rpH1cW4l4Fxz5k1vQ_W6dXyKx5H89QnW4NtqpT5VxN0GVdX6fn2-vdPRW1q-YlT3wfCVNN31WkC9CczFTN6qvfY13XkSZW2J2xn63xZ5W0388n1">discord channel</a> to ask your questions directly.</p>
+<p>For more information about the Bright CLI purpose and features, see <a href="/docs/getting-started-with-nexploit-cli">About Bright CLI</a>.</p>
+<p>Below you can find the following examples of running scans via the Bright CLI:</p>
+<ul>
+<li><a href="/docs/security-scanning-as-self-service#run-a-simple-scan-with-a-crawler">Running a simple scan with a crawler (works for websites and web applications)</a></li>
+<li><a href="/docs/security-scanning-as-self-service#scan-specific-interactions-pages-or-features-using-a-har-file">Scanning specific interactions, pages, or features using a .HAR file (works for websites, web applications and APIs)</a></li>
+<li><a href="/docs/security-scanning-as-self-service#scan-api-endpoints-based-on-a-schema">Scanning API endpoints directly from a schema (for example, OpenAPI, Postman)</a></li>
+<li><a href="/docs/security-scanning-as-self-service#scan-applications-behind-your-firewall-from-the-bright-cloud-in-the-repeater-mode">Scanning applications behind your firewall, from cloud, in the Repeater mode</a></li>
+</ul>
+<h1 id="runinging-a-simple-scan-with-a-crawler">Runinging a simple scan with a crawler</h1>
+<p>[block:embed]
+{
+&ldquo;html&rdquo;: &ldquo;&lt;iframe class=&quot;embedly-embed&quot; src=&quot;//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F60EmyIvDPfU%3Ffeature%3Doembed&amp;display_name=YouTube&amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D60EmyIvDPfU&amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2F60EmyIvDPfU%2Fhqdefault.jpg&amp;key=f2aa6fc3595946d0afc3d76cbbd25dc3&amp;type=text%2Fhtml&amp;schema=youtube&quot; width=&quot;854&quot; height=&quot;480&quot; scrolling=&quot;no&quot; title=&quot;YouTube embed&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen&quot; allowfullscreen=&quot;true&quot;&gt;</iframe>&rdquo;,
+&ldquo;url&rdquo;: &ldquo;<a href="https://www.youtube.com/watch?v=60EmyIvDPfU&amp;feature=youtu.be%22">https://www.youtube.com/watch?v=60EmyIvDPfU&amp;feature=youtu.be&quot;</a>,
+&ldquo;title&rdquo;: &ldquo;Running a Scan with a Crawler via CLI&rdquo;,
+&ldquo;favicon&rdquo;: &ldquo;<a href="https://www.youtube.com/s/desktop/1b170d1d/img/favicon.ico%22">https://www.youtube.com/s/desktop/1b170d1d/img/favicon.ico&quot;</a>,
+&ldquo;image&rdquo;: &ldquo;<a href="https://i.ytimg.com/vi/60EmyIvDPfU/hqdefault.jpg%22">https://i.ytimg.com/vi/60EmyIvDPfU/hqdefault.jpg&quot;</a>,
+&ldquo;provider&rdquo;: &ldquo;youtube.com&rdquo;,
+&ldquo;href&rdquo;: &ldquo;<a href="https://www.youtube.com/watch?v=60EmyIvDPfU&amp;feature=youtu.be%22">https://www.youtube.com/watch?v=60EmyIvDPfU&amp;feature=youtu.be&quot;</a>
+}
+[/block]</p>
+<p>Bright can crawl your web application to define the attack surface of the target and optimize the selected security tests. For that, you simply need to specify the URL of the target to start mapping from.</p>
+<p>If you want to run a scan with a crawler using the Bright app, read <a href="/docs/crawler">here</a>.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>You have installed the <a href="/docs/installation-options">Bright CLI</a>.</li>
+<li>You have a valid <code>AUTH_TOKEN</code> (API key) with the following scopes: <code>scans</code>, <code>files:write</code>, <code>org:read</code>, and <code>projects:read</code>. You can create an <a href="/docs/manage-your-organization#manage-organization-apicli-authentication-tokens">organization API key</a> or a <a href="/docs/manage-your-personal-account#manage-your-personal-api-keys-authentication-tokens">personal API key</a>. You can also watch our video about <a href="https://www.youtube.com/watch?v=W_WdIGPXoUQ&amp;t=3s">creating API keys</a>.</li>
+<li>You have copied the <code>Project ID</code> under which you want to run a scan. A project ID is required. If you do not have any custom projects, use the Default project ID.</li>
+</ul>
+<h2 id="step-by-step-guide">Step-by-step guide</h2>
+<ol>
+<li>Start a new scan with a crawler:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>nexploit-cli scan:run --token $AUTH_TOKEN --name <span style="color:#e6db74">&#34;Bright Scan&#34;</span> --project $PROJECT_ID --crawler <span style="color:#e6db74">&#34;https://www.example.com&#34;</span> --cluster https://app.brightsec.com --smart
+</span></span></code></pre></div><blockquote>
+<p>📘 Note</p>
+<p>Sample variables are marked with a <code>$</code>. You must substitute them for your real values.</p>
+</blockquote>
+<p>This command initializes a new scan engine in the cloud, which starts scanning the target. The crawler discovery type is used as an example.</p>
+<blockquote>
+<p>👍 Tips</p>
+<ul>
+<li>If you are using the Bright app on a private cloud, ensure you specify the custom cluster instead of <code>&lt;https://app.brightsec.com</code>&gt;.</li>
+<li>To optimize the scan coverage and time, we are using the <code>--smart</code> option. This enables you to use automatic smart decisions, such as parameter skipping, detection phases and so on.</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>View the scan results.<br>
+You can follow the scan status in the <a href="https://app.neuralegion.com/">Bright app</a> or by using the <a href="/docs/checking-scan-status">Bright CLI polling command</a>.</li>
+</ol>
+<h1 id="scanning-specific-interactions-pages-or-features-using-a-har-file">Scanning specific interactions, pages, or features using a .HAR file</h1>
+<p>[block:embed]
+{
+&ldquo;html&rdquo;: &ldquo;&lt;iframe class=&quot;embedly-embed&quot; src=&quot;//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FZ_fa__2hT-8%3Ffeature%3Doembed&amp;display_name=YouTube&amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DZ_fa__2hT-8&amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FZ_fa__2hT-8%2Fhqdefault.jpg&amp;key=f2aa6fc3595946d0afc3d76cbbd25dc3&amp;type=text%2Fhtml&amp;schema=youtube&quot; width=&quot;854&quot; height=&quot;480&quot; scrolling=&quot;no&quot; title=&quot;YouTube embed&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen&quot; allowfullscreen=&quot;true&quot;&gt;</iframe>&rdquo;,
+&ldquo;url&rdquo;: &ldquo;<a href="https://www.youtube.com/watch?v=Z_fa__2hT-8&amp;feature=youtu.be%22">https://www.youtube.com/watch?v=Z_fa__2hT-8&amp;feature=youtu.be&quot;</a>,
+&ldquo;title&rdquo;: &ldquo;Running a Scan Using a HAR File via the CLI&rdquo;,
+&ldquo;favicon&rdquo;: &ldquo;<a href="https://www.youtube.com/s/desktop/1b170d1d/img/favicon.ico%22">https://www.youtube.com/s/desktop/1b170d1d/img/favicon.ico&quot;</a>,
+&ldquo;image&rdquo;: &ldquo;<a href="https://i.ytimg.com/vi/Z_fa__2hT-8/hqdefault.jpg%22">https://i.ytimg.com/vi/Z_fa__2hT-8/hqdefault.jpg&quot;</a>,
+&ldquo;provider&rdquo;: &ldquo;youtube.com&rdquo;,
+&ldquo;href&rdquo;: &ldquo;<a href="https://www.youtube.com/watch?v=Z_fa__2hT-8&amp;feature=youtu.be%22">https://www.youtube.com/watch?v=Z_fa__2hT-8&amp;feature=youtu.be&quot;</a>
+}
+[/block]</p>
+<p>Bright uses data recorded in .HAR files to define the scope of the security scan and optimize the selected security tests. Using a .HAR, you can easily run a scan on a specific part of your application, instead of testing the entire target, perfect to test a new feature, specific entry-point or flow in your application. This will greatly reduce the scope of the testing, resulting in significantly shorter scan times.</p>
+<p>If you want to run a scan with a .HAR file using the Bright app, read <a href="/docs/scanning-with-a-har">here</a>.</p>
+<h2 id="prerequisites-1">Prerequisites</h2>
+<ul>
+<li>You have installed the <a href="/docs/installation-options">Bright CLI</a>.</li>
+<li>You have uploaded the .HAR file to your Bright storage and copied the generated ID (<code>FILE_ID</code>). See <a href="/docs/creating-a-har-file">Creating a HAR file</a> to learn how to create a HAR file.</li>
+<li>You have a valid <code>AUTH_TOKEN</code> (API key) with the following scopes: <code>scans</code>, <code>files:write</code>, <code>org:read</code>, and <code>projects:read</code>. You can create an <a href="/docs/manage-your-organization#manage-organization-apicli-authentication-tokens">organization API key</a> or a <a href="/docs/manage-your-personal-account#manage-your-personal-api-keys-authentication-tokens">personal API key</a>. You can also watch our video about <a href="https://www.youtube.com/watch?v=W_WdIGPXoUQ&amp;t=3s">creating API keys</a>.</li>
+<li>You have copied the <code>Project ID</code> under which you want to run a scan. A project ID is required. If you do not have any custom projects, use the Default project ID.</li>
+</ul>
+<h2 id="step-by-step-guide-1">Step-by-step guide</h2>
+<ol>
+<li>Start a new scan with the .HAR file uploaded to your Bright storage:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>nexploit-cli scan:run --token $AUTH_TOKEN --name <span style="color:#e6db74">&#34;Bright Scan&#34;</span> --project $PROJECT_ID --archive $FILE_ID --cluster https://app.brightsec.com --smart
+</span></span></code></pre></div><blockquote>
+<p>📘 Note</p>
+<p>Sample variables are marked with a <code>$</code>. You must substitute them for your real values.</p>
+</blockquote>
+<p>This command initializes a new scan engine in the cloud, which starts scanning the target. The crawler discovery type is used as an example.</p>
+<blockquote>
+<p>👍 Tips</p>
+<ul>
+<li>If you are using the Bright app on a private cloud, ensure you specify the custom cluster instead of <code>&lt;https://app.brightsec.com</code>&gt; (for example,  <code>&lt;https://my-cluster.brightsec.com</code>&gt;).</li>
+<li>To optimize the scan coverage and time, we are using the <code>--smart</code> option. This enables you to use automatic smart decisions, such as parameter skipping, detection phases and so on.</li>
+<li>You can also set the crawler to scan only specific hosts using the  <code>--host-filter</code> option. For example:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nexploit-cli scan:run --token $AUTH_TOKEN --name <span style="color:#e6db74">&#34;Bright Scan&#34;</span> --project $PROJECT_ID --crawler <span style="color:#e6db74">&#34;https://www.example.com&#34;</span> --host-filter <span style="color:#e6db74">&#34;https://www.host-1.com&#34;</span> <span style="color:#e6db74">&#34;https://www.host-2.com&#34;</span>--cluster https://app.brightsec.com --smart
+</span></span></code></pre></div></blockquote>
+<ol start="2">
+<li>Viewing the Scan Results.<br>
+You can follow the scan status in the <a href="https://app.neuralegion.com/">Bright app</a> or by using the <a href="/docs/checking-scan-status">Bright CLI polling command</a>.</li>
+</ol>
+<h1 id="scanning-api-endpoints-based-on-a-schema">Scanning API endpoints based on a schema</h1>
+<p>[block:embed]
+{
+&ldquo;html&rdquo;: &ldquo;&lt;iframe class=&quot;embedly-embed&quot; src=&quot;//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2Fvsk2TpeTZYY%3Ffeature%3Doembed&amp;display_name=YouTube&amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dvsk2TpeTZYY&amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fvsk2TpeTZYY%2Fhqdefault.jpg&amp;key=f2aa6fc3595946d0afc3d76cbbd25dc3&amp;type=text%2Fhtml&amp;schema=youtube&quot; width=&quot;854&quot; height=&quot;480&quot; scrolling=&quot;no&quot; title=&quot;YouTube embed&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen&quot; allowfullscreen=&quot;true&quot;&gt;</iframe>&rdquo;,
+&ldquo;url&rdquo;: &ldquo;<a href="https://www.youtube.com/watch?v=vsk2TpeTZYY&amp;feature=youtu.be%22">https://www.youtube.com/watch?v=vsk2TpeTZYY&amp;feature=youtu.be&quot;</a>,
+&ldquo;title&rdquo;: &ldquo;Scanning API Endpoints via the NeuraLegion CLI&rdquo;,
+&ldquo;favicon&rdquo;: &ldquo;<a href="https://www.youtube.com/s/desktop/1b170d1d/img/favicon.ico%22">https://www.youtube.com/s/desktop/1b170d1d/img/favicon.ico&quot;</a>,
+&ldquo;image&rdquo;: &ldquo;<a href="https://i.ytimg.com/vi/vsk2TpeTZYY/hqdefault.jpg%22">https://i.ytimg.com/vi/vsk2TpeTZYY/hqdefault.jpg&quot;</a>,
+&ldquo;provider&rdquo;: &ldquo;youtube.com&rdquo;,
+&ldquo;href&rdquo;: &ldquo;<a href="https://www.youtube.com/watch?v=vsk2TpeTZYY&amp;feature=youtu.be%22">https://www.youtube.com/watch?v=vsk2TpeTZYY&amp;feature=youtu.be&quot;</a>
+}
+[/block]</p>
+<p>Bright can parse an uploaded API schema to define the attack surface of the target and optimize the selected security tests. The following versions of the API schemas are supported: Swagger 2+, OpenAPI 3+, Postman 2+. To ensure proper scanning of your API, you must configure the schema according to the general specification and specific Bright requirements. Find more information about the configuration validation <a href="/docs/troubleshooting">here</a>.</p>
+<p>If you want to scan API endpoints using the Bright app, read <a href="/docs/scanning-api-endpoints">here</a>.</p>
+<h2 id="prerequisites-2">Prerequisites</h2>
+<ul>
+<li>You have installed the <a href="/docs/installation-options">Bright CLI</a>.</li>
+<li>You have uploaded the API schema you want to scan to your Bright storage and copied the generated ID (<code>FILE_ID</code>).</li>
+<li>You have a valid <code>AUTH_TOKEN</code> (API key) with the following scopes: <code>scans</code>, <code>files:write</code>, <code>org:read</code>, and <code>projects:read</code>. You can create an <a href="/docs/manage-your-organization#manage-organization-apicli-authentication-tokens">organization API key</a> or a <a href="/docs/manage-your-personal-account#manage-your-personal-api-keys-authentication-tokens">personal API key</a>. You can also watch our video about <a href="https://www.youtube.com/watch?v=W_WdIGPXoUQ&amp;t=3s">creating API keys</a>.</li>
+<li>You have copied the <code>Project ID</code> under which you want to run a scan. A project ID is required. If you do not have any custom projects, use the Default project ID.</li>
+</ul>
+<h2 id="step-by-step-guide-2">Step-by-step guide</h2>
+<ol>
+<li>Start a new scan with the API schema uploaded to your Bright storage:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>nexploit-cli scan:run --token $AUTH_TOKEN --name <span style="color:#e6db74">&#34;Bright Scan&#34;</span> --project $PROJECT_ID --archive $FILE_ID --cluster https://app.brightsec.com --smart
+</span></span></code></pre></div><blockquote>
+<p>📘 Note</p>
+<p>Sample variables are marked with a <code>$</code>. You must substitute them for your real values.</p>
+</blockquote>
+<p>This command initializes a new scan engine in the cloud, which starts scanning the target. The crawler discovery type is used as an example.</p>
+<blockquote>
+<p>👍 Tips</p>
+<ul>
+<li>If you are using the Bright app on a private cloud, ensure you specify the custom cluster instead of <code>&lt;https://app.brightsec.com</code>&gt; (for example,  <code>&lt;https://my-cluster.brightsec.com</code>&gt;).</li>
+<li>To optimize the scan coverage and time, we are using the <code>--smart</code> option. This enables you to use automatic smart decisions, such as parameter skipping, detection phases and so on.</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>View the scan results.<br>
+You can follow the scan status in the <a href="https://app.neuralegion.com/">Bright app</a> or by using the <a href="/docs/checking-scan-status">Bright CLI polling command</a>.</li>
+</ol>
+<h1 id="scanning-applications-behind-your-firewall-from-the-bright-cloud-in-the-repeater-mode">Scanning applications behind your firewall, from the Bright cloud, in the Repeater mode</h1>
+<p>To scan targets in your private environment, for example, an application which is currently under development and cannot be exposed externally,  you need to use a <a href="/docs/on-premises-repeater-local-agent">Repeater</a>. If the scan target is closed within your network or protected by a firewall, the Bright engine cannot access it directly from the cloud. The Repeater serves as a request-proxy between the Bright engine and a scan target in your private environment.</p>
+<p>To scan in the Repeater mode, you first need to register (create) the Repeater in the <a href="https://app.neuralegion.com">Bright app</a>, and then connect (activate) it to for the scan using the generated Repeater ID. You can see how it works in our <a href="https://www.youtube.com/watch?v=ipFkP0od_04&amp;feature=emb_imp_woyt">video about connecting the Repeater</a>.</p>
+<blockquote>
+<p>🚧 Important</p>
+<p>To function properly, the Repeater must have an outbound connection to <code>amq.app.brightsec.com</code> via the AMQ protocol (over TLS) using port 5672 (or a private cloud using the relevant port). Other technical requirements for Repeater connection can be found <a href="/docs/on-premises-repeater-local-agent#technical-requirements">here</a>.</p>
+</blockquote>
+<h2 id="prerequisites-3">Prerequisites</h2>
+<ul>
+<li>You have installed the <a href="/docs/installation-options">Bright CLI</a>.</li>
+<li>You have a valid <code>AUTH_TOKEN</code> (API key) with the following scopes: <code>scans</code>, <code>files:write</code>, <code>org:read</code>, and <code>projects:read</code>. You can create an <a href="/docs/manage-your-organization#manage-organization-apicli-authentication-tokens">organization API key</a> or a <a href="/docs/manage-your-personal-account#manage-your-personal-api-keys-authentication-tokens">personal API key</a>. You can also watch our video about <a href="https://www.youtube.com/watch?v=W_WdIGPXoUQ&amp;t=3s">creating API keys</a>.</li>
+<li>You have copied the <code>Project ID</code> under which you want to run a scan. A project ID is required. If you do not have any custom projects, use the Default project ID.</li>
+<li>You have registered the Repeater in the <a href="https://app.neuralegion.com/">Bright app</a> and copied the generated <code>REPEATER_ID</code>. See <a href="/docs/manage-repeaters">Managing Repeaters</a> for more information.</li>
+</ul>
+<h2 id="step-by-step-guide-3">Step-by-step guide</h2>
+<ol>
+<li>Activate the Repeater:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>nexploit-cli repeater --token $AUTH_TOKEN --id $REPEATER_ID --cluster https://app.brightsec.com
+</span></span></code></pre></div><ol start="2">
+<li>Start a new scan with a crawler:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>nexploit-cli scan:run --token $AUTH_TOKEN --repeater $REPEATER_ID --name <span style="color:#e6db74">&#34;Bright Scan&#34;</span> --project $PROJECT_ID --crawler <span style="color:#e6db74">&#34;https://www.example.com&#34;</span> --cluster https://app.brightsec.com --smart
+</span></span></code></pre></div><blockquote>
+<p>📘 Note</p>
+<p>Sample variables are marked with a <code>$</code>. You must substitute them for your real values.</p>
+</blockquote>
+<p>This command initializes a new scan engine in the cloud, which starts scanning the target in the Repeater mode. The crawler discovery type is used as an example.</p>
+<p>The Repeater must stay active during the whole scanning session. Closing the console or shutting down your machine will disconnect the Repeater and lead to the scan disruption.</p>
+<blockquote>
+<p>👍 Tips</p>
+<ul>
+<li>If you are using the Bright app on a private cloud, ensure you specify the custom cluster instead of <code>&lt;https://app.brightsec.com</code>&gt; (for example,  <code>&lt;https://my-cluster.brightsec.com</code>&gt;).</li>
+<li>To optimize the scan coverage and time, we are using the <code>--smart</code> option. This enables you to use automatic smart decisions, such as parameter skipping, detection phases and so on.</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li>View the scan results.<br>
+You can follow the scan status in the <a href="https://app.neuralegion.com/">Bright app</a> or by using the <a href="/docs/checking-scan-status">Bright CLI polling command</a>.</li>
+</ol>
+<div class="edit-meta">
+
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/Using%20Bright%20CLI/getting-started-with-bright-cli/security-scanning-as-self-service.md" class="edit-page"><i class="fas fa-pen-square"></i>&nbsp;Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-at-the-enterprise-level/" title="Scanning at the Enterprise Level"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Scanning at the Enterprise Level</a>
+<a class="nav nav-next" href="https://example.com/using-bright-cli/command-list/stopping-a-scan/" title="Stopping a Scan">Next - Stopping a Scan <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://example.com">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://example.com/about-bright-dast/">About Bright DASTs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/">Deployment Options</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/private-cloud/">Private Cloud Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/on-premises-repeater-local-agent/">Repeater (Scan Proxy)</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/saas-deployment/">SaaS Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/introducing-to-bright/">What is Bright DAST?</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/accounting-and-billing/">Accounting and Billings<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/accounting-and-billing/about-accounting-and-billing/">About Accounting and Billing</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-history/">Managing Payment History</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-information/">Managing Payment Information</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-your-plan/">Managing Plan</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/advanced-integration-use-cases/">Advanced Integration Use Cases<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-integration-use-cases/integrating-a-bright-project-with-webhooks/">Integrating a Bright Project with Webhooks</a></li>
+<li class=""><a href="https://example.com/advanced-integration-use-cases/sending-detected-issues-to-jira-from-cicd-pipelines/">Sending Detected Issues from CI/CD Pipelines to Jira</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/advanced-setup-in-bright-app/">Advanced Setup in Bright Apps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/">Managing Access Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/managing-bright-file-storage/">Managing Bright File Storage</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-custom-roles/">Managing Custom Roles</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/">Managing Organization</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-groups/">Managing Organization Groups</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-users/">Managing Organization Users</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-personal-account/">Managing Personal Account</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-projects/">Managing Projects</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/manage-repeater-scripts/">Managing Repeater Scripts</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-repeaters/">Managing Repeaters</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/organization-api-key-scopes/">Organization API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/personal-api-key-scopes/">Personal API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/project-api-key-scopes/">Project API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/role-management-scopes/">Role Management Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/use-cases/">Use Cases</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/">Using Repeater Scripts</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/ci-pipeline-integrations/">CI Pipeline Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/azure-pipelines/">Azure Pipelines</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/circleci/">CircleCI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/github-actions/">GitHub Actions</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/gitlab/">GitLab</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/gitlab-integration-examples/">GitLab Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/">Integrating Bright with Your CI Pipeline</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/">Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jenkins/">Jenkins</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/jenkins-integration-examples/">Jenkins Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jfrog/">JFrog</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/team-city/">TeamCity</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/travis-ci/">Travis CI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/travis-ci-integration-examples/">Travis CI Integration Examples</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/general/">Generals<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/general/faqs/">FAQs</a></li>
+<li class=""><a href="https://example.com/general/privacy-policy/">Privacy Policy</a></li>
+<li class=""><a href="https://example.com/general/terms-of-use/">Terms of Use</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/getting-started-with-bright/">Getting Started with Brights<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/getting-started-with-bright/quick-tour-of-the-web-interface/">Quick Tour of the User Interface</a></li>
+<li class=""><a href="https://example.com/getting-started-with-bright/quickstart/">Quickstart</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/managing-authentications/">Managing Authentications<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-authentications/adding-your-authentication-object-to-a-scan/">Adding an Authentication Object to a Scan</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-an-authentication-object-in-bright/">Authentication Types</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-api-call-authentication/">Configuring API Call Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-multi-step-browser-based-form-authentication/">Configuring Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-custom-multi-step-authentication/">Configuring Custom API Authentication Flow</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-form-authentication/">Configuring Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-header-authentication-in-bright/">Configuring Header Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-ntlm-authentication/">Configuring NTLM Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-oidc-connect-oauth/">Configuring OIDC Connect (OAuth)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-recorded-browser-based-form-authentication/">Configuring Recorded Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configuring-recorded-browser-based-form-authentication-internal-copy/">Configuring Recorded Browser-Based Form Authentication (Internal Copy)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/">Creating Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/string-interpolation-syntax/">String Interpolation Syntax</a></li>
+<li class=""><a href="https://example.com/managing-authentications/troubleshooting-authentication-issues-internal/">Troubleshooting Authentication Issues</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/managing-scan-results/">Managing Scan Results<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-scan-results/deleting-a-scan/">Deleting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/exporting-a-scan/">Exporting a Scan Report</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/handling-discovered-issues/">Handling Discovered Issues</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/how-to-add-bright-to-the-waf-allowlist/">How to Add Bright to the WAF Allowlist</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/modifying-future-scan-settings/">Modifying Future Scan Settings</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/retesting-a-scan/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scans/">Reviewing All Scans</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-details/">Reviewing Scan Details</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-history/">Reviewing Scan History</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/troubleshooting-for-problematic-scans/">Troubleshooting Scans</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/pages-after-new-scan-dialog-analytics/">Pages after New scan dialog analytics<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/scanning-from-bright-app/">Scanning from Bright Apps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/configuring-an-api-schema-for-scanning/">Configuring an API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/creating-a-har-file/">Creating a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/creating-a-new-scan/">Creating a Scan</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/edit-an-uploaded-api-schema/">Editing an Uploaded API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/managing-scan-templates/">Managing Scan Templates</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/">Scanning API Endpoints</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/">Scanning with a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/crawler/">Scanning with a Crawler</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/troubleshooting/">Troubleshooting</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/sso-integrations/">SSO Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/azure-sso-and-provisioning/">Azure SSO and Provisioning</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/">Configuring Single Sign-On</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/google-sso/">Google SSO</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/okta-sso-and-provisioning/">Okta SSO and Provisioning</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/ticketing-integrations/">Ticketing Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ticketing-integrations/adding-ticketing-integration-to-a-project/">Adding Ticketing Integration to a Project</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/azure-boards/">Azure Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/github/">GitHub</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/gitlab-boards/">GitLab Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/">Integrating Bright with Your Ticketing System</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/jira/">Jira</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/slack/">Slack</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://example.com/using-bright-cli/">Using Bright CLI<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-cli/about-bright-cli/">About Bright CLI</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/checking-scan-status/">Checking Scan Status</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/command-language-syntax/">Command Language Syntax</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/">Command List</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/configuration-files/">Configuration Files</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/generating-an-archive-with-nexmock/">Generating an Archive with NexMock</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/">Getting Started</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/initializing-the-repeater/">Initializing the Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/installation-options/">Installation Guide</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/integrating-with-a-service/">Integrating with an On-Premise Ticketing Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/retesting-a-scan-1/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/running-a-scan/">Running a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-as-part-of-ci-pipeline/">Scanning as Part of CI Pipeline</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-at-the-enterprise-level/">Scanning at the Enterprise Level</a></li>
+<li class="active"><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/security-scanning-as-self-service/">Security Scanning as Self-Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/stopping-a-scan/">Stopping a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/testing-network-connectivity/">Testing Network Connectivity</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/repeater-troubleshooting/">Troubleshooting Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/uploading-an-archive/">Uploading an Archive</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/using-bright-rest-api/">Using Bright REST APIs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-rest-api/about-bright-api/">About Bright API</a></li>
+<li class=""><a href="https://example.com/using-bright-rest-api/response-status-codes/">Response Status Codes</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/vulnerability-guide/">Vulnerability Guides<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/vulnerability-guide/vulnerability-guide/">Vulnerability Guide</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/welcome/">Welcomes<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/welcome/about-docs/">About Docs</a></li>
+<li class=""><a href="https://example.com/welcome/accessibility/">Accessibility</a></li>
+<li class=""><a href="https://example.com/welcome/support/">Support</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

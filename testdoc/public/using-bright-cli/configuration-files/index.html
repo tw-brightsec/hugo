@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Configuration Files - Brightsec</title>
+<meta name="generator" content="Hugo 0.109.0">
+<link href="https://example.com/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://example.com/using-bright-cli/configuration-files/">
+<link rel="stylesheet" href="https://example.com/css/theme.min.css">
+<link rel="stylesheet" href="https://example.com/css/chroma.min.css">
+<script defer src="https://example.com/js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://example.com/js/bundle.js"></script><style>
+:root {--custom-font-color: black;--custom-background-color: white;}
+</style>
+<meta property="og:title" content="Configuration Files" />
+<meta property="og:description" content="Any configuration option that can be set via the command line can also be specified in the nexploit section of your package.json or within a separate configuration file. A variety of configuration files can be used, as described in the following table. You can set your configurations in any of the files listed in the table or from the command line.
+File Name FileType .nexploit JSON .nexploit.json JSON .nexploit.yaml YAML ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/using-bright-cli/configuration-files/" /><meta property="og:image" content="https://example.com/images/og-image.png"/><meta property="article:section" content="Using Bright CLI" />
+
+<meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.com/images/og-image.png"/>
+
+<meta name="twitter:title" content="Configuration Files"/>
+<meta name="twitter:description" content="Any configuration option that can be set via the command line can also be specified in the nexploit section of your package.json or within a separate configuration file. A variety of configuration files can be used, as described in the following table. You can set your configurations in any of the files listed in the table or from the command line.
+File Name FileType .nexploit JSON .nexploit.json JSON .nexploit.yaml YAML ."/>
+<meta itemprop="name" content="Configuration Files">
+<meta itemprop="description" content="Any configuration option that can be set via the command line can also be specified in the nexploit section of your package.json or within a separate configuration file. A variety of configuration files can be used, as described in the following table. You can set your configurations in any of the files listed in the table or from the command line.
+File Name FileType .nexploit JSON .nexploit.json JSON .nexploit.yaml YAML .">
+
+<meta itemprop="wordCount" content="547"><meta itemprop="image" content="https://example.com/images/og-image.png"/>
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>Brightsec</h1><span class="version">Version 0.9.9</span><a href="https://github.com/thingsym/hugo-theme-techdoc" class="github"><i class="fab fa-github"></i></a>
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li id="home" class=""><a href="/">Home</a></li>
+<li id="changelog" class="twitter-menu-item"><a href="/changelog">Changelog</a></li></ul>
+</nav>
+</div>
+
+<div class="content-container">
+<main><h1>Configuration Files</h1>
+<p>Any configuration option that can be set via the command line can also be specified in the <code>nexploit</code> section of your <code>package.json</code> or within a separate configuration file. A variety of configuration files can be used, as described in the following table. You can set your configurations in any of the files listed in the table or from the command line.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">File Name</th>
+<th style="text-align:left">FileType</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>.nexploit</code></td>
+<td style="text-align:left">JSON</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>.nexploit.json</code></td>
+<td style="text-align:left">JSON</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>.nexploit.yaml</code></td>
+<td style="text-align:left">YAML</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>.nexploit.yml</code></td>
+<td style="text-align:left">YAML</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>nexploit.config.js</code></td>
+<td style="text-align:left">CommonJS export</td>
+</tr>
+</tbody>
+</table>
+<p>Specify a path to a configuration file using the <code>--config</code> option. By default, the CLI tries to discover a configuration <code>package.json</code> file in the root directory of your application, or one of the other specified file names in the working directory.</p>
+<h2 id="examples">Examples</h2>
+<h3 id="uploading-a-postman-collection">Uploading a Postman collection</h3>
+<p>In some cases, you may want to upload a Postman collection that has many variables. In such cases, you can load variables from the configuration file, as shown in the following examples.</p>
+<h4 id="json-example">JSON Example</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;discard&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;postman&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;header&#34;</span>: [<span style="color:#e6db74">&#34;authorization: api-key my-api-key&#34;</span>],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;variable&#34;</span>: [<span style="color:#e6db74">&#34;base-api-url: https://example.com/&#34;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="yaml-example">YAML example</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-YAML" data-lang="YAML"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">discard</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">type</span>: <span style="color:#ae81ff">postman</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">header</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">&#39;authorization</span>: <span style="color:#ae81ff">api-key my-api-key&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">variable</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">&#39;base-api-url</span>: <span style="color:#ae81ff">https://example.com/&#39;</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">&#39;some-secret</span>: <span style="color:#ae81ff">my-magic-number&#39;</span>
+</span></span></code></pre></div><p>The code above enables you to issue the following command in your terminal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  nexploit-cli archive:upload
+</span></span><span style="display:flex;"><span>  -t 75ngxdf.nexp.6kd4e9a6xcb2mbdfvnw76hnsqpyrf7wf
+</span></span><span style="display:flex;"><span>  /home/ubuntu/collection.json
+</span></span></code></pre></div><h3 id="crawler-scan">Crawler scan</h3>
+<p>If you need to frequently scan multiple targets, you can specify them in a configuration file.</p>
+<h4 id="json-example-1">JSON Example</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;crawler&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://example.com&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://nova.example.com&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://pbs.example.com&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://google.com&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;scan-name&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;token&#34;</span>: <span style="color:#e6db74">&#34;my-api-key&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="yaml-example-1">YAML example</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-YAML" data-lang="YAML"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">crawler</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">https://example.com</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">https://nova.example.com</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">https://pbs.example.com</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">https://google.com</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">scan-name</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">token</span>: <span style="color:#ae81ff">my-api-key</span>
+</span></span></code></pre></div><h3 id="predefined-pool-of-tests">Predefined pool of tests</h3>
+<p>Bright CLI supports many different tests that can be executed. In some cases, it may be difficult to set them up using CLI options. In such cases, you can set them up using a configuration file.</p>
+<h4 id="json-example-2">JSON example</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;test&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;angular_csti&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;jwt&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;date_manipulation&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;cookie_security&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;csrf&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;directory_listing&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;dom_xss&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;file_upload&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;full_path_disclosure&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;header_security&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;http_method_fuzzing&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;retire_js&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;secret_tokens&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;version_control_systems&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;wordpress&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;scan-name&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;token&#34;</span>: <span style="color:#e6db74">&#34;my-api-key&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="yaml-example-2">YAML example</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-YAML" data-lang="YAML"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">test</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">angular_csti</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">jwt</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">date_manipulation</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">cookie_security</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">csrf</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">directory_listing</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">dom_xss</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">file_upload</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">full_path_disclosure</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">header_security</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">http_method_fuzzing</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">retire_js</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">secret_tokens</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">version_control_systems</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">wordpress</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">scan-name</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">token</span>: <span style="color:#ae81ff">my-api-key</span>
+</span></span></code></pre></div><h3 id="predefined-repeater-settings">Predefined repeater settings</h3>
+<p>The following are examples of &laquo;glossary:Repeater&raquo; settings to be used with the CLI.</p>
+<h4 id="json-example-3">JSON Example</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;token&#34;</span>: <span style="color:#e6db74">&#34;my-jwt-authentication-token&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;api&#34;</span>: <span style="color:#e6db74">&#34;https://app.brightsec.com&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;cluster&#34;</span>: <span style="color:#e6db74">&#34;https://app.brightsec.com&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;proxy&#34;</span>: <span style="color:#e6db74">&#34;proxy-address&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="yaml-example-3">YAML example</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-YAML" data-lang="YAML"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">token</span>: <span style="color:#ae81ff">my-jwt-authentication-token</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">api</span>: <span style="color:#ae81ff">https://app.brightsec.com</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">cluster</span>: <span style="color:#ae81ff">https://app.brightsec.com</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">proxy</span>: <span style="color:#ae81ff">proxy-address</span>
+</span></span></code></pre></div><h3 id="har-generation-from-nexmock">HAR generation from NexMock</h3>
+<p>If you already have a prepared mock file, you can generate a HAR file using the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nexploit-cli archive:generate <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --output archive.har <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --target url-tested-application <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --header <span style="color:#e6db74">&#34;Authorization: Bearer my-jwt-authentication-token&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  .nexmockCopy to clipboardErrorCopied
+</span></span></code></pre></div><p>Where –</p>
+<ul>
+<li>mockfile is the path to your mock file.</li>
+<li>archive is the path in which to save the HAR file.<br>
+The <code>archive:generate</code> command generates a new archive in the archive path:</li>
+</ul>
+<pre tabindex="0"><code>Project
+├── .nexploitrc       // CLI configuration
+├── .nexmock          // your mock requests
+└── archive.har       // generated HAR fileCopy to clipboardErrorCopied
+</code></pre><p>You also can edit the configuration file and add your own options, as shown below:</p>
+<h4 id="json-example-4">JSON example</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;output&#34;</span>: <span style="color:#e6db74">&#34;archive.har&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;token&#34;</span>: <span style="color:#e6db74">&#34;my-jwt-authentication-token&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;target&#34;</span>: <span style="color:#e6db74">&#34;url-tested-application&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;header&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Authorization: Bearer my-jwt-authentication-token&#34;</span>
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="yaml-example-4">YAML example</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-YAML" data-lang="YAML"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">output</span>: <span style="color:#ae81ff">archive.har</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">token</span>: <span style="color:#ae81ff">my-jwt-authentication-token</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">target</span>: <span style="color:#ae81ff">url-tested-application</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">header</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">&#39;Authorization</span>: <span style="color:#ae81ff">Bearer my-jwt-authentication-token&#39;</span>
+</span></span></code></pre></div><p>To obtain the same output, simply issue the following CLI command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nexploit-cli archive:generate .nexmock
+</span></span></code></pre></div><div class="edit-meta">
+
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/Using%20Bright%20CLI/configuration-files.md" class="edit-page"><i class="fas fa-pen-square"></i>&nbsp;Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://example.com/using-bright-cli/command-list/" title="Command List"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Command List</a>
+<a class="nav nav-next" href="https://example.com/using-bright-cli/command-list/generating-an-archive-with-nexmock/" title="Generating an Archive with NexMock">Next - Generating an Archive with NexMock <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://example.com">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://example.com/about-bright-dast/">About Bright DASTs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/">Deployment Options</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/private-cloud/">Private Cloud Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/on-premises-repeater-local-agent/">Repeater (Scan Proxy)</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/saas-deployment/">SaaS Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/introducing-to-bright/">What is Bright DAST?</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/accounting-and-billing/">Accounting and Billings<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/accounting-and-billing/about-accounting-and-billing/">About Accounting and Billing</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-history/">Managing Payment History</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-information/">Managing Payment Information</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-your-plan/">Managing Plan</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/advanced-integration-use-cases/">Advanced Integration Use Cases<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-integration-use-cases/integrating-a-bright-project-with-webhooks/">Integrating a Bright Project with Webhooks</a></li>
+<li class=""><a href="https://example.com/advanced-integration-use-cases/sending-detected-issues-to-jira-from-cicd-pipelines/">Sending Detected Issues from CI/CD Pipelines to Jira</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/advanced-setup-in-bright-app/">Advanced Setup in Bright Apps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/">Managing Access Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/managing-bright-file-storage/">Managing Bright File Storage</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-custom-roles/">Managing Custom Roles</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/">Managing Organization</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-groups/">Managing Organization Groups</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-users/">Managing Organization Users</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-personal-account/">Managing Personal Account</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-projects/">Managing Projects</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/manage-repeater-scripts/">Managing Repeater Scripts</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-repeaters/">Managing Repeaters</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/organization-api-key-scopes/">Organization API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/personal-api-key-scopes/">Personal API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/project-api-key-scopes/">Project API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/role-management-scopes/">Role Management Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/use-cases/">Use Cases</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/">Using Repeater Scripts</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/ci-pipeline-integrations/">CI Pipeline Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/azure-pipelines/">Azure Pipelines</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/circleci/">CircleCI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/github-actions/">GitHub Actions</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/gitlab/">GitLab</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/gitlab-integration-examples/">GitLab Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/">Integrating Bright with Your CI Pipeline</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/">Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jenkins/">Jenkins</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/jenkins-integration-examples/">Jenkins Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jfrog/">JFrog</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/team-city/">TeamCity</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/travis-ci/">Travis CI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/travis-ci-integration-examples/">Travis CI Integration Examples</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/general/">Generals<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/general/faqs/">FAQs</a></li>
+<li class=""><a href="https://example.com/general/privacy-policy/">Privacy Policy</a></li>
+<li class=""><a href="https://example.com/general/terms-of-use/">Terms of Use</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/getting-started-with-bright/">Getting Started with Brights<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/getting-started-with-bright/quick-tour-of-the-web-interface/">Quick Tour of the User Interface</a></li>
+<li class=""><a href="https://example.com/getting-started-with-bright/quickstart/">Quickstart</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/managing-authentications/">Managing Authentications<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-authentications/adding-your-authentication-object-to-a-scan/">Adding an Authentication Object to a Scan</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-an-authentication-object-in-bright/">Authentication Types</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-api-call-authentication/">Configuring API Call Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-multi-step-browser-based-form-authentication/">Configuring Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-custom-multi-step-authentication/">Configuring Custom API Authentication Flow</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-form-authentication/">Configuring Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-header-authentication-in-bright/">Configuring Header Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-ntlm-authentication/">Configuring NTLM Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-oidc-connect-oauth/">Configuring OIDC Connect (OAuth)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-recorded-browser-based-form-authentication/">Configuring Recorded Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configuring-recorded-browser-based-form-authentication-internal-copy/">Configuring Recorded Browser-Based Form Authentication (Internal Copy)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/">Creating Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/string-interpolation-syntax/">String Interpolation Syntax</a></li>
+<li class=""><a href="https://example.com/managing-authentications/troubleshooting-authentication-issues-internal/">Troubleshooting Authentication Issues</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/managing-scan-results/">Managing Scan Results<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-scan-results/deleting-a-scan/">Deleting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/exporting-a-scan/">Exporting a Scan Report</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/handling-discovered-issues/">Handling Discovered Issues</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/how-to-add-bright-to-the-waf-allowlist/">How to Add Bright to the WAF Allowlist</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/modifying-future-scan-settings/">Modifying Future Scan Settings</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/retesting-a-scan/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scans/">Reviewing All Scans</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-details/">Reviewing Scan Details</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-history/">Reviewing Scan History</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/troubleshooting-for-problematic-scans/">Troubleshooting Scans</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/pages-after-new-scan-dialog-analytics/">Pages after New scan dialog analytics<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/scanning-from-bright-app/">Scanning from Bright Apps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/configuring-an-api-schema-for-scanning/">Configuring an API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/creating-a-har-file/">Creating a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/creating-a-new-scan/">Creating a Scan</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/edit-an-uploaded-api-schema/">Editing an Uploaded API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/managing-scan-templates/">Managing Scan Templates</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/">Scanning API Endpoints</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/">Scanning with a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/crawler/">Scanning with a Crawler</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/troubleshooting/">Troubleshooting</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/sso-integrations/">SSO Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/azure-sso-and-provisioning/">Azure SSO and Provisioning</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/">Configuring Single Sign-On</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/google-sso/">Google SSO</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/okta-sso-and-provisioning/">Okta SSO and Provisioning</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/ticketing-integrations/">Ticketing Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ticketing-integrations/adding-ticketing-integration-to-a-project/">Adding Ticketing Integration to a Project</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/azure-boards/">Azure Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/github/">GitHub</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/gitlab-boards/">GitLab Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/">Integrating Bright with Your Ticketing System</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/jira/">Jira</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/slack/">Slack</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://example.com/using-bright-cli/">Using Bright CLI<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-cli/about-bright-cli/">About Bright CLI</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/checking-scan-status/">Checking Scan Status</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/command-language-syntax/">Command Language Syntax</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/">Command List</a></li>
+<li class="active"><a href="https://example.com/using-bright-cli/configuration-files/">Configuration Files</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/generating-an-archive-with-nexmock/">Generating an Archive with NexMock</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/">Getting Started</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/initializing-the-repeater/">Initializing the Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/installation-options/">Installation Guide</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/integrating-with-a-service/">Integrating with an On-Premise Ticketing Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/retesting-a-scan-1/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/running-a-scan/">Running a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-as-part-of-ci-pipeline/">Scanning as Part of CI Pipeline</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-at-the-enterprise-level/">Scanning at the Enterprise Level</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/security-scanning-as-self-service/">Security Scanning as Self-Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/stopping-a-scan/">Stopping a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/testing-network-connectivity/">Testing Network Connectivity</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/repeater-troubleshooting/">Troubleshooting Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/uploading-an-archive/">Uploading an Archive</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/using-bright-rest-api/">Using Bright REST APIs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-rest-api/about-bright-api/">About Bright API</a></li>
+<li class=""><a href="https://example.com/using-bright-rest-api/response-status-codes/">Response Status Codes</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/vulnerability-guide/">Vulnerability Guides<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/vulnerability-guide/vulnerability-guide/">Vulnerability Guide</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/welcome/">Welcomes<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/welcome/about-docs/">About Docs</a></li>
+<li class=""><a href="https://example.com/welcome/accessibility/">Accessibility</a></li>
+<li class=""><a href="https://example.com/welcome/support/">Support</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

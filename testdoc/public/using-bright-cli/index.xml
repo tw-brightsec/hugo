@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Using Bright CLI on Brightsec</title>
+    <link>https://example.com/using-bright-cli/</link>
+    <description>Recent content in Using Bright CLI on Brightsec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://example.com/using-bright-cli/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Bright CLI</title>
+      <link>https://example.com/using-bright-cli/about-bright-cli/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/using-bright-cli/about-bright-cli/</guid>
+      <description>The Bright Command Line Interface (CLI) is a toolkit designed for ease of use when working with the Bright solutions. Using multiple Bright CLI commands and options, you can have full control over the entire scanning process, take advantage of CI integrations and achieve maximum flexibility for your automation needs.
+The Bright CLI provides multiple features:
+Easy control of the Bright REST API. Repeater mode, which allows the Bright cloud engine to connect to local targets securely, pulling all scan requests as outbound traffic, without exposing the targets to the Internet.</description>
+    </item>
+    
+    <item>
+      <title>Checking Scan Status</title>
+      <link>https://example.com/using-bright-cli/command-list/checking-scan-status/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/using-bright-cli/command-list/checking-scan-status/</guid>
+      <description>This command configures ongoing polling of a scan status, and helps you follow its progress during CI/CD flows: nexploit-cli scan:polling [options] &amp;lt;scan&amp;gt;
+After a scan launches, it frequently checks the scan status. If the scan finds at least one issue of medium severity, Bright CLI finishes with exit code 50.
+Arguments Argument Description &amp;lt;scan&amp;gt; The ID of an existing scan that you want to check. Options [block:parameters] { &amp;ldquo;data&amp;rdquo;: { &amp;ldquo;h-0&amp;rdquo;: &amp;ldquo;Option&amp;rdquo;, &amp;ldquo;h-1&amp;rdquo;: &amp;ldquo;Description&amp;rdquo;, &amp;ldquo;0-0&amp;rdquo;: &amp;ldquo;--token=apiKey, -t=apiKey&amp;rdquo;, &amp;ldquo;0-1&amp;rdquo;: &amp;ldquo;The unique identifier used to authenticate a user.</description>
+    </item>
+    
+    <item>
+      <title>Command Language Syntax</title>
+      <link>https://example.com/using-bright-cli/command-list/command-language-syntax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/using-bright-cli/command-list/command-language-syntax/</guid>
+      <description>The Bright CLI accepts a wide variety of configuration options. You can run nexploit-cli --help command for comprehensive documentation. The configuration options and arguments in the command line must be passed after the program command that the Bright CLI is executing.
+nexploit-cli &amp;lt;command&amp;gt; [option] [&amp;lt;argument&amp;gt;] Most commands and some options have aliases. Aliases are shown in the syntax statement for each command. The option names are prefixed with a double dash (&amp;ndash;).</description>
+    </item>
+    
+    <item>
+      <title>Command List</title>
+      <link>https://example.com/using-bright-cli/command-list/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/using-bright-cli/command-list/</guid>
+      <description>This section describes how to use the Bright CLI commands. See nexploit-cli --help for all available options.
+Command Language Syntax Running a Scan Checking Scan Status Stopping a Scan Retesting a Scan Uploading an Archive Generating an Archive with NexMock Initializing the Repeater Testing Network Connectivity Integrating with an On-Premises Ticketing Service </description>
+    </item>
+    
+    <item>
+      <title>Configuration Files</title>
+      <link>https://example.com/using-bright-cli/configuration-files/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/using-bright-cli/configuration-files/</guid>
+      <description>Any configuration option that can be set via the command line can also be specified in the nexploit section of your package.json or within a separate configuration file. A variety of configuration files can be used, as described in the following table. You can set your configurations in any of the files listed in the table or from the command line.
+File Name FileType .nexploit JSON .nexploit.json JSON .nexploit.yaml YAML .</description>
+    </item>
+    
+    <item>
+      <title>Generating an Archive with NexMock</title>
+      <link>https://example.com/using-bright-cli/command-list/generating-an-archive-with-nexmock/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/using-bright-cli/command-list/generating-an-archive-with-nexmock/</guid>
+      <description>Supports the latest NexMock API and provides additional features to help you generate HAR files during CI/CD workflows with ease.
+In addition, this command has the ability to split NexMock files in to multiple .HAR files. For this purpose, you can specify the --split option, which accepts the number of pieces in to which to split.
+For example:
+nexploit-cli archive:generate --output archive.har --target url-tested-application --header &amp;#34;Authorization: Bearer my-jwt-authentication-token&amp;#34; --split 4 .</description>
+    </item>
+    
+    <item>
+      <title>Getting Started</title>
+      <link>https://example.com/using-bright-cli/getting-started-with-bright-cli/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/using-bright-cli/getting-started-with-bright-cli/</guid>
+      <description>The Bright CLI offers a wide range of capabilities that can be combined to suit your specific needs and purposes. This guide is designed to make your work with the Bright CLI more efficient and task-oriented. Simply select the purpose (use case) that is relevant to you most to get the instructions for this particular case.
+What are you trying to achieve? Security scanning as self-service
+It’s my first time using a DAST tool.</description>
+    </item>
+    
+    <item>
+      <title>Initializing the Repeater</title>
+      <link>https://example.com/using-bright-cli/command-list/initializing-the-repeater/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/using-bright-cli/command-list/initializing-the-repeater/</guid>
+      <description>This command initializes the Repeater mode: nexploit-cli repeater [options]. When a scan is run in the Repeater mode, all the scan requests are pulled from the cloud through a Repeater (scan proxy) to the local target of the scan.
+The Repeater mode enables you to run the Bright scans on a local compiled application, without exposing your ports externally. This means that you can scan an application without having to deploy it or to generate external reports.</description>
+    </item>
+    
+    <item>
+      <title>Installation Guide</title>
+      <link>https://example.com/using-bright-cli/installation-options/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/using-bright-cli/installation-options/</guid>
+      <description>Each major Bright version release is accompanied by a correlating Bright CLI version that supports it. To enjoy the full functionality of the Bright CLI, we recommend that you periodically check for a new version of the CLI and reinstall it if needed. Thus, you will also avoid potential errors that may be caused by some critical changes issued with a release.
+To install the Bright CLI for the first time and reinstall it to update the version, use the installation options given below.</description>
+    </item>
+    
+    <item>
+      <title>Integrating with an On-Premise Ticketing Service</title>
+      <link>https://example.com/using-bright-cli/command-list/integrating-with-a-service/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/using-bright-cli/command-list/integrating-with-a-service/</guid>
+      <description>This command that connects Bright with a ticketing service deployed on a local server (currently only the On-Premise Jira is supported): nexploit-cli integration [options]. The repositories of the connected service can then be integrated with the Bright projects to be used as endpoints for scan reports (details of detected security vulnerabilities).
+For more information about the integration capabilities, see Ticketing Integrations.
+Script Example
+nexploit-cli integration --access-key $INTEGRATION_ACCESS_KEY --base-url https://your-cluster.atlassian.net --user $USERNAME --password $PASSWORD --token $API_TOKEN 📘 Notes</description>
+    </item>
+    
+    <item>
+      <title>Media</title>
+      <link>https://example.com/using-bright-cli/media-6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/using-bright-cli/media-6/</guid>
+      <description>[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/8ce3221-help-icon.png&amp;rdquo;, &amp;ldquo;help-icon.png&amp;rdquo;, 33, 31, &amp;ldquo;#3e4a50&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/4b2454a-bi_arrow-right_1.png&amp;rdquo;, &amp;ldquo;bi_arrow-right (1).png&amp;rdquo;, 24, 24, &amp;ldquo;#4f6068&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/8f4b3de-npm.png&amp;rdquo;, &amp;ldquo;npm.png&amp;rdquo;, 151, 59, &amp;ldquo;#e49999&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/0388225-GitHub-Logo.png&amp;rdquo;, &amp;ldquo;GitHub-Logo.png&amp;rdquo;, 800, 209, &amp;ldquo;#222222&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.</description>
+    </item>
+    
+    <item>
+      <title>Retesting a Scan</title>
+      <link>https://example.com/using-bright-cli/command-list/retesting-a-scan-1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/using-bright-cli/command-list/retesting-a-scan-1/</guid>
+      <description>This command re-runs a scan by ID using the same configuration: nexploit-cli scan:retest [options] &amp;lt;scan id&amp;gt;.
+Arguments Argument Description &amp;lt;scan id&amp;gt; The ID of an existing scan that you want to re-run Options [block:parameters] { &amp;ldquo;data&amp;rdquo;: { &amp;ldquo;h-0&amp;rdquo;: &amp;ldquo;Option&amp;rdquo;, &amp;ldquo;h-1&amp;rdquo;: &amp;ldquo;Description&amp;rdquo;, &amp;ldquo;0-0&amp;rdquo;: &amp;ldquo;--token=apiKey, -t=apiKey&amp;rdquo;, &amp;ldquo;0-1&amp;rdquo;: &amp;ldquo;The unique identifier used to authenticate a user. The token (API key) can be issued in your organization’s dashboard.&amp;rdquo;, &amp;ldquo;1-0&amp;rdquo;: &amp;ldquo;--config=pathToConfig&amp;rdquo;, &amp;ldquo;1-1&amp;rdquo;: &amp;ldquo;Specifies the path to the configuration file.</description>
+    </item>
+    
+    <item>
+      <title>Running a Scan</title>
+      <link>https://example.com/using-bright-cli/command-list/running-a-scan/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/using-bright-cli/command-list/running-a-scan/</guid>
+      <description>This command enables you to specify one or more discovery strategies. For example, using the --crawler option and/or the generated .HAR files, separately or concurrently. This means that you can handle client-side dynamic content, JavaScript, and so on.
+📘 Note
+If the maximum number of scans that can be run simultaneously is exceeded, the scan is placed in the queue. The concurrent scans limitation can be set either for the entire organization or for this particular project in the project settings.</description>
+    </item>
+    
+    <item>
+      <title>Scanning as Part of CI Pipeline</title>
+      <link>https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-as-part-of-ci-pipeline/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-as-part-of-ci-pipeline/</guid>
+      <description>This guide is designed for organizations and development teams that want to make security scanning an integral part of their Software Development Life Cycle (SDLC) using the Bright CLI.
+If you want to get more information about the Bright CLI purpose and features, see About Bright CLI.
+You can integrate Bright with your CI pipeline to automatically run a scan on every new build made to your application or API. Both scanning of a publicly-exposed target and a target in a private environment are available.</description>
+    </item>
+    
+    <item>
+      <title>Scanning at the Enterprise Level</title>
+      <link>https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-at-the-enterprise-level/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-at-the-enterprise-level/</guid>
+      <description>This guide is designed to match the needs of the following users:
+An organization that needs to scan targets within their local network, but cannot open a port in the firewall for inbound traffic. An organization that needs to scan multiple targets of different teams in their private environments, without exposing the targets externally. If you have not found your situation in the list above, please check out other use cases in the Getting Started section.</description>
+    </item>
+    
+    <item>
+      <title>Security Scanning as Self-Service</title>
+      <link>https://example.com/using-bright-cli/getting-started-with-bright-cli/security-scanning-as-self-service/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/using-bright-cli/getting-started-with-bright-cli/security-scanning-as-self-service/</guid>
+      <description>This guide is designed to match the needs of the following users:
+Users who decided to try the Bright CLI for the first time and want to run a simple scan to see how it works. Developers who need to run security scans against a target on their own local machine. There is no need for deployment, they can scan whenever they need it, throughout the development process. If you have not found your situation in the list above, please check out other use cases in the Getting Started section.</description>
+    </item>
+    
+    <item>
+      <title>Stopping a Scan</title>
+      <link>https://example.com/using-bright-cli/command-list/stopping-a-scan/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/using-bright-cli/command-list/stopping-a-scan/</guid>
+      <description>This command stops a scan by its ID: nexploit-cli scan:stop [options] &amp;lt;scan id&amp;gt;.
+Arguments Argument Description &amp;lt;scan id&amp;gt; The ID of an existing scan that you want to stop Options [block:parameters] { &amp;ldquo;data&amp;rdquo;: { &amp;ldquo;h-0&amp;rdquo;: &amp;ldquo;Option&amp;rdquo;, &amp;ldquo;h-1&amp;rdquo;: &amp;ldquo;Description&amp;rdquo;, &amp;ldquo;0-0&amp;rdquo;: &amp;ldquo;--token=apiKey, -t=apiKey&amp;rdquo;, &amp;ldquo;0-1&amp;rdquo;: &amp;ldquo;The unique identifier used to authenticate a user. The token (API key) can be issued in your organization’s dashboard.&amp;rdquo;, &amp;ldquo;1-0&amp;rdquo;: &amp;ldquo;--config=pathToConfig&amp;rdquo;, &amp;ldquo;1-1&amp;rdquo;: &amp;ldquo;Specifies the path to the configuration file.</description>
+    </item>
+    
+    <item>
+      <title>Testing Network Connectivity</title>
+      <link>https://example.com/using-bright-cli/command-list/testing-network-connectivity/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/using-bright-cli/command-list/testing-network-connectivity/</guid>
+      <description>This command allows you to detect any connectivity problems when scanning a target hosted on your local network: nexploit-cli configure. Also, it can be used to diagnose the connectivity when you run a scan via the local Repeater. This enables you to preliminary check if the Repeater can reach all the local targets. You will be able to reveal and fix the connectivity problems before you run a scan.
+The command initializes the network testing wizard.</description>
+    </item>
+    
+    <item>
+      <title>Troubleshooting Repeater</title>
+      <link>https://example.com/using-bright-cli/repeater-troubleshooting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/using-bright-cli/repeater-troubleshooting/</guid>
+      <description>Connectivity test In order to scan a target on a local network in the Repeater mode, you first need to make sure that a registered (created) Repeater has a proper access to the target.
+You can use the nexploit-cli configure command to run a simple connectivity testing process.
+Prerequisites The machine on which the Repeater will be run must have the latest version of the Bright CLI. A valid API key (Repeater API Token) with the following scopes: bot, scans:run, scans:read, scans:stop.</description>
+    </item>
+    
+    <item>
+      <title>Uploading an Archive</title>
+      <link>https://example.com/using-bright-cli/command-list/uploading-an-archive/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/using-bright-cli/command-list/uploading-an-archive/</guid>
+      <description>If an archive with that name already exists, the following error message displays this message: The file with that name already exists or the HAR file is corrupted.
+🚧 Important
+If you plan to run a scan using an OAS file, you must specify a different discovery option by setting the --discovery to OAS.
+Arguments Argument Description A collection of your app http/websockets logs exported into a .HAR file. Typically, you can use any browser&amp;rsquo;s dev tools, Bright&amp;rsquo;s browser extension, or a Cypress plugin to generate them.</description>
+    </item>
+    
+  </channel>
+</rss>

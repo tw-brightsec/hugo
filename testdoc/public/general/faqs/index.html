@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>FAQs - Brightsec</title>
+<meta name="generator" content="Hugo 0.109.0">
+<link href="https://example.com/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://example.com/general/faqs/">
+<link rel="stylesheet" href="https://example.com/css/theme.min.css">
+<link rel="stylesheet" href="https://example.com/css/chroma.min.css">
+<script defer src="https://example.com/js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://example.com/js/bundle.js"></script><style>
+:root {--custom-font-color: black;--custom-background-color: white;}
+</style>
+<meta property="og:title" content="FAQs" />
+<meta property="og:description" content="Data security What kind of information does Bright access during a scan? During a scan, Bright collects both application data and user data, which are used as part of the scan:
+Application Data – Refers to anything related to the application structure and functionality, such as parameter names and object structures. Collectively, this information is used to determine the application&rsquo;s attack surface. User Data – Refers to specific user information, such as parameter values or authentication data." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/general/faqs/" /><meta property="og:image" content="https://example.com/images/og-image.png"/><meta property="article:section" content="General" />
+
+<meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.com/images/og-image.png"/>
+
+<meta name="twitter:title" content="FAQs"/>
+<meta name="twitter:description" content="Data security What kind of information does Bright access during a scan? During a scan, Bright collects both application data and user data, which are used as part of the scan:
+Application Data – Refers to anything related to the application structure and functionality, such as parameter names and object structures. Collectively, this information is used to determine the application&rsquo;s attack surface. User Data – Refers to specific user information, such as parameter values or authentication data."/>
+<meta itemprop="name" content="FAQs">
+<meta itemprop="description" content="Data security What kind of information does Bright access during a scan? During a scan, Bright collects both application data and user data, which are used as part of the scan:
+Application Data – Refers to anything related to the application structure and functionality, such as parameter names and object structures. Collectively, this information is used to determine the application&rsquo;s attack surface. User Data – Refers to specific user information, such as parameter values or authentication data.">
+
+<meta itemprop="wordCount" content="3074"><meta itemprop="image" content="https://example.com/images/og-image.png"/>
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>Brightsec</h1><span class="version">Version 0.9.9</span><a href="https://github.com/thingsym/hugo-theme-techdoc" class="github"><i class="fab fa-github"></i></a>
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li id="home" class=""><a href="/">Home</a></li>
+<li id="changelog" class="twitter-menu-item"><a href="/changelog">Changelog</a></li></ul>
+</nav>
+</div>
+
+<div class="content-container">
+<main><h1>FAQs</h1>
+<h2 id="data-security">Data security</h2>
+<h3 id="what-kind-of-information-does-bright-access-during-a-scan">What kind of information does Bright access <strong>during</strong> a scan?</h3>
+<p>During a scan, Bright collects both application data and user data, which are used as part of the scan:</p>
+<ul>
+<li>Application Data – Refers to anything related to the application structure and functionality, such as parameter names and object structures. Collectively, this information is used to determine the application&rsquo;s attack surface.</li>
+<li>User Data – Refers to specific user information, such as parameter values or authentication data. This information is used to improve the scan quality and results, as well as to identify parameter types and automatically log in, as needed.</li>
+</ul>
+<h3 id="what-kind-of-information-does-bright-store-after-a-scan">What kind of information does Bright store <strong>after</strong> a scan?</h3>
+<p>Bright cloud engine does not store the customer’s user data after the scan. User data obtained during a scan is stored solely in memory and is deleted as the scan ends. Application data is stored anonymously after a scan in order to improve Bright’s machine learning engines.</p>
+<p>In addition, Bright stores scan results after a scan. This data is not directly available to Bright unless the customer shares it with Bright.</p>
+<h3 id="how-does-bright-ensure-data-security-and-privacy">How does Bright ensure data security and privacy?</h3>
+<p>At Bright the security and privacy of our customers are our top priority. Our cloud engine does not retain or store any customer information. Private data is temporarily in memory and deleted after the scan ends. We follow the industry&rsquo;s best practices in managing data, including but not limited to encryption, access regulations, and data separation (private separate instance for each scan per client).</p>
+<h3 id="your-clients-generate-data-as-they-use-your-solutions-what-part-of-that-information-are-you-exposed-to">Your clients generate data as they use your solutions, what part of that information are you exposed to?</h3>
+<p>Bright is a SaaS based product, the traffic requires a communication channel between the Bright engine and scanned target. However, that channel is controlled by the customer, Bright does not have access to the channel traffic (private data) generated during the scan such as: found issues, private user data, and others.</p>
+<p>Required sensitive data generated or used during a scan is temporarily stored in run-time memory, and is deleted at the scan conclusion.</p>
+<h3 id="will-bright-share-the-finding-reports-with-anyone-else">Will Bright share the finding reports with anyone else?</h3>
+<p>No. Only the customer has access to their reports. Customers can choose to download reports or to use them within our system. Customers have complete control over access permissions to these reports.</p>
+<p>Be aware that once scans are removed from the system, they are permanently deleted. This means that after scans are removed from the system, Bright has no access to them and cannot restore the deleted information.</p>
+<h3 id="why-arent-there-any-false-positives">Why aren’t there any false positives?</h3>
+<p>Bright solutions do not simply scan, but rather interact with the target application. This means that every reported vulnerability is validated in real time. If a vulnerability cannot be validated, it is not reported, thereby saving you from unnecessary noise and hours of manual labor.</p>
+<h3 id="will-bright-have-access-to-the-vulnerabilities-issues-that-it-detects-in-my-applications">Will Bright have access to the vulnerabilities (issues) that it detects in my applications?</h3>
+<p>A Bright representative cannot access your scan results without your permission. If support is needed, then an organization’s owner can invite a Bright engineer to access your vulnerabilities in order to provide support.</p>
+<h2 id="before-scanning">Before scanning</h2>
+<h3 id="what-are-the-pre-conditions--technical-steps--requirements-to-scan-an-application-with-bright">What are the pre-conditions / technical steps / requirements to scan an application with Bright?</h3>
+<p>To scan your application, Bright requires access to the target, which means  that you need to:</p>
+<ol>
+<li>Select the target you want to scan (make sure our SaaS environment has access to it).<br>
+For internal targets (within your private environment), please add our <a href="/docs/saas-deployment#before-you-begin">static IP address</a> to allowlist on your WAF / firewall.</li>
+<li>Select a discovery method (Crawler, HAR recording or OpenAPI schema).</li>
+<li>Provide a URL to the target, .HAR file or OpenAPI schema respectively to initiate the scan.<br>
+For more information, see <a href="/docs/quickstart">Quickstart</a>.</li>
+</ol>
+<h3 id="what-is-a-target-what-constitutes-a-target-for-brights-solutions">What is a target? What constitutes a target for Brights solutions?</h3>
+<p>A target is a website, web application, server or network device that you would like to scan for security vulnerabilities using one of the other Bright solutions.</p>
+<h2 id="scanning">Scanning</h2>
+<h3 id="do-the-scans-need-to-be-operated-manually">Do the scans need to be operated manually?</h3>
+<p>They can be run manually, however we recommend that for optimal efficiency they either be run as part of the SDLC component, using a REST API hook to call a scan, or automatically by configuring a scanning schedule.</p>
+<h3 id="how-much-time-does-a-scan-usually-take">How much time does a scan usually take?</h3>
+<p>Scan time depends on several key factors:</p>
+<ul>
+<li>Size of the target application, or in other words: how big is the attack surface?</li>
+<li>Intensity of the scan, or in other words: how many requests per second are sent to the target?<br>
+From our experience, a medium-size application that is being scanned with a low-level intensity can take a few hours. Contact our support to learn how to optimize a scan strategy to best fit your needs, and yes, it is possible to do a scan in only a few minutes!</li>
+</ul>
+<h3 id="how-many-scans-is-it-possible-to-run">How many scans is it possible to run?</h3>
+<p>The number of scans is not limited, however each concurrency is limited to 1 scan at a time with others going in to a queue and starting after the first completes.</p>
+<h3 id="we-have-different-branches-of-the-application---how-do-we-deal-with-that">We have different branches of the application - how do we deal with that?</h3>
+<p>Since we are using dynamic testing, interacting with a live (running) application, it doesn&rsquo;t matter to our products how many / which branches an application is using. We are testing the application as a whole, including any sub-applications or microservices it might use. That being said, you have full control of the scope of the scan, and can decide not to scan certain parts of an application. If developers want to only test specific parts of their code they can test those parts using a .HAR file.</p>
+<h3 id="what-do-you-test-related-to-graphql-what-is-bright-approach-to-this">What do you test related to GraphQL? What is Bright approach to this?</h3>
+<p>As an alternative to REST, GraphQL lets developers get data from multiple data sources with a single query. If implemented and tested properly, GraphQL is an extremely elegant methodology for data retrieval, where “if implemented and TESTED properly” is the key condition to be met. Otherwise, GraphQL may turn in to a source of critical security vulnerabilities.</p>
+<p>Bright allows you to test your GraphQL for any potential vulnerabilities as part of a .<a href="/docs/scanning-with-a-har">HAR file</a> or a <a href="/docs/scanning-api-endpoints">Postman collection</a>. When scanning GraphQL endpoints inside a Postman collection, a user must specify all required environmental variables (types, fields, mutations, and so on). This will enable Bright to fully determine the scan surface and reach complete scan coverage of the target. The variables are usually specified during scan configuration. To learn more about the Postman configuration validation, read <a href="/docs/troubleshooting#postman-schema-validation-checklist">here</a>.</p>
+<p>One of the biggest benefits of Bright is that you can deploy full depth parsing, meaning that you can parse varying interactive definitions (in this case, a good example would be an XML object inside a GraphQL query). To put it simply, Bright parses the input parameters and tries to manipulate them as an attacker would do. Any type of parameters can be parsed by Bright.</p>
+<p>In the following example, such parameters will be <code>username</code>, <code>new_password</code>, <code>reset_token</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>mutation ResetPassword {
+</span></span><span style="display:flex;"><span>  passwordReset(input: {username:&#34;Helena_Simonis&#34;, new_password: &#34;RTest!&#34;, reset_token:{gt:&#34;&#34;}}) {
+</span></span><span style="display:flex;"><span>    username
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The API backend queries the database to check if the token was correct, directly passing the username and reset token values that haven’t been properly checked from the input. If the input is not properly validated, the attacker can reset the password and get access to secret data, or even change it.</p>
+<p>This is only one example of the attacks that can be executed on your GraphQL. To learn about the most common GraphQL security attacks and best practices, read our <a href="https://brightsec.com/blog/graphql-security/?utm_content=182132619&amp;utm_medium=social&amp;utm_source=twitter&amp;hss_channel=tw-904376285635465217">blog post</a>. For more information about GraphQL, refer to the <a href="https://graphql.org/learn/">GraphQL documentation</a>.</p>
+<h2 id="scanning-apis">Scanning APIs</h2>
+<h2 id="how-to-make-sure-the-api-file-is-formatted-correctly">How to make sure the API file is formatted correctly?</h2>
+<p>API specifications (swagger or postman collection) have specific formatting guidelines that they must follow. You can check your swagger files for compatibility using editor.swagger.io and for postman collections you should use the postman software which can be downloaded from <a href="https://www.postman.com/">www.postman.com</a>.</p>
+<h2 id="scanning-with-a-har">Scanning with a .HAR</h2>
+<h3 id="what-is-the-purpose-of-a-har-file">What is the purpose of a .HAR file?</h3>
+<p>A .HAR file (HTTP Archive) is a recording of the traffic between a client and a server of an application, which includes requests and responses. But it is possible to start a scan with other methods as well such as a Crawler, and OpenAPI/Swagger schema or directly from Unit Testing.</p>
+<p>Using a .HAR file provides us with several key benefits:</p>
+<ul>
+<li>Provides our solutions with a full understanding of a modern application&rsquo;s structure and parameters</li>
+<li>Gives our solution real context understanding of the target (what data is expected by the application)</li>
+<li>Allows you to have full control of the scope of the scan<br>
+To learn how to create a .HAR file, watch <a href="https://www.youtube.com/watch?v=HMpBQ7JkxHI&amp;t=1s">our video</a>.</li>
+</ul>
+<h3 id="i-ran-two-scans-against-the-same-target-but-the-number-of-discovered-entry-points-were-very-different-how-can-you-explain-the-difference">I ran two scans against the same target, but the number of discovered entry-points were very different. How can you explain the difference?</h3>
+<p>When scanning the same application with the same attack surface, there should be the same scan results. However, there may be differences between two separate scans that affect the attack surface.</p>
+<p>The most common issue is authentication (&ldquo;dead session&rdquo;). If you used an <a href="https://docs.neuralegion.com/docs/creating-an-authentication-object-in-nexploit">authentication object</a> for a scan, the difference in the number of entry-points might be caused by expired credentials. In that case, the attack surface was not defined completely for the second scan, since the engine couldn’t access the authenticated parts of the target. Another reason why some entry-points could not be found during another scan is the network connectivity issues. Please verify that the connection to the network wasn’t lost.</p>
+<p>Other possibilities include:</p>
+<ul>
+<li>Changes to the application itself (code). The entry-points detected during the first scan no longer exist on the target.</li>
+<li>Changes to the application environment (configuration, network, etc.). Bright allows configuring the limit to entry-point response duration, which is 1000 ms by default. If the response takes longer than the predefined time (for example, due to some target configuration changes), Bright will skip that entry-point. You can change the limit in the <strong>Scan Targets</strong> tab of the <strong>New Scan</strong> window, but this will affect the scan speed.</li>
+</ul>
+<h3 id="i-ran-two-scans-against-the-same-target-but-the-number-of-detected-security-issues-were-very-different-how-can-you-explain-the-difference">I ran two scans against the same target, but the number of detected security issues were very different. How can you explain the difference?</h3>
+<p>When scanning the same application with the same attack surface, there should be the same scan results. However, there may be differences between two separate scans that affect the attack surface.</p>
+<ul>
+<li>First, you should compare the number of entry-points discovered during the scans.<br>
+If the number is different, it means that the issues located in the omitted entry-points were not counted. See the previous question to learn why the number of entry-points might be different.</li>
+<li>If the number of entry-points is the same, you should consider the reason that some issues had already been fixed before the second scan was run.</li>
+</ul>
+<h3 id="if-i-have-a-large-application-can-i-automate-the-har-recording-process">If I have a large application, can I automate the .HAR recording process?</h3>
+<p>Yes, you can use QA automation or Proxy tools to record .HAR files automatically. In addition, you can add a Crawler to your scan that will fill in the missing parts of the target application that were not covered in the session recording. However, the interactions from the Crawler are not saved in the .HAR file.</p>
+<p>A single .HAR file is limited to 500MB, so it is recommended to split scans of big applications in to several separate sessions. To learn how to create a .HAR file, watch <a href="https://www.youtube.com/watch?v=HMpBQ7JkxHI&amp;t=1s">our video</a>.</p>
+<h3 id="what-is-the-maximum-allowed-storage-for-uploaded-har-files-in-your-platform">What is the maximum allowed storage for uploaded .HAR files in your platform?</h3>
+<p>Default user storage is 200Mb, this can be increased if needed by contacting our support.</p>
+<h2 id="private-cloud-deployment">Private cloud deployment</h2>
+<h3 id="will-using-a-private-cloud-mean-that-i-dont-need-to-use-the-repeater">Will using a private cloud mean that I don’t need to use the Repeater?</h3>
+<p>If the only reason for using the Repeater is to control network flow, and if a site2site VPN tunnel can be created that enables full access from the private cloud to the organization’s network, then the Repeater is not needed. Otherwise, the Repeater is still needed in order to enable secure access to a local target from the cloud.</p>
+<h3 id="do-i-still-need-to-use-allowlist-in-my-firewall-if-i-have-a-private-cloud">Do I still need to use allowlist in my firewall if I have a private cloud?</h3>
+<p>Yes, you must use allowlist in your firewall with a private cloud, unless a site-to-site VPN is configured and used.</p>
+<h3 id="can-i-use-a-private-data-center-instead-of-a-private-cloud">Can I use a private data center instead of a private cloud?</h3>
+<p>You cannot use a private data center instead of a private cloud. This option is not supported at this time.</p>
+<h2 id="scanning-targets-in-a-private-environment">Scanning targets in a private environment</h2>
+<h3 id="our-servers-are-internal-without-any-external-access-how-can-i-connect-to-bright-solutions">Our servers are internal without any external access. How can I connect to Bright solutions?</h3>
+<p>Our solutions are SaaS based, all traffic to and from it requires an open communication channel between the scan engine and the scanned target.</p>
+<p>For internal systems, you can use the <a href="/docs/on-premises-repeater-local-agent">Repeater (local proxy agent)</a> that can be installed to relay the scan traffic to and from the target.</p>
+<h3 id="our-application-has-a-firewall---can-bright-solutions-work-with-this">Our application has a firewall - can Bright solutions work with this?</h3>
+<p>Yes, you need to open a port for our <a href="/docs/saas-deployment#before-you-begin">static IP address</a> and configure the firewall to allow-list it.</p>
+<h3 id="can-i-integrate-bright-solutions-with-my-cicd-pipeline-do-they-have-an-automatic-mode">Can I integrate Bright solutions with my CI/CD pipeline? Do they have an automatic mode?</h3>
+<p>Yes, Bright can be integrated with many popular SDLC tools and frameworks. In addition, Bright provides a REST API to set automatic slots for scans without a need for manual intervention.</p>
+<p>Find more information on the available integrations <a href="/docs/integrate-nexploit-with-your-ci-pipeline">here</a>.</p>
+<h3 id="what-is-the-maintenance--patching-frequency-for-the-repeater">What is the maintenance / patching frequency for the Repeater?</h3>
+<p>The Bright engine does not require any maintenance or patching from the client side. It is in the cloud and therefore is always updated automatically.</p>
+<p>The Repeater does require periodic updates. These can be performed either manually (using a simple CLI update command) or automatically (if the Repeater is installed during a build as part of the CI process).</p>
+<h3 id="can-i-use-a-single-machine-with-the-repeater-in-order-to-access-multiple-internal-targets">Can I use a single machine with the Repeater in order to access multiple internal targets?</h3>
+<p>Yes, on the condition that the local machine on which the Repeater is installed has access to the internal applications. In this case, multiple scans can be performed using the same Repeater.</p>
+<p>In addition, by installing the Repeater on a personal computer, it is possible to scan locally running applications. This is useful for developers who want to perform quick tests without deploying code.</p>
+<h3 id="can-i-use-one-bright-repeater-to-handle-several-concurrent-scans-or-do-i-have-to-have-a-dedicated-repeater-per-scan">Can I use one Bright Repeater to handle several concurrent scans or do I have to have a dedicated repeater per scan?</h3>
+<p>One Repeater can handle multiple scans concurrently. And a single Repeater can be used to connect to multiple Bright engines with distributed concurrent scans among the engines.</p>
+<h3 id="do-i-need-to-change-firewall--port-settings-for-the-repeater">Do I need to change firewall / port settings for the Repeater?</h3>
+<p>No. Using the Repeater does not require any changes to your network’s inbound traffic settings, because  all the generated traffic is based on outbound requests from inside the network.</p>
+<h3 id="i-have-a-firewall-between-various-internal-applications-how-do-i-handle-this">I have a firewall between various internal applications. How do I handle this?</h3>
+<p>You have the following options, to:</p>
+<ul>
+<li>Install a separate Repeater behind the relevant firewalls in order to avoid the need for allow-listing.</li>
+<li>Use open ports between the internal applications.</li>
+<li>Configure new ports for the Repeater.</li>
+</ul>
+<h3 id="will-a-firewall-affect-the-scan-results-or-add-false-positives">Will a firewall affect the scan results or add false positives?</h3>
+<p>The Repeater does not contain any complicated logic. All decision making and removal of false-positives using active validation is performed by the engine in the cloud. This means that all the computational and advanced algorithms are available to scans that use the Repeater, in the same way as for scans that are deployed as a SaaS or in the private cloud.</p>
+<h2 id="authentications">Authentications</h2>
+<h3 id="can-your-solution-automatically-login-to-the-application-again-how-do-you-deal-with-authentication">Can your solution automatically login to the application again? How do you deal with authentication?</h3>
+<p>Bright supports different <a href="/docs/creating-an-authentication-object-in-nexploit">types of authentication</a>. By creating an authentication object in the Bright App and connecting it to a scan, you enable Bright to access the authenticated resources within your applications and APIs.</p>
+<h3 id="how-to-deal-with-captcha-andor-one-time-passwords-otp-while-scanning">How to deal with CAPTCHA and/or one-time passwords (OTP) while scanning</h3>
+<p>During scanning, Bright sends hundreds of requests per minute to the target. If a request is rejected, Bright re-authenticates and continues the scan. The problem appears when the authentication form includes Captcha and/or OTP, which are dynamic by their nature and require “manual actions” (for example, submitting SMS and PIN codes, clicking emailed links or checkboxes for verification, and so on).</p>
+<p>Our engine must be able to re-authenticate automatically to maintain continuity of the scanning process, while Captchas and OTPs break this process.</p>
+<p>There are several solutions on how to set up Bright to properly authenticate and scan targets with Captchas and OTPs:</p>
+<ul>
+<li>If it’s possible, <strong>set OTP to static value</strong>, so Bright can use the same OTP every time in the authentication flow.</li>
+<li>When configuring an authentication object, you can <strong>use an internal login form</strong> that is uninhibited with Captchas/OTPs, for example, like a QA team may use.</li>
+<li>If there is some API call which Bright can use to get the token dynamically, then create a <strong>Custom API authentication object</strong> and retrieve that token dynamically.</li>
+<li>If your development team can create functionality to skip OTP provided that some kind of <strong>parameter is added to the URL as a URL query</strong>, Bright can use that too and <strong>incorporate it in the authentication object</strong>.</li>
+</ul>
+<h2 id="access-privileges">Access privileges</h2>
+<h3 id="are-there-different-user-rights--access-privileges-in-your-systems-how-are-they-configured">Are there different user rights / access privileges in your systems? How are they configured?</h3>
+<p>As an admin, you have full discretion to determine users, admins and other access roles, each has specific privileges. Bright allows you to create custom roles with different access scopes and assign them to new or existing users. Read more about managing user’s roles <a href="/docs/manage-custom-roles">here</a>.</p>
+<h2 id="sso">SSO</h2>
+<h3 id="how-does-a-user-login-for-the-first-time-in-an-org-with-active-sso">How does a user login for the first time in an org with active SSO?</h3>
+<p>The user should follow the link in the email invitation they have received, then click on “create user using email”, fill out their details on the next screen and then log in with their SSO service.</p>
+<h2 id="other">Other</h2>
+<h3 id="what-qa-testing-suite-do-you-integrate-with--import-from-besides-selenium">What QA testing suite do you integrate with / import from (besides Selenium)?</h3>
+<p>We can support any test suite that can export a .HAR file (HTTP archive), including Charles, Selenium, Appium, PhantomJS, and even unit testing.</p>
+<h3 id="what-kind-of-reports-can-i-get-from-bright">What kind of reports can I get from Bright?</h3>
+<p>Bright provides multiple reports, including but not limited to executive summaries and technical reports containing detailed explanations of findings, threats, and remedies.  As a SaaS product, all reports can be downloaded at any time by the client and are useful for developers, QAs, and CISOs to understand and fix the findings.</p>
+<div class="edit-meta">
+
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/General/faqs.md" class="edit-page"><i class="fas fa-pen-square"></i>&nbsp;Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://example.com/general/" title="Generals"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Generals</a>
+<a class="nav nav-next" href="https://example.com/general/privacy-policy/" title="Privacy Policy">Next - Privacy Policy <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://example.com">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://example.com/about-bright-dast/">About Bright DASTs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/">Deployment Options</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/private-cloud/">Private Cloud Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/on-premises-repeater-local-agent/">Repeater (Scan Proxy)</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/saas-deployment/">SaaS Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/introducing-to-bright/">What is Bright DAST?</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/accounting-and-billing/">Accounting and Billings<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/accounting-and-billing/about-accounting-and-billing/">About Accounting and Billing</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-history/">Managing Payment History</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-information/">Managing Payment Information</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-your-plan/">Managing Plan</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/advanced-integration-use-cases/">Advanced Integration Use Cases<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-integration-use-cases/integrating-a-bright-project-with-webhooks/">Integrating a Bright Project with Webhooks</a></li>
+<li class=""><a href="https://example.com/advanced-integration-use-cases/sending-detected-issues-to-jira-from-cicd-pipelines/">Sending Detected Issues from CI/CD Pipelines to Jira</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/advanced-setup-in-bright-app/">Advanced Setup in Bright Apps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/">Managing Access Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/managing-bright-file-storage/">Managing Bright File Storage</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-custom-roles/">Managing Custom Roles</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/">Managing Organization</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-groups/">Managing Organization Groups</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-users/">Managing Organization Users</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-personal-account/">Managing Personal Account</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-projects/">Managing Projects</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/manage-repeater-scripts/">Managing Repeater Scripts</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-repeaters/">Managing Repeaters</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/organization-api-key-scopes/">Organization API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/personal-api-key-scopes/">Personal API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/project-api-key-scopes/">Project API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/role-management-scopes/">Role Management Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/use-cases/">Use Cases</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/">Using Repeater Scripts</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/ci-pipeline-integrations/">CI Pipeline Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/azure-pipelines/">Azure Pipelines</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/circleci/">CircleCI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/github-actions/">GitHub Actions</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/gitlab/">GitLab</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/gitlab-integration-examples/">GitLab Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/">Integrating Bright with Your CI Pipeline</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/">Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jenkins/">Jenkins</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/jenkins-integration-examples/">Jenkins Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jfrog/">JFrog</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/team-city/">TeamCity</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/travis-ci/">Travis CI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/travis-ci-integration-examples/">Travis CI Integration Examples</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://example.com/general/">Generals<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://example.com/general/faqs/">FAQs</a></li>
+<li class=""><a href="https://example.com/general/privacy-policy/">Privacy Policy</a></li>
+<li class=""><a href="https://example.com/general/terms-of-use/">Terms of Use</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/getting-started-with-bright/">Getting Started with Brights<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/getting-started-with-bright/quick-tour-of-the-web-interface/">Quick Tour of the User Interface</a></li>
+<li class=""><a href="https://example.com/getting-started-with-bright/quickstart/">Quickstart</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/managing-authentications/">Managing Authentications<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-authentications/adding-your-authentication-object-to-a-scan/">Adding an Authentication Object to a Scan</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-an-authentication-object-in-bright/">Authentication Types</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-api-call-authentication/">Configuring API Call Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-multi-step-browser-based-form-authentication/">Configuring Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-custom-multi-step-authentication/">Configuring Custom API Authentication Flow</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-form-authentication/">Configuring Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-header-authentication-in-bright/">Configuring Header Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-ntlm-authentication/">Configuring NTLM Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-oidc-connect-oauth/">Configuring OIDC Connect (OAuth)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-recorded-browser-based-form-authentication/">Configuring Recorded Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configuring-recorded-browser-based-form-authentication-internal-copy/">Configuring Recorded Browser-Based Form Authentication (Internal Copy)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/">Creating Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/string-interpolation-syntax/">String Interpolation Syntax</a></li>
+<li class=""><a href="https://example.com/managing-authentications/troubleshooting-authentication-issues-internal/">Troubleshooting Authentication Issues</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/managing-scan-results/">Managing Scan Results<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-scan-results/deleting-a-scan/">Deleting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/exporting-a-scan/">Exporting a Scan Report</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/handling-discovered-issues/">Handling Discovered Issues</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/how-to-add-bright-to-the-waf-allowlist/">How to Add Bright to the WAF Allowlist</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/modifying-future-scan-settings/">Modifying Future Scan Settings</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/retesting-a-scan/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scans/">Reviewing All Scans</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-details/">Reviewing Scan Details</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-history/">Reviewing Scan History</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/troubleshooting-for-problematic-scans/">Troubleshooting Scans</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/pages-after-new-scan-dialog-analytics/">Pages after New scan dialog analytics<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/scanning-from-bright-app/">Scanning from Bright Apps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/configuring-an-api-schema-for-scanning/">Configuring an API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/creating-a-har-file/">Creating a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/creating-a-new-scan/">Creating a Scan</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/edit-an-uploaded-api-schema/">Editing an Uploaded API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/managing-scan-templates/">Managing Scan Templates</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/">Scanning API Endpoints</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/">Scanning with a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/crawler/">Scanning with a Crawler</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/troubleshooting/">Troubleshooting</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/sso-integrations/">SSO Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/azure-sso-and-provisioning/">Azure SSO and Provisioning</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/">Configuring Single Sign-On</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/google-sso/">Google SSO</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/okta-sso-and-provisioning/">Okta SSO and Provisioning</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/ticketing-integrations/">Ticketing Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ticketing-integrations/adding-ticketing-integration-to-a-project/">Adding Ticketing Integration to a Project</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/azure-boards/">Azure Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/github/">GitHub</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/gitlab-boards/">GitLab Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/">Integrating Bright with Your Ticketing System</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/jira/">Jira</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/slack/">Slack</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/using-bright-cli/">Using Bright CLI<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-cli/about-bright-cli/">About Bright CLI</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/checking-scan-status/">Checking Scan Status</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/command-language-syntax/">Command Language Syntax</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/">Command List</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/configuration-files/">Configuration Files</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/generating-an-archive-with-nexmock/">Generating an Archive with NexMock</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/">Getting Started</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/initializing-the-repeater/">Initializing the Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/installation-options/">Installation Guide</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/integrating-with-a-service/">Integrating with an On-Premise Ticketing Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/retesting-a-scan-1/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/running-a-scan/">Running a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-as-part-of-ci-pipeline/">Scanning as Part of CI Pipeline</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-at-the-enterprise-level/">Scanning at the Enterprise Level</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/security-scanning-as-self-service/">Security Scanning as Self-Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/stopping-a-scan/">Stopping a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/testing-network-connectivity/">Testing Network Connectivity</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/repeater-troubleshooting/">Troubleshooting Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/uploading-an-archive/">Uploading an Archive</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/using-bright-rest-api/">Using Bright REST APIs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-rest-api/about-bright-api/">About Bright API</a></li>
+<li class=""><a href="https://example.com/using-bright-rest-api/response-status-codes/">Response Status Codes</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/vulnerability-guide/">Vulnerability Guides<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/vulnerability-guide/vulnerability-guide/">Vulnerability Guide</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/welcome/">Welcomes<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/welcome/about-docs/">About Docs</a></li>
+<li class=""><a href="https://example.com/welcome/accessibility/">Accessibility</a></li>
+<li class=""><a href="https://example.com/welcome/support/">Support</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages after New scan dialog analytics on Brightsec</title>
+    <link>https://example.com/pages-after-new-scan-dialog-analytics/</link>
+    <description>Recent content in Pages after New scan dialog analytics on Brightsec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://example.com/pages-after-new-scan-dialog-analytics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Entry-Points</title>
+      <link>https://example.com/pages-after-new-scan-dialog-analytics/entry-points/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/pages-after-new-scan-dialog-analytics/entry-points/</guid>
+      <description>An Entry-point is a single logical interaction with the target application (such as visiting a page, submitting a form, etc). Bright defines the target attack surface as a collection of entry-points and the information in each entry-point enables the Bright engine to have a baseline of a valid interaction. With this information Bright can performs all the necessary tests and validations of the scan findings for the best results without false positives.</description>
+    </item>
+    
+    <item>
+      <title>Entry-Points Media</title>
+      <link>https://example.com/pages-after-new-scan-dialog-analytics/entry-points/entry-points-media/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/pages-after-new-scan-dialog-analytics/entry-points/entry-points-media/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Target Authorization</title>
+      <link>https://example.com/pages-after-new-scan-dialog-analytics/target-authorization/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/pages-after-new-scan-dialog-analytics/target-authorization/</guid>
+      <description>Target Authorization enables you to scan targets directly from the Bright cloud.
+It is mandatory to use target authorization if you intend to use scanning from the Bright cloud. There are several ways of authorization a target:
+Connect the Repeater: Add .nex file: file used to authorize the target (site, application, and so on) and prove that it is ready to be scanned directly from the Bright app. See Defining the Hosts Authorized for Scanning page to learn more.</description>
+    </item>
+    
+    <item>
+      <title>Websocket Scanning</title>
+      <link>https://example.com/pages-after-new-scan-dialog-analytics/websocket-scanning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/pages-after-new-scan-dialog-analytics/websocket-scanning/</guid>
+      <description>WebSocket is an async protocol, which can be used for real-time communication. Websocket updates are sent immediately when they are available, while in HTTP(S) you have to constantly request updates.
+📘 Websocket scanning is only available with pre-recorded HAR file. See Scanning with a HAR to learn more about this type of scanning.
+To make sure the system will define the connection between a outgoing-incoming frame pairs, a unique identifier is used.</description>
+    </item>
+    
+  </channel>
+</rss>

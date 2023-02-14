@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Sending Detected Issues from CI/CD Pipelines to Jira - Brightsec</title>
+<meta name="generator" content="Hugo 0.109.0">
+<link href="https://example.com/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://example.com/advanced-integration-use-cases/sending-detected-issues-to-jira-from-cicd-pipelines/">
+<link rel="stylesheet" href="https://example.com/css/theme.min.css">
+<link rel="stylesheet" href="https://example.com/css/chroma.min.css">
+<script defer src="https://example.com/js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://example.com/js/bundle.js"></script><style>
+:root {--custom-font-color: black;--custom-background-color: white;}
+</style>
+<meta property="og:title" content="Sending Detected Issues from CI/CD Pipelines to Jira" />
+<meta property="og:description" content="You can configure your CI/CD pipeline to automatically run a Bright scan on every new build and check if a detected issue (vulnerability) is newly occurring or repeated. If the issue is new, Bright will send the details to Jira to open a corresponding issue ticket.
+To integrate your CI/CD pipeline with Bright to automatically run a scan on every new build, see Integrate Bright with Your CI Pipeline.
+In this section, you will find the instructions on how to configure a script to check if a detected issue was found previously and only send new issues to Jira." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/advanced-integration-use-cases/sending-detected-issues-to-jira-from-cicd-pipelines/" /><meta property="og:image" content="https://example.com/images/og-image.png"/><meta property="article:section" content="Advanced Integration Use Cases" />
+
+<meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.com/images/og-image.png"/>
+
+<meta name="twitter:title" content="Sending Detected Issues from CI/CD Pipelines to Jira"/>
+<meta name="twitter:description" content="You can configure your CI/CD pipeline to automatically run a Bright scan on every new build and check if a detected issue (vulnerability) is newly occurring or repeated. If the issue is new, Bright will send the details to Jira to open a corresponding issue ticket.
+To integrate your CI/CD pipeline with Bright to automatically run a scan on every new build, see Integrate Bright with Your CI Pipeline.
+In this section, you will find the instructions on how to configure a script to check if a detected issue was found previously and only send new issues to Jira."/>
+<meta itemprop="name" content="Sending Detected Issues from CI/CD Pipelines to Jira">
+<meta itemprop="description" content="You can configure your CI/CD pipeline to automatically run a Bright scan on every new build and check if a detected issue (vulnerability) is newly occurring or repeated. If the issue is new, Bright will send the details to Jira to open a corresponding issue ticket.
+To integrate your CI/CD pipeline with Bright to automatically run a scan on every new build, see Integrate Bright with Your CI Pipeline.
+In this section, you will find the instructions on how to configure a script to check if a detected issue was found previously and only send new issues to Jira.">
+
+<meta itemprop="wordCount" content="2630"><meta itemprop="image" content="https://example.com/images/og-image.png"/>
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>Brightsec</h1><span class="version">Version 0.9.9</span><a href="https://github.com/thingsym/hugo-theme-techdoc" class="github"><i class="fab fa-github"></i></a>
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li id="home" class=""><a href="/">Home</a></li>
+<li id="changelog" class="twitter-menu-item"><a href="/changelog">Changelog</a></li></ul>
+</nav>
+</div>
+
+<div class="content-container">
+<main><h1>Sending Detected Issues from CI/CD Pipelines to Jira</h1>
+<p>You can configure your CI/CD pipeline to automatically run a Bright scan on every new build and check if a detected issue (vulnerability) is newly occurring or repeated. If the issue is new, Bright will send the details to Jira to open a corresponding issue ticket.</p>
+<p>To integrate your CI/CD pipeline with Bright to automatically run a scan on every new build, see <a href="/docs/integrate-nexploit-with-your-ticketing-system">Integrate Bright with Your CI Pipeline</a>.</p>
+<p>In this section, you will find the instructions on how to configure a script to check if a detected issue was found previously and only send new issues to Jira. Additionally, you can also send custom fields to Jira using the provided example.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ol>
+<li>You have already configured the integration of your CI/CD pipeline with Bright. For more information, see <a href="/docs/integrate-nexploit-with-your-ticketing-system">Integrate Bright with Your CI Pipeline</a>.</li>
+<li>You have copied the ID of the Project under which you are going to run scans (PROJECT_ID). You can find it on the <strong>Projects</strong> page of the <a href="https://app.neuralegion.com">Bright app</a>.</li>
+<li>You have copied the ID of the scan (SCAN_ID) which is run from the pipeline. You can find it on the <strong>Scans</strong> page of the <a href="https://app.neuralegion.com">Bright app</a>.</li>
+</ol>
+<h2 id="step-by-step-configuration">Step-by-step configuration</h2>
+<p>In this guide, we are using the Jenkins pipeline as an example.</p>
+<p>Here is a fully configured script. Below you will find the step-by-step configuration of it.</p>
+<pre tabindex="0"><code class="language-curl" data-lang="curl">pipeline {
+    agent any
+    tools {nodejs &#34;node&#34;}
+    stages {
+        stage(&#39;script&#39;) {
+            steps {
+                sh &#39;&#39;&#39;#!/bin/bash
+                #First we need to install jq(apt-get install jq)
+                jq --version
+                SCAN_ID=&#34;&#34;
+                PROJECT_ID=&#34;&#34;
+                echo &#34;Scan ID is: &#34; $SCAN_ID
+                echo &#34;Project ID is: &#34; $PROJECT_ID
+            
+                GET_ID=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].id&#39; )
+                ISSUES_ID_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_ID&#34;)
+                a=(); while read -r line; do a+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_ID_ARRAY&#34;; declare a;
+                
+                GET_OCCURRENCES=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/projects/&#39;$PROJECT_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].occurrences&#39;)
+                ISSUES_PROJECT_OCCURRENCES=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_OCCURRENCES&#34;)
+                l=(); while read -r line; do l+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_PROJECT_OCCURRENCES&#34;; declare l;
+                
+                GET_NAME=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].name&#39; )
+                ISSUES_NAME_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_NAME&#34;)
+                b=(); while read -r line; do b+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_NAME_ARRAY&#34;; declare b;
+                
+                GET_DETAILS=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].details&#39; )
+                ISSUES_DETAILS_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_DETAILS&#34;)
+                c=(); while read -r line; do c+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_DETAILS_ARRAY&#34;; declare c;
+                
+                GET_SEVERITY=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].severity&#39; )
+                ISSUES_SEVERITY_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_SEVERITY&#34;)
+                d=(); while read -r line; do d+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_SEVERITY_ARRAY&#34;; declare d;
+                
+                GET_EXPOSURE=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].exposure&#39; )
+                ISSUES_EXPOSURE_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_EXPOSURE&#34;)
+                f=(); while read -r line; do f+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_EXPOSURE_ARRAY&#34;; declare f;
+                
+                GET_CVSS=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].cvss&#39; )
+                ISSUES_CVSS_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_CVSS&#34;)
+                g=(); while read -r line; do g+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_CVSS_ARRAY&#34;; declare g; 
+
+                GET_CWE=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].cwe&#39; )
+                ISSUES_CWE_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_CWE&#34;)
+                h=(); while read -r line; do h+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_CWE_ARRAY&#34;; declare h;
+                
+                GET_REMEDY=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].remedy&#39; )
+                ISSUES_REMEDY_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_REMEDY&#34;)
+                r=(); while read -r line; do r+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_REMEDY_ARRAY&#34;; declare r;
+                
+                GET_TIME=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].time&#39; )
+                ISSUES_TIME_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_TIME&#34;)
+                s=(); while read -r line; do s+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_TIME_ARRAY&#34;; declare s;
+                
+                GET_PROJECTISSUES=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/projects/&#39;$PROJECT_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39;)
+    
+                echo &#34;We found ${#a[*]} vulnerabilities in this scan&#34;
+                echo &#34;We found  ${#l[*]} issues in this project and now we will filter them and send just new vulnerabilities to Jira&#34;
+                len=${#a[*]}
+                i=0
+                k=0
+                while [ $i -lt $len ]; do
+                    while [ $k -lt ${#l[*]} ]; do
+                        declare -A new=([$k]=&#34;$GET_PROJECTISSUES&#34;)
+                        ISSUES_PROJECT=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;${new[$k]} | jq &#39;.[&#39;$k&#39;].issueIds&#39;)
+                        o=(); while read -r line; do o+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_PROJECT&#34;; declare o;
+                        if [[ &#34; ${o[*]} &#34; =~ &#34;${a[$i]}&#34; ]]; then
+                            if [[ ${l[$k]} -lt 2 ]]; then
+                                echo &#34;____________________________________________________________________________________&#34;
+                                echo &#34;We have found this issue &#34; ${b[$i]} ${l[$k]} &#34; times in thid part of the website, so we will send it to the Jira.&#34;
+                                echo &#34;____________________________________________________________________________________&#34;
+                                jiraPost=$(curl -X &#39;POST&#39; &#39;http://192.168.56.1:8086/rest/api/2/issue/&#39; -u &#39;testing:testing&#39; --data &#39;{
+                                                                                                                      &#34;fields&#34;: {
+                                                                                                                                &#34;project&#34;:
+                                                                                                                                        {
+                                                                                                                                        &#34;key&#34;: &#34;JEN&#34;
+                                                                                                                                        },
+                                                                                                                                        &#34;summary&#34;: &#34;&#39;&#34;${b[$i]}&#34;&#39;&#34;,
+                                                                                                                                        &#34;description&#34;: &#34;DETAILS: &#39;&#34;${c[$i]}&#34;&#39;,\\nDISCOVERED: &#39;&#34;${s[$i]}&#34;&#39;,\\nSEVERITY: &#39;&#34;${d[$i]}&#34;&#39;,\\nEXPOSURE: &#39;&#34;${f[$i]}&#34;&#39;,\\nREMEDY: &#39;&#34;${r[$i]}&#34;&#39;,\\nCVSS: &#39;&#34;${g[$i]}&#34;&#39;,\\nCWE: &#39;&#34;${h[$i]}&#34;&#39;&#34;, 
+                                                                                                                                        &#34;issuetype&#34;: {
+                                                                                                                                                     &#34;name&#34;: &#34;Task&#34;
+                                                                                                                                                     },
+                                                                                                                                                     &#34;customfield_10300&#34;: &#34;Some Custom Value&#34;
+                                                                                                                                                }
+                                                                                                                                            }&#39; -H &#34;Content-Type: application/json&#34;)
+                                echo $jiraPost
+                            else
+                                echo &#34;We have found this issue &#34; ${b[$i]} ${l[$k]} &#34; times in this part of the website, so we will not send it to Jira&#34;
+                            fi
+                        fi
+                    let k++
+                    done
+                let i++
+                k=0
+                done
+                 &#39;&#39;&#39;
+            }
+        }
+    }
+}
+</code></pre><ol>
+<li>The first thing you need to do is to install <code>jq</code>. For that, use the <code>apt install jq</code> command.</li>
+<li>Validate the installation. For that, type <code>jq --version</code> in your Jenkins pipeline and see if you can get the version from <code>jq</code>.</li>
+<li>If you are going to run the script inside a scan (which is the best option), you only need to specify the PROJECT_ID that you used before for the scans against the same target and that you are currently using. Because when an issue is found during the scan, Bright will check if the same issue has been found previously in the project you defined. If the issue has already been found,  Bright will not send it to Jira. But if the issue is newly occurring, a corresponding issue ticket will be created in Jira.<br>
+If you want to test the script, enter the PROJECT_ID and SCAN_ID to run the script with these parameters.</li>
+</ol>
+<pre tabindex="0"><code class="language-curl" data-lang="curl">SCAN_ID=&#34;&#34;
+PROJECT_ID=&#34;&#34;
+echo &#34;Scan ID is: &#34; $SCAN_ID
+echo &#34;Project ID is: &#34; $PROJECT_ID
+</code></pre><ol start="4">
+<li>Send a request to a certain API end-point, all of them are given in the script, to get and parse the required issue data:</li>
+</ol>
+<ul>
+<li>Issue id (ID)</li>
+<li>Issue name (NAME)</li>
+<li>Issue details (DETAILS)</li>
+<li>Issue severity (SEVERITY)</li>
+<li>Exposure</li>
+<li>CVSS and CWE</li>
+<li>Remedy suggestions (REMEDY)</li>
+<li>Date and time (TIME) when the issue is found</li>
+<li>Occurrence frequency (OCCURANCES) - how many times the issue was found in the project.</li>
+<li>Project issues (PROJECTISSUES)</li>
+</ul>
+<p>After you get the issue data, put it in an array and remove the double quotes, as shown in the example below. Give each value an index in the array.</p>
+<pre tabindex="0"><code class="language-curl" data-lang="curl">GET_ID=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].id&#39; )
+ISSUES_ID_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_ID&#34;)
+a=(); while read -r line; do a+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_ID_ARRAY&#34;; declare a;
+            
+GET_OCCURRENCES=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/projects/&#39;$PROJECT_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].occurrences&#39;)
+ISSUES_PROJECT_OCCURRENCES=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_OCCURRENCES&#34;)
+l=(); while read -r line; do l+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_PROJECT_OCCURRENCES&#34;; declare l;
+            
+GET_NAME=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].name&#39; )
+ISSUES_NAME_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_NAME&#34;)
+b=(); while read -r line; do b+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_NAME_ARRAY&#34;; declare b;
+            
+GET_DETAILS=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].details&#39; )
+ISSUES_DETAILS_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_DETAILS&#34;)
+c=(); while read -r line; do c+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_DETAILS_ARRAY&#34;; declare c;
+            
+GET_SEVERITY=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].severity&#39; )
+ISSUES_SEVERITY_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_SEVERITY&#34;)
+d=(); while read -r line; do d+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_SEVERITY_ARRAY&#34;; declare d;
+            
+GET_EXPOSURE=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].exposure&#39; )
+ISSUES_EXPOSURE_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_EXPOSURE&#34;)
+f=(); while read -r line; do f+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_EXPOSURE_ARRAY&#34;; declare f;
+            
+GET_CVSS=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].cvss&#39; )
+ISSUES_CVSS_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_CVSS&#34;)
+g=(); while read -r line; do g+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_CVSS_ARRAY&#34;; declare g;
+
+GET_CWE=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].cwe&#39; )
+ISSUES_CWE_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_CWE&#34;)
+h=(); while read -r line; do h+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_CWE_ARRAY&#34;; declare h;
+             
+GET_REMEDY=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].remedy&#39; )
+ISSUES_REMEDY_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_REMEDY&#34;)
+r=(); while read -r line; do r+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_REMEDY_ARRAY&#34;; declare r;
+                
+GET_TIME=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].time&#39; )
+ISSUES_TIME_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_TIME&#34;)
+s=(); while read -r line; do s+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_TIME_ARRAY&#34;; declare s;
+                
+GET_PROJECTISSUES=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/projects/&#39;$PROJECT_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39;)
+</code></pre><ol start="5">
+<li>Print how much issues you found in the scan and in the project. Declare new variables and give them a value of 0 (i and k).</li>
+</ol>
+<pre tabindex="0"><code class="language-curl" data-lang="curl">echo &#34;We found ${#a[*]} vulnerabilities in this scan&#34;
+                echo &#34;We found  ${#l[*]} issues in this project and now we will filter them and send just new vulnerabilities to Jira&#34;
+                len=${#a[*]}
+                i=0
+                k=0
+</code></pre><ol start="6">
+<li>Configure the flow that will look up a detected scan issue among the existing project issues and check its occurrence.</li>
+</ol>
+<pre tabindex="0"><code class="language-curl" data-lang="curl">while [ $i -lt $len ]; do
+                    while [ $k -lt ${#l[*]} ]; do
+                        declare -A new=([$k]=&#34;$GET_PROJECTISSUES&#34;)
+                        ISSUES_PROJECT=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;${new[$k]} | jq &#39;.[&#39;$k&#39;].issueIds&#39;)
+                        o=(); while read -r line; do o+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_PROJECT&#34;; declare o;
+                        if [[ &#34; ${o[*]} &#34; =~ &#34;${a[$i]}&#34; ]]; then
+                            if [[ ${l[$k]} -lt 2 ]]; then
+                                echo &#34;____________________________________________________________________________________&#34;
+                                echo &#34;We have found this issue &#34; ${b[$i]} ${l[$k]} &#34; times in this part of the website, so we will send it to the Jira.&#34;
+                                echo &#34;____________________________________________________________________________________&#34;
+                                jiraPost=$(curl -X &#39;POST&#39; &#39;http://192.168.56.1:8086/rest/api/2/issue/&#39; -u &#39;testing:testing&#39; --data &#39;{
+                                                                                                                      &#34;fields&#34;: {
+                                                                                                                                &#34;project&#34;:
+                                                                                                                                        {
+                                                                                                                                        &#34;key&#34;: &#34;JEN&#34;
+                                                                                                                                        },
+                                                                                                                                        &#34;summary&#34;: &#34;&#39;&#34;${b[$i]}&#34;&#39;&#34;,
+                                                                                                                                        &#34;description&#34;: &#34;DETAILS: &#39;&#34;${c[$i]}&#34;&#39;,\\nDISCOVERED: &#39;&#34;${s[$i]}&#34;&#39;,\\nSEVERITY: &#39;&#34;${d[$i]}&#34;&#39;,\\nEXPOSURE: &#39;&#34;${f[$i]}&#34;&#39;,\\nREMEDY: &#39;&#34;${r[$i]}&#34;&#39;,\\nCVSS: &#39;&#34;${g[$i]}&#34;&#39;,\\nCWE: &#39;&#34;${h[$i]}&#34;&#39;&#34;, 
+                                                                                                                                        &#34;issuetype&#34;: {
+                                                                                                                                                     &#34;name&#34;: &#34;Task&#34;
+                                                                                                                                                     },
+                                                                                                                                                     &#34;customfield_10300&#34;: &#34;Some Custom Value&#34;
+                                                                                                                                                }
+                                                                                                                                            }&#39; -H &#34;Content-Type: application/json&#34;)
+                                echo $jiraPost
+                            else
+                                echo &#34;We have found this issue &#34; ${b[$i]} ${l[$k]} &#34; times in this part of the website, so we will not send it to Jira&#34;
+                            fi
+                        fi
+                    let k++
+                    done
+                let i++
+                k=0
+                done
+                 &#39;&#39;&#39;
+            }
+        }
+    }
+}
+</code></pre><p>The first <code>while</code> loop here runs until the value of your variable (s) reaches the value of the total issues found in the scan. The variable (i) is incremented each time the <code>while</code> loop inside it (the second <code>while</code> loop) completes its work. And each time the script returns the value of the variable (k) to 0 to use it in the second <code>while</code> loop.</p>
+<p>In the second <code>while</code> loop,  declare each time a new array in which the project issues are assigned and the value of that array depends on the variable (k), which is incremented by 1 each time to find each issue.</p>
+<p>After that, take the issue from the scan and the issues from the array where the project issues are given, and see if the issue from the scan is there. Check the occurrences, that is how many times that issue was found there.</p>
+<ul>
+<li>If it is found less than 2 times, that is once, send that issue to Jira.</li>
+<li>If it is found more than 2 times, print the following message: &ldquo;We have found this issue &quot; (Issue name) (How many times you found this issue)&rdquo; times in this part of the website, so we will not send it to Jira&quot;.</li>
+</ul>
+<p>The loop stays all active until you check each value.</p>
+<ol start="7">
+<li>Optional. Send custom fields to Jira.<br>
+You can also see in the post request how to send a custom field to Jira. It is important that you make that custom field in Jira and enter the correct name of it (you can find the real name of a custom field in the settings of that custom field in Jira, in the URL section).</li>
+</ol>
+<p>After the second <code>while</code> loop is completed, the issue is changed and the variable (k) is set to 0 to look for the second issue in the project again.</p>
+<h2 id="example-of-running-the-script-inside-a-scan">Example of running the script inside a scan</h2>
+<p>Below is a sample script that runs a scan from the Jenkins pipeline against a vulnerable benchmark application and sends new issues to Jira.</p>
+<pre tabindex="0"><code class="language-curl" data-lang="curl">pipeline {
+ agent any
+ environment {
+   BRIGHT_TOKEN = &#34;$BRIGHT_TOKEN&#34;
+   }
+ tools {nodejs &#34;node&#34;}
+ stages {
+   stage(&#34;Install Dep&#34;){
+       steps{
+           sh &#39;npm install @neuralegion/nexploit-cli -g || true&#39;
+       }
+   }
+   stage(&#39;Start Scan&#39;) {
+     steps {
+         sh &#39;&#39;&#39;#!/bin/bash
+           echo &#34;Start Bright Scan 🏁&#34;
+           SCAN_ID=$(nexploit-cli scan:run --token ${BRIGHT_TOKEN} --name &#34;Jenkins Scan&#34; --crawler https://brokencrystals.com/ --smart)
+           echo &#34;Scan was started with ID https://app.brightsec.com/scans/$SCAN_ID\n&#34;
+           sleep 10
+           echo &#34;Wait for issues ⏳\n&#34;
+           RESULT=$(nexploit-cli scan:polling --interval 30s --timeout 20m --token $BRIGHT_TOKEN --breakpoint high_issue $SCAN_ID)
+           if [ -z &#34;$RESULT&#34; ]
+           then
+               echo &#34;Failed to stop scan&#34;
+           else
+               echo &#34;Stop Scan 🛑&#34;
+               nexploit-cli scan:stop --token $BRIGHT_TOKEN $SCAN_ID
+           fi
+            sleep 20
+            jq --version
+            PROJECT_ID=&#34;&#34;
+            echo &#34;Scan ID is: &#34; $SCAN_ID
+            echo &#34;Project ID is: &#34; $PROJECT_ID
+            
+            GET_ID=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].id&#39; )
+            ISSUES_ID_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_ID&#34;)
+            a=(); while read -r line; do a+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_ID_ARRAY&#34;; declare a;
+            
+            GET_OCCURRENCES=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/projects/&#39;$PROJECT_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].occurrences&#39;)
+            ISSUES_PROJECT_OCCURRENCES=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_OCCURRENCES&#34;)
+            l=(); while read -r line; do l+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_PROJECT_OCCURRENCES&#34;; declare l;
+            
+            GET_NAME=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].name&#39; )
+            ISSUES_NAME_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_NAME&#34;)
+            b=(); while read -r line; do b+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_NAME_ARRAY&#34;; declare b;
+            
+            GET_DETAILS=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].details&#39; )
+            ISSUES_DETAILS_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_DETAILS&#34;)
+            c=(); while read -r line; do c+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_DETAILS_ARRAY&#34;; declare c;
+            
+            GET_SEVERITY=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].severity&#39; )
+            ISSUES_SEVERITY_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_SEVERITY&#34;)
+            d=(); while read -r line; do d+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_SEVERITY_ARRAY&#34;; declare d;
+            
+            GET_EXPOSURE=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].exposure&#39; )
+            ISSUES_EXPOSURE_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_EXPOSURE&#34;)
+            f=(); while read -r line; do f+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_EXPOSURE_ARRAY&#34;; declare f;
+            
+            GET_CVSS=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].cvss&#39; )
+            ISSUES_CVSS_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_CVSS&#34;)
+            g=(); while read -r line; do g+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_CVSS_ARRAY&#34;; declare g;
+
+            GET_CWE=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].cwe&#39; )
+            ISSUES_CWE_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_CWE&#34;)
+            h=(); while read -r line; do h+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_CWE_ARRAY&#34;; declare h;
+                
+            GET_REMEDY=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].remedy&#39; )
+            ISSUES_REMEDY_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_REMEDY&#34;)
+            r=(); while read -r line; do r+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_REMEDY_ARRAY&#34;; declare r;
+                
+            GET_TIME=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/scans/&#39;$SCAN_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39; | jq &#39;.[].time&#39; )
+            ISSUES_TIME_ARRAY=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;&#34;$GET_TIME&#34;)
+            s=(); while read -r line; do s+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_TIME_ARRAY&#34;; declare s;
+                
+            GET_PROJECTISSUES=$(curl -s -X &#39;GET&#39; &#39;https://app.brightsec.com/api/v1/projects/&#39;$PROJECT_ID&#39;/issues&#39; -H &#39;accept: application/json&#39; -H &#39;Authorization: Api-Key &#39;$BRIGHT_TOKEN&#39;&#39;)
+
+            echo &#34;We found ${#a[*]} vulnerabilities in this scan&#34;
+            echo &#34;We found  ${#l[*]} issues in this project and now we will filter them and send just new vulnerabilities to Jira&#34;
+            len=${#a[*]}
+                i=0
+                k=0
+                while [ $i -lt $len ]; do
+                    while [ $k -lt ${#l[*]} ]; do
+                        declare -A new=([$k]=&#34;$GET_PROJECTISSUES&#34;)
+                        ISSUES_PROJECT=$(sed -e &#39;s/^&#34;//&#39; -e &#39;s/&#34;$//&#39; &lt;&lt;&lt;${new[$k]} | jq &#39;.[&#39;$k&#39;].issueIds&#39;)
+                        o=(); while read -r line; do o+=(&#34;$line&#34;); done &lt;&lt;&lt;&#34;$ISSUES_PROJECT&#34;; declare o;
+                        if [[ &#34; ${o[*]} &#34; =~ &#34;${a[$i]}&#34; ]]; then
+                            if [[ ${l[$k]} -lt 2 ]]; then
+                                echo &#34;____________________________________________________________________________________&#34;
+                                echo &#34;We have found this issue &#34; ${b[$i]} ${l[$k]} &#34; times so we will send it to the Jira.&#34;
+                                echo &#34;____________________________________________________________________________________&#34;
+                                jiraPost=$(curl -X &#39;POST&#39; &#39;http://192.168.56.1:8086/rest/api/2/issue/&#39; -u &#39;testing:testing&#39; --data &#39;{
+                                                                                                                      &#34;fields&#34;: {
+                                                                                                                                &#34;project&#34;:
+                                                                                                                                        {
+                                                                                                                                        &#34;key&#34;: &#34;JEN&#34;
+                                                                                                                                        },
+                                                                                                                                        &#34;summary&#34;: &#34;&#39;&#34;${b[$i]}&#34;&#39;&#34;,
+                                                                                                                                        &#34;description&#34;: &#34;DETAILS: &#39;&#34;${c[$i]}&#34;&#39;,\\nDISCOVERED: &#39;&#34;${s[$i]}&#34;&#39;,\\nSEVERITY: &#39;&#34;${d[$i]}&#34;&#39;,\\nEXPOSURE: &#39;&#34;${f[$i]}&#34;&#39;,\\nREMEDY: &#39;&#34;${r[$i]}&#34;&#39;,\\nCVSS: &#39;&#34;${g[$i]}&#34;&#39;,\\nCWE: &#39;&#34;${h[$i]}&#34;&#39;&#34;, 
+                                                                                                                                        &#34;issuetype&#34;: {
+                                                                                                                                                     &#34;name&#34;: &#34;Task&#34;
+                                                                                                                                                     },
+                                                                                                                                                     &#34;customfield_10300&#34;: &#34;Some Custom Value&#34;
+                                                                                                                                                }
+                                                                                                                                            }&#39; -H &#34;Content-Type: application/json&#34;)
+                                echo $jiraPost
+                            else
+                                echo &#34;We have found this issue &#34; ${b[$i]} ${l[$k]} &#34; times on this part of website, so we will not send it to Jira&#34;
+                            fi
+                        fi
+                    let k++
+                    done
+                let i++
+                k=0
+                done
+                 &#39;&#39;&#39;
+     }
+   }
+ }
+}
+</code></pre><div class="edit-meta">
+
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/Advanced%20Integration%20Use%20Cases/sending-detected-issues-to-jira-from-cicd-pipelines.md" class="edit-page"><i class="fas fa-pen-square"></i>&nbsp;Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://example.com/advanced-integration-use-cases/integrating-a-bright-project-with-webhooks/" title="Integrating a Bright Project with Webhooks"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Integrating a Bright Project with Webhooks</a>
+<a class="nav nav-next" href="https://example.com/advanced-setup-in-bright-app/" title="Advanced Setup in Bright Apps">Next - Advanced Setup in Bright Apps <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://example.com">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://example.com/about-bright-dast/">About Bright DASTs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/">Deployment Options</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/private-cloud/">Private Cloud Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/on-premises-repeater-local-agent/">Repeater (Scan Proxy)</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/saas-deployment/">SaaS Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/introducing-to-bright/">What is Bright DAST?</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/accounting-and-billing/">Accounting and Billings<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/accounting-and-billing/about-accounting-and-billing/">About Accounting and Billing</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-history/">Managing Payment History</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-information/">Managing Payment Information</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-your-plan/">Managing Plan</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://example.com/advanced-integration-use-cases/">Advanced Integration Use Cases<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-integration-use-cases/integrating-a-bright-project-with-webhooks/">Integrating a Bright Project with Webhooks</a></li>
+<li class="active"><a href="https://example.com/advanced-integration-use-cases/sending-detected-issues-to-jira-from-cicd-pipelines/">Sending Detected Issues from CI/CD Pipelines to Jira</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/advanced-setup-in-bright-app/">Advanced Setup in Bright Apps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/">Managing Access Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/managing-bright-file-storage/">Managing Bright File Storage</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-custom-roles/">Managing Custom Roles</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/">Managing Organization</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-groups/">Managing Organization Groups</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-users/">Managing Organization Users</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-personal-account/">Managing Personal Account</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-projects/">Managing Projects</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/manage-repeater-scripts/">Managing Repeater Scripts</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-repeaters/">Managing Repeaters</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/organization-api-key-scopes/">Organization API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/personal-api-key-scopes/">Personal API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/project-api-key-scopes/">Project API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/role-management-scopes/">Role Management Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/use-cases/">Use Cases</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/">Using Repeater Scripts</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/ci-pipeline-integrations/">CI Pipeline Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/azure-pipelines/">Azure Pipelines</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/circleci/">CircleCI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/github-actions/">GitHub Actions</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/gitlab/">GitLab</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/gitlab-integration-examples/">GitLab Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/">Integrating Bright with Your CI Pipeline</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/">Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jenkins/">Jenkins</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/jenkins-integration-examples/">Jenkins Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jfrog/">JFrog</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/team-city/">TeamCity</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/travis-ci/">Travis CI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/travis-ci-integration-examples/">Travis CI Integration Examples</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/general/">Generals<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/general/faqs/">FAQs</a></li>
+<li class=""><a href="https://example.com/general/privacy-policy/">Privacy Policy</a></li>
+<li class=""><a href="https://example.com/general/terms-of-use/">Terms of Use</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/getting-started-with-bright/">Getting Started with Brights<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/getting-started-with-bright/quick-tour-of-the-web-interface/">Quick Tour of the User Interface</a></li>
+<li class=""><a href="https://example.com/getting-started-with-bright/quickstart/">Quickstart</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/managing-authentications/">Managing Authentications<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-authentications/adding-your-authentication-object-to-a-scan/">Adding an Authentication Object to a Scan</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-an-authentication-object-in-bright/">Authentication Types</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-api-call-authentication/">Configuring API Call Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-multi-step-browser-based-form-authentication/">Configuring Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-custom-multi-step-authentication/">Configuring Custom API Authentication Flow</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-form-authentication/">Configuring Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-header-authentication-in-bright/">Configuring Header Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-ntlm-authentication/">Configuring NTLM Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-oidc-connect-oauth/">Configuring OIDC Connect (OAuth)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-recorded-browser-based-form-authentication/">Configuring Recorded Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configuring-recorded-browser-based-form-authentication-internal-copy/">Configuring Recorded Browser-Based Form Authentication (Internal Copy)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/">Creating Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/string-interpolation-syntax/">String Interpolation Syntax</a></li>
+<li class=""><a href="https://example.com/managing-authentications/troubleshooting-authentication-issues-internal/">Troubleshooting Authentication Issues</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/managing-scan-results/">Managing Scan Results<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-scan-results/deleting-a-scan/">Deleting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/exporting-a-scan/">Exporting a Scan Report</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/handling-discovered-issues/">Handling Discovered Issues</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/how-to-add-bright-to-the-waf-allowlist/">How to Add Bright to the WAF Allowlist</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/modifying-future-scan-settings/">Modifying Future Scan Settings</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/retesting-a-scan/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scans/">Reviewing All Scans</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-details/">Reviewing Scan Details</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-history/">Reviewing Scan History</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/troubleshooting-for-problematic-scans/">Troubleshooting Scans</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/pages-after-new-scan-dialog-analytics/">Pages after New scan dialog analytics<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/scanning-from-bright-app/">Scanning from Bright Apps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/configuring-an-api-schema-for-scanning/">Configuring an API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/creating-a-har-file/">Creating a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/creating-a-new-scan/">Creating a Scan</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/edit-an-uploaded-api-schema/">Editing an Uploaded API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/managing-scan-templates/">Managing Scan Templates</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/">Scanning API Endpoints</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/">Scanning with a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/crawler/">Scanning with a Crawler</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/troubleshooting/">Troubleshooting</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/sso-integrations/">SSO Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/azure-sso-and-provisioning/">Azure SSO and Provisioning</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/">Configuring Single Sign-On</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/google-sso/">Google SSO</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/okta-sso-and-provisioning/">Okta SSO and Provisioning</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/ticketing-integrations/">Ticketing Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ticketing-integrations/adding-ticketing-integration-to-a-project/">Adding Ticketing Integration to a Project</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/azure-boards/">Azure Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/github/">GitHub</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/gitlab-boards/">GitLab Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/">Integrating Bright with Your Ticketing System</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/jira/">Jira</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/slack/">Slack</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/using-bright-cli/">Using Bright CLI<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-cli/about-bright-cli/">About Bright CLI</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/checking-scan-status/">Checking Scan Status</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/command-language-syntax/">Command Language Syntax</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/">Command List</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/configuration-files/">Configuration Files</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/generating-an-archive-with-nexmock/">Generating an Archive with NexMock</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/">Getting Started</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/initializing-the-repeater/">Initializing the Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/installation-options/">Installation Guide</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/integrating-with-a-service/">Integrating with an On-Premise Ticketing Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/retesting-a-scan-1/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/running-a-scan/">Running a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-as-part-of-ci-pipeline/">Scanning as Part of CI Pipeline</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-at-the-enterprise-level/">Scanning at the Enterprise Level</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/security-scanning-as-self-service/">Security Scanning as Self-Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/stopping-a-scan/">Stopping a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/testing-network-connectivity/">Testing Network Connectivity</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/repeater-troubleshooting/">Troubleshooting Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/uploading-an-archive/">Uploading an Archive</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/using-bright-rest-api/">Using Bright REST APIs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-rest-api/about-bright-api/">About Bright API</a></li>
+<li class=""><a href="https://example.com/using-bright-rest-api/response-status-codes/">Response Status Codes</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/vulnerability-guide/">Vulnerability Guides<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/vulnerability-guide/vulnerability-guide/">Vulnerability Guide</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/welcome/">Welcomes<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/welcome/about-docs/">About Docs</a></li>
+<li class=""><a href="https://example.com/welcome/accessibility/">Accessibility</a></li>
+<li class=""><a href="https://example.com/welcome/support/">Support</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

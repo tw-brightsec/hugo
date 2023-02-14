@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Scanning from Bright Apps on Brightsec</title>
+    <link>https://example.com/scanning-from-bright-app/</link>
+    <description>Recent content in Scanning from Bright Apps on Brightsec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://example.com/scanning-from-bright-app/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advanced Mode</title>
+      <link>https://example.com/scanning-from-bright-app/creating-a-new-scan-old/advanced-mode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/scanning-from-bright-app/creating-a-new-scan-old/advanced-mode/</guid>
+      <description>In the Create scan dialog box, select the Advanced tab to create a scan with expanded settings.
+Specifying scan details In the Scan Details tab, do the following:
+In the Scan name field, enter any free-text name for the scan. [block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/6b3ed4c-details-advanced.png&amp;rdquo;, &amp;ldquo;details-advanced.png&amp;rdquo;, 1561 ], &amp;ldquo;sizing&amp;rdquo;: &amp;ldquo;80&amp;rdquo; } ] } [/block]
+From the Project dropdown list, select the Bright project you want to use for the scan.</description>
+    </item>
+    
+    <item>
+      <title>Configuring an API Schema</title>
+      <link>https://example.com/scanning-from-bright-app/scanning-api-endpoints/configuring-an-api-schema-for-scanning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/scanning-from-bright-app/scanning-api-endpoints/configuring-an-api-schema-for-scanning/</guid>
+      <description>To scan API endpoints, you need to upload an API schema file to Bright. For a scan to be successful, please make sure that you are using a valid schema which is configured in compliance with the original specification (OpenAPI/ Swagger or Postman respectively).
+Bright validates the API schemas you upload for a new scan, either via the Bright storage or directly during the scan setup. If the schema is configured incorrectly (breaks the specification rules), the Bright Schema Editor (Linter) will mark the file as “not ready for scanning”, display an error message and prevent the user from running a scan.</description>
+    </item>
+    
+    <item>
+      <title>Creating a .HAR file</title>
+      <link>https://example.com/scanning-from-bright-app/scanning-with-a-har/creating-a-har-file/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/scanning-from-bright-app/scanning-with-a-har/creating-a-har-file/</guid>
+      <description>[block:embed] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;iframe class=&amp;quot;embedly-embed&amp;quot; src=&amp;quot;//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FHMpBQ7JkxHI%3Ffeature%3Doembed&amp;amp;display_name=YouTube&amp;amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DHMpBQ7JkxHI&amp;amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FHMpBQ7JkxHI%2Fhqdefault.jpg&amp;amp;key=f2aa6fc3595946d0afc3d76cbbd25dc3&amp;amp;type=text%2Fhtml&amp;amp;schema=youtube&amp;quot; width=&amp;quot;854&amp;quot; height=&amp;quot;480&amp;quot; scrolling=&amp;quot;no&amp;quot; title=&amp;quot;YouTube embed&amp;quot; frameborder=&amp;quot;0&amp;quot; allow=&amp;quot;autoplay; fullscreen&amp;quot; allowfullscreen=&amp;quot;true&amp;quot;&amp;gt;&amp;rdquo;, &amp;ldquo;url&amp;rdquo;: &amp;ldquo;https://www.youtube.com/embed/HMpBQ7JkxHI&amp;quot;%20title=&amp;quot;YouTube%20video%20player&amp;quot;%20frameborder=&amp;quot;0&amp;quot;%20allow=&amp;quot;accelerometer;%20autoplay;%20clipboard-write;%20encrypted-media;%20gyroscope;%20picture-in-picture&amp;rdquo;, &amp;ldquo;title&amp;rdquo;: &amp;ldquo;How to create a HAR file for your application security scan&amp;rdquo;, &amp;ldquo;favicon&amp;rdquo;: &amp;ldquo;https://www.youtube.com/favicon.ico&amp;quot;, &amp;ldquo;image&amp;rdquo;: &amp;ldquo;https://i.ytimg.com/vi/HMpBQ7JkxHI/hqdefault.jpg&amp;quot;, &amp;ldquo;provider&amp;rdquo;: &amp;ldquo;youtube.com&amp;rdquo;, &amp;ldquo;href&amp;rdquo;: &amp;ldquo;https://www.youtube.com/embed/HMpBQ7JkxHI&amp;quot;%20title=&amp;quot;YouTube%20video%20player&amp;quot;%20frameborder=&amp;quot;0&amp;quot;%20allow=&amp;quot;accelerometer;%20autoplay;%20clipboard-write;%20encrypted-media;%20gyroscope;%20picture-in-picture&amp;rdquo; } [/block]
+You can use various methods to get a capture of an HTTP session, for example, by using specialized tools, such as Selenium or Fiddler debugging proxy. Alternatively, you can explore network traffic and export it as a .</description>
+    </item>
+    
+    <item>
+      <title>Creating a Scan</title>
+      <link>https://example.com/scanning-from-bright-app/creating-a-new-scan-old/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/scanning-from-bright-app/creating-a-new-scan-old/</guid>
+      <description>📘 Note
+Currently our scans are capped at 2000 entry-points. If you want to get more, please contact our sales at support@neuralegion.com.
+To run a security scan against a target, follow these steps:
+In the left pane, select the Scans option to see the list of available scans. In the Scans pane, click Create scan to create a new scan. [block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/eed87cc-create-scan-page.png&amp;rdquo;, &amp;ldquo;create-scan-page.png&amp;rdquo;, 1903 ], &amp;ldquo;sizing&amp;rdquo;: &amp;ldquo;80&amp;rdquo; } ] } [/block]</description>
+    </item>
+    
+    <item>
+      <title>Creating a Scan</title>
+      <link>https://example.com/scanning-from-bright-app/creating-a-new-scan/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/scanning-from-bright-app/creating-a-new-scan/</guid>
+      <description>📘 Note
+Currently our scans are capped at 2000 entry-points. If you want to get more, please contact our sales at sales@brightsec.com.
+To run a security scan against a target, follow these steps:
+In the left pane, select the Scans option to see the list of available scans. In the Scans pane, click Create scan to create a new scan. Specifying scan details In the Details tab, do the following:</description>
+    </item>
+    
+    <item>
+      <title>CSS and XPath Draft</title>
+      <link>https://example.com/scanning-from-bright-app/creating-a-new-scan-old/css-and-xpath-draft/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/scanning-from-bright-app/creating-a-new-scan-old/css-and-xpath-draft/</guid>
+      <description>In the CSS &amp;amp; XPath Exclusions pane, in the Exclude links inside these XPath &amp;amp; CSS selectors field, enter CSS selectors and XPath to be excluded from the scan, separated by a new line.
+📘 Note
+Please make sure the XPath/CSS selector is very specific, that is only one element matches the XPath/CSS selector. Otherwise, it will negatively affect scan results.
+To check if the XPath/CSS selector is specific, you can use the search option in your browser DevTools.</description>
+    </item>
+    
+    <item>
+      <title>Editing an Uploaded API Schema</title>
+      <link>https://example.com/scanning-from-bright-app/scanning-api-endpoints/edit-an-uploaded-api-schema/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/scanning-from-bright-app/scanning-api-endpoints/edit-an-uploaded-api-schema/</guid>
+      <description>The Bright Schema Editor (Linter) is a smart tool designed to parse, validate and edit an uploaded API schema, making it easy for you to configure high quality, efficient scans that will ensure the best results. The Schema Editor indicates the endpoints and root nodes configured incorrectly with warning and error icons, so that you easily detect problematic places in the schema at a first glance, and can quickly fix them.</description>
+    </item>
+    
+    <item>
+      <title>Error Messages in Schema Editor</title>
+      <link>https://example.com/scanning-from-bright-app/scanning-api-endpoints/error-messages-in-schema-editor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/scanning-from-bright-app/scanning-api-endpoints/error-messages-in-schema-editor/</guid>
+      <description>Error message format All error messages can be represented as &amp;lt;location_prefix&amp;gt; &amp;lt;error_message&amp;gt; where:
+&amp;lt;location_prefix&amp;gt; is either &amp;ldquo;the value at /some_path&amp;rdquo; or &amp;ldquo;the root value&amp;rdquo;
+&amp;lt;error_message&amp;gt; can either be hardcoded in schema or humanized from validator output.
+Hardcoded custom error messages Hardcoded OAS custom error messages are taken from swagger-editor; while original specifications are available here: v2.0 &amp;amp; v3.0.
+oas v2 (swagger): [block:parameters] { &amp;ldquo;data&amp;rdquo;: { &amp;ldquo;h-0&amp;rdquo;: &amp;ldquo;error origin&amp;rdquo;, &amp;ldquo;h-1&amp;rdquo;: &amp;ldquo;error_message&amp;rdquo;, &amp;ldquo;0-0&amp;rdquo;: &amp;ldquo;names of path items&amp;rdquo;, &amp;ldquo;0-1&amp;rdquo;: &amp;ldquo;should only have path names that start with /&amp;rdquo;, &amp;ldquo;1-0&amp;rdquo;: &amp;ldquo;empty response object&amp;rdquo;, &amp;ldquo;1-1&amp;rdquo;: &amp;ldquo;should define at least one response, in addition to any vendor extension (x-*) fields&amp;rdquo;, &amp;ldquo;2-0&amp;rdquo;: &amp;ldquo;response object key names&amp;rdquo;, &amp;ldquo;2-1&amp;rdquo;: &amp;ldquo;should only have three-digit status codes, default, and vendor extensions (x-*) as properties&amp;rdquo;, &amp;ldquo;3-0&amp;rdquo;: &amp;ldquo;response object key names&amp;rdquo;, &amp;ldquo;3-1&amp;rdquo;: &amp;ldquo;should only have three-digit status codes, default, and vendor extensions (x-*) as properties&amp;rdquo;, &amp;ldquo;4-0&amp;rdquo;: &amp;ldquo;oauth2 authorization &amp;amp; token urls&amp;rdquo;, &amp;ldquo;4-1&amp;rdquo;: &amp;ldquo;should be an absolute URI&amp;rdquo; }, &amp;ldquo;cols&amp;rdquo;: 2, &amp;ldquo;rows&amp;rdquo;: 5 } [/block] oas v3: [block:parameters] { &amp;ldquo;data&amp;rdquo;: { &amp;ldquo;h-0&amp;rdquo;: &amp;ldquo;error origin&amp;rdquo;, &amp;ldquo;h-1&amp;rdquo;: &amp;ldquo;error_message&amp;rdquo;, &amp;ldquo;0-0&amp;rdquo;: &amp;ldquo;user-defined schema &amp;quot;required&amp;quot; field format&amp;rdquo;, &amp;ldquo;0-1&amp;rdquo;: &amp;ldquo;should be an array of property names required within an object schema&amp;rdquo;, &amp;ldquo;1-0&amp;rdquo;: &amp;ldquo;names of path items&amp;rdquo;, &amp;ldquo;1-1&amp;rdquo;: &amp;ldquo;should only have path names that start with /&amp;rdquo;, &amp;ldquo;2-0&amp;rdquo;: &amp;ldquo;empty responses object&amp;rdquo;, &amp;ldquo;2-1&amp;rdquo;: &amp;ldquo;should define at least one response, in addition to any vendor extension (x-*) fields&amp;rdquo;, &amp;ldquo;3-0&amp;rdquo;: &amp;ldquo;responses object key names&amp;rdquo;, &amp;ldquo;3-1&amp;rdquo;: &amp;ldquo;should only have three-digit status codes, default, and vendor extensions (x-*) as properties&amp;rdquo;, &amp;ldquo;4-0&amp;rdquo;: &amp;ldquo;example/examples misuse&amp;rdquo;, &amp;ldquo;4-1&amp;rdquo;: &amp;ldquo;should not have both example and examples, as they are mutually exclusive&amp;rdquo;, &amp;ldquo;5-0&amp;rdquo;: &amp;ldquo;schema/content misuse&amp;rdquo;, &amp;ldquo;5-1&amp;rdquo;: &amp;ldquo;should have either a schema or content property&amp;rdquo;, &amp;ldquo;6-0&amp;rdquo;: &amp;ldquo;content extra misused fields&amp;rdquo;, &amp;ldquo;6-1&amp;rdquo;: &amp;ldquo;should not have style, explode, allowReserved, example, or examples when content is present&amp;rdquo;, &amp;ldquo;7-0&amp;rdquo;: &amp;ldquo;parameter location enum&amp;rdquo;, &amp;ldquo;7-1&amp;rdquo;: &amp;ldquo;Parameter location (in) must be one of the following: path, query, header, cookie&amp;rdquo; }, &amp;ldquo;cols&amp;rdquo;: 2, &amp;ldquo;rows&amp;rdquo;: 8 } [/block] postman:</description>
+    </item>
+    
+    <item>
+      <title>Managing Scan Templates</title>
+      <link>https://example.com/scanning-from-bright-app/managing-scan-templates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/scanning-from-bright-app/managing-scan-templates/</guid>
+      <description>A scan template enables the users to save and reuse a set of scan settings so that they can start another scan more quickly. Bright provides a list of preconfigured scan templates to help users assess their vulnerabilities quicker and more efficiently.
+OWASP Top 10 for Web Apps (2021) – The engine runs only the tests for the vulnerabilities included in to the &amp;ldquo;OWASP Top 10&amp;rdquo; list for 2021. PCI DSS - The engine runs only the tests for the vulnerabilities included in to the PCI Data Security Standard.</description>
+    </item>
+    
+    <item>
+      <title>Media</title>
+      <link>https://example.com/scanning-from-bright-app/media/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/scanning-from-bright-app/media/</guid>
+      <description>[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/640292e-log-icon.png&amp;rdquo;, &amp;ldquo;log-icon.png&amp;rdquo;, 41, 45, &amp;ldquo;#353f44&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/aa540bc-download-icon.png&amp;rdquo;, &amp;ldquo;download-icon.png&amp;rdquo;, 30, 39, &amp;ldquo;#234146&amp;rdquo; ] } ] } [/block] ##Standard Mode [block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/bad6a00-plus-dark.png&amp;rdquo;, &amp;ldquo;plus-dark.png&amp;rdquo;, 32, 38, &amp;ldquo;#1d2d31&amp;rdquo; ] } ] } [/block] ##Scan API Endpoints [block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/5ee3a39-clip.png&amp;rdquo;, &amp;ldquo;clip.png&amp;rdquo;, 40, 56, &amp;ldquo;#393f42&amp;rdquo; ] } ] } [/block]</description>
+    </item>
+    
+    <item>
+      <title>Scanning API Endpoints</title>
+      <link>https://example.com/scanning-from-bright-app/scanning-api-endpoints/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/scanning-from-bright-app/scanning-api-endpoints/</guid>
+      <description>[block:embed] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;iframe class=&amp;quot;embedly-embed&amp;quot; src=&amp;quot;//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FBg0ko2Rx_nM%3Ffeature%3Doembed&amp;amp;display_name=YouTube&amp;amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DBg0ko2Rx_nM&amp;amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FBg0ko2Rx_nM%2Fhqdefault.jpg&amp;amp;key=f2aa6fc3595946d0afc3d76cbbd25dc3&amp;amp;type=text%2Fhtml&amp;amp;schema=youtube&amp;quot; width=&amp;quot;854&amp;quot; height=&amp;quot;480&amp;quot; scrolling=&amp;quot;no&amp;quot; title=&amp;quot;YouTube embed&amp;quot; frameborder=&amp;quot;0&amp;quot; allow=&amp;quot;autoplay; fullscreen&amp;quot; allowfullscreen=&amp;quot;true&amp;quot;&amp;gt;&amp;rdquo;, &amp;ldquo;url&amp;rdquo;: &amp;ldquo;https://www.youtube.com/embed/Bg0ko2Rx_nM%22%20title=%22YouTube%20video%20player%22%20frameborder=%220%22%20allow=%22accelerometer&amp;quot;, &amp;ldquo;title&amp;rdquo;: &amp;ldquo;Scanning APIs Using an OpenAPI Schema&amp;rdquo;, &amp;ldquo;favicon&amp;rdquo;: &amp;ldquo;https://www.youtube.com/favicon.ico&amp;quot;, &amp;ldquo;image&amp;rdquo;: &amp;ldquo;https://i.ytimg.com/vi/Bg0ko2Rx_nM/hqdefault.jpg&amp;quot; } [/block] To scan API endpoints using a predefined schema, follow these steps:
+In the Attack surface discovery section, select Via API schema (for API endpoints) to use either an Open API specification (Swagger) or a Postman collection: *.yml / *.yaml / *.</description>
+    </item>
+    
+    <item>
+      <title>Scanning with a .HAR file</title>
+      <link>https://example.com/scanning-from-bright-app/scanning-with-a-har/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/scanning-from-bright-app/scanning-with-a-har/</guid>
+      <description>[block:embed] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;iframe class=&amp;quot;embedly-embed&amp;quot; src=&amp;quot;//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F7sEiHLeeMHI&amp;amp;display_name=YouTube&amp;amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D7sEiHLeeMHI&amp;amp;image=http%3A%2F%2Fi.ytimg.com%2Fvi%2F7sEiHLeeMHI%2Fhqdefault.jpg&amp;amp;key=f2aa6fc3595946d0afc3d76cbbd25dc3&amp;amp;type=text%2Fhtml&amp;amp;schema=youtube&amp;quot; width=&amp;quot;854&amp;quot; height=&amp;quot;480&amp;quot; scrolling=&amp;quot;no&amp;quot; title=&amp;quot;YouTube embed&amp;quot; frameborder=&amp;quot;0&amp;quot; allow=&amp;quot;autoplay; fullscreen&amp;quot; allowfullscreen=&amp;quot;true&amp;quot;&amp;gt;&amp;rdquo;, &amp;ldquo;url&amp;rdquo;: &amp;ldquo;https://www.youtube.com/embed/7sEiHLeeMHI&amp;quot;%20title=&amp;quot;YouTube%20video%20player&amp;quot;%20frameborder=&amp;quot;0&amp;quot;%20allow=&amp;quot;accelerometer;%20autoplay;%20clipboard-write;%20encrypted-media;%20gyroscope;%20picture-in-picture&amp;rdquo;, &amp;ldquo;title&amp;rdquo;: &amp;ldquo;YouTube&amp;rdquo;, &amp;ldquo;favicon&amp;rdquo;: &amp;ldquo;https://www.youtube.com/favicon.ico&amp;quot;, &amp;ldquo;image&amp;rdquo;: &amp;ldquo;http://i.ytimg.com/vi/7sEiHLeeMHI/hqdefault.jpg&amp;quot;, &amp;ldquo;provider&amp;rdquo;: &amp;ldquo;youtube.com&amp;rdquo;, &amp;ldquo;href&amp;rdquo;: &amp;ldquo;https://www.youtube.com/embed/7sEiHLeeMHI&amp;quot;%20title=&amp;quot;YouTube%20video%20player&amp;quot;%20frameborder=&amp;quot;0&amp;quot;%20allow=&amp;quot;accelerometer;%20autoplay;%20clipboard-write;%20encrypted-media;%20gyroscope;%20picture-in-picture&amp;rdquo; } [/block]
+An HTTP Archive File (.HAR file) is a recorded session of user interaction with an application. The .HAR file keeps all the HTTP requests and responses between the web client and web application.
+You can use a pre-recorded .HAR file when running a security scan.</description>
+    </item>
+    
+    <item>
+      <title>Scanning with a Crawler</title>
+      <link>https://example.com/scanning-from-bright-app/crawler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/scanning-from-bright-app/crawler/</guid>
+      <description>[block:embed] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;iframe class=&amp;quot;embedly-embed&amp;quot; src=&amp;quot;//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FvCA0DwjLXyM%3Ffeature%3Doembed&amp;amp;display_name=YouTube&amp;amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DvCA0DwjLXyM&amp;amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FvCA0DwjLXyM%2Fhqdefault.jpg&amp;amp;key=f2aa6fc3595946d0afc3d76cbbd25dc3&amp;amp;type=text%2Fhtml&amp;amp;schema=youtube&amp;quot; width=&amp;quot;854&amp;quot; height=&amp;quot;480&amp;quot; scrolling=&amp;quot;no&amp;quot; title=&amp;quot;YouTube embed&amp;quot; frameborder=&amp;quot;0&amp;quot; allow=&amp;quot;autoplay; fullscreen&amp;quot; allowfullscreen=&amp;quot;true&amp;quot;&amp;gt;&amp;rdquo;, &amp;ldquo;url&amp;rdquo;: &amp;ldquo;https://www.youtube.com/embed/vCA0DwjLXyM&amp;quot;%20title=&amp;quot;YouTube%20video%20player&amp;quot;%20frameborder=&amp;quot;0&amp;quot;%20allow=&amp;quot;accelerometer;%20autoplay;%20clipboard-write;%20encrypted-media;%20gyroscope;%20picture-in-picture&amp;quot;%20allowfullscreen&amp;rdquo;, &amp;ldquo;title&amp;rdquo;: &amp;ldquo;How to run a security scan using a crawler&amp;rdquo;, &amp;ldquo;favicon&amp;rdquo;: &amp;ldquo;https://www.youtube.com/favicon.ico&amp;quot;, &amp;ldquo;image&amp;rdquo;: &amp;ldquo;https://i.ytimg.com/vi/vCA0DwjLXyM/hqdefault.jpg&amp;quot;, &amp;ldquo;provider&amp;rdquo;: &amp;ldquo;youtube.com&amp;rdquo;, &amp;ldquo;href&amp;rdquo;: &amp;ldquo;https://www.youtube.com/embed/vCA0DwjLXyM&amp;quot;%20title=&amp;quot;YouTube%20video%20player&amp;quot;%20frameborder=&amp;quot;0&amp;quot;%20allow=&amp;quot;accelerometer;%20autoplay;%20clipboard-write;%20encrypted-media;%20gyroscope;%20picture-in-picture&amp;quot;%20allowfullscreen&amp;rdquo; } [/block]
+Bright can crawl your web application to define the attack surface. This option does not require any details that might get you tangled. To run a security scan using a crawler, you simply need to specify the target URL in the URL field.</description>
+    </item>
+    
+    <item>
+      <title>Standard Mode</title>
+      <link>https://example.com/scanning-from-bright-app/creating-a-new-scan-old/standard-mode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/scanning-from-bright-app/creating-a-new-scan-old/standard-mode/</guid>
+      <description>In the Create scan dialog box, select the Standard tab to create a scan with minimal settings. In the Attack surface discovery dropdown list, select one of the following options: (Default) Via automatic crawling (for websites and webapps) - This is the simplest option. Simply enter a URL (target host) to scan the whole or a part of the specified application. To scan only specific parts of your application or add multiple hosts, click at the right side of the Targets section.</description>
+    </item>
+    
+    <item>
+      <title>Troubleshooting</title>
+      <link>https://example.com/scanning-from-bright-app/scanning-api-endpoints/troubleshooting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/scanning-from-bright-app/scanning-api-endpoints/troubleshooting/</guid>
+      <description>Bright parses an uploaded API schema to define the attack surface of the scanned target. If the schema is configured improperly, Bright displays the corresponding warnings and error messages in the Schema Editor.
+This section provides the guidelines on how to deal with the configuration issues which may occur while uploading an API schema for a new scan and editing it in the Schema Editor. To learn how to work with the Schema Editor, see Edit an Uploaded API Schema.</description>
+    </item>
+    
+  </channel>
+</rss>

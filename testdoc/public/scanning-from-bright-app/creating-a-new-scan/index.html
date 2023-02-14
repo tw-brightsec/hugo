@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Creating a Scan - Brightsec</title>
+<meta name="generator" content="Hugo 0.109.0">
+<link href="https://example.com/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://example.com/scanning-from-bright-app/creating-a-new-scan/">
+<link rel="stylesheet" href="https://example.com/css/theme.min.css">
+<link rel="stylesheet" href="https://example.com/css/chroma.min.css">
+<script defer src="https://example.com/js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://example.com/js/bundle.js"></script><style>
+:root {--custom-font-color: black;--custom-background-color: white;}
+</style>
+<meta property="og:title" content="Creating a Scan" />
+<meta property="og:description" content="📘 Note
+Currently our scans are capped at 2000 entry-points. If you want to get more, please contact our sales at sales@brightsec.com.
+To run a security scan against a target, follow these steps:
+In the left pane, select the Scans option to see the list of available scans. In the Scans pane, click Create scan to create a new scan. Specifying scan details In the Details tab, do the following:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/scanning-from-bright-app/creating-a-new-scan/" /><meta property="og:image" content="https://example.com/images/og-image.png"/><meta property="article:section" content="Scanning from Bright App" />
+
+<meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.com/images/og-image.png"/>
+
+<meta name="twitter:title" content="Creating a Scan"/>
+<meta name="twitter:description" content="📘 Note
+Currently our scans are capped at 2000 entry-points. If you want to get more, please contact our sales at sales@brightsec.com.
+To run a security scan against a target, follow these steps:
+In the left pane, select the Scans option to see the list of available scans. In the Scans pane, click Create scan to create a new scan. Specifying scan details In the Details tab, do the following:"/>
+<meta itemprop="name" content="Creating a Scan">
+<meta itemprop="description" content="📘 Note
+Currently our scans are capped at 2000 entry-points. If you want to get more, please contact our sales at sales@brightsec.com.
+To run a security scan against a target, follow these steps:
+In the left pane, select the Scans option to see the list of available scans. In the Scans pane, click Create scan to create a new scan. Specifying scan details In the Details tab, do the following:">
+
+<meta itemprop="wordCount" content="2764"><meta itemprop="image" content="https://example.com/images/og-image.png"/>
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>Brightsec</h1><span class="version">Version 0.9.9</span><a href="https://github.com/thingsym/hugo-theme-techdoc" class="github"><i class="fab fa-github"></i></a>
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li id="home" class=""><a href="/">Home</a></li>
+<li id="changelog" class="twitter-menu-item"><a href="/changelog">Changelog</a></li></ul>
+</nav>
+</div>
+
+<div class="content-container">
+<main><h1>Creating a Scan</h1>
+<blockquote>
+<p>📘 Note</p>
+<p>Currently our scans are capped at 2000 entry-points. If you want to get more, please contact our sales at <a href="mailto:support@neuralegion.com">sales@brightsec.com</a>.</p>
+</blockquote>
+<p>To run a security scan against a target, follow these steps:</p>
+<ol>
+<li>In the left pane, select the <strong>Scans</strong> option to see the list of available scans.</li>
+<li>In the <strong>Scans</strong> pane, click <strong>Create scan</strong> to create a new scan.</li>
+</ol>
+<p><img src="https://files.readme.io/7841cbb-.png" alt=""></p>
+<h1 id="specifying-scan-details">Specifying scan details</h1>
+<p>In the  <strong>Details</strong> tab, do the following:</p>
+<ol>
+<li>In the <strong>Scan name</strong> field, enter any free-text name for the scan.</li>
+</ol>
+<p><img src="https://files.readme.io/441b3d2-__2022-10-31__09.30.43.png" alt=""></p>
+<ol start="2">
+<li>From the <strong>Project</strong> dropdown list, select the Bright project you want to use for the scan.</li>
+</ol>
+<blockquote>
+<p>📘 Note</p>
+<p>You can start a scan ONLY with a project selected. If you do not have any projects in Bright, select the <strong>Default</strong> one.</p>
+</blockquote>
+<ol start="2">
+<li>Bright allows users to mark any scans to simplify work with them. Labels can be added in this field, separated by commas. All the added labels will be displayed on the <strong>Scans page</strong> and on the <strong>Configuration tab</strong> in the Scan info page. If there is an existing label from previous scans, start to type it, and then choose from the autocompleted form below.
+Semicolons and commas are used to separate labels, so It is not allowed to use them in label names. For one scan it is possible to add up to 15 labels, each of them can be up to 255 symbols in length. The ability to add or/and remove labels is limited to <code>scans</code>, <code>scan:run</code>, and <code>scan:manage</code> scopes.
+<blockquote>
+<p>📘 Note:</p>
+<p>It is allowed to change the scan labels after the scan creation on a <strong>Scan editing</strong> page</p>
+</blockquote>
+</li>
+<li><em>(Optional).</em> Bright provides a list of preconfigured scan templates to help users assess their vulnerabilities quicker and more efficiently. The list is available in the <strong>Scan Template</strong>.  Click <strong>Import configuration</strong> to apply changes. For further details, see <a href="/docs/managing-scan-templates">Managing Scan Templates</a>.</li>
+</ol>
+<h1 id="defining-scan-targets">Defining scan targets</h1>
+<p>In the <strong>Scan targets</strong> tab, do the following:</p>
+<ol>
+<li>Choose the scan targets type. Scan targets may be the following types:</li>
+</ol>
+<p><strong>Publicly accessible from Bright&rsquo;s cloud</strong> - Scanning directly from the cloud is allowed for authorized targets only. <a href="https://docs.brightsec.com/docs/target-authorization">Learn more about Target Authorization</a>.</p>
+<p><strong>On a private network or not authorized</strong> - Scanning via CLI in Repeater Mode, provides secure access to local networks or unauthorized targets.</p>
+<p><strong>Choose repeater</strong> (this option is available only if the &ldquo;On a private network or not authorized&rdquo; type is selected) - From the dropdown menu if there are existing ones. To know how to create a new repeater, <a href="https://docs.brightsec.com/docs/manage-repeaters">Learn more about Repeater Mode</a></p>
+<p><strong>Use custom DNS records</strong> - Are used to access local, non-public targets. Use it when you want to replace localhost with a specific IP address. <a href="https://docs.brightsec.com/docs/creating-a-new-scan#custom-dns-records">Learn more about Custom DNS records</a>.</p>
+<p><em>(Optional)</em> <strong>Authentication</strong> - Select authentication type. <a href="https://docs.brightsec.com/docs/creating-an-authentication-object-in-bright">Learn more about Authenticated scans</a>.</p>
+<h2 id="discover-entry-points">Discover entry-points</h2>
+<ol start="2">
+<li>Select a suitable way to discover entry-points while scanning. <a href="https://docs.brightsec.com/docs/entry-points">Learn more about Entry-points</a>.</li>
+</ol>
+<h3 id="for-websites-and-web-apps">For websites and web apps</h3>
+<p><strong>Via crawling</strong> - Smart Crawler is a procedure aimed to minimize crawler time. It can skip entry-points with duplicate parameters, and so on. <a href="https://docs.brightsec.com/docs/creating-a-new-scan#smart-crawling">Learn more about Crawling</a>.</p>
+<p><strong>URL</strong> - Simply enter a URL (target host) to scan the whole or a part of the specified application. The crawler will map the entire application attack surface automatically.</p>
+<p>To scan only specific parts of your application or add multiple hosts, click on the right side of the Targets section. In this case, only the specified sections of the application and everything downstream from them will be scanned.</p>
+<blockquote>
+<p>📘 Note</p>
+<p>Some hosts may be unreachable or unauthorized for a direct scan from the cloud:</p>
+<ul>
+<li>If a host cannot be reached by the engine, select a running Repeater for the scan in the Network Settings section.</li>
+<li>If a host is unauthorized for a direct scan from the cloud, either select a running Repeater for the scan or add a <code>.nex</code> file to the host root directory. (<a href="https://docs.brightsec.com/docs/manage-your-organization#define-the-hosts-authorized-for-scanning">Learn more about Managing organizations</a>).</li>
+</ul>
+</blockquote>
+<p><img src="https://files.readme.io/4acaf77-.png" alt=""></p>
+<p><strong>Via a .HAR file</strong> - Use a pre-recorded session of your interaction with the application (HAR file), which has been created either manually or automatically (using QA tools, such as Selenium to scan your application). This discovery type enables you to define the scope of a scan and ensures complete coverage of the attack surface.</p>
+<p>See <a href="https://docs.brightsec.com/docs/creating-a-har-file">Creating a HAR File</a> to learn how to create a HAR file.</p>
+<blockquote>
+<p>📘 Note</p>
+<p>Some hosts may be unreachable or unauthorized for a direct scan from the cloud:</p>
+<ul>
+<li>If a host cannot be reached by the engine, select a running Repeater for the scan in the section below.</li>
+<li>If a host is unauthorized for a direct scan from the cloud, either select a running Repeater for the scan or add a `.nex file to the host root directory. <a href="https://docs.brightsec.com/docs/manage-your-organization#define-the-hosts-authorized-for-scanning">Learn more about Managing organizations</a>.</li>
+</ul>
+</blockquote>
+<p>See <a href="https://docs.brightsec.com/docs/scanning-with-a-har">Scanning a website with a HAR file</a> for detailed information.</p>
+<p><strong>Delete the file after it has been sent to the engine for a scan</strong> - Mark this checkbox if you don&rsquo;t want the file to be saved.</p>
+<blockquote>
+<p>👍 Tip</p>
+<p>To enjoy both full automation and deeper attack surface analysis, you can combine <strong>Crawling</strong> and <strong>Recording (HAR)</strong> in a single scan.</p>
+</blockquote>
+<h3 id="for-apis">For APIs</h3>
+<p>Via API schema file (for API endpoints)- Use an *.yml file to scan APIs. See <a href="https://docs.brightsec.com/docs/scanning-api-endpoints">Scanning API endpoints</a> for detailed information. The file can be chosen from a disc or pre-uploaded to the Bright app. Also, you can simply add a link to the file.</p>
+<p>Delete the file after it has been sent to the engine for a scan - mark this checkbox if you don&rsquo;t want the file to be saved.</p>
+<p><img src="https://files.readme.io/0867aac-.png" alt=""></p>
+<h2 id="entry-point-discovery-options">Entry-point discovery options</h2>
+<p><strong>Skip entry-points, if a response is longer than</strong> - Bright allows configuring the limit to entry-point response duration, which is 1000 ms by default. If the response takes longer than the predefined time (for example, due to some target configuration changes), Bright will skip that entry-point. You can change the limit, but this will affect the scan speed. <a href="https://docs.brightsec.com/docs/entry-points">Learn more about Entry-points</a>.</p>
+<p><em>(Optional)</em>.The <strong>Skip entry-points by patterns</strong> section contains an expression that excludes the most common static files like images, audio, video, and other files that don&rsquo;t contain any vulnerabilities (including fonts). If you don&rsquo;t want these files to be excluded, you can clear the <strong>URL regex pattern</strong> field.</p>
+<p>In this pane, you may set additional parameters to be ignored during scanning.</p>
+<ul>
+<li>Below the <strong>Method</strong> field, click ** + Add exclusion**. Empty fields will appear.</li>
+<li>From the <strong>Method</strong> dropdown menu, select the method you want to be excluded from scanning.</li>
+<li>In the <strong>URL regex pattern</strong> field, enter the parameters for the selected method.</li>
+</ul>
+<p><img src="https://files.readme.io/9579c6e-.png" alt=""></p>
+<p>For example, if you don&rsquo;t want the <strong>POST</strong> method to go over entry points that contain <em>vendor</em> in the URL, from the <strong>Method</strong> dropdown menu, select <em>POST</em> and then in the <strong>URL regex pattern</strong> field, enter <em>vendor</em>. Any URL which contains <em>vendor</em> will be excluded from scanning.</p>
+<p><strong>CSS &amp; XPath exclusions</strong> - CSS selectors &amp; XPath for links to exclude.</p>
+<h2 id="target-specific-settings">Target specific settings</h2>
+<p>In the <strong>Additional Headers</strong> section, define any custom headers to be appended to or replaced in each request. If you need to add some authentication headers, see <a href="https://docs.brightsec.com/docs/configure-header-authentication-in-bright">Header Authentication</a>.</p>
+<blockquote>
+<p>👍 Tip</p>
+<p>If you need to add several <strong>Additional headers</strong>, you can copy-paste them in a single <strong>Name</strong> field. The headers will be distributed among the fields automatically.</p>
+</blockquote>
+<p><strong>Websocket handling settings</strong> - Unlike HTTP(S) WebSockets is an async protocol. Scanning it requires the ability to correlate between specific outgoing-incoming frame pairs. <a href="https://docs.brightsec.com/docs/websocket-scanning">Learn more about Websocket Scanning</a></p>
+<p><img src="https://files.readme.io/b354a1a-.png" alt=""></p>
+<h1 id="selecting-test-for-a-scan">Selecting test for a scan</h1>
+<p>In the <strong>Scan Tests</strong> tab, do the following:</p>
+<ul>
+<li>In the <strong>Tests</strong> section, select the tests to be performed during the scan by checking their checkboxes.</li>
+</ul>
+<p><img src="https://files.readme.io/5788a70-.png" alt=""></p>
+<blockquote>
+<p>📘 Note</p>
+<p>For details on vulnerabilities that can be detected by Bright, see <a href="https://docs.brightsec.com/docs/vulnerability-guide">Vulnerability Guide</a>.</p>
+</blockquote>
+<p><strong>Business-logic vulnerability tests</strong> - Advanced, context-specific tests that look for non-trivial vulnerabilities such as using legitimate app flows in a way that results in a negative consequence to the organization, such as stolen user data.</p>
+<p><strong>Third-party tests</strong> - Using third-party tools to find known vulnerabilities (CVEs) in the target.</p>
+<h1 id="configuring-optimizations-settings">Configuring optimizations settings</h1>
+<h2 id="scan-performance-and-speed">Scan performance and speed</h2>
+<p><strong>Stop scan, if the target does not respond</strong>  – Set a limit to response duration for the scan target globally. If the specified duration is exceeded, the scan will be stopped automatically. The default value is 5 min.</p>
+<p><strong>Concurrent requests</strong> - Specify the maximum concurrent requests allowed to be sent by the scan in order to control the load on your server. The default value is 10 requests.</p>
+<p><img src="https://files.readme.io/0c39111-.png" alt=""></p>
+<h2 id="test-optimizations">Test optimizations</h2>
+<p><strong>Use smart scanning for speed optimizations</strong> - Specify whether to use automatic smart decisions (such as parameter skipping, detection phases, and so on) in order to minimize scan time. When this option is turned off, all tests are run on all the parameters, which increases coverage at the expense of scan time. <a href="https://docs.brightsec.com/docs/creating-a-new-scan#smart-scanning">Learn more about Smart scanning.</a></p>
+<p><strong>Skip static parameters</strong> - Specify whether to skip static parameters to minimize scan time. <a href="https://docs.brightsec.com/docs/creating-a-new-scan#static-parameters">Learn more about Static parameters</a>.</p>
+<p><strong>Skip parameters by patterns</strong> - You can define which parameters you want to skip in order to improve scan time. <a href="https://docs.brightsec.com/docs/creating-a-new-scan#skipping-parameters">Learn more about Skipping parameters</a>.</p>
+<p><strong>Target parameter locations</strong> - Settings are used to manually point the scanner which parts of the request (address) to attack.</p>
+<p>In most cases, this is enough to provide a high-quality scan. Select all available options if you want the deepest scan and don&rsquo;t care about the long scan time. In this case, the scanner will check all parts of the request (address), which will significantly increase the scanning time. In some cases, this can improve scan results. <a href="https://docs.brightsec.com/docs/creating-a-new-scan#target-parameter-locations">Learn more about Target parameter locations</a>.</p>
+<p><img src="https://files.readme.io/dac7504-.png" alt=""></p>
+<h1 id="summary-and-scheduling">Summary and scheduling</h1>
+<p><strong>Run a scan now</strong> - Choose this option to start the scan immediately.</p>
+<p><strong>Schedule a single scan for later</strong> - Select a date and time to schedule the scan to run once automatically.</p>
+<p><strong>Create a recurrent scan</strong> – Define the frequency and schedule of the scan to run repeatedly and automatically.</p>
+<p><img src="https://files.readme.io/6c3fe15-.png" alt=""></p>
+<h1 id="starting-a-scan">Starting a scan</h1>
+<p>Once you complete the setup, you can run the scan immediately or save it as a template. The template will be saved to the templates list in the <strong>Templates</strong> tab.  You can select any template when creating a new scan.</p>
+<ul>
+<li>Click <strong>Save as Template</strong> to save the scan template.</li>
+<li>Click <strong>Start Scan</strong> to run the preconfigured scan immediately.</li>
+</ul>
+<blockquote>
+<p>📘 Note</p>
+<p>If the maximum number of scans that can be run simultaneously is exceeded, the scan is placed in the queue. The concurrent scans limitation can be set either for the entire organization or for this particular project in the project settings. The new scan will start as soon as you manually stop another running scan or when the current scan is completed.</p>
+</blockquote>
+<p>You can also use the <strong>Restore Default</strong> button to reset the custom settings.</p>
+<h1 id="technologies">Technologies</h1>
+<h2 id="custom-dns-records">Custom DNS records</h2>
+<p>Custom DNS Records are used to access local, non-public targets. Use it when you want to replace localhost with a specific IP address.</p>
+<p>Also, it can be helpful to bypass CDN and proxy layers when requesting content from the site by sending those web requests directly to a specific IP address without using the site&rsquo;s public DNS records.</p>
+<p>Mark the checkbox to make the fields available. Click <strong>Add placeholder</strong> button to add more placeholders. You can add as many items as you need.</p>
+<h2 id="smart-crawling">Smart crawling</h2>
+<p>Smart Crawler is a procedure aimed to minimize crawler time. It can skip entry-points with duplicate parameters, and so on.</p>
+<blockquote>
+<p>🚧 Please keep in mind that it is possible that not all entry-points will be found if Smart Crawling is turned on.</p>
+</blockquote>
+<p>Smart Crawling can be turned off to ensure that all entry-points will be found during a scan. When turned off, crawler time might be significantly longer, which increases the coverage at the expense of crawler time.</p>
+<p>If your scan time is still not satisfied, see <a href="https://docs.brightsec.com/docs/troubleshooting-for-problematic-scans#scan-too-long">Troubleshooting page</a> to learn about how to increase scan time.</p>
+<blockquote>
+<p>📘 Note</p>
+<p>Disabling the <strong>Optimized crawler</strong> setting increases the coverage at the expense of the crawling time.</p>
+<ul>
+<li>With the <strong>Optimized crawler</strong> setting enabled, Bright may find not all entry points for the specified site.</li>
+<li>With the <strong>Optimized crawler</strong> setting disabled, the crawling time may be significantly longer.</li>
+</ul>
+</blockquote>
+<h2 id="smart-scanning">Smart scanning</h2>
+<p>Smart scan holds inside a few optimizations to minimize scan time while maintaining the test coverage.</p>
+<ul>
+<li>For specific tests, the Bright app scan only relevant type parameters, for example for a test that needs to manipulate &ldquo;URL&rdquo;, don&rsquo;t test it as an &ldquo;Integer&rdquo;.</li>
+<li>Only the relevant headers that have a high chance of having vulnerabilities (User-Agent, Referer) will be tested, if &ldquo;Headers scan location&rdquo; is chosen, other headers will be skipped.</li>
+<li>For <a href="https://docs.brightsec.com/docs/os-command-injection">Operating System Command Injection</a> test we will choose only the payloads that are relevant to the detected operating system, without it all the payloads will be tested.</li>
+<li>For the <a href="https://docs.brightsec.com/docs/server-side-request-forgery-ssrf">SSRF test</a>, only the payloads that are relevant to the detected operating system will be chosen, without it, all the payloads will be tested.</li>
+</ul>
+<h2 id="static-parameters">Static parameters</h2>
+<p>Static parameters are the parts of the request that does not effect on the target system&rsquo;s behavior when changed. Skipping static parameters greatly increases the scan speed, without compromising the scan coverage. Static parameters can include: style parameters like &lsquo;javascript.version=&rsquo;, analytics-related data, and other kinds of metadata.</p>
+<p>The Bright app can define which part of a request is static and then skip it while scanning. To make this happen there is an advanced algorithm that is able to check all the requests parameters before the scan starts.</p>
+<h2 id="skipping-parameters">Skipping parameters</h2>
+<p>You can define which parameters you want to skip in order to improve scan time.</p>
+<p>There are two types of skipping parameters:</p>
+<ul>
+<li><strong>Based on entry-point</strong> - If you don&rsquo;t want to add a specific entry-point to the scan attack.</li>
+<li><strong>Based on scan parameters</strong> - This only refers to the speed of the test, not to the attack surface.<br>
+You can skip parameters that will cause performance issues. For example, you can define a specific name.</li>
+</ul>
+<p>To improve scan results sometimes it is useful to define invalid parameters and exclude them from the scan. This will improve the scan time and result.</p>
+<h2 id="target-parameter-locations">Target parameter locations</h2>
+<p>The Bright app can pick different parts of the address to find vulnerabilities. Target parameter locations settings are used to manually point the scanner which parts of the request (address) to attack.</p>
+<p>By default settings are set for optimal results: <strong>URL Query</strong>, <strong>URL Fragment</strong>, and <strong>Body</strong> are turned on.</p>
+<p>In most cases, this is enough to provide a high-quality scan. Select all available options if you want the deepest scan and don&rsquo;t care about the long scan time. In this case, the scanner will check all parts of the request (address), which will significantly increase the scanning time. In some cases, this can improve scan results.</p>
+<p>You can also specify the URL scope to be scanned, as follows:</p>
+<ul>
+<li><strong>URL Path</strong> – The main part of the URL, after the hostname and before the query parameters is used to identify the specific resource in the host that the client wants to access. In some cases (such as API endpoints), it may contain dynamic parameters (for example, object id). Enabling parsing and testing of URL path will significantly increase the attack surface, as well as the overall scan time.</li>
+<li><strong>Headers</strong> – Request Headers are used to provide additional information from the client to the server in each HTTP request, such as cookies, information formats, security settings, and so on. Enabling parsing and testing of all possible headers will significantly increase the attack surface, as well as the overall scan time. But you can optimize this by specifying the custom headers manually. To enable the selection of custom headers, you need to select both the Headers and Smart scan checkboxes. This will open an additional field where you can enter a comma-separated list of custom headers that should be parsed and tested for injections within the scan scope.</li>
+<li><strong>URL Query</strong> – The query parameters string (after the question mark (?) and, if relevant, before the hash sign (#)) is used to provide additional information from the client to the request, such as data to search for in the target resource.</li>
+<li>**URL Fragment **– The last part of a URL, after the hash sign (#), is used as an internal page reference or by DOM elements such as JavaScript, only used on the client side.</li>
+<li><strong>Body</strong> – A Request Body can contain anything. In many cases, it contains data bytes transmitted from the client to the server, such as files.</li>
+<li><strong>Artificial URL Query</strong> - A URL Query added artificially to check if it can be manipulated for attacks.</li>
+<li><strong>Artificial URL Fragment</strong> - A URL Fragment added artificially to check if it can be manipulated for attacks.</li>
+</ul>
+<div class="edit-meta">
+
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/Scanning%20from%20Bright%20App/creating-a-new-scan.md" class="edit-page"><i class="fas fa-pen-square"></i>&nbsp;Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://example.com/scanning-from-bright-app/creating-a-new-scan-old/" title="Creating a Scan"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Creating a Scan</a>
+<a class="nav nav-next" href="https://example.com/scanning-from-bright-app/creating-a-new-scan-old/css-and-xpath-draft/" title="CSS and XPath Draft">Next - CSS and XPath Draft <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://example.com">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://example.com/about-bright-dast/">About Bright DASTs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/">Deployment Options</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/private-cloud/">Private Cloud Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/on-premises-repeater-local-agent/">Repeater (Scan Proxy)</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/saas-deployment/">SaaS Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/introducing-to-bright/">What is Bright DAST?</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/accounting-and-billing/">Accounting and Billings<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/accounting-and-billing/about-accounting-and-billing/">About Accounting and Billing</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-history/">Managing Payment History</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-information/">Managing Payment Information</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-your-plan/">Managing Plan</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/advanced-integration-use-cases/">Advanced Integration Use Cases<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-integration-use-cases/integrating-a-bright-project-with-webhooks/">Integrating a Bright Project with Webhooks</a></li>
+<li class=""><a href="https://example.com/advanced-integration-use-cases/sending-detected-issues-to-jira-from-cicd-pipelines/">Sending Detected Issues from CI/CD Pipelines to Jira</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/advanced-setup-in-bright-app/">Advanced Setup in Bright Apps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/">Managing Access Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/managing-bright-file-storage/">Managing Bright File Storage</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-custom-roles/">Managing Custom Roles</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/">Managing Organization</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-groups/">Managing Organization Groups</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-users/">Managing Organization Users</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-personal-account/">Managing Personal Account</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-projects/">Managing Projects</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/manage-repeater-scripts/">Managing Repeater Scripts</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-repeaters/">Managing Repeaters</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/organization-api-key-scopes/">Organization API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/personal-api-key-scopes/">Personal API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/project-api-key-scopes/">Project API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/role-management-scopes/">Role Management Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/use-cases/">Use Cases</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/">Using Repeater Scripts</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/ci-pipeline-integrations/">CI Pipeline Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/azure-pipelines/">Azure Pipelines</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/circleci/">CircleCI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/github-actions/">GitHub Actions</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/gitlab/">GitLab</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/gitlab-integration-examples/">GitLab Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/">Integrating Bright with Your CI Pipeline</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/">Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jenkins/">Jenkins</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/jenkins-integration-examples/">Jenkins Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jfrog/">JFrog</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/team-city/">TeamCity</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/travis-ci/">Travis CI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/travis-ci-integration-examples/">Travis CI Integration Examples</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/general/">Generals<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/general/faqs/">FAQs</a></li>
+<li class=""><a href="https://example.com/general/privacy-policy/">Privacy Policy</a></li>
+<li class=""><a href="https://example.com/general/terms-of-use/">Terms of Use</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/getting-started-with-bright/">Getting Started with Brights<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/getting-started-with-bright/quick-tour-of-the-web-interface/">Quick Tour of the User Interface</a></li>
+<li class=""><a href="https://example.com/getting-started-with-bright/quickstart/">Quickstart</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/managing-authentications/">Managing Authentications<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-authentications/adding-your-authentication-object-to-a-scan/">Adding an Authentication Object to a Scan</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-an-authentication-object-in-bright/">Authentication Types</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-api-call-authentication/">Configuring API Call Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-multi-step-browser-based-form-authentication/">Configuring Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-custom-multi-step-authentication/">Configuring Custom API Authentication Flow</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-form-authentication/">Configuring Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-header-authentication-in-bright/">Configuring Header Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-ntlm-authentication/">Configuring NTLM Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-oidc-connect-oauth/">Configuring OIDC Connect (OAuth)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-recorded-browser-based-form-authentication/">Configuring Recorded Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configuring-recorded-browser-based-form-authentication-internal-copy/">Configuring Recorded Browser-Based Form Authentication (Internal Copy)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/">Creating Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/string-interpolation-syntax/">String Interpolation Syntax</a></li>
+<li class=""><a href="https://example.com/managing-authentications/troubleshooting-authentication-issues-internal/">Troubleshooting Authentication Issues</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/managing-scan-results/">Managing Scan Results<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-scan-results/deleting-a-scan/">Deleting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/exporting-a-scan/">Exporting a Scan Report</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/handling-discovered-issues/">Handling Discovered Issues</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/how-to-add-bright-to-the-waf-allowlist/">How to Add Bright to the WAF Allowlist</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/modifying-future-scan-settings/">Modifying Future Scan Settings</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/retesting-a-scan/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scans/">Reviewing All Scans</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-details/">Reviewing Scan Details</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-history/">Reviewing Scan History</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/troubleshooting-for-problematic-scans/">Troubleshooting Scans</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/pages-after-new-scan-dialog-analytics/">Pages after New scan dialog analytics<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://example.com/scanning-from-bright-app/">Scanning from Bright Apps<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/configuring-an-api-schema-for-scanning/">Configuring an API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/creating-a-har-file/">Creating a .HAR file</a></li>
+<li class="active"><a href="https://example.com/scanning-from-bright-app/creating-a-new-scan/">Creating a Scan</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/edit-an-uploaded-api-schema/">Editing an Uploaded API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/managing-scan-templates/">Managing Scan Templates</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/">Scanning API Endpoints</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/">Scanning with a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/crawler/">Scanning with a Crawler</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/troubleshooting/">Troubleshooting</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/sso-integrations/">SSO Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/azure-sso-and-provisioning/">Azure SSO and Provisioning</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/">Configuring Single Sign-On</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/google-sso/">Google SSO</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/okta-sso-and-provisioning/">Okta SSO and Provisioning</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/ticketing-integrations/">Ticketing Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ticketing-integrations/adding-ticketing-integration-to-a-project/">Adding Ticketing Integration to a Project</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/azure-boards/">Azure Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/github/">GitHub</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/gitlab-boards/">GitLab Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/">Integrating Bright with Your Ticketing System</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/jira/">Jira</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/slack/">Slack</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/using-bright-cli/">Using Bright CLI<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-cli/about-bright-cli/">About Bright CLI</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/checking-scan-status/">Checking Scan Status</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/command-language-syntax/">Command Language Syntax</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/">Command List</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/configuration-files/">Configuration Files</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/generating-an-archive-with-nexmock/">Generating an Archive with NexMock</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/">Getting Started</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/initializing-the-repeater/">Initializing the Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/installation-options/">Installation Guide</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/integrating-with-a-service/">Integrating with an On-Premise Ticketing Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/retesting-a-scan-1/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/running-a-scan/">Running a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-as-part-of-ci-pipeline/">Scanning as Part of CI Pipeline</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-at-the-enterprise-level/">Scanning at the Enterprise Level</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/security-scanning-as-self-service/">Security Scanning as Self-Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/stopping-a-scan/">Stopping a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/testing-network-connectivity/">Testing Network Connectivity</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/repeater-troubleshooting/">Troubleshooting Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/uploading-an-archive/">Uploading an Archive</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/using-bright-rest-api/">Using Bright REST APIs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-rest-api/about-bright-api/">About Bright API</a></li>
+<li class=""><a href="https://example.com/using-bright-rest-api/response-status-codes/">Response Status Codes</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/vulnerability-guide/">Vulnerability Guides<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/vulnerability-guide/vulnerability-guide/">Vulnerability Guide</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/welcome/">Welcomes<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/welcome/about-docs/">About Docs</a></li>
+<li class=""><a href="https://example.com/welcome/accessibility/">Accessibility</a></li>
+<li class=""><a href="https://example.com/welcome/support/">Support</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

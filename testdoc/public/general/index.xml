@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Generals on Brightsec</title>
+    <link>https://example.com/general/</link>
+    <description>Recent content in Generals on Brightsec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://example.com/general/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FAQs</title>
+      <link>https://example.com/general/faqs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/general/faqs/</guid>
+      <description>Data security What kind of information does Bright access during a scan? During a scan, Bright collects both application data and user data, which are used as part of the scan:
+Application Data – Refers to anything related to the application structure and functionality, such as parameter names and object structures. Collectively, this information is used to determine the application&amp;rsquo;s attack surface. User Data – Refers to specific user information, such as parameter values or authentication data.</description>
+    </item>
+    
+    <item>
+      <title>Privacy Policy</title>
+      <link>https://example.com/general/privacy-policy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/general/privacy-policy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Project/Project Roles</title>
+      <link>https://example.com/general/projectproject-roles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/general/projectproject-roles/</guid>
+      <description>Project Roles
+Добавление юзеров в проекты проихсождит на почве групп
+Есть глобальные роли, а есть роли для проекты
+Description Для настроек доступка к проектам в приложении используются Скоупы, Роли и Группы.
+Скоупы - атомарные разрешения на просмотр, изменение или создание какой-либо сущности в проекте Роли - предустановленный набор скоупов, соответствующий какой-либо проектной роли. Редактировать можно только кастомные роли (не предустановленные). предустановленные кастомные Группы - несколько пользователей, объединенных по признаку проектной роли (?</description>
+    </item>
+    
+    <item>
+      <title>Terms of Use</title>
+      <link>https://example.com/general/terms-of-use/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/general/terms-of-use/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

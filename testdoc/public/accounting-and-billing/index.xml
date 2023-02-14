@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Accounting and Billings on Brightsec</title>
+    <link>https://example.com/accounting-and-billing/</link>
+    <description>Recent content in Accounting and Billings on Brightsec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://example.com/accounting-and-billing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Accounting and Billing</title>
+      <link>https://example.com/accounting-and-billing/about-accounting-and-billing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/accounting-and-billing/about-accounting-and-billing/</guid>
+      <description>In addition to the default Free plan, Bright provides chargeable subscriptions that feature advanced management and scanning capabilities. For instance, Free plan does not allow you to assign different roles to the members of your organization, enable SSO integration, export detailed scan reports, and create organization API keys. But you are able to get this functionality along with other advanced options by subscribing to Pro or Enterprise Plan.
+The plan price depends on the scanning capabilities and the following key options:</description>
+    </item>
+    
+    <item>
+      <title>Managing Payment History</title>
+      <link>https://example.com/accounting-and-billing/manage-payment-history/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/accounting-and-billing/manage-payment-history/</guid>
+      <description>The payment history allows you to collect and manage all completed and upcoming payments, as well as download invoices. Payment amounts in the history table are specified with the account of discount coupons if applied.
+Making a payment The payments that have not been completed for some reasons (for example, the credit card has expired, or it is the initial payment to be made manually after the trial period), are displayed as unpaid in the PAYMENT HISTORY table.</description>
+    </item>
+    
+    <item>
+      <title>Managing Payment Information</title>
+      <link>https://example.com/accounting-and-billing/manage-payment-information/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/accounting-and-billing/manage-payment-information/</guid>
+      <description>To pay for the selected plan, you need to provide the billing information and add a valid payment card.
+📘 Note
+Currently Bright does not support 16-digit Diners Club cards (14-digit cards are acceptable).
+Adding billing details To add the billing information, complete the fields in the Billing Details tab of the PAYMENT INFO section. The provided info will then be used during a further checkout procedure.
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.</description>
+    </item>
+    
+    <item>
+      <title>Managing Plan</title>
+      <link>https://example.com/accounting-and-billing/manage-your-plan/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/accounting-and-billing/manage-your-plan/</guid>
+      <description>Subscription plans represent different price options for predefined packages of scan services. You can study the Bright standard plans or make a request for a customized one on our website.
+You can check the current plan details, payment information and history in the relative sections on the Accounting and Billing page.
+Checking current plan details You can check the current plan price and usage details in the USAGE section.
+The Info tab provides the following plan details:</description>
+    </item>
+    
+  </channel>
+</rss>

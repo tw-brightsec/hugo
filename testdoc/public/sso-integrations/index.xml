@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SSO Integrations on Brightsec</title>
+    <link>https://example.com/sso-integrations/</link>
+    <description>Recent content in SSO Integrations on Brightsec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://example.com/sso-integrations/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Integrations</title>
+      <link>https://example.com/sso-integrations/about-integrations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/sso-integrations/about-integrations/</guid>
+      <description>You can integrate Nexploit with your development and management tools to simplify and automate the process of testing your applications and APIs. You can start scans, view detailed reports on every detected vulnerability, as well as solve security issues without leaving your development environment.
+Nexploit enables you to configure integration with your CI pipelines or ticketing systems by using the Nexploit web UI, CLI or API. To simplify access the Nexploit account, you can also use the Single Sign On (SSO) capabilities.</description>
+    </item>
+    
+    <item>
+      <title>Azure SSO and Provisioning</title>
+      <link>https://example.com/sso-integrations/configure-sso/azure-sso-and-provisioning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/sso-integrations/configure-sso/azure-sso-and-provisioning/</guid>
+      <description>[block:html] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;table id=&amp;quot;integrations&amp;quot; &amp;gt;\n \n \n \n &amp;lt;td width=&amp;quot;70%&amp;quot;&amp;gt;\n \n \n &amp;lt;td width=&amp;quot;30%&amp;quot; style=&amp;quot;text-align:center&amp;quot; rowspan=&amp;quot;3&amp;quot;&amp;gt;\n &amp;lt;img src=&amp;quot;https://files.readme.io/9b168ab-azure-int.png&amp;quot; width=170&amp;quot; height=&amp;quot;200&amp;quot;&amp;gt;\n \n \n \n &amp;lt;td style=&amp;quot;text-align:left;vertical-align:text-top;padding:0px&amp;quot;&amp;gt;\n System for Cross-domain Identity Management (SCIM) is a protocol for user management across multiple applications. It allows you to easily provision (add), deprovision (delete) and update (map) user data across multiple applications at once. \n You can set up SCIM provisioning in Azure AD to automatically add the AD application users and groups to your organization in the Bright app.</description>
+    </item>
+    
+    <item>
+      <title>Configuring Single Sign-On</title>
+      <link>https://example.com/sso-integrations/configure-sso/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/sso-integrations/configure-sso/</guid>
+      <description>You can simplify your access to Bright by configuring Single Sign-On (SSO). The SSO integration allows you to securely authenticate with Bright by applying the same set of credentials that you use for the following systems:
+Other integrations
+To read how to configure integration with a CI pipeline, see Integrate Bright with Your CI Pipeline To read how to configure integration with a ticketing service, see Integrate Bright with Your Ticketing System </description>
+    </item>
+    
+    <item>
+      <title>Google SSO</title>
+      <link>https://example.com/sso-integrations/configure-sso/google-sso/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/sso-integrations/configure-sso/google-sso/</guid>
+      <description>[block:html] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;table id=&amp;quot;integrations&amp;quot;&amp;gt;\n \n \n \n &amp;lt;td width=&amp;quot;70%&amp;quot;&amp;gt;\n \n \n &amp;lt;td width=&amp;quot;30%&amp;quot; style=&amp;quot;text-align:center&amp;quot; rowspan=&amp;quot;3&amp;quot;&amp;gt;\n &amp;lt;img src=&amp;quot;https://files.readme.io/952f890-google-int.png&amp;quot; width=&amp;quot;170&amp;quot; height=&amp;quot;200&amp;quot;&amp;gt;\n \n \n \n &amp;lt;td style=&amp;quot;text-align:left;vertical-align:text-top;padding:0px&amp;quot;&amp;gt;\n To simplify user access to Bright solutions, you can configure Single Sign-On (SSO) for Google.\n \n \n \n \n Enable Google SSO for Your Nexploit Organization\n \n \n \n \n To enable Google SSO for an organization, follow these steps:\n \n \n\n&amp;rdquo; } [/block]
+Log in to the Bright app.</description>
+    </item>
+    
+    <item>
+      <title>Media</title>
+      <link>https://example.com/sso-integrations/media-10/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/sso-integrations/media-10/</guid>
+      <description>[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/9b168ab-azure-int.png&amp;rdquo;, &amp;ldquo;azure-int.png&amp;rdquo;, 900, 1080, &amp;ldquo;#ecf5f8&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/1532f80-okta-int.png&amp;rdquo;, &amp;ldquo;okta-int.png&amp;rdquo;, 900, 1080, &amp;ldquo;#eff4f7&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/952f890-google-int.png&amp;rdquo;, &amp;ldquo;google-int.png&amp;rdquo;, 900, 1080, &amp;ldquo;#f4f5f6&amp;rdquo; ] } ] } [/block]</description>
+    </item>
+    
+    <item>
+      <title>Okta Integration</title>
+      <link>https://example.com/sso-integrations/configure-sso/okta-integration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/sso-integrations/configure-sso/okta-integration/</guid>
+      <description>🚧 Disclaimer
+The integration with Okta via the SAML protocol is currently under development and is not available to customers yet. Contact us at support@neuralegion.com to learn more.
+[block:html] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;table id=&amp;quot;integrations&amp;quot; &amp;gt;\n \n \n \n &amp;lt;td width=&amp;quot;70%&amp;quot;&amp;gt; To simplify user access to NeuraLegion, you can configure Single Sign-On (SSO) integration with your Okta application. You can also take advantage of Okta provisioning feature to automatically synchronize users and groups between your Okta application and Nexploit organization.</description>
+    </item>
+    
+    <item>
+      <title>Okta SSO and Provisioning</title>
+      <link>https://example.com/sso-integrations/configure-sso/okta-sso-and-provisioning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/sso-integrations/configure-sso/okta-sso-and-provisioning/</guid>
+      <description>[block:html] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;table id=&amp;quot;integrations&amp;quot; &amp;gt;\n \n \n \n &amp;lt;td width=&amp;quot;70%&amp;quot;&amp;gt; To simplify user access to Bright, you can configure Single Sign-On (SSO) integration with your Okta application. Either the OIDC or SAML protocol can be used to enable Okta SSO.
+You can also take advantage of Okta provisioning feature to automatically synchronize users and groups between your Okta application and Bright organization.
+The provisioning integration is built around an industry-standard protocol known as SCIM (System for Cross-domain Identity Management).</description>
+    </item>
+    
+  </channel>
+</rss>

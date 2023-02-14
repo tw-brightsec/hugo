@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>GitLab Integration Examples - Brightsec</title>
+<meta name="generator" content="Hugo 0.109.0">
+<link href="https://example.com/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://example.com/ci-pipeline-integrations/integration-examples/gitlab-integration-examples/">
+<link rel="stylesheet" href="https://example.com/css/theme.min.css">
+<link rel="stylesheet" href="https://example.com/css/chroma.min.css">
+<script defer src="https://example.com/js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://example.com/js/bundle.js"></script><style>
+:root {--custom-font-color: black;--custom-background-color: white;}
+</style>
+<meta property="og:title" content="GitLab Integration Examples" />
+<meta property="og:description" content="Example 1. Scan from the cloud using the Bright CLI (NPM installation) To apply this option, you only need to install the &laquo;glossary:Bright CLI&raquo; globally on your GitLab machine using the relative NPM command.
+Prerequisites You have a valid organization API key or personal API key (BRIGHT_TOKEN) with the following scopes: bot,
+scans : run,scan : read, and scans : stop. You have set the BRIGHT_TOKEN variable in your GitLab pipeline: Settings &gt; CI/CD &gt; Variables." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/ci-pipeline-integrations/integration-examples/gitlab-integration-examples/" /><meta property="og:image" content="https://example.com/images/og-image.png"/><meta property="article:section" content="CI Pipeline Integrations" />
+
+<meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.com/images/og-image.png"/>
+
+<meta name="twitter:title" content="GitLab Integration Examples"/>
+<meta name="twitter:description" content="Example 1. Scan from the cloud using the Bright CLI (NPM installation) To apply this option, you only need to install the &laquo;glossary:Bright CLI&raquo; globally on your GitLab machine using the relative NPM command.
+Prerequisites You have a valid organization API key or personal API key (BRIGHT_TOKEN) with the following scopes: bot,
+scans : run,scan : read, and scans : stop. You have set the BRIGHT_TOKEN variable in your GitLab pipeline: Settings &gt; CI/CD &gt; Variables."/>
+<meta itemprop="name" content="GitLab Integration Examples">
+<meta itemprop="description" content="Example 1. Scan from the cloud using the Bright CLI (NPM installation) To apply this option, you only need to install the &laquo;glossary:Bright CLI&raquo; globally on your GitLab machine using the relative NPM command.
+Prerequisites You have a valid organization API key or personal API key (BRIGHT_TOKEN) with the following scopes: bot,
+scans : run,scan : read, and scans : stop. You have set the BRIGHT_TOKEN variable in your GitLab pipeline: Settings &gt; CI/CD &gt; Variables.">
+
+<meta itemprop="wordCount" content="2574"><meta itemprop="image" content="https://example.com/images/og-image.png"/>
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>Brightsec</h1><span class="version">Version 0.9.9</span><a href="https://github.com/thingsym/hugo-theme-techdoc" class="github"><i class="fab fa-github"></i></a>
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li id="home" class=""><a href="/">Home</a></li>
+<li id="changelog" class="twitter-menu-item"><a href="/changelog">Changelog</a></li></ul>
+</nav>
+</div>
+
+<div class="content-container">
+<main><h1>GitLab Integration Examples</h1>
+<h2 id="example-1-scan-from-the-cloud-using-the-bright-cli-npm-installation">Example 1. Scan from the cloud using the Bright CLI (NPM installation)</h2>
+<p>To apply this option, you only need to install the &laquo;glossary:Bright CLI&raquo; globally on your GitLab machine using the relative NPM command.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>You have a valid <a href="/docs/manage-your-organization#manage-organization-apicli-authentication-tokens">organization API key</a> or <a href="/docs/manage-your-personal-account#manage-your-personal-api-keys-authentication-tokens">personal API key</a> (<code>BRIGHT_TOKEN</code>) with the following scopes: <code>bot</code>,<br><code>scans : run</code>,<code>scan : read</code>, and <code>scans : stop</code>.</li>
+<li>You have set the <code>BRIGHT_TOKEN</code> variable in your GitLab pipeline: Settings &gt; CI/CD &gt; Variables.</li>
+<li>You have copied the Bright <code>PROJECT_ID</code> on the <strong>Projects</strong> page.</li>
+</ul>
+<h3 id="step-by-step-guide">Step-by-step guide</h3>
+<h4 id="step-1---install-the-cli">STEP 1 - Install the CLI</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>- npm install @neuralegion/nexploit-cli -g --unsafe-perm <span style="color:#f92672">||</span> true
+</span></span></code></pre></div><h4 id="step-2----run-retest-a-scan">STEP 2 -  Run (retest) a scan</h4>
+<ul>
+<li>If you need to run a new scan with a Crawler,  use the following script:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>- echo <span style="color:#e6db74">&#34;Start Bright Scan 🏁&#34;</span>
+</span></span><span style="display:flex;"><span>  - &gt;
+</span></span><span style="display:flex;"><span>    SCAN_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>nexploit-cli scan:run --token $BRIGHT_TOKEN
+</span></span><span style="display:flex;"><span>    --name <span style="color:#e6db74">&#34;Test Gitlab Scan&#34;</span>
+</span></span><span style="display:flex;"><span>    --project $PROJECT_ID
+</span></span><span style="display:flex;"><span>    --crawler www.example.com 
+</span></span><span style="display:flex;"><span>    --smart<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>  - echo <span style="color:#e6db74">&#34;export SCAN_ID=</span>$SCAN_ID<span style="color:#e6db74">&#34;</span> &gt; $CI_PROJECT_DIR/variables
+</span></span><span style="display:flex;"><span>  - printf <span style="color:#e6db74">&#34;Scan was started with ID https://app.brightsec.com/scans/</span>$SCAN_ID<span style="color:#e6db74">\n&#34;</span>
+</span></span></code></pre></div><ul>
+<li>If you need to re-test a previous scan with its ID <code>OLD_SCAN_ID</code>, use the following script:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>- echo <span style="color:#e6db74">&#34;Retest a scan&#34;</span>
+</span></span><span style="display:flex;"><span>- &gt;
+</span></span><span style="display:flex;"><span>  NEW_SCAN_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>nexploit-cli scan:retest --token<span style="color:#f92672">=</span>$BRIGHT_TOKEN $OLD_SCAN_ID<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>-printf <span style="color:#e6db74">&#34;Scan was started with ID https://app.brightsec.com/scans/</span>$NEW_SCAN_ID<span style="color:#e6db74">\n&#34;</span>
+</span></span></code></pre></div><h4 id="step-3----poll-the-results">STEP 3 -  Poll the results</h4>
+<blockquote>
+<p>📘 Note</p>
+<p>When polling the scan results, it is recommended to follow the fail-fast principle by using the <code>breakpoint</code> command.  See <a href="/docs/command-list">Bright CLI Command List</a> for a full list of commands you can use in your GitLab flow.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>- printf <span style="color:#e6db74">&#34;Wait for issues ⏳\n&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> - &gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Poll the scan until it returns something, or its time runs out</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">(</span>nexploit-cli scan:polling
+</span></span><span style="display:flex;"><span>    --interval 30s
+</span></span><span style="display:flex;"><span>    --timeout 20m
+</span></span><span style="display:flex;"><span>    --token $BRIGHT_TOKEN
+</span></span><span style="display:flex;"><span>    --breakpoint medium_issue $SCAN_ID<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>  artifacts:
+</span></span><span style="display:flex;"><span>    paths:
+</span></span><span style="display:flex;"><span>    - variables
+</span></span><span style="display:flex;"><span>  allow_failure: true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># After that - stop the scan</span>
+</span></span><span style="display:flex;"><span> echo <span style="color:#e6db74">&#34;Stop Scan 🛑&#34;</span>
+</span></span><span style="display:flex;"><span>      nexploit-cli scan:stop --token $BRIGHT_TOKEN $SCAN_ID
+</span></span></code></pre></div><h4 id="step-4---view-the-results">STEP 4 - View the results</h4>
+<p>To view the scan results, go to the <a href="https://app.brightsec.com">Bright app</a>. For the instructions, see <a href="/docs/reviewing-scan-details#review-scan-results">here</a>.</p>
+<blockquote>
+<p>👍 Tip</p>
+<p>You can also configure a script to get the scan results directly in the job output. The configuration sample in given in <strong>Example 4</strong>.</p>
+</blockquote>
+<h3 id="complete-example">Complete example</h3>
+<p>The following example is made up of the steps above and shows how to run a new scan using the Crawler discovery type:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>language: node_js
+</span></span><span style="display:flex;"><span>node_js:
+</span></span><span style="display:flex;"><span> - <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>before_script:
+</span></span><span style="display:flex;"><span> - npm install @neuralegion/nexploit-cli -g <span style="color:#f92672">||</span> true
+</span></span><span style="display:flex;"><span>script:
+</span></span><span style="display:flex;"><span> - printf <span style="color:#e6db74">&#34;Start Bright Scan 🏁&#34;</span>
+</span></span><span style="display:flex;"><span> - &gt;
+</span></span><span style="display:flex;"><span>  SCAN_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>nexploit-cli scan:run
+</span></span><span style="display:flex;"><span>  --token $BRIGHT_TOKEN
+</span></span><span style="display:flex;"><span>  --name <span style="color:#e6db74">&#34;Test Travis Scan&#34;</span>
+</span></span><span style="display:flex;"><span>  --project $PROJECT_ID
+</span></span><span style="display:flex;"><span>  --crawler http://brokencrystals.com
+</span></span><span style="display:flex;"><span>  --smart<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span> - printf <span style="color:#e6db74">&#34;Scan was started with ID https://app.brightsec.com/scans/</span>$SCAN_ID<span style="color:#e6db74">\n&#34;</span>
+</span></span><span style="display:flex;"><span> - printf <span style="color:#e6db74">&#34;Wait for issues ⏳\n&#34;</span>
+</span></span><span style="display:flex;"><span> - &gt;
+</span></span><span style="display:flex;"><span>   nexploit-cli scan:polling
+</span></span><span style="display:flex;"><span>   --interval 30s
+</span></span><span style="display:flex;"><span>   --timeout 20m
+</span></span><span style="display:flex;"><span>   --token $BRIGHT_TOKEN
+</span></span><span style="display:flex;"><span>   --breakpoint medium_issue $SCAN_ID
+</span></span><span style="display:flex;"><span>allow_failure: true
+</span></span><span style="display:flex;"><span>after_script:
+</span></span><span style="display:flex;"><span> - printf <span style="color:#e6db74">&#34;Stop Scan 🛑&#34;</span>
+</span></span><span style="display:flex;"><span> - nexploit-cli scan:stop 
+</span></span><span style="display:flex;"><span> --token $BRIGHT_TOKEN $SCAN_IDimage: ubuntu:20.04
+</span></span><span style="display:flex;"><span>cache:
+</span></span><span style="display:flex;"><span>  paths:
+</span></span><span style="display:flex;"><span>  - variables
+</span></span><span style="display:flex;"><span>test:
+</span></span><span style="display:flex;"><span>  before_script:
+</span></span><span style="display:flex;"><span>  - apt update -qq --fix-missing
+</span></span><span style="display:flex;"><span>  - apt install -y --no-install-recommends nodejs npm make g++
+</span></span><span style="display:flex;"><span>  - npm install @neuralegion/nexploit-cli -g --unsafe-perm <span style="color:#f92672">||</span> true
+</span></span><span style="display:flex;"><span>  script:
+</span></span><span style="display:flex;"><span>  - echo <span style="color:#e6db74">&#34;Start Bright Scan 🏁&#34;</span>
+</span></span><span style="display:flex;"><span>  - &gt;
+</span></span><span style="display:flex;"><span>    SCAN_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>nexploit-cli scan:run --token $BRIGHT_TOKEN
+</span></span><span style="display:flex;"><span>    --name <span style="color:#e6db74">&#34;Test Gitlab Scan&#34;</span>
+</span></span><span style="display:flex;"><span>    --project $PROJECT_ID
+</span></span><span style="display:flex;"><span>    --crawler https://juice-shop.herokuapp.com/
+</span></span><span style="display:flex;"><span>    --smart<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>  - echo <span style="color:#e6db74">&#34;export SCAN_ID=</span>$SCAN_ID<span style="color:#e6db74">&#34;</span> &gt; $CI_PROJECT_DIR/variables
+</span></span><span style="display:flex;"><span>  - printf <span style="color:#e6db74">&#34;Scan was started with ID https://app.brightsec.com/scans/</span>$SCAN_ID<span style="color:#e6db74">\n&#34;</span>
+</span></span><span style="display:flex;"><span>  - printf <span style="color:#e6db74">&#34;Wait for issues ⏳\n&#34;</span>
+</span></span><span style="display:flex;"><span>  - &gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">(</span>nexploit-cli scan:polling
+</span></span><span style="display:flex;"><span>    --interval 30s
+</span></span><span style="display:flex;"><span>    --timeout 20m
+</span></span><span style="display:flex;"><span>    --token $BRIGHT_TOKEN
+</span></span><span style="display:flex;"><span>    --breakpoint medium_issue $SCAN_ID<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>  artifacts:
+</span></span><span style="display:flex;"><span>    paths:
+</span></span><span style="display:flex;"><span>    - variables
+</span></span><span style="display:flex;"><span>  allow_failure: true
+</span></span><span style="display:flex;"><span>  after_script:
+</span></span><span style="display:flex;"><span>  - source $CI_PROJECT_DIR/variables
+</span></span><span style="display:flex;"><span>  - &gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -e $CI_PROJECT_DIR/variables <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Stop Scan 🛑&#34;</span>
+</span></span><span style="display:flex;"><span>      nexploit-cli scan:stop --token $BRIGHT_TOKEN $SCAN_ID
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Failed to stop scan&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><h2 id="example-2-scan-in-the-repeater-mode-using-the-bright-cli-npm-installation">Example 2. Scan in the Repeater mode using the Bright CLI (NPM installation)</h2>
+<p>To apply this option, you need to install the Bright CLI on your GitLab machine and activate the Repeater using the Repeater ID and Bright API key.</p>
+<h3 id="prerequisites-1">Prerequisites</h3>
+<ul>
+<li>You have the Repeater with a valid ID ‘REPEATER’. See <a href="/docs/on-premises-repeater-local-agent">Managing Repeaters</a> for the information about handling the Repeaters.</li>
+<li>You have a valid <a href="/docs/manage-your-organization#manage-organization-apicli-authentication-tokens">organization API key</a> or <a href="/docs/manage-your-personal-account#manage-your-personal-api-keys-authentication-tokens">personal API key</a> (<code>BRIGHT_TOKEN</code>) with the following scopes: <code>bot</code>,<br><code>scans : run</code>,<code>scan : read</code>, and <code>scans : stop</code>.</li>
+<li>You have set the <code>BRIGHT_TOKEN</code> and <code>REPEATER</code> variables in your GitLab pipeline: Settings &gt; CI/CD &gt; Variables.</li>
+<li>You have copied the Bright <code>PROJECT_ID</code> on the <strong>Projects</strong> page.</li>
+</ul>
+<h3 id="step-by-step-guide-1">Step-by-step guide</h3>
+<h4 id="step-1---install-the-cli-1">STEP 1 - Install the CLI</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>- npm install @neuralegion/nexploit-cli -g --unsafe-perm <span style="color:#f92672">||</span> true
+</span></span></code></pre></div><h4 id="step-2---activate-the-repeater">STEP 2 - Activate the repeater</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>- echo <span style="color:#e6db74">&#34;Run repeater 🔁&#34;</span>
+</span></span><span style="display:flex;"><span>  - echo $REPEATER
+</span></span><span style="display:flex;"><span>  - echo $BRIGHT_TOKEN
+</span></span><span style="display:flex;"><span>  - &gt;
+</span></span><span style="display:flex;"><span>    nexploit-cli repeater
+</span></span><span style="display:flex;"><span>    --token $BRIGHT_TOKEN
+</span></span><span style="display:flex;"><span>    --id $REPEATER
+</span></span></code></pre></div><blockquote>
+<p>📘 Note</p>
+<p>If a valid API token <code>BRIGHT_TOKEN</code> and Repeater ID <code>REPEATER</code> were not added, then the <strong>Unauthorized access</strong> error appears. Please check your credentials.</p>
+</blockquote>
+<blockquote>
+<p>🚧 Important</p>
+<p>Make sure that the Repeater has an outbound connection to the Bright host depending on its deployment. The Repeater should be connected either to the default <strong>amq.app.brightsec.com</strong> via the AMQ protocol (over TLS) using port 5672 or to your private cloud using the relative port.</p>
+</blockquote>
+<h4 id="step-3----run-retest-a-scan">STEP 3 -  Run (retest) a scan</h4>
+<ul>
+<li>If you need to run a new scan with a Crawler,  use the following script:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>- echo <span style="color:#e6db74">&#34;Start Bright Scan 🏁&#34;</span>
+</span></span><span style="display:flex;"><span>  - &gt;
+</span></span><span style="display:flex;"><span>    SCAN_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>nexploit-cli scan:run --token $BRIGHT_TOKEN
+</span></span><span style="display:flex;"><span>    --name <span style="color:#e6db74">&#34;Test Gitlab Scan&#34;</span>
+</span></span><span style="display:flex;"><span>    --project $PROJECT_ID
+</span></span><span style="display:flex;"><span>    --repeater $REPEATER
+</span></span><span style="display:flex;"><span>    --crawler www.example.com 
+</span></span><span style="display:flex;"><span>    --smart<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>  - echo <span style="color:#e6db74">&#34;export SCAN_ID=</span>$SCAN_ID<span style="color:#e6db74">&#34;</span> &gt; $CI_PROJECT_DIR/variables
+</span></span><span style="display:flex;"><span>  - printf <span style="color:#e6db74">&#34;Scan was started with ID https://app.brightsec.com/scans/</span>$SCAN_ID<span style="color:#e6db74">\n&#34;</span>
+</span></span></code></pre></div><ul>
+<li>If you need to re-test a previous scan with its ID <code>OLD_SCAN_ID</code>, use the following script:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>- echo <span style="color:#e6db74">&#34;Retest a scan&#34;</span>
+</span></span><span style="display:flex;"><span>- &gt;
+</span></span><span style="display:flex;"><span>  NEW_SCAN_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>nexploit-cli scan:retest --token<span style="color:#f92672">=</span>$BRIGHT_TOKEN $OLD_SCAN_ID<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>-printf <span style="color:#e6db74">&#34;Scan was started with ID https://app.brightsec.com/scans/</span>$NEW_SCAN_ID<span style="color:#e6db74">\n&#34;</span>
+</span></span></code></pre></div><h4 id="step-4----poll-the-results">STEP 4 -  Poll the results</h4>
+<blockquote>
+<p>📘 Note</p>
+<p>When polling the scan results, it is recommended to follow the fail-fast principle by using the <code>breakpoint</code> command.  See <a href="/docs/command-list">Bright CLI Command List</a> for a full list of commands you can use in your GitLab flow.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>- printf <span style="color:#e6db74">&#34;Wait for issues ⏳\n&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> - &gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Poll the scan until it returns something, or its time runs out</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">(</span>nexploit-cli scan:polling
+</span></span><span style="display:flex;"><span>    --interval 30s
+</span></span><span style="display:flex;"><span>    --timeout 20m
+</span></span><span style="display:flex;"><span>    --token $BRIGHT_TOKEN
+</span></span><span style="display:flex;"><span>    --breakpoint medium_issue $SCAN_ID<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>  artifacts:
+</span></span><span style="display:flex;"><span>    paths:
+</span></span><span style="display:flex;"><span>    - variables
+</span></span><span style="display:flex;"><span>  allow_failure: true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># After that - stop the scan</span>
+</span></span><span style="display:flex;"><span> echo <span style="color:#e6db74">&#34;Stop Scan 🛑&#34;</span>
+</span></span><span style="display:flex;"><span>      nexploit-cli scan:stop --token $BRIGHT_TOKEN $SCAN_ID
+</span></span></code></pre></div><h4 id="step-5----view-the-results">STEP 5 -  View the results</h4>
+<p>To view the scan results, go to the <a href="https://app.brightsec.com">Bright app</a>. For the instructions, see <a href="/docs/reviewing-scan-details#review-scan-results">here</a>.</p>
+<blockquote>
+<p>👍 Tip</p>
+<p>You can also configure a script to get the scan results directly in the job output. The configuration sample in given in Example 4.</p>
+</blockquote>
+<h3 id="complete-example-1">Complete example</h3>
+<p>The following example is made up of the steps above and shows how to run a new scan using the Crawler discovery type:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>image: ubuntu:20.04
+</span></span><span style="display:flex;"><span>cache:
+</span></span><span style="display:flex;"><span>  paths:
+</span></span><span style="display:flex;"><span>  - variables
+</span></span><span style="display:flex;"><span>test:
+</span></span><span style="display:flex;"><span>  before_script:
+</span></span><span style="display:flex;"><span>  - apt update -qq --fix-missing
+</span></span><span style="display:flex;"><span>  - apt install -y --no-install-recommends nodejs npm make g++
+</span></span><span style="display:flex;"><span>  - npm install @neuralegion/nexploit-cli -g --unsafe-perm <span style="color:#f92672">||</span> true
+</span></span><span style="display:flex;"><span>  script:
+</span></span><span style="display:flex;"><span>  - echo <span style="color:#e6db74">&#34;Run repeater 🔁&#34;</span>
+</span></span><span style="display:flex;"><span>  - echo $REPEATER
+</span></span><span style="display:flex;"><span>  - echo $BRIGHT_TOKEN
+</span></span><span style="display:flex;"><span>  - &gt;
+</span></span><span style="display:flex;"><span>    nexploit-cli repeater
+</span></span><span style="display:flex;"><span>    --token $BRIGHT_TOKEN
+</span></span><span style="display:flex;"><span>    --id $REPEATER
+</span></span><span style="display:flex;"><span>  - echo <span style="color:#e6db74">&#34;Start Bright Scan 🏁&#34;</span>
+</span></span><span style="display:flex;"><span>  - &gt;
+</span></span><span style="display:flex;"><span>    SCAN_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>nexploit-cli scan:run --token $BRIGHT_TOKEN
+</span></span><span style="display:flex;"><span>    --repeater $REPEATER
+</span></span><span style="display:flex;"><span>    --name <span style="color:#e6db74">&#34;Test Gitlab Scan&#34;</span>
+</span></span><span style="display:flex;"><span>    --project $PROJECT_ID
+</span></span><span style="display:flex;"><span>    --crawler https://brokencrystals.com
+</span></span><span style="display:flex;"><span>    --smart<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>  - echo <span style="color:#e6db74">&#34;export SCAN_ID=</span>$SCAN_ID<span style="color:#e6db74">&#34;</span> &gt; $CI_PROJECT_DIR/variables
+</span></span><span style="display:flex;"><span>  - printf <span style="color:#e6db74">&#34;Scan was started with ID https://app.brightsec.com/scans/</span>$SCAN_ID<span style="color:#e6db74">\n&#34;</span>
+</span></span><span style="display:flex;"><span>  - printf <span style="color:#e6db74">&#34;Wait for issues ⏳\n&#34;</span>
+</span></span><span style="display:flex;"><span>  - &gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">(</span>nexploit-cli scan:polling
+</span></span><span style="display:flex;"><span>    --interval 30s
+</span></span><span style="display:flex;"><span>    --timeout 20m
+</span></span><span style="display:flex;"><span>    --token $BRIGHT_TOKEN
+</span></span><span style="display:flex;"><span>    --breakpoint medium_issue $SCAN_ID<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>  artifacts:
+</span></span><span style="display:flex;"><span>    paths:
+</span></span><span style="display:flex;"><span>    - variables
+</span></span><span style="display:flex;"><span>  allow_failure: true
+</span></span><span style="display:flex;"><span>  after_script:
+</span></span><span style="display:flex;"><span>  - source $CI_PROJECT_DIR/variables
+</span></span><span style="display:flex;"><span>  - &gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -e $CI_PROJECT_DIR/variables <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Stop Scan 🛑&#34;</span>
+</span></span><span style="display:flex;"><span>      nexploit-cli scan:stop --token $BRIGHT_TOKEN $SCAN_ID
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Failed to stop scan&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><h2 id="example-3-scan-in-the-repeater-mode-using-the-bright-cli-docker-installation">Example 3. Scan in the repeater mode using the Bright CLI (Docker installation)</h2>
+<p>To apply this option, you need to configure a Docker image inside your pipeline (for example,  by creating a docker-compose file). Once the Docker is configured, you can run the Bright CLI and activate the Repeater using the Repeater ID and Bright API key.</p>
+<h3 id="prerequisites-2">Prerequisites</h3>
+<ul>
+<li>You have the Repeater with a valid ID ‘REPEATER’. See <a href="/docs/on-premises-repeater-local-agent">Managing Repeaters</a> for the information about handling the Repeaters.</li>
+<li>You have a valid <a href="/docs/manage-your-organization#manage-organization-apicli-authentication-tokens">organization API key</a> or <a href="/docs/manage-your-personal-account#manage-your-personal-api-keys-authentication-tokens">personal API key</a> (<code>BRIGHT_TOKEN</code>) with the following scopes: <code>bot</code>,<br><code>scans : run</code>,<code>scan : read</code>, and <code>scans : stop</code>.</li>
+<li>You have set the <code>BRIGHT_TOKEN</code> and <code>REPEATER</code> variables in your GitLab pipeline: Settings &gt; CI/CD &gt; Variables.</li>
+<li>You have copied the Bright <code>PROJECT_ID</code> on the <strong>Projects</strong> page.</li>
+</ul>
+<h3 id="step-by-step-guide-2">Step-by-step guide</h3>
+<h4 id="step-1---create-the-docker-compose-yml-file">STEP 1 - Create the Docker compose <code>yml</code> file</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>version: <span style="color:#e6db74">&#39;3&#39;</span>
+</span></span><span style="display:flex;"><span>services:
+</span></span><span style="display:flex;"><span>  juiceshop.local:
+</span></span><span style="display:flex;"><span>    image: bkimminich/juice-shop
+</span></span><span style="display:flex;"><span>    ports:
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;3000:3000&#34;</span>
+</span></span><span style="display:flex;"><span>  repeater:
+</span></span><span style="display:flex;"><span>    image: neuralegion/repeater:latest
+</span></span><span style="display:flex;"><span>    restart: always
+</span></span><span style="display:flex;"><span>    environment:
+</span></span><span style="display:flex;"><span>      REPEATER_TOKEN: $BRIGHT_TOKEN
+</span></span><span style="display:flex;"><span>      REPEATER_AGENT: $REPEATER
+</span></span><span style="display:flex;"><span>      DEBUG: nexploit-cli
+</span></span></code></pre></div><h4 id="step-2---deploy-the-docker-and-run-the-cli">STEP 2 - Deploy the Docker and run the CLI</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>before_script:
+</span></span><span style="display:flex;"><span>  - touch variables.txt
+</span></span><span style="display:flex;"><span>  - echo <span style="color:#e6db74">&#34;****** INSTALL DEPENDECIES *********&#34;</span>
+</span></span><span style="display:flex;"><span>  - apt-get update
+</span></span><span style="display:flex;"><span>  - apt-get -y install curl
+</span></span><span style="display:flex;"><span>  - curl -L <span style="color:#e6db74">&#34;https://github.com/docker/compose/releases/download/1.26.0/docker-compose-</span><span style="color:#66d9ef">$(</span>uname -s<span style="color:#66d9ef">)</span><span style="color:#e6db74">-</span><span style="color:#66d9ef">$(</span>uname -m<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> -o /usr/local/bin/docker-compose
+</span></span><span style="display:flex;"><span>  - chmod +x /usr/local/bin/docker-compose
+</span></span><span style="display:flex;"><span>  - apt-get -y install apt-transport-https ca-certificates curl software-properties-common
+</span></span><span style="display:flex;"><span>  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+</span></span><span style="display:flex;"><span>  - add-apt-repository <span style="color:#e6db74">&#34;deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable&#34;</span>
+</span></span><span style="display:flex;"><span>  - apt update
+</span></span><span style="display:flex;"><span>  - apt-cache policy docker-ce
+</span></span><span style="display:flex;"><span>  - apt-get -y install docker-ce
+</span></span><span style="display:flex;"><span>  - docker-compose --version
+</span></span><span style="display:flex;"><span>  - service docker start
+</span></span><span style="display:flex;"><span>  - apt update -qq --fix-missing
+</span></span><span style="display:flex;"><span>  - apt install -y --no-install-recommends nodejs npm make g++
+</span></span><span style="display:flex;"><span>  - npm install @neuralegion/nexploit-cli -g --unsafe-perm <span style="color:#f92672">||</span> true
+</span></span><span style="display:flex;"><span>script:
+</span></span><span style="display:flex;"><span>  - echo <span style="color:#e6db74">&#34;Start docker-compose configuration&#34;</span>
+</span></span><span style="display:flex;"><span>  - docker-compose up --detach
+</span></span><span style="display:flex;"><span>  - sleep 5s
+</span></span></code></pre></div><h4 id="step-3----run-retest-a-scan-1">STEP 3 -  Run (retest) a scan</h4>
+<ul>
+<li>If you need to run a new scan with a Crawler, use the following script:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>- echo <span style="color:#e6db74">&#34;Start Bright Scan 🏁&#34;</span>
+</span></span><span style="display:flex;"><span>  - &gt;
+</span></span><span style="display:flex;"><span>    SCAN_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>nexploit-cli scan:run --token $BRIGHT_TOKEN
+</span></span><span style="display:flex;"><span>    --name <span style="color:#e6db74">&#34;Test Gitlab Scan&#34;</span>
+</span></span><span style="display:flex;"><span>    --project $PROJECT_ID
+</span></span><span style="display:flex;"><span>    --repeater $REPEATER
+</span></span><span style="display:flex;"><span>    --crawler www.example.com 
+</span></span><span style="display:flex;"><span>    --smart<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>  - echo <span style="color:#e6db74">&#34;export SCAN_ID=</span>$SCAN_ID<span style="color:#e6db74">&#34;</span> &gt; $CI_PROJECT_DIR/variables
+</span></span><span style="display:flex;"><span>  - printf <span style="color:#e6db74">&#34;Scan was started with ID https://app.brightsec.com/scans/</span>$SCAN_ID<span style="color:#e6db74">\n&#34;</span>
+</span></span></code></pre></div><ul>
+<li>If you need to re-test a previous scan with its ID <code>OLD_SCAN_ID</code>, use the following script:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>- echo <span style="color:#e6db74">&#34;Retest a scan&#34;</span>
+</span></span><span style="display:flex;"><span>- &gt;
+</span></span><span style="display:flex;"><span>  NEW_SCAN_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>nexploit-cli scan:retest --token<span style="color:#f92672">=</span>$BRIGHT_TOKEN $OLD_SCAN_ID<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>-printf <span style="color:#e6db74">&#34;Scan was started with ID https://app.brightsec.com/scans/</span>$NEW_SCAN_ID<span style="color:#e6db74">\n&#34;</span>
+</span></span></code></pre></div><h4 id="step-4----poll-the-results-1">STEP 4 -  Poll the results</h4>
+<blockquote>
+<p>📘 Note</p>
+<p>When polling the scan results, it is recommended to follow the fail-fast principle by using the <code>breakpoint</code> command.  See <a href="/docs/command-list">Bright CLI Command List</a> for a full list of commands you can use in your GitLab flow.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>- printf <span style="color:#e6db74">&#34;Wait for issues ⏳\n&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> - &gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Poll the scan until it returns something, or its time runs out</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">(</span>nexploit-cli scan:polling
+</span></span><span style="display:flex;"><span>    --interval 30s
+</span></span><span style="display:flex;"><span>    --timeout 20m
+</span></span><span style="display:flex;"><span>    --token $BRIGHT_TOKEN
+</span></span><span style="display:flex;"><span>    --breakpoint medium_issue $SCAN_ID<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>  artifacts:
+</span></span><span style="display:flex;"><span>    paths:
+</span></span><span style="display:flex;"><span>    - variables
+</span></span><span style="display:flex;"><span>  allow_failure: true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># After that - stop the scan</span>
+</span></span><span style="display:flex;"><span> echo <span style="color:#e6db74">&#34;Stop Scan 🛑&#34;</span>
+</span></span><span style="display:flex;"><span>      nexploit-cli scan:stop --token $BRIGHT_TOKEN $SCAN_ID
+</span></span></code></pre></div><h4 id="step-5----view-the-results-1">STEP 5 -  View the results</h4>
+<p>To view the scan results, go to the <a href="https://app.neuralegion.com">Bright app</a>. For the instructions, see <a href="/docs/reviewing-scan-details#review-scan-results">here</a>.</p>
+<blockquote>
+<p>👍 Tip</p>
+<p>You can also configure a script to get the scan results directly in the job output. The configuration sample in given in Example 4.</p>
+</blockquote>
+<h3 id="complete-example-2">Complete example</h3>
+<p>The following example is made up of the steps above and shows how to run a new scan using the Crawler discovery type:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>image: ubuntu:20.04
+</span></span><span style="display:flex;"><span>cache:
+</span></span><span style="display:flex;"><span>  paths:
+</span></span><span style="display:flex;"><span>  - variables
+</span></span><span style="display:flex;"><span>test:
+</span></span><span style="display:flex;"><span>  before_script:
+</span></span><span style="display:flex;"><span>  - touch variables.txt
+</span></span><span style="display:flex;"><span>  - echo <span style="color:#e6db74">&#34;****** INSTALL DEPENDECIES *********&#34;</span>
+</span></span><span style="display:flex;"><span>  - apt-get update
+</span></span><span style="display:flex;"><span>  - apt-get -y install curl
+</span></span><span style="display:flex;"><span>  - curl -L <span style="color:#e6db74">&#34;https://github.com/docker/compose/releases/download/1.26.0/docker-compose-</span><span style="color:#66d9ef">$(</span>uname -s<span style="color:#66d9ef">)</span><span style="color:#e6db74">-</span><span style="color:#66d9ef">$(</span>uname -m<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> -o /usr/local/bin/docker-compose
+</span></span><span style="display:flex;"><span>  - chmod +x /usr/local/bin/docker-compose
+</span></span><span style="display:flex;"><span>  - apt-get -y install apt-transport-https ca-certificates curl software-properties-common
+</span></span><span style="display:flex;"><span>  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+</span></span><span style="display:flex;"><span>  - add-apt-repository <span style="color:#e6db74">&#34;deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable&#34;</span>
+</span></span><span style="display:flex;"><span>  - apt update
+</span></span><span style="display:flex;"><span>  - apt-cache policy docker-ce
+</span></span><span style="display:flex;"><span>  - apt-get -y install docker-ce
+</span></span><span style="display:flex;"><span>  - docker-compose --version
+</span></span><span style="display:flex;"><span>  - service docker start
+</span></span><span style="display:flex;"><span>  - apt update -qq --fix-missing
+</span></span><span style="display:flex;"><span>  - apt install -y --no-install-recommends nodejs npm make g++
+</span></span><span style="display:flex;"><span>  - npm install @neuralegion/nexploit-cli -g --unsafe-perm <span style="color:#f92672">||</span> true
+</span></span><span style="display:flex;"><span>  script:
+</span></span><span style="display:flex;"><span>  - echo <span style="color:#e6db74">&#34;Start docker-compose configuration&#34;</span>
+</span></span><span style="display:flex;"><span>  - docker-compose up --detach
+</span></span><span style="display:flex;"><span>  - sleep 5s
+</span></span><span style="display:flex;"><span>  - echo <span style="color:#e6db74">&#34;Start Bright Scan 🏁&#34;</span>
+</span></span><span style="display:flex;"><span>  - &gt;
+</span></span><span style="display:flex;"><span>    SCAN_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>nexploit-cli scan:run --token $BRIGHT_TOKEN
+</span></span><span style="display:flex;"><span>    --repeater $REPEATER
+</span></span><span style="display:flex;"><span>    --name <span style="color:#e6db74">&#34;Test Gitlab Scan&#34;</span>
+</span></span><span style="display:flex;"><span>    --project $PROJECT_ID
+</span></span><span style="display:flex;"><span>    --crawler http://juiceshop.local:3000
+</span></span><span style="display:flex;"><span>    --smart<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>  - echo <span style="color:#e6db74">&#34;export SCAN_ID=</span>$SCAN_ID<span style="color:#e6db74">&#34;</span> &gt; $CI_PROJECT_DIR/variables
+</span></span><span style="display:flex;"><span>  - printf <span style="color:#e6db74">&#34;Scan was started with ID https://app.brightsec.com/scans/</span>$SCAN_ID<span style="color:#e6db74">\n&#34;</span>
+</span></span><span style="display:flex;"><span>  - printf <span style="color:#e6db74">&#34;Wait for issues ⏳\n&#34;</span>
+</span></span><span style="display:flex;"><span>  - &gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">(</span>nexploit-cli scan:polling
+</span></span><span style="display:flex;"><span>    --interval 30s
+</span></span><span style="display:flex;"><span>    --timeout 20m
+</span></span><span style="display:flex;"><span>    --token $BRIGHT_TOKEN
+</span></span><span style="display:flex;"><span>    --breakpoint medium_issue $SCAN_ID<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>  artifacts:
+</span></span><span style="display:flex;"><span>    paths:
+</span></span><span style="display:flex;"><span>    - variables
+</span></span><span style="display:flex;"><span>  allow_failure: true
+</span></span><span style="display:flex;"><span>  after_script:
+</span></span><span style="display:flex;"><span>  - source $CI_PROJECT_DIR/variables
+</span></span><span style="display:flex;"><span>  - &gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -e $CI_PROJECT_DIR/variables <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Stop Scan 🛑&#34;</span>
+</span></span><span style="display:flex;"><span>      nexploit-cli scan:stop --token $BRIGHT_TOKEN $SCAN_ID
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Failed to stop scan&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><h2 id="example-4-run-a-scan-and-view-the-results-in-the-job-output">Example 4. Run a scan and view the results in the job output</h2>
+<p>The script below is configured to run a scan from the Bright cloud and send the details of all detected issues (vulnerabilities) directly to the job output. You can combine this script with the scripts given in the examples below to take maximum advantage of scanning.</p>
+<h3 id="prerequisites-3">Prerequisites</h3>
+<ul>
+<li>You have a valid <a href="/docs/manage-your-organization#manage-organization-apicli-authentication-tokens">organization API key</a> or <a href="/docs/manage-your-personal-account#manage-your-personal-api-keys-authentication-tokens">personal API key</a> (<code>BRIGHT_TOKEN</code>) with the following scopes: <code>bot</code>,<br><code>scans : run</code>,<code>scan : read</code>, and <code>scans : stop</code>.</li>
+<li>You have set the <code>BRIGHT_TOKEN</code> variable in your GitLab pipeline: Settings &gt; CI/CD &gt; Variables.</li>
+<li>You have copied the Bright <code>PROJECT_ID</code> on the <strong>Projects</strong> page.</li>
+</ul>
+<h3 id="complete-example-3">Complete example</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>image: ubuntu:20.04
+</span></span><span style="display:flex;"><span>cache:
+</span></span><span style="display:flex;"><span>  paths:
+</span></span><span style="display:flex;"><span>  - variables
+</span></span><span style="display:flex;"><span>test:
+</span></span><span style="display:flex;"><span>  before_script:
+</span></span><span style="display:flex;"><span>  - apt update -qq --fix-missing
+</span></span><span style="display:flex;"><span>  - apt install -y --no-install-recommends nodejs npm make g++
+</span></span><span style="display:flex;"><span>  - npm install @neuralegion/nexploit-cli -g --unsafe-perm <span style="color:#f92672">||</span> true
+</span></span><span style="display:flex;"><span>  - apt install jq -y
+</span></span><span style="display:flex;"><span>  - apt install curl -y
+</span></span><span style="display:flex;"><span>  script:
+</span></span><span style="display:flex;"><span>  - echo <span style="color:#e6db74">&#34;Start Bright Scan 🏁&#34;</span>
+</span></span><span style="display:flex;"><span>  - &gt;
+</span></span><span style="display:flex;"><span>    SCAN_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>nexploit-cli scan:run --token $BRIGHT_TOKEN
+</span></span><span style="display:flex;"><span>    --name <span style="color:#e6db74">&#34;GitLab Integration Scan&#34;</span>
+</span></span><span style="display:flex;"><span>    --project $PROJECT_ID
+</span></span><span style="display:flex;"><span>    --crawler https://brokencrystals.com
+</span></span><span style="display:flex;"><span>    --smart<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>  - echo <span style="color:#e6db74">&#34;export SCAN_ID=</span>$SCAN_ID<span style="color:#e6db74">&#34;</span> &gt; $CI_PROJECT_DIR/variables
+</span></span><span style="display:flex;"><span>  - printf <span style="color:#e6db74">&#34;Scan was started with ID https://app.brightsec.com/scans/</span>$SCAN_ID<span style="color:#e6db74">\n&#34;</span>
+</span></span><span style="display:flex;"><span>  - printf <span style="color:#e6db74">&#34;Wait for issues ⏳\n&#34;</span>
+</span></span><span style="display:flex;"><span>  - &gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">(</span>nexploit-cli scan:polling
+</span></span><span style="display:flex;"><span>    --interval 30s
+</span></span><span style="display:flex;"><span>    --timeout 20m
+</span></span><span style="display:flex;"><span>    --token $BRIGHT_TOKEN
+</span></span><span style="display:flex;"><span>    --breakpoint high_issue $SCAN_ID<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>  artifacts:
+</span></span><span style="display:flex;"><span>    paths:
+</span></span><span style="display:flex;"><span>    - variables
+</span></span><span style="display:flex;"><span>  allow_failure: true
+</span></span><span style="display:flex;"><span>  after_script:
+</span></span><span style="display:flex;"><span>  - source $CI_PROJECT_DIR/variables
+</span></span><span style="display:flex;"><span>  - &gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -e $CI_PROJECT_DIR/variables <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Stop Scan 🛑&#34;</span>
+</span></span><span style="display:flex;"><span>      nexploit-cli scan:stop --token $BRIGHT_TOKEN $SCAN_ID
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Failed to stop scan&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>          sleep <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#75715e">#We send a curl request to get all the scan issues and after that we parse the Id with jq</span>
+</span></span><span style="display:flex;"><span>                GET_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -X <span style="color:#e6db74">&#39;GET&#39;</span> <span style="color:#e6db74">&#39;https://app.brightsec.com/api/v1/scans/&#39;</span>$SCAN_ID<span style="color:#e6db74">&#39;/issues&#39;</span> -H <span style="color:#e6db74">&#39;accept: application/json&#39;</span> -H          <span style="color:#e6db74">&#39;Authorization: Api-Key &#39;</span>$BRIGHT_TOKEN<span style="color:#e6db74">&#39;&#39;</span> | jq <span style="color:#e6db74">&#39;.[].id&#39;</span> <span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">#We delete &#34;(quotation marks) and insert all ids into the new array  </span>
+</span></span><span style="display:flex;"><span>                ISSUES_ID_ARRAY<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>sed -e <span style="color:#e6db74">&#39;s/^&#34;//&#39;</span> -e <span style="color:#e6db74">&#39;s/&#34;$//&#39;</span> <span style="color:#f92672">&lt;&lt;&lt;</span><span style="color:#e6db74">&#34;</span>$GET_ID<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">#We insert everything from a previously made array into a new array(a), and for each value we give index value</span>
+</span></span><span style="display:flex;"><span>                a<span style="color:#f92672">=()</span>; <span style="color:#66d9ef">while</span> read -r line; <span style="color:#66d9ef">do</span> a<span style="color:#f92672">+=(</span><span style="color:#e6db74">&#34;</span>$line<span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span>; <span style="color:#66d9ef">done</span> <span style="color:#f92672">&lt;&lt;&lt;</span><span style="color:#e6db74">&#34;</span>$ISSUES_ID_ARRAY<span style="color:#e6db74">&#34;</span>; declare a;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                GET_NAME<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -X <span style="color:#e6db74">&#39;GET&#39;</span> <span style="color:#e6db74">&#39;https://app.brightsec.com/api/v1/scans/&#39;</span>$SCAN_ID<span style="color:#e6db74">&#39;/issues&#39;</span> -H <span style="color:#e6db74">&#39;accept: application/json&#39;</span> -H <span style="color:#e6db74">&#39;Authorization: Api-Key &#39;</span>$BRIGHT_TOKEN<span style="color:#e6db74">&#39;&#39;</span> | jq <span style="color:#e6db74">&#39;.[].name&#39;</span> <span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>                ISSUES_NAME_ARRAY<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>sed -e <span style="color:#e6db74">&#39;s/^&#34;//&#39;</span> -e <span style="color:#e6db74">&#39;s/&#34;$//&#39;</span> <span style="color:#f92672">&lt;&lt;&lt;</span><span style="color:#e6db74">&#34;</span>$GET_NAME<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>                b<span style="color:#f92672">=()</span>; <span style="color:#66d9ef">while</span> read -r line; <span style="color:#66d9ef">do</span> b<span style="color:#f92672">+=(</span><span style="color:#e6db74">&#34;</span>$line<span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span>; <span style="color:#66d9ef">done</span> <span style="color:#f92672">&lt;&lt;&lt;</span><span style="color:#e6db74">&#34;</span>$ISSUES_NAME_ARRAY<span style="color:#e6db74">&#34;</span>; declare b;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                GET_DETAILS<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -X <span style="color:#e6db74">&#39;GET&#39;</span> <span style="color:#e6db74">&#39;https://app.brightsec.com/api/v1/scans/&#39;</span>$SCAN_ID<span style="color:#e6db74">&#39;/issues&#39;</span> -H <span style="color:#e6db74">&#39;accept: application/json&#39;</span> -H <span style="color:#e6db74">&#39;Authorization: Api-Key &#39;</span>$BRIGHT_TOKEN<span style="color:#e6db74">&#39;&#39;</span> | jq <span style="color:#e6db74">&#39;.[].details&#39;</span> <span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>                ISSUES_DETAILS_ARRAY<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>sed -e <span style="color:#e6db74">&#39;s/^&#34;//&#39;</span> -e <span style="color:#e6db74">&#39;s/&#34;$//&#39;</span> <span style="color:#f92672">&lt;&lt;&lt;</span><span style="color:#e6db74">&#34;</span>$GET_DETAILS<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>                c<span style="color:#f92672">=()</span>; <span style="color:#66d9ef">while</span> read -r line; <span style="color:#66d9ef">do</span> c<span style="color:#f92672">+=(</span><span style="color:#e6db74">&#34;</span>$line<span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span>; <span style="color:#66d9ef">done</span> <span style="color:#f92672">&lt;&lt;&lt;</span><span style="color:#e6db74">&#34;</span>$ISSUES_DETAILS_ARRAY<span style="color:#e6db74">&#34;</span>; declare c;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                GET_SEVERITY<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -X <span style="color:#e6db74">&#39;GET&#39;</span> <span style="color:#e6db74">&#39;https://app.brightsec.com/api/v1/scans/&#39;</span>$SCAN_ID<span style="color:#e6db74">&#39;/issues&#39;</span> -H <span style="color:#e6db74">&#39;accept: application/json&#39;</span> -H <span style="color:#e6db74">&#39;Authorization: Api-Key &#39;</span>$BRIGHT_TOKEN<span style="color:#e6db74">&#39;&#39;</span> | jq <span style="color:#e6db74">&#39;.[].severity&#39;</span> <span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>                ISSUES_SEVERITY_ARRAY<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>sed -e <span style="color:#e6db74">&#39;s/^&#34;//&#39;</span> -e <span style="color:#e6db74">&#39;s/&#34;$//&#39;</span> <span style="color:#f92672">&lt;&lt;&lt;</span><span style="color:#e6db74">&#34;</span>$GET_SEVERITY<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>                d<span style="color:#f92672">=()</span>; <span style="color:#66d9ef">while</span> read -r line; <span style="color:#66d9ef">do</span> d<span style="color:#f92672">+=(</span><span style="color:#e6db74">&#34;</span>$line<span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span>; <span style="color:#66d9ef">done</span> <span style="color:#f92672">&lt;&lt;&lt;</span><span style="color:#e6db74">&#34;</span>$ISSUES_SEVERITY_ARRAY<span style="color:#e6db74">&#34;</span>; declare d;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                GET_PROTOCOL<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -X <span style="color:#e6db74">&#39;GET&#39;</span> <span style="color:#e6db74">&#39;https://app.brightsec.com/api/v1/scans/&#39;</span>$SCAN_ID<span style="color:#e6db74">&#39;/issues&#39;</span> -H <span style="color:#e6db74">&#39;accept: application/json&#39;</span> -H <span style="color:#e6db74">&#39;Authorization: Api-Key &#39;</span>$BRIGHT_TOKEN<span style="color:#e6db74">&#39;&#39;</span> | jq <span style="color:#e6db74">&#39;.[].protocol&#39;</span> <span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>                ISSUES_PROTOCOL_ARRAY<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>sed -e <span style="color:#e6db74">&#39;s/^&#34;//&#39;</span> -e <span style="color:#e6db74">&#39;s/&#34;$//&#39;</span> <span style="color:#f92672">&lt;&lt;&lt;</span><span style="color:#e6db74">&#34;</span>$GET_PROTOCOL<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>                e<span style="color:#f92672">=()</span>; <span style="color:#66d9ef">while</span> read -r line; <span style="color:#66d9ef">do</span> e<span style="color:#f92672">+=(</span><span style="color:#e6db74">&#34;</span>$line<span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span>; <span style="color:#66d9ef">done</span> <span style="color:#f92672">&lt;&lt;&lt;</span><span style="color:#e6db74">&#34;</span>$ISSUES_PROTOCOL_ARRAY<span style="color:#e6db74">&#34;</span>; declare e;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                GET_EXPOSURE<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -X <span style="color:#e6db74">&#39;GET&#39;</span> <span style="color:#e6db74">&#39;https://app.brightsec.com/api/v1/scans/&#39;</span>$SCAN_ID<span style="color:#e6db74">&#39;/issues&#39;</span> -H <span style="color:#e6db74">&#39;accept: application/json&#39;</span> -H <span style="color:#e6db74">&#39;Authorization: Api-Key &#39;</span>$BRIGHT_TOKEN<span style="color:#e6db74">&#39;&#39;</span> | jq <span style="color:#e6db74">&#39;.[].exposure&#39;</span> <span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>                ISSUES_EXPOSURE_ARRAY<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>sed -e <span style="color:#e6db74">&#39;s/^&#34;//&#39;</span> -e <span style="color:#e6db74">&#39;s/&#34;$//&#39;</span> <span style="color:#f92672">&lt;&lt;&lt;</span><span style="color:#e6db74">&#34;</span>$GET_EXPOSURE<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>                f<span style="color:#f92672">=()</span>; <span style="color:#66d9ef">while</span> read -r line; <span style="color:#66d9ef">do</span> f<span style="color:#f92672">+=(</span><span style="color:#e6db74">&#34;</span>$line<span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span>; <span style="color:#66d9ef">done</span> <span style="color:#f92672">&lt;&lt;&lt;</span><span style="color:#e6db74">&#34;</span>$ISSUES_EXPOSURE_ARRAY<span style="color:#e6db74">&#34;</span>; declare f;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                GET_CVSS<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -X <span style="color:#e6db74">&#39;GET&#39;</span> <span style="color:#e6db74">&#39;https://app.brightsec.com/api/v1/scans/&#39;</span>$SCAN_ID<span style="color:#e6db74">&#39;/issues&#39;</span> -H <span style="color:#e6db74">&#39;accept: application/json&#39;</span> -H <span style="color:#e6db74">&#39;Authorization: Api-Key &#39;</span>$BRIGHT_TOKEN<span style="color:#e6db74">&#39;&#39;</span> | jq <span style="color:#e6db74">&#39;.[].cvss&#39;</span> <span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>                ISSUES_CVSS_ARRAY<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>sed -e <span style="color:#e6db74">&#39;s/^&#34;//&#39;</span> -e <span style="color:#e6db74">&#39;s/&#34;$//&#39;</span> <span style="color:#f92672">&lt;&lt;&lt;</span><span style="color:#e6db74">&#34;</span>$GET_CVSS<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>                g<span style="color:#f92672">=()</span>; <span style="color:#66d9ef">while</span> read -r line; <span style="color:#66d9ef">do</span> g<span style="color:#f92672">+=(</span><span style="color:#e6db74">&#34;</span>$line<span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span>; <span style="color:#66d9ef">done</span> <span style="color:#f92672">&lt;&lt;&lt;</span><span style="color:#e6db74">&#34;</span>$ISSUES_CVSS_ARRAY<span style="color:#e6db74">&#34;</span>; declare g;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                GET_CWE<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -X <span style="color:#e6db74">&#39;GET&#39;</span> <span style="color:#e6db74">&#39;https://app.brightsec.com/api/v1/scans/&#39;</span>$SCAN_ID<span style="color:#e6db74">&#39;/issues&#39;</span> -H <span style="color:#e6db74">&#39;accept: application/json&#39;</span> -H <span style="color:#e6db74">&#39;Authorization: Api-Key &#39;</span>$BRIGHT_TOKEN<span style="color:#e6db74">&#39;&#39;</span> | jq <span style="color:#e6db74">&#39;.[].cwe&#39;</span> <span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>                ISSUES_CWE_ARRAY<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>sed -e <span style="color:#e6db74">&#39;s/^&#34;//&#39;</span> -e <span style="color:#e6db74">&#39;s/&#34;$//&#39;</span> <span style="color:#f92672">&lt;&lt;&lt;</span><span style="color:#e6db74">&#34;</span>$GET_CWE<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>                h<span style="color:#f92672">=()</span>; <span style="color:#66d9ef">while</span> read -r line; <span style="color:#66d9ef">do</span> h<span style="color:#f92672">+=(</span><span style="color:#e6db74">&#34;</span>$line<span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span>; <span style="color:#66d9ef">done</span> <span style="color:#f92672">&lt;&lt;&lt;</span><span style="color:#e6db74">&#34;</span>$ISSUES_CWE_ARRAY<span style="color:#e6db74">&#34;</span>; declare h;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                GET_TIME<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -X <span style="color:#e6db74">&#39;GET&#39;</span> <span style="color:#e6db74">&#39;https://app.brightsec.com/api/v1/scans/&#39;</span>$SCAN_ID<span style="color:#e6db74">&#39;/issues&#39;</span> -H <span style="color:#e6db74">&#39;accept: application/json&#39;</span> -H <span style="color:#e6db74">&#39;Authorization: Api-Key &#39;</span>$BRIGHT_TOKEN<span style="color:#e6db74">&#39;&#39;</span> | jq <span style="color:#e6db74">&#39;.[].time&#39;</span> <span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>                ISSUES_TIME_ARRAY<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>sed -e <span style="color:#e6db74">&#39;s/^&#34;//&#39;</span> -e <span style="color:#e6db74">&#39;s/&#34;$//&#39;</span> <span style="color:#f92672">&lt;&lt;&lt;</span><span style="color:#e6db74">&#34;</span>$GET_TIME<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>                j<span style="color:#f92672">=()</span>; <span style="color:#66d9ef">while</span> read -r line; <span style="color:#66d9ef">do</span> i<span style="color:#f92672">+=(</span><span style="color:#e6db74">&#34;</span>$line<span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span>; <span style="color:#66d9ef">done</span> <span style="color:#f92672">&lt;&lt;&lt;</span><span style="color:#e6db74">&#34;</span>$ISSUES_TIME_ARRAY<span style="color:#e6db74">&#34;</span>; declare j;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;The number of issues we found is </span><span style="color:#e6db74">${#</span>a[*]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>      len<span style="color:#f92672">=</span><span style="color:#e6db74">${#</span>a[*]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>      i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span> $i -lt $len <span style="color:#f92672">]</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34; &#34;</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34; &#34;</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;ID OF THE SCAN IS    </span><span style="color:#e6db74">${</span>a[$i]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;NAME    &#34;</span><span style="color:#e6db74">${</span>b[$i]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;DETAILS    &#34;</span><span style="color:#e6db74">${</span>c[$i]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;SEVERITY    &#34;</span><span style="color:#e6db74">${</span>d[$i]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;PROTOCOL    &#34;</span><span style="color:#e6db74">${</span>e[$i]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;EXPOSURE    &#34;</span><span style="color:#e6db74">${</span>f[$i]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;CVSS    &#34;</span><span style="color:#e6db74">${</span>g[$i]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;CWE    &#34;</span><span style="color:#e6db74">${</span>h[$i]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;TIME    &#34;</span><span style="color:#e6db74">${</span>j[$i]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>        let i<span style="color:#f92672">=</span>i+1
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><div class="edit-meta">
+
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/CI%20Pipeline%20Integrations/integration-examples/gitlab-integration-examples.md" class="edit-page"><i class="fas fa-pen-square"></i>&nbsp;Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/" title="Integrating Bright with Your CI Pipeline"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Integrating Bright with Your CI Pipeline</a>
+<a class="nav nav-next" href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jenkins/" title="Jenkins">Next - Jenkins <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://example.com">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://example.com/about-bright-dast/">About Bright DASTs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/">Deployment Options</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/private-cloud/">Private Cloud Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/on-premises-repeater-local-agent/">Repeater (Scan Proxy)</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/saas-deployment/">SaaS Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/introducing-to-bright/">What is Bright DAST?</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/accounting-and-billing/">Accounting and Billings<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/accounting-and-billing/about-accounting-and-billing/">About Accounting and Billing</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-history/">Managing Payment History</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-information/">Managing Payment Information</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-your-plan/">Managing Plan</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/advanced-integration-use-cases/">Advanced Integration Use Cases<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-integration-use-cases/integrating-a-bright-project-with-webhooks/">Integrating a Bright Project with Webhooks</a></li>
+<li class=""><a href="https://example.com/advanced-integration-use-cases/sending-detected-issues-to-jira-from-cicd-pipelines/">Sending Detected Issues from CI/CD Pipelines to Jira</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/advanced-setup-in-bright-app/">Advanced Setup in Bright Apps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/">Managing Access Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/managing-bright-file-storage/">Managing Bright File Storage</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-custom-roles/">Managing Custom Roles</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/">Managing Organization</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-groups/">Managing Organization Groups</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-users/">Managing Organization Users</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-personal-account/">Managing Personal Account</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-projects/">Managing Projects</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/manage-repeater-scripts/">Managing Repeater Scripts</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-repeaters/">Managing Repeaters</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/organization-api-key-scopes/">Organization API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/personal-api-key-scopes/">Personal API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/project-api-key-scopes/">Project API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/role-management-scopes/">Role Management Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/use-cases/">Use Cases</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/">Using Repeater Scripts</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://example.com/ci-pipeline-integrations/">CI Pipeline Integrations<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/azure-pipelines/">Azure Pipelines</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/circleci/">CircleCI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/github-actions/">GitHub Actions</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/gitlab/">GitLab</a></li>
+<li class="active"><a href="https://example.com/ci-pipeline-integrations/integration-examples/gitlab-integration-examples/">GitLab Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/">Integrating Bright with Your CI Pipeline</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/">Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jenkins/">Jenkins</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/jenkins-integration-examples/">Jenkins Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jfrog/">JFrog</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/team-city/">TeamCity</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/travis-ci/">Travis CI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/travis-ci-integration-examples/">Travis CI Integration Examples</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/general/">Generals<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/general/faqs/">FAQs</a></li>
+<li class=""><a href="https://example.com/general/privacy-policy/">Privacy Policy</a></li>
+<li class=""><a href="https://example.com/general/terms-of-use/">Terms of Use</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/getting-started-with-bright/">Getting Started with Brights<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/getting-started-with-bright/quick-tour-of-the-web-interface/">Quick Tour of the User Interface</a></li>
+<li class=""><a href="https://example.com/getting-started-with-bright/quickstart/">Quickstart</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/managing-authentications/">Managing Authentications<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-authentications/adding-your-authentication-object-to-a-scan/">Adding an Authentication Object to a Scan</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-an-authentication-object-in-bright/">Authentication Types</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-api-call-authentication/">Configuring API Call Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-multi-step-browser-based-form-authentication/">Configuring Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-custom-multi-step-authentication/">Configuring Custom API Authentication Flow</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-form-authentication/">Configuring Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-header-authentication-in-bright/">Configuring Header Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-ntlm-authentication/">Configuring NTLM Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-oidc-connect-oauth/">Configuring OIDC Connect (OAuth)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-recorded-browser-based-form-authentication/">Configuring Recorded Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configuring-recorded-browser-based-form-authentication-internal-copy/">Configuring Recorded Browser-Based Form Authentication (Internal Copy)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/">Creating Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/string-interpolation-syntax/">String Interpolation Syntax</a></li>
+<li class=""><a href="https://example.com/managing-authentications/troubleshooting-authentication-issues-internal/">Troubleshooting Authentication Issues</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/managing-scan-results/">Managing Scan Results<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-scan-results/deleting-a-scan/">Deleting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/exporting-a-scan/">Exporting a Scan Report</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/handling-discovered-issues/">Handling Discovered Issues</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/how-to-add-bright-to-the-waf-allowlist/">How to Add Bright to the WAF Allowlist</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/modifying-future-scan-settings/">Modifying Future Scan Settings</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/retesting-a-scan/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scans/">Reviewing All Scans</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-details/">Reviewing Scan Details</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-history/">Reviewing Scan History</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/troubleshooting-for-problematic-scans/">Troubleshooting Scans</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/pages-after-new-scan-dialog-analytics/">Pages after New scan dialog analytics<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/scanning-from-bright-app/">Scanning from Bright Apps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/configuring-an-api-schema-for-scanning/">Configuring an API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/creating-a-har-file/">Creating a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/creating-a-new-scan/">Creating a Scan</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/edit-an-uploaded-api-schema/">Editing an Uploaded API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/managing-scan-templates/">Managing Scan Templates</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/">Scanning API Endpoints</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/">Scanning with a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/crawler/">Scanning with a Crawler</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/troubleshooting/">Troubleshooting</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/sso-integrations/">SSO Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/azure-sso-and-provisioning/">Azure SSO and Provisioning</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/">Configuring Single Sign-On</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/google-sso/">Google SSO</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/okta-sso-and-provisioning/">Okta SSO and Provisioning</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/ticketing-integrations/">Ticketing Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ticketing-integrations/adding-ticketing-integration-to-a-project/">Adding Ticketing Integration to a Project</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/azure-boards/">Azure Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/github/">GitHub</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/gitlab-boards/">GitLab Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/">Integrating Bright with Your Ticketing System</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/jira/">Jira</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/slack/">Slack</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/using-bright-cli/">Using Bright CLI<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-cli/about-bright-cli/">About Bright CLI</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/checking-scan-status/">Checking Scan Status</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/command-language-syntax/">Command Language Syntax</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/">Command List</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/configuration-files/">Configuration Files</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/generating-an-archive-with-nexmock/">Generating an Archive with NexMock</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/">Getting Started</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/initializing-the-repeater/">Initializing the Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/installation-options/">Installation Guide</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/integrating-with-a-service/">Integrating with an On-Premise Ticketing Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/retesting-a-scan-1/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/running-a-scan/">Running a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-as-part-of-ci-pipeline/">Scanning as Part of CI Pipeline</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-at-the-enterprise-level/">Scanning at the Enterprise Level</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/security-scanning-as-self-service/">Security Scanning as Self-Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/stopping-a-scan/">Stopping a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/testing-network-connectivity/">Testing Network Connectivity</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/repeater-troubleshooting/">Troubleshooting Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/uploading-an-archive/">Uploading an Archive</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/using-bright-rest-api/">Using Bright REST APIs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-rest-api/about-bright-api/">About Bright API</a></li>
+<li class=""><a href="https://example.com/using-bright-rest-api/response-status-codes/">Response Status Codes</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/vulnerability-guide/">Vulnerability Guides<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/vulnerability-guide/vulnerability-guide/">Vulnerability Guide</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/welcome/">Welcomes<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/welcome/about-docs/">About Docs</a></li>
+<li class=""><a href="https://example.com/welcome/accessibility/">Accessibility</a></li>
+<li class=""><a href="https://example.com/welcome/support/">Support</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

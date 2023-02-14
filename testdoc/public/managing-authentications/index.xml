@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Managing Authentications on Brightsec</title>
+    <link>https://example.com/managing-authentications/</link>
+    <description>Recent content in Managing Authentications on Brightsec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://example.com/managing-authentications/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adding an Authentication Object to a Scan</title>
+      <link>https://example.com/managing-authentications/adding-your-authentication-object-to-a-scan/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-authentications/adding-your-authentication-object-to-a-scan/</guid>
+      <description>When starting a new scan, you can select any of the authentication objects that you have created previously in the Bright app. This will allow the Bright engine to perform the re-authentication automatically during the scan.
+You can apply either the DAST or Fuzzer module, as well as all the discovery types for the scans with connected authentication objects.
+Prerequisites You have a valid Authentication Object configured. Step-by-step guide In the Application Settings tab, select Authentication object.</description>
+    </item>
+    
+    <item>
+      <title>Authentication Types</title>
+      <link>https://example.com/managing-authentications/creating-an-authentication-object-in-bright/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-authentications/creating-an-authentication-object-in-bright/</guid>
+      <description>Overview The Bright authentication capabilities allow you to scan all the login-protected resources within your target application or API. If you need to scan an application or API with some authenticated pages, you first need to configure Bright with the correct authentication method(s) and valid credentials, so that it can easily reach each of them when running a scan.
+By creating an authentication object, you enable Bright to reach complete scan coverage of the target application or API during the security testing.</description>
+    </item>
+    
+    <item>
+      <title>Configuring API Call Authentication</title>
+      <link>https://example.com/managing-authentications/creating-authentication/configure-api-call-authentication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-authentications/creating-authentication/configure-api-call-authentication/</guid>
+      <description>❗️ Deprecation notice
+The API call authentication type is deprecated. Your existing authentication objects of this type are currently working, and later will be converted in to the Custom API authentication objects automatically.
+The API call authentication method is designed to enable Bright to reach an authenticated resource by sending API requests with customized request queries, headers and bodies, requiring the use of dynamic information between steps (such as CSRF tokens).</description>
+    </item>
+    
+    <item>
+      <title>Configuring Browser-Based Form Authentication</title>
+      <link>https://example.com/managing-authentications/creating-authentication/configure-multi-step-browser-based-form-authentication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-authentications/creating-authentication/configure-multi-step-browser-based-form-authentication/</guid>
+      <description>📘 Note
+We recommend that you use Recorded Browser-Based Form Authentication method for creating these type of authentication.
+[block:embed] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;iframe class=&amp;quot;embedly-embed&amp;quot; src=&amp;quot;//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2Fb5QP6u4w3UM%3Ffeature%3Doembed&amp;amp;display_name=YouTube&amp;amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Db5QP6u4w3UM&amp;amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fb5QP6u4w3UM%2Fhqdefault.jpg&amp;amp;key=f2aa6fc3595946d0afc3d76cbbd25dc3&amp;amp;type=text%2Fhtml&amp;amp;schema=youtube&amp;quot; width=&amp;quot;854&amp;quot; height=&amp;quot;480&amp;quot; scrolling=&amp;quot;no&amp;quot; title=&amp;quot;YouTube embed&amp;quot; frameborder=&amp;quot;0&amp;quot; allow=&amp;quot;autoplay; fullscreen&amp;quot; allowfullscreen=&amp;quot;true&amp;quot;&amp;gt;&amp;rdquo;, &amp;ldquo;url&amp;rdquo;: &amp;ldquo;https://www.youtube.com/watch?v=b5QP6u4w3UM&amp;amp;feature=emb_logo&amp;quot;, &amp;ldquo;title&amp;rdquo;: &amp;ldquo;Creating a Browser-Based Authentication Object&amp;rdquo;, &amp;ldquo;favicon&amp;rdquo;: &amp;ldquo;https://www.youtube.com/s/desktop/df3209e6/img/favicon.ico&amp;quot;, &amp;ldquo;image&amp;rdquo;: &amp;ldquo;https://i.ytimg.com/vi/b5QP6u4w3UM/hqdefault.jpg&amp;quot;, &amp;ldquo;provider&amp;rdquo;: &amp;ldquo;youtube.com&amp;rdquo;, &amp;ldquo;href&amp;rdquo;: &amp;ldquo;https://www.youtube.com/watch?v=b5QP6u4w3UM&amp;amp;feature=emb_logo&amp;quot; } [/block]
+You can grant Bright access to the login-protected pages of your application by specifying the form fields with the corresponding valid credentials to be entered in to those fields.</description>
+    </item>
+    
+    <item>
+      <title>Configuring Custom API Authentication Flow</title>
+      <link>https://example.com/managing-authentications/creating-authentication/configure-custom-multi-step-authentication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-authentications/creating-authentication/configure-custom-multi-step-authentication/</guid>
+      <description>The custom API authentication method is designed to easily create a single or multi-stage authentication flow. During the authentication object configuration, you can also create templates to extract dynamic information from the previous steps, easily performed by using the String Interpolation Syntax.
+📘 Note
+This topic describes only how to fill in fields specific for custom API authentication (the Setup tab). For general steps, see Creating Authentication.
+📘 Note
+Before following the instructions below, ensure that your application and authenticated resources are accessible to the Bright engine, either directly from the Internet or via the Repeater.</description>
+    </item>
+    
+    <item>
+      <title>Configuring Form Authentication</title>
+      <link>https://example.com/managing-authentications/creating-authentication/configure-form-authentication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-authentications/creating-authentication/configure-form-authentication/</guid>
+      <description>❗️ Deprecation notice
+The Form authentication type is deprecated. Your existing authentication objects of this type are currently working, and later will be converted in to the Custom API authentication objects automatically.
+You can use the form authentication if the login-protected resources within the application you want to scan use
+the application/x-www-form-urlencoded content type of the HTTP requests.
+The form authentication type is set by default when you create an authentication object in the Bright app.</description>
+    </item>
+    
+    <item>
+      <title>Configuring Header Authentication</title>
+      <link>https://example.com/managing-authentications/creating-authentication/configure-header-authentication-in-bright/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-authentications/creating-authentication/configure-header-authentication-in-bright/</guid>
+      <description>[block:embed] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;iframe class=&amp;quot;embedly-embed&amp;quot; src=&amp;quot;//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FUxVaWMy6-CE%3Ffeature%3Doembed&amp;amp;display_name=YouTube&amp;amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DUxVaWMy6-CE&amp;amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FUxVaWMy6-CE%2Fhqdefault.jpg&amp;amp;key=f2aa6fc3595946d0afc3d76cbbd25dc3&amp;amp;type=text%2Fhtml&amp;amp;schema=youtube&amp;quot; width=&amp;quot;854&amp;quot; height=&amp;quot;480&amp;quot; scrolling=&amp;quot;no&amp;quot; title=&amp;quot;YouTube embed&amp;quot; frameborder=&amp;quot;0&amp;quot; allow=&amp;quot;autoplay; fullscreen&amp;quot; allowfullscreen=&amp;quot;true&amp;quot;&amp;gt;&amp;rdquo;, &amp;ldquo;url&amp;rdquo;: &amp;ldquo;https://www.youtube.com/watch?v=UxVaWMy6-CE&amp;quot;, &amp;ldquo;title&amp;rdquo;: &amp;ldquo;Creating a header authentication object&amp;rdquo;, &amp;ldquo;favicon&amp;rdquo;: &amp;ldquo;https://www.youtube.com/s/desktop/b422c796/img/favicon.ico&amp;quot;, &amp;ldquo;image&amp;rdquo;: &amp;ldquo;https://i.ytimg.com/vi/UxVaWMy6-CE/hqdefault.jpg&amp;quot;, &amp;ldquo;provider&amp;rdquo;: &amp;ldquo;youtube.com&amp;rdquo;, &amp;ldquo;href&amp;rdquo;: &amp;ldquo;https://www.youtube.com/watch?v=UxVaWMy6-CE&amp;quot; } [/block]
+You can use the header authentication method if the login-protected resources within the application you want to scan require one or more static header authentication tokens, which are generated outside of Bright.
+📘 Note
+In case a specified authentication token expires, the authentication object will no longer provide Bright with the ability to reach authenticated resources of that particular target.</description>
+    </item>
+    
+    <item>
+      <title>Configuring NTLM Authentication</title>
+      <link>https://example.com/managing-authentications/creating-authentication/configure-ntlm-authentication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-authentications/creating-authentication/configure-ntlm-authentication/</guid>
+      <description>If the target network uses the NTLM protocol to verify the user’s access rights, you need to set up an NTLM authentication object. The protocol requires a user to be authenticated by providing a username and a corresponding password. After the user’s log-in credentials are recognized, the network can then check access rights and allow the user to enter.
+Therefore, you can grant Bright access to an NTLM authenticated network you are going to use for a scan by providing your credentials, workstation name, and the network domain.</description>
+    </item>
+    
+    <item>
+      <title>Configuring OIDC Connect (OAuth)</title>
+      <link>https://example.com/managing-authentications/creating-authentication/configure-oidc-connect-oauth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-authentications/creating-authentication/configure-oidc-connect-oauth/</guid>
+      <description>[block:embed] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;iframe class=&amp;quot;embedly-embed&amp;quot; src=&amp;quot;//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FgrZlK9WYJkY%3Fstart%3D2%26feature%3Doembed%26start%3D2&amp;amp;display_name=YouTube&amp;amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DgrZlK9WYJkY&amp;amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FgrZlK9WYJkY%2Fhqdefault.jpg&amp;amp;key=f2aa6fc3595946d0afc3d76cbbd25dc3&amp;amp;type=text%2Fhtml&amp;amp;schema=youtube&amp;quot; width=&amp;quot;854&amp;quot; height=&amp;quot;480&amp;quot; scrolling=&amp;quot;no&amp;quot; title=&amp;quot;YouTube embed&amp;quot; frameborder=&amp;quot;0&amp;quot; allow=&amp;quot;autoplay; fullscreen&amp;quot; allowfullscreen=&amp;quot;true&amp;quot;&amp;gt;&amp;rdquo;, &amp;ldquo;url&amp;rdquo;: &amp;ldquo;https://www.youtube.com/watch?v=grZlK9WYJkY&amp;amp;t=2s&amp;quot;, &amp;ldquo;title&amp;rdquo;: &amp;ldquo;Creating an OpenID Connect Authentication Object&amp;rdquo;, &amp;ldquo;favicon&amp;rdquo;: &amp;ldquo;https://www.youtube.com/s/desktop/21ad9f7d/img/favicon.ico&amp;quot;, &amp;ldquo;image&amp;rdquo;: &amp;ldquo;https://i.ytimg.com/vi/grZlK9WYJkY/hqdefault.jpg&amp;quot;, &amp;ldquo;provider&amp;rdquo;: &amp;ldquo;youtube.com&amp;rdquo;, &amp;ldquo;href&amp;rdquo;: &amp;ldquo;https://www.youtube.com/watch?v=grZlK9WYJkY&amp;amp;t=2s&amp;quot; } [/block]
+The OIDC (OAuth) authentication method is designed to configure the standard OAuth 2.0 flow, which requires the use of client or user secrets.
+📘 Note
+Currently only the Customer Credentials and Resource Owner Password grant types of the OIDC are supported.</description>
+    </item>
+    
+    <item>
+      <title>Configuring Recorded Browser-Based Form Authentication</title>
+      <link>https://example.com/managing-authentications/creating-authentication/configure-recorded-browser-based-form-authentication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-authentications/creating-authentication/configure-recorded-browser-based-form-authentication/</guid>
+      <description>[block:embed] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;iframe class=&amp;quot;embedly-embed&amp;quot; src=&amp;quot;//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FbpEE7Q5jJhk%3Ffeature%3Doembed&amp;amp;display_name=YouTube&amp;amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DbpEE7Q5jJhk&amp;amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FbpEE7Q5jJhk%2Fhqdefault.jpg&amp;amp;key=f2aa6fc3595946d0afc3d76cbbd25dc3&amp;amp;type=text%2Fhtml&amp;amp;schema=youtube&amp;quot; width=&amp;quot;854&amp;quot; height=&amp;quot;480&amp;quot; scrolling=&amp;quot;no&amp;quot; title=&amp;quot;YouTube embed&amp;quot; frameborder=&amp;quot;0&amp;quot; allow=&amp;quot;autoplay; fullscreen&amp;quot; allowfullscreen=&amp;quot;true&amp;quot;&amp;gt;&amp;rdquo;, &amp;ldquo;url&amp;rdquo;: &amp;ldquo;https://www.youtube.com/watch?v=bpEE7Q5jJhk&amp;amp;feature=youtu.be&amp;quot;, &amp;ldquo;title&amp;rdquo;: &amp;ldquo;Configuring Recorded Browser-Based Form Authentication&amp;rdquo;, &amp;ldquo;favicon&amp;rdquo;: &amp;ldquo;https://www.youtube.com/s/desktop/1c192ebe/img/favicon.ico&amp;quot;, &amp;ldquo;image&amp;rdquo;: &amp;ldquo;https://i.ytimg.com/vi/bpEE7Q5jJhk/hqdefault.jpg&amp;quot;, &amp;ldquo;provider&amp;rdquo;: &amp;ldquo;youtube.com&amp;rdquo;, &amp;ldquo;href&amp;rdquo;: &amp;ldquo;https://www.youtube.com/watch?v=bpEE7Q5jJhk&amp;amp;feature=youtu.be&amp;quot; } [/block]
+Recorded browser-based form authentication is a quick and visual way of creating authentication flows. It allows uploading an authentication flow which was prerecorded with the Chrome recorder and using it as authentication with Bright. Recording authentication To record a session using Google Chrome Recorder, follow the steps below.</description>
+    </item>
+    
+    <item>
+      <title>Configuring Recorded Browser-Based Form Authentication (Internal Copy)</title>
+      <link>https://example.com/managing-authentications/creating-authentication/configuring-recorded-browser-based-form-authentication-internal-copy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-authentications/creating-authentication/configuring-recorded-browser-based-form-authentication-internal-copy/</guid>
+      <description>[block:embed] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;iframe class=&amp;quot;embedly-embed&amp;quot; src=&amp;quot;//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FbpEE7Q5jJhk%3Ffeature%3Doembed&amp;amp;display_name=YouTube&amp;amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DbpEE7Q5jJhk&amp;amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FbpEE7Q5jJhk%2Fhqdefault.jpg&amp;amp;key=f2aa6fc3595946d0afc3d76cbbd25dc3&amp;amp;type=text%2Fhtml&amp;amp;schema=youtube&amp;quot; width=&amp;quot;854&amp;quot; height=&amp;quot;480&amp;quot; scrolling=&amp;quot;no&amp;quot; title=&amp;quot;YouTube embed&amp;quot; frameborder=&amp;quot;0&amp;quot; allow=&amp;quot;autoplay; fullscreen&amp;quot; allowfullscreen=&amp;quot;true&amp;quot;&amp;gt;&amp;rdquo;, &amp;ldquo;url&amp;rdquo;: &amp;ldquo;https://www.youtube.com/watch?v=bpEE7Q5jJhk&amp;amp;feature=youtu.be&amp;quot;, &amp;ldquo;title&amp;rdquo;: &amp;ldquo;Configuring Recorded Browser-Based Form Authentication&amp;rdquo;, &amp;ldquo;favicon&amp;rdquo;: &amp;ldquo;https://www.youtube.com/s/desktop/1c192ebe/img/favicon.ico&amp;quot;, &amp;ldquo;image&amp;rdquo;: &amp;ldquo;https://i.ytimg.com/vi/bpEE7Q5jJhk/hqdefault.jpg&amp;quot;, &amp;ldquo;provider&amp;rdquo;: &amp;ldquo;youtube.com&amp;rdquo;, &amp;ldquo;href&amp;rdquo;: &amp;ldquo;https://www.youtube.com/watch?v=bpEE7Q5jJhk&amp;amp;feature=youtu.be&amp;quot; } [/block]
+Recorded browser-based form authentication is a quick and visual way of creating authentication flows. It allows uploading an authentication flow which was prerecorded with the Chrome recorder and using it as authentication with Bright. Recording an authentication flow To record a session using Google Chrome Recorder, follow the steps below.</description>
+    </item>
+    
+    <item>
+      <title>Creating Authentication</title>
+      <link>https://example.com/managing-authentications/configuring-authentication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-authentications/configuring-authentication/</guid>
+      <description>📘
+Before following the instructions below, ensure that your application and authenticated resources are accessible to the Bright engine, either directly from the Internet or via a Repeater.
+Configuring authentication From the menu in the left pane of the Bright app, select Authentications. In the Authentications pane, click + Create Authentication. [block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/5e3bc42-1e1f425-dbcf47a-create-auth.png&amp;rdquo;, &amp;ldquo;1e1f425-dbcf47a-create-auth.png&amp;rdquo;, 1918 ], &amp;ldquo;sizing&amp;rdquo;: &amp;ldquo;80&amp;rdquo; } ] } [/block]
+In the Create authentication dialog, fill in the fields as described below.</description>
+    </item>
+    
+    <item>
+      <title>Creating Authentication</title>
+      <link>https://example.com/managing-authentications/creating-authentication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-authentications/creating-authentication/</guid>
+      <description>📘
+Before following the instructions below, ensure that your application and authenticated resources are accessible to the Bright engine, either directly from the Internet or via a Repeater.
+Configuring authentication From the menu in the left pane of the Bright app, select Authentications. In the Authentications pane, click + Create Authentication. [block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/5e3bc42-1e1f425-dbcf47a-create-auth.png&amp;rdquo;, &amp;ldquo;1e1f425-dbcf47a-create-auth.png&amp;rdquo;, 1918 ], &amp;ldquo;sizing&amp;rdquo;: &amp;ldquo;80&amp;rdquo; } ] } [/block]
+In the Create authentication dialog, fill in the fields as described below.</description>
+    </item>
+    
+    <item>
+      <title>Known Issues (Internal)</title>
+      <link>https://example.com/managing-authentications/adding-wait-state-to-recording-created-with-google-chrome-recorder/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-authentications/adding-wait-state-to-recording-created-with-google-chrome-recorder/</guid>
+      <description>RAO inconsistency issues Issues affecting OAuth2, OIDC, SPA (Single Page Application) The redirects are not taken into account while asserting. Results in RAO failure.
+📘 Example
+GET https://nexploit.okta.com/login/login.htm?fromURI=/oauth2/v1/authorize/redirect?okta_key=sueOmcIiKdFwyJgkDj0xZO4JWUF8ZAxFVJuyh4rJRPA responds with 302 status and Location header, which value is used in asserted navigation events.
+Await is missing on asserting for navigation event. Results in RAO failure.
+The authentication tester provides the following output: &amp;ldquo;The actual URL doesn&amp;rsquo;t match up to the specified validation URL, please make sure the URL is correct or record again with the correct configuration.</description>
+    </item>
+    
+    <item>
+      <title>Media</title>
+      <link>https://example.com/managing-authentications/media-4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-authentications/media-4/</guid>
+      <description>[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/71ef6b1-drag-icon.png&amp;rdquo;, &amp;ldquo;drag-icon.png&amp;rdquo;, 26, 32, &amp;ldquo;#313b3f&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/96bcb9f-deprecated-settings.png&amp;rdquo;, &amp;ldquo;deprecated-settings.png&amp;rdquo;, 865, 786, &amp;ldquo;#232b2e&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/c4ad737-tester.png&amp;rdquo;, &amp;ldquo;tester.png&amp;rdquo;, 862, 786, &amp;ldquo;#21292c&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/795a640-triggers.png&amp;rdquo;, &amp;ldquo;triggers.png&amp;rdquo;, 871, 794, &amp;ldquo;#242b2e&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.</description>
+    </item>
+    
+    <item>
+      <title>String Interpolation Syntax</title>
+      <link>https://example.com/managing-authentications/creating-authentication/string-interpolation-syntax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-authentications/creating-authentication/string-interpolation-syntax/</guid>
+      <description>The string interpolation syntax is designed for configuring authentication objects. It controls data coordinating between the consequent requests and responses.
+The syntax allows you to create a template (interpolation string) for the value to be extracted from the specified location. You can only create the template based on the previous authenticated requests and responses.
+The interpolation string uses the double curly braces {{ and }} as delimiters and consists of two general parts:</description>
+    </item>
+    
+    <item>
+      <title>Troubleshooting Authentication Issues</title>
+      <link>https://example.com/managing-authentications/troubleshooting-authentication-issues-internal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-authentications/troubleshooting-authentication-issues-internal/</guid>
+      <description>Recording created with Google Chrome recorder is not replayed with the Evaluation failed error When replaying the recording, an error appears: Evaluation failed. TypeError: Failed to execute ‘observe’ on ‘IntersectionObserver’: parameter 1 is not type ‘Element’…
+Cause Google Chrome cannot find the element by one of the selectors.
+Workaround Expand the step where the error appears. Click “-” against the affected selector to delete it. 3. Replay the recording.
+4. If the replay is encountering the same errors, repeat steps 1-2 till the replay is successful.</description>
+    </item>
+    
+  </channel>
+</rss>

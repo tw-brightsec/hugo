@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Azure SSO and Provisioning - Brightsec</title>
+<meta name="generator" content="Hugo 0.109.0">
+<link href="https://example.com/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://example.com/sso-integrations/configure-sso/azure-sso-and-provisioning/">
+<link rel="stylesheet" href="https://example.com/css/theme.min.css">
+<link rel="stylesheet" href="https://example.com/css/chroma.min.css">
+<script defer src="https://example.com/js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://example.com/js/bundle.js"></script><style>
+:root {--custom-font-color: black;--custom-background-color: white;}
+</style>
+<meta property="og:title" content="Azure SSO and Provisioning" />
+<meta property="og:description" content="[block:html] { &ldquo;html&rdquo;: &ldquo;&lt;table id=&quot;integrations&quot; &gt;\n \n \n \n &lt;td width=&quot;70%&quot;&gt;\n \n \n &lt;td width=&quot;30%&quot; style=&quot;text-align:center&quot; rowspan=&quot;3&quot;&gt;\n &lt;img src=&quot;https://files.readme.io/9b168ab-azure-int.png&quot; width=170&quot; height=&quot;200&quot;&gt;\n \n \n \n &lt;td style=&quot;text-align:left;vertical-align:text-top;padding:0px&quot;&gt;\n System for Cross-domain Identity Management (SCIM) is a protocol for user management across multiple applications. It allows you to easily provision (add), deprovision (delete) and update (map) user data across multiple applications at once. \n You can set up SCIM provisioning in Azure AD to automatically add the AD application users and groups to your organization in the Bright app." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/sso-integrations/configure-sso/azure-sso-and-provisioning/" /><meta property="og:image" content="https://example.com/images/og-image.png"/><meta property="article:section" content="SSO Integrations" />
+
+<meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.com/images/og-image.png"/>
+
+<meta name="twitter:title" content="Azure SSO and Provisioning"/>
+<meta name="twitter:description" content="[block:html] { &ldquo;html&rdquo;: &ldquo;&lt;table id=&quot;integrations&quot; &gt;\n \n \n \n &lt;td width=&quot;70%&quot;&gt;\n \n \n &lt;td width=&quot;30%&quot; style=&quot;text-align:center&quot; rowspan=&quot;3&quot;&gt;\n &lt;img src=&quot;https://files.readme.io/9b168ab-azure-int.png&quot; width=170&quot; height=&quot;200&quot;&gt;\n \n \n \n &lt;td style=&quot;text-align:left;vertical-align:text-top;padding:0px&quot;&gt;\n System for Cross-domain Identity Management (SCIM) is a protocol for user management across multiple applications. It allows you to easily provision (add), deprovision (delete) and update (map) user data across multiple applications at once. \n You can set up SCIM provisioning in Azure AD to automatically add the AD application users and groups to your organization in the Bright app."/>
+<meta itemprop="name" content="Azure SSO and Provisioning">
+<meta itemprop="description" content="[block:html] { &ldquo;html&rdquo;: &ldquo;&lt;table id=&quot;integrations&quot; &gt;\n \n \n \n &lt;td width=&quot;70%&quot;&gt;\n \n \n &lt;td width=&quot;30%&quot; style=&quot;text-align:center&quot; rowspan=&quot;3&quot;&gt;\n &lt;img src=&quot;https://files.readme.io/9b168ab-azure-int.png&quot; width=170&quot; height=&quot;200&quot;&gt;\n \n \n \n &lt;td style=&quot;text-align:left;vertical-align:text-top;padding:0px&quot;&gt;\n System for Cross-domain Identity Management (SCIM) is a protocol for user management across multiple applications. It allows you to easily provision (add), deprovision (delete) and update (map) user data across multiple applications at once. \n You can set up SCIM provisioning in Azure AD to automatically add the AD application users and groups to your organization in the Bright app.">
+
+<meta itemprop="wordCount" content="1548"><meta itemprop="image" content="https://example.com/images/og-image.png"/>
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>Brightsec</h1><span class="version">Version 0.9.9</span><a href="https://github.com/thingsym/hugo-theme-techdoc" class="github"><i class="fab fa-github"></i></a>
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li id="home" class=""><a href="/">Home</a></li>
+<li id="changelog" class="twitter-menu-item"><a href="/changelog">Changelog</a></li></ul>
+</nav>
+</div>
+
+<div class="content-container">
+<main><h1>Azure SSO and Provisioning</h1>
+<p>[block:html]
+{
+&ldquo;html&rdquo;: &ldquo;&lt;table id=&quot;integrations&quot; &gt;\n  <style>\n #integrations {\n    border-collapse: separate;\n    width: 100%;\n    display: block;\n    display: table;\n  }\n #integrations td,\n  th {\n    border: 0px solid #ddd;\n    padding-left: 0px;\n    background-color: #FFFFFF;\n  }\n  </style>\n  <body>\n  <tr>\n    &lt;td width=&quot;70%&quot;&gt;\n      <h1></h1>\n    </td>\n    &lt;td width=&quot;30%&quot; style=&quot;text-align:center&quot; rowspan=&quot;3&quot;&gt;\n      &lt;img src=&quot;https://files.readme.io/9b168ab-azure-int.png&quot; width=170&quot; height=&quot;200&quot;&gt;</img>\n    </td>\n  </tr>\n  <tr>\n    &lt;td style=&quot;text-align:left;vertical-align:text-top;padding:0px&quot;&gt;\n      <p>System for Cross-domain Identity Management (SCIM) is a protocol for user management across multiple applications. It allows you to easily provision (add), deprovision (delete) and update (map) user data across multiple applications at once. </p>\n      <p>You can set up SCIM provisioning in Azure AD to automatically add the AD application users and groups to your organization in the Bright app. The added users will be able to access the Bright app using Active Directory Federation Services (AD FS) SSO.</p>\n    </td>\n  </tr>\n</table>\n</body>&rdquo;
+}
+[/block]</p>
+<p>Bright supports the following provisioning attribute mappings:</p>
+<ul>
+<li><code>userPrincipleName</code></li>
+<li><code>Switch([IsSoftDeleted], , &quot;False&quot;, &quot;True&quot;, &quot;True&quot;, &quot;False&quot;)</code></li>
+<li><code>givenName</code></li>
+<li><code>surname</code></li>
+<li><code>mail</code></li>
+<li><code>displayName</code></li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>You have a valid <a href="/docs/manage-your-organization#manage-organization-apicli-authentication-tokens">organization API key</a> with the <code>scim</code> scope.<br>
+*The user profile email is specified in Azure.</li>
+</ul>
+<h2 id="step-by-step-guide">Step-by-step guide</h2>
+<h3 id="step-1-create-an-application-for-sso-integration-in-azure">Step 1. Create an application for SSO integration in Azure</h3>
+<p>To enable Bright SSO with AD FS, you should first authenticate Azure in the Bright app.</p>
+<ol>
+<li>Create an application for Bright in Azure. For that, go to <strong>Enterprise Applications</strong> and click <strong>+ New application</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/7dcc9a9-select-enterprise.png&rdquo;,
+&ldquo;select-enterprise.png&rdquo;,
+1893
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="2">
+<li>Click <strong>+ Create your own application</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/29e0cf2-add-application.png&rdquo;,
+&ldquo;add-application.png&rdquo;,
+1894
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="3">
+<li>In the <strong>Create your own application</strong> window, enter a name for a new application and click <strong>Create</strong>.</li>
+<li>Once the application is created, go back to the <strong>Home</strong> page and select  <strong>Azure Active Directory</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/31f9bda-select-ad.png&rdquo;,
+&ldquo;select-ad.png&rdquo;,
+1896
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="5">
+<li>In the left pane, select <strong>App registrations</strong>, open the <strong>All applications</strong> tab and select the created application from the list.</li>
+</ol>
+<blockquote>
+<p>📘 Note</p>
+<p>It may take some time until the predefined application is published in the Azure AD gallery.</p>
+</blockquote>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/e0b4e85-app-registration.png&rdquo;,
+&ldquo;app-registration.png&rdquo;,
+1916
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="6">
+<li>Add the redirect URL. For that, select the relevant setting and add a <strong>Web</strong> platform.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/ec5df0c-redirect-url.png&rdquo;,
+&ldquo;redirect-url.png&rdquo;,
+1901
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/7628213-select-web.png&rdquo;,
+&ldquo;select-web.png&rdquo;,
+1915
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<p>        In the <strong>Redirect URIs</strong> field, enter <code>&lt;https://app.brightsec.com/adfs/callback</code>&gt; and click <strong>Configure</strong>.</p>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/db021fc-enter-url_1.png&rdquo;,
+&ldquo;enter-url (1).png&rdquo;,
+1910
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="7">
+<li>Go back to the created application and get the following credentials to use them further in the <a href="https://app.brightsec.com">Bright app</a>:</li>
+</ol>
+<ul>
+<li>On the application page, copy the <strong>Client ID</strong>.</li>
+</ul>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/ddb2b03-client-ID.png&rdquo;,
+&ldquo;client-ID.png&rdquo;,
+1896
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ul>
+<li>In the <strong>Certificates &amp; secrets</strong> tab, create a new secret key and copy its <strong>Value</strong>.</li>
+</ul>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/7c26555-secret-key.png&rdquo;,
+&ldquo;secret-key.png&rdquo;,
+1894
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ul>
+<li>In the <strong>Endpoints</strong> tab, copy the <strong>OpenID Connect metadata document</strong> URL.</li>
+</ul>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/1388aa4-endpoints.png&rdquo;,
+&ldquo;endpoints.png&rdquo;,
+1920
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="8">
+<li>Go back to <strong>App registrations</strong>, select the created application, and then assign users to this application in the <strong>Users</strong> section.<br>
+The assigned users will be able to log in to the Bright App using AD FS SSO.</li>
+</ol>
+<h3 id="step-2-enable-sso-authentication-in-the-bright-app">Step 2. Enable SSO authentication in the Bright app</h3>
+<p>Now go to the <a href="https://app.brightsec.com">Bright app</a> and do the following:</p>
+<ol>
+<li>In the left pane, select the <strong>Organization</strong> option.</li>
+<li>From the <strong>Required SSO provider</strong> dropdown list, select <strong>AD FS</strong>, and then click <strong>Connect</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/33329da-sso-connect.png&rdquo;,
+&ldquo;sso-connect.png&rdquo;,
+1919
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="3">
+<li>Fill in the <strong>AD FS Authentication</strong> fields with the credentials copied in Azure AD, and then click <strong>Continue</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/7abad46-continue-setup.png&rdquo;,
+&ldquo;continue-setup.png&rdquo;,
+1911
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="4">
+<li>On the Microsoft <strong>Permissions Requested</strong> page, click <strong>Accept</strong>.<br>
+Now the AD FS SSO is enabled for all the users of the authenticated application with no limitations.</li>
+<li><em>(Optional)</em> You can enforce AD FS SSO registration by selecting the <strong>Require your organization members to use SSO to access Bright</strong> checkbox. When this option is selected, only the registered users (current members of a Bright organization) with existing SSO accounts can access the Bright app.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/c1a0686-require-SSO.png&rdquo;,
+&ldquo;require-SSO.png&rdquo;,
+1896
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<blockquote>
+<p>🚧 Important</p>
+<p>Strict enforcement of SSO for all organization members will require resetting the connection in case of an SSO break. If that happens, please contact the <a href="mailto:support@brightsec.com">Bright technical support</a> for assistance.</p>
+</blockquote>
+<h3 id="step-3-enable-provisioning">Step 3. Enable provisioning</h3>
+<p>To configure automatic provisioning of Azure AD users and groups to your Bright organization, follow these steps:</p>
+<ol>
+<li>In the <strong>ORGANIZATION SETTING</strong> section, select the <strong>Sync the groups &amp; users from SSO provider to Bright</strong> checkbox.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/36a6f1c-Group_1261150958.png&rdquo;,
+&ldquo;Group 1261150958.png&rdquo;,
+1917
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="2">
+<li>In Azure AD, go to the provisioning section of your application and click <strong>Get Started</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/66fcddb-provisioning.png&rdquo;,
+&ldquo;provisioning.png&rdquo;,
+1912
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="3">
+<li>Select one of the following provisioning modes:</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/a880af0-provisioning-mode.png&rdquo;,
+&ldquo;provisioning-mode.png&rdquo;,
+719
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ul>
+<li><strong>Manual</strong> option allows you to add a new user or group to your Bright organization manually with immediate synchronization.</li>
+<li><strong>Automatic</strong> mode enables adding every new user or group to your Bright organization automatically. The automatic provisioning interval is 40 minutes.</li>
+</ul>
+<ol start="4">
+<li>In the <strong>Admin Credentials</strong> section, do the following:</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/cc79fe4-admin-credentials.png&rdquo;,
+&ldquo;admin-credentials.png&rdquo;,
+1519
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ul>
+<li>In the <strong>Tenant URL</strong> field, enter <code>&lt;https://app.brightsec.com/api/v1/scim</code>&gt;.</li>
+</ul>
+<blockquote>
+<p>🚧 Important</p>
+<p>If you delete a user that was provisioned to a connected Bright organization on the Azure side (either from the synced group or completely), the user will become inactive in the Bright organization and will not be activated back automatically after re-adding them to Azure (or the synced group). To enable automatic activation of users after re-adding them on the Azure side, add the <code>?aadOptscim062020</code> flag to the <strong>Tenant URL</strong>, to make it look like <code>&lt;https://app.brightsec.com/api/v1/scim?aadOptscim062020</code>&gt;.<br>
+According to the <a href="https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility#flags-to-alter-the-scim-behavior">Microsoft docs</a>, this behavior is currently only available when using the flag, but will become the default behavior over the next few months. Note this feature flag currently does not work with on-demand provisioning.</p>
+</blockquote>
+<ul>
+<li>In the <strong>Secret Token</strong> field, enter the API key created in the <a href="https://app.brightsec.com">Bright app</a>.</li>
+</ul>
+<ol start="5">
+<li>Click <strong>Test Connection</strong> to verify the credentials that are authorized for provisioning.</li>
+<li><em>(Optional)</em> In the <strong>Settings</strong> section, make sure to set the scope to <strong>Sync only assigned users and groups</strong>. This will ensure that the provisioning will be limited to assigned users/groups only, and that no other Azure AD users will have access to the <a href="https://app.brightsec.com">Bright app</a> unintendedly.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/af46b8c-assigned-users.png&rdquo;,
+&ldquo;assigned-users.png&rdquo;,
+668
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="7">
+<li>Above the <strong>Provisioning mode</strong>, click <strong>Save</strong> to save the configuration.</li>
+<li>In the <strong>Manage provisioning</strong> section, select <strong>Edit attribute mappings</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/19d6a3b-Group_205_3.png&rdquo;,
+&ldquo;Group 205 (3).png&rdquo;,
+1920
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="9">
+<li>In the <strong>Mappings</strong> section, select <strong>Provision Azure Directory Users</strong>.<br>
+<em>Note</em>: You can keep the group provisioning mappings to default, no changes are required.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/aae30be-_29-10-2021_11.23.52.png&rdquo;,
+&ldquo;Скриншот 29-10-2021 11.23.52.png&rdquo;,
+1146
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="10">
+<li>Set the attribute mappings to the following:
+<ul>
+<li><code>userPrincipleName\</code></li>
+<li><code>Switch([IsSoftDeleted], , &quot;False&quot;, &quot;True&quot;, &quot;True&quot;, &quot;False&quot;)</code></li>
+<li><code>givenName</code></li>
+<li><code>surname</code></li>
+<li><code>mail</code></li>
+<li><code>displayName</code></li>
+</ul>
+</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/09692d8-image-20211028-082015.png&rdquo;,
+&ldquo;image-20211028-082015.png&rdquo;,
+3806
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="11">
+<li>To start provisioning, click <strong>Start provisioning</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/96d8a72-start-provisioning.png&rdquo;,
+&ldquo;start-provisioning.png&rdquo;,
+1920
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<h3 id="step-4-assign-azure-ad-users-and-groups-to-your-bright-organization">Step 4. Assign Azure AD users and groups to your Bright organization</h3>
+<ol>
+<li>In the left pane, select <strong>Users and groups</strong>.</li>
+<li>Click <strong>+ Add user/group</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/f0eea8d-add-users.png&rdquo;,
+&ldquo;add-users.png&rdquo;,
+1895
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="3">
+<li>In the <strong>Users and groups</strong> field, click <strong>None Selected</strong>. Select specific users or a group of users to sync them to your Bright organization, and then click <strong>Assign</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/41286f8-add-assignment.png&rdquo;,
+&ldquo;add-assignment.png&rdquo;,
+896
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ul>
+<li>The assigned users will be automatically added to the <strong>MEMBERS</strong> section of your Bright organization.</li>
+<li>The assigned groups will be automatically added to the <strong>GROUPS</strong> section of your Bright organization.</li>
+</ul>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/9f65feb-nexploit-organization.png&rdquo;,
+&ldquo;nexploit-organization.png&rdquo;,
+1899
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<blockquote>
+<p>📘 Note</p>
+<p>If you deprovision a user from the Bright integration application in Azure AD, the relative member turns inactive in your Bright organization and is no longer able to log in to the Bright app using AD FS SSO.</p>
+</blockquote>
+<h3 id="step-5-log-in-to-the-bright-app-using-ad-fs-sso">Step 5. Log in to the Bright app using AD FS SSO</h3>
+<ol>
+<li>On the login page, click <strong>Single Sign On (SSO)</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/f1ff795-sso-button.png&rdquo;,
+&ldquo;sso-button.png&rdquo;,
+1914
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="2">
+<li>
+<p>Enter the name of the Bright organization for which the AD FS SSO was enabled, and then click <strong>Continue</strong>.</p>
+</li>
+<li>
+<p>Select <strong>Sign in with AD FS</strong>.<br>
+You are redirected to the Microsoft login page.</p>
+</li>
+<li>
+<p>Enter your Azure AD user&rsquo;s credentials.</p>
+</li>
+</ol>
+<div class="edit-meta">
+
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/SSO%20Integrations/configure-sso/azure-sso-and-provisioning.md" class="edit-page"><i class="fas fa-pen-square"></i>&nbsp;Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://example.com/sso-integrations/configure-sso/azure-sso-and-provisioning/" title="Azure SSO and Provisioning"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Azure SSO and Provisioning</a>
+<a class="nav nav-next" href="https://example.com/sso-integrations/configure-sso/google-sso/" title="Google SSO">Next - Google SSO <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://example.com">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://example.com/about-bright-dast/">About Bright DASTs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/">Deployment Options</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/private-cloud/">Private Cloud Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/on-premises-repeater-local-agent/">Repeater (Scan Proxy)</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/saas-deployment/">SaaS Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/introducing-to-bright/">What is Bright DAST?</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/accounting-and-billing/">Accounting and Billings<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/accounting-and-billing/about-accounting-and-billing/">About Accounting and Billing</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-history/">Managing Payment History</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-information/">Managing Payment Information</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-your-plan/">Managing Plan</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/advanced-integration-use-cases/">Advanced Integration Use Cases<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-integration-use-cases/integrating-a-bright-project-with-webhooks/">Integrating a Bright Project with Webhooks</a></li>
+<li class=""><a href="https://example.com/advanced-integration-use-cases/sending-detected-issues-to-jira-from-cicd-pipelines/">Sending Detected Issues from CI/CD Pipelines to Jira</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/advanced-setup-in-bright-app/">Advanced Setup in Bright Apps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/">Managing Access Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/managing-bright-file-storage/">Managing Bright File Storage</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-custom-roles/">Managing Custom Roles</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/">Managing Organization</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-groups/">Managing Organization Groups</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-users/">Managing Organization Users</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-personal-account/">Managing Personal Account</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-projects/">Managing Projects</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/manage-repeater-scripts/">Managing Repeater Scripts</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-repeaters/">Managing Repeaters</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/organization-api-key-scopes/">Organization API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/personal-api-key-scopes/">Personal API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/project-api-key-scopes/">Project API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/role-management-scopes/">Role Management Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/use-cases/">Use Cases</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/">Using Repeater Scripts</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/ci-pipeline-integrations/">CI Pipeline Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/azure-pipelines/">Azure Pipelines</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/circleci/">CircleCI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/github-actions/">GitHub Actions</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/gitlab/">GitLab</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/gitlab-integration-examples/">GitLab Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/">Integrating Bright with Your CI Pipeline</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/">Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jenkins/">Jenkins</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/jenkins-integration-examples/">Jenkins Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jfrog/">JFrog</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/team-city/">TeamCity</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/travis-ci/">Travis CI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/travis-ci-integration-examples/">Travis CI Integration Examples</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/general/">Generals<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/general/faqs/">FAQs</a></li>
+<li class=""><a href="https://example.com/general/privacy-policy/">Privacy Policy</a></li>
+<li class=""><a href="https://example.com/general/terms-of-use/">Terms of Use</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/getting-started-with-bright/">Getting Started with Brights<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/getting-started-with-bright/quick-tour-of-the-web-interface/">Quick Tour of the User Interface</a></li>
+<li class=""><a href="https://example.com/getting-started-with-bright/quickstart/">Quickstart</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/managing-authentications/">Managing Authentications<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-authentications/adding-your-authentication-object-to-a-scan/">Adding an Authentication Object to a Scan</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-an-authentication-object-in-bright/">Authentication Types</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-api-call-authentication/">Configuring API Call Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-multi-step-browser-based-form-authentication/">Configuring Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-custom-multi-step-authentication/">Configuring Custom API Authentication Flow</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-form-authentication/">Configuring Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-header-authentication-in-bright/">Configuring Header Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-ntlm-authentication/">Configuring NTLM Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-oidc-connect-oauth/">Configuring OIDC Connect (OAuth)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-recorded-browser-based-form-authentication/">Configuring Recorded Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configuring-recorded-browser-based-form-authentication-internal-copy/">Configuring Recorded Browser-Based Form Authentication (Internal Copy)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/">Creating Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/string-interpolation-syntax/">String Interpolation Syntax</a></li>
+<li class=""><a href="https://example.com/managing-authentications/troubleshooting-authentication-issues-internal/">Troubleshooting Authentication Issues</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/managing-scan-results/">Managing Scan Results<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-scan-results/deleting-a-scan/">Deleting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/exporting-a-scan/">Exporting a Scan Report</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/handling-discovered-issues/">Handling Discovered Issues</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/how-to-add-bright-to-the-waf-allowlist/">How to Add Bright to the WAF Allowlist</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/modifying-future-scan-settings/">Modifying Future Scan Settings</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/retesting-a-scan/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scans/">Reviewing All Scans</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-details/">Reviewing Scan Details</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-history/">Reviewing Scan History</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/troubleshooting-for-problematic-scans/">Troubleshooting Scans</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/pages-after-new-scan-dialog-analytics/">Pages after New scan dialog analytics<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/scanning-from-bright-app/">Scanning from Bright Apps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/configuring-an-api-schema-for-scanning/">Configuring an API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/creating-a-har-file/">Creating a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/creating-a-new-scan/">Creating a Scan</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/edit-an-uploaded-api-schema/">Editing an Uploaded API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/managing-scan-templates/">Managing Scan Templates</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/">Scanning API Endpoints</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/">Scanning with a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/crawler/">Scanning with a Crawler</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/troubleshooting/">Troubleshooting</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://example.com/sso-integrations/">SSO Integrations<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://example.com/sso-integrations/configure-sso/azure-sso-and-provisioning/">Azure SSO and Provisioning</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/">Configuring Single Sign-On</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/google-sso/">Google SSO</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/okta-sso-and-provisioning/">Okta SSO and Provisioning</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/ticketing-integrations/">Ticketing Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ticketing-integrations/adding-ticketing-integration-to-a-project/">Adding Ticketing Integration to a Project</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/azure-boards/">Azure Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/github/">GitHub</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/gitlab-boards/">GitLab Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/">Integrating Bright with Your Ticketing System</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/jira/">Jira</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/slack/">Slack</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/using-bright-cli/">Using Bright CLI<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-cli/about-bright-cli/">About Bright CLI</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/checking-scan-status/">Checking Scan Status</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/command-language-syntax/">Command Language Syntax</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/">Command List</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/configuration-files/">Configuration Files</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/generating-an-archive-with-nexmock/">Generating an Archive with NexMock</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/">Getting Started</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/initializing-the-repeater/">Initializing the Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/installation-options/">Installation Guide</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/integrating-with-a-service/">Integrating with an On-Premise Ticketing Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/retesting-a-scan-1/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/running-a-scan/">Running a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-as-part-of-ci-pipeline/">Scanning as Part of CI Pipeline</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-at-the-enterprise-level/">Scanning at the Enterprise Level</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/security-scanning-as-self-service/">Security Scanning as Self-Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/stopping-a-scan/">Stopping a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/testing-network-connectivity/">Testing Network Connectivity</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/repeater-troubleshooting/">Troubleshooting Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/uploading-an-archive/">Uploading an Archive</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/using-bright-rest-api/">Using Bright REST APIs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-rest-api/about-bright-api/">About Bright API</a></li>
+<li class=""><a href="https://example.com/using-bright-rest-api/response-status-codes/">Response Status Codes</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/vulnerability-guide/">Vulnerability Guides<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/vulnerability-guide/vulnerability-guide/">Vulnerability Guide</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/welcome/">Welcomes<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/welcome/about-docs/">About Docs</a></li>
+<li class=""><a href="https://example.com/welcome/accessibility/">Accessibility</a></li>
+<li class=""><a href="https://example.com/welcome/support/">Support</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

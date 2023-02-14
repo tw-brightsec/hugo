@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Managing Scan Results on Brightsec</title>
+    <link>https://example.com/managing-scan-results/</link>
+    <description>Recent content in Managing Scan Results on Brightsec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://example.com/managing-scan-results/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deleting a Scan</title>
+      <link>https://example.com/managing-scan-results/deleting-a-scan/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-scan-results/deleting-a-scan/</guid>
+      <description>To delete a scan, follow these steps:
+In the left pane, select the Scans option to display the scans list. Click next to the scan you want to delete. From the dropdown list, select Delete. [block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/f469a72-delete-scan.png&amp;rdquo;, &amp;ldquo;delete-scan.png&amp;rdquo;, 1903, 675, &amp;ldquo;#232a2d&amp;rdquo; ], &amp;ldquo;sizing&amp;rdquo;: &amp;ldquo;80&amp;rdquo; } ] } [/block] 4. On the confirmation popup, click Delete.</description>
+    </item>
+    
+    <item>
+      <title>Exporting a Scan Report</title>
+      <link>https://example.com/managing-scan-results/exporting-a-scan/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-scan-results/exporting-a-scan/</guid>
+      <description>You can download a scan report in the PDF, JSON or CSV format for further analysis. Bright also provides the option to generate a SARIF (Static Analysis Results Interchange Format) report file and upload it to your GitHub repository so that you can open the detected vulnerabilities as Code Scanning Alerts. Using this option, you can easily triage the existing security issues, prioritize fixes and open tickets for them in your GitHub repository.</description>
+    </item>
+    
+    <item>
+      <title>Handling Discovered Issues</title>
+      <link>https://example.com/managing-scan-results/handling-discovered-issues/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-scan-results/handling-discovered-issues/</guid>
+      <description>Reviewing all discovered issues Select the Scans option in the left pane to display the Scans List. Each scan appears as a single row. Click on the row of a scan to display its details. Scroll down to the DISCOVERED ISSUES section, which shows a row representing each type of issue (vulnerability) discovered by the scan and the quantity of each. 👍 Tip
+The top of this section provides various options for filtering the discovered issues that are displayed.</description>
+    </item>
+    
+    <item>
+      <title>How to Add Bright to the WAF Allowlist</title>
+      <link>https://example.com/managing-scan-results/how-to-add-bright-to-the-waf-allowlist/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-scan-results/how-to-add-bright-to-the-waf-allowlist/</guid>
+      <description>This section provides information on how to add Bright to the WAF allowlist. For instructions, go to the necessary WAF type below, and then click the link to access the document.
+Reblaze WAF To add Bright to the allowlist, add Bright IP addresses as Bypass and add an OC policy according to the ACL Policies guide.
+AKAMAI WAF, AKAMAI V2, Trellix and Akamai Collaboration To modify an API Client IP allowlist for BrightSec, follow the instructions under the links below.</description>
+    </item>
+    
+    <item>
+      <title>Media</title>
+      <link>https://example.com/managing-scan-results/media-3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-scan-results/media-3/</guid>
+      <description>[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/8924d12-sort_icon.png&amp;rdquo;, &amp;ldquo;sort_icon.png&amp;rdquo;, 90, 45, &amp;ldquo;#1d2e32&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/2b1b3f8-filter-icon.png&amp;rdquo;, &amp;ldquo;filter-icon.png&amp;rdquo;, 105, 34, &amp;ldquo;#1d2f33&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/a6d55c2-filter-icon.png&amp;rdquo;, &amp;ldquo;filter-icon.png&amp;rdquo;, 35, 33, &amp;ldquo;#1c3135&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/116c0a0-settings-icon.png&amp;rdquo;, &amp;ldquo;settings-icon.png&amp;rdquo;, 35, 30, &amp;ldquo;#303a3e&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.</description>
+    </item>
+    
+    <item>
+      <title>Modifying Future Scan Settings</title>
+      <link>https://example.com/managing-scan-results/modifying-future-scan-settings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-scan-results/modifying-future-scan-settings/</guid>
+      <description>By default, the next runs of all scheduled and retested scans are executed with the initial settings defined during creation of the scans.
+Step-by-step guide In the left pane, select the Scans option to display the scans list. Click next to the scan the settings of which you want to edit. From the dropdown list, select Edit. [block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/319a783-edit-scan.png&amp;rdquo;, &amp;ldquo;edit-scan.png&amp;rdquo;, 1906 ], &amp;ldquo;sizing&amp;rdquo;: &amp;ldquo;80&amp;rdquo; } ] } [/block]</description>
+    </item>
+    
+    <item>
+      <title>Retesting a Scan</title>
+      <link>https://example.com/managing-scan-results/retesting-a-scan/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-scan-results/retesting-a-scan/</guid>
+      <description>Retesting at issue creates a separate scan entity that is a duplicate of the selected scan. Initially, the settings are identical, but you can modify them without affecting the original scan settings. A separate scan history is maintained for each retested scan.
+Step-by-step guide In the left pane, select the Scans option to display the scans List. Click next to the scan to be retested. From the dropdown list, select Retest.</description>
+    </item>
+    
+    <item>
+      <title>Reviewing All Scans</title>
+      <link>https://example.com/managing-scan-results/reviewing-scans/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-scan-results/reviewing-scans/</guid>
+      <description>You can view the scanning log of your organization, including completed, pending and scheduled scans. To display the scans list, in the left pane, select the Scans option. Each scan appears as a single row.
+👍 Tip
+You can open a scan in a new tab by a middle-mouse click or a Ctrl + left-mouse click.
+You can set the information scope to display in the MY SCANS table settings. Bright allows you to change the order of the columns, select additional columns to be visible, and adjust their width.</description>
+    </item>
+    
+    <item>
+      <title>Reviewing Scan Details</title>
+      <link>https://example.com/managing-scan-results/reviewing-scan-details/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-scan-results/reviewing-scan-details/</guid>
+      <description>Bright allows you to monitor the scan progress, check the setup parameters and runtime notifications, as well as view the scan results. All these options are available for each scan selected on the Scans or Scans History page.
+Monitoring scan progress You can monitor scan progress in the following sections:
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/fc4f2ea-0.png&amp;rdquo;, null, &amp;quot;&amp;quot; ], &amp;ldquo;sizing&amp;rdquo;: &amp;ldquo;650px&amp;rdquo; } ] } [/block]
+SCAN PROGRESS
+Shows the scan duration (till the moment, or overall if completed), the overall progress of the tests run, as well as average scan speed and response time.</description>
+    </item>
+    
+    <item>
+      <title>Reviewing Scan History</title>
+      <link>https://example.com/managing-scan-results/reviewing-scan-history/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-scan-results/reviewing-scan-history/</guid>
+      <description>Scan history shows the history of runs of a specific scan, including future scheduled runs. Each run is displayed as a separate scan in the Scans table and may have different statuses and results. Reviewing the details of each run may provide insights in to the trends of findings and scanning results for your organization.
+You can select all runs (history) of a specific scan from the Scans table automatically using the History ID.</description>
+    </item>
+    
+    <item>
+      <title>Troubleshooting Scans</title>
+      <link>https://example.com/managing-scan-results/troubleshooting-for-problematic-scans/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/managing-scan-results/troubleshooting-for-problematic-scans/</guid>
+      <description>Introduction to scan optimization [block:embed] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;iframe class=&amp;quot;embedly-embed&amp;quot; src=&amp;quot;//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2Fab0rbpKckoo%3Ffeature%3Doembed&amp;amp;display_name=YouTube&amp;amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dab0rbpKckoo&amp;amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fab0rbpKckoo%2Fhqdefault.jpg&amp;amp;key=f2aa6fc3595946d0afc3d76cbbd25dc3&amp;amp;type=text%2Fhtml&amp;amp;schema=youtube&amp;quot; width=&amp;quot;854&amp;quot; height=&amp;quot;480&amp;quot; scrolling=&amp;quot;no&amp;quot; title=&amp;quot;YouTube embed&amp;quot; frameborder=&amp;quot;0&amp;quot; allow=&amp;quot;autoplay; fullscreen&amp;quot; allowfullscreen=&amp;quot;true&amp;quot;&amp;gt;&amp;rdquo;, &amp;ldquo;url&amp;rdquo;: &amp;ldquo;https://www.youtube.com/watch?v=ab0rbpKckoo&amp;amp;feature=youtu.be&amp;quot;, &amp;ldquo;title&amp;rdquo;: &amp;ldquo;How to know if a scan was successful and what to do if it wasn&amp;rsquo;t&amp;rdquo;, &amp;ldquo;favicon&amp;rdquo;: &amp;ldquo;https://www.youtube.com/s/desktop/dd76c683/img/favicon.ico&amp;quot;, &amp;ldquo;image&amp;rdquo;: &amp;ldquo;https://i.ytimg.com/vi/ab0rbpKckoo/hqdefault.jpg&amp;quot;, &amp;ldquo;provider&amp;rdquo;: &amp;ldquo;youtube.com&amp;rdquo;, &amp;ldquo;href&amp;rdquo;: &amp;ldquo;https://www.youtube.com/watch?v=ab0rbpKckoo&amp;amp;feature=youtu.be&amp;quot; } [/block]
+If your scan is completed with the Done status, it means there were no critical problems during the scan that would cause it to fail or stop.</description>
+    </item>
+    
+  </channel>
+</rss>

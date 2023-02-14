@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Welcomes on Brightsec</title>
+    <link>https://example.com/welcome/</link>
+    <description>Recent content in Welcomes on Brightsec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://example.com/welcome/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Docs</title>
+      <link>https://example.com/welcome/about-docs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/welcome/about-docs/</guid>
+      <description>This guide is designed for security experts and developers who implement the Bright Dynamic Application Security Testing (DAST) solutions to enhance security of their web applications, mobile applications (server side), and APIs.
+The guide gives you comprehensive concept information and step-by-step instructions on how to deploy, configure and use the Bright DAST solution, as well as how to integrate it with your CI pipelines and ticketing systems. The documentation covers multiple options of interacting with the Bright DAST solution, such as:</description>
+    </item>
+    
+    <item>
+      <title>Accessibility</title>
+      <link>https://example.com/welcome/accessibility/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/welcome/accessibility/</guid>
+      <description>Bright makes a lot of efforts to ensure that all categories of users can use the application. The Bright app complies WCAG 2.0 requirements and provides the following accessibility features:
+Compliness the contrast requirements The ability to fully control the application using the keyboard, without using the mouse Compatibility with screen-readers (e.x. Windows Narrator and Apple VoiceOver) Possibility to increase the page zoom up to 200% Ability to increase font size through browser settings to Large and Very Large High-contrast themes The Bright app meets the contrast requirements of WCAG 2.</description>
+    </item>
+    
+    <item>
+      <title>Media</title>
+      <link>https://example.com/welcome/media-7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/welcome/media-7/</guid>
+      <description>[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/5310755-support.png&amp;rdquo;, &amp;ldquo;support.png&amp;rdquo;, 354, 326, &amp;ldquo;#162145&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/6c2b5c3-integrations.png&amp;rdquo;, &amp;ldquo;integrations.png&amp;rdquo;, 323, 352, &amp;ldquo;#1f3950&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/404b6ee-purpose.png&amp;rdquo;, &amp;ldquo;purpose.png&amp;rdquo;, 283, 229, &amp;ldquo;#1d3c65&amp;rdquo; ] } ] } [/block]</description>
+    </item>
+    
+    <item>
+      <title>Support</title>
+      <link>https://example.com/welcome/support/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/welcome/support/</guid>
+      <description>The Bright team is pleased to assist you with any questions you may have about the setup, usage, integration, and troubleshooting of our products. If you ever need support, please get in touch by emailing us at support@brightsec.com.
+You can also reach us via your Slack support channel directly to your Bright contacts. Join our discord channel, and chat with us anytime.
+The Bright App supports Intercom to help you with any issues if you get stuck.</description>
+    </item>
+    
+  </channel>
+</rss>

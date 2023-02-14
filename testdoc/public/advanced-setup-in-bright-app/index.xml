@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Advanced Setup in Bright Apps on Brightsec</title>
+    <link>https://example.com/advanced-setup-in-bright-app/</link>
+    <description>Recent content in Advanced Setup in Bright Apps on Brightsec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://example.com/advanced-setup-in-bright-app/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Managing Access Scopes</title>
+      <link>https://example.com/advanced-setup-in-bright-app/manage-access-scopes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/advanced-setup-in-bright-app/manage-access-scopes/</guid>
+      <description>For some Bright operations and integrations, you will need specific scanning and management permissions provided by selecting the relative access scopes. For example, to enable integration with your CI pipeline, you may require to create an organization or a personal API key with a predefined set of scopes. Each scope grants the permission to perform a certain action, such as create, run, view, edit, or delete a particular Bright component.</description>
+    </item>
+    
+    <item>
+      <title>Managing Bright File Storage</title>
+      <link>https://example.com/advanced-setup-in-bright-app/managing-bright-file-storage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/advanced-setup-in-bright-app/managing-bright-file-storage/</guid>
+      <description>Bright enables you to upload files (API schemas, .HAR files) to a special storage and select them as a target when setting a new scan. The following section describes how to manage the storage of these files.
+In the Bright file storage, you can do the following:
+Upload a file View the list of uploaded files and details about them Check the storage capacity and maintain the remaining space Delete a file The Bright file storage has the following specifications:</description>
+    </item>
+    
+    <item>
+      <title>Managing Custom Roles</title>
+      <link>https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-custom-roles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-custom-roles/</guid>
+      <description>Creating a custom role You can create a custom role with specific access scopes and assign it to a new or an existing user (member) of your organization. Therefore, all the created users can be granted different scanning and management permissions.
+Initially, the list of roles includes only the default options. View the Description column to check the access permissions provided by each role.
+📘 Note
+Only the Admin and Owner default roles allow creating and managing custom roles.</description>
+    </item>
+    
+    <item>
+      <title>Managing Organization</title>
+      <link>https://example.com/advanced-setup-in-bright-app/manage-your-organization/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/advanced-setup-in-bright-app/manage-your-organization/</guid>
+      <description>Viewing the organization dashboard To view your organization dashboard, in the left pane, select the Organization option.
+Configuring two-factor authentication policy You can require that all users in your organization use two-factor authentication (2FA). Before applying this policy, we recommend giving your users prior notice so that they have time to enable 2FA for their accounts.
+To apply 2FA to user accounts, select the relevant checkbox in the ORGANIZATION SETTINGS section.</description>
+    </item>
+    
+    <item>
+      <title>Managing Organization Groups</title>
+      <link>https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-groups/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-groups/</guid>
+      <description>Creating a new group To create a new group, follow these steps:
+In the upper-right corner of the GROUPS section, click Create group. [block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/692cd83-create-group.png&amp;rdquo;, &amp;ldquo;create-group.png&amp;rdquo;, 1900 ], &amp;ldquo;sizing&amp;rdquo;: &amp;ldquo;80&amp;rdquo; } ] } [/block]
+In the Name field, enter a name for the group. (Optional). In the Description field, enter a short description of the group. [block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/e3d7dd1-group-details.png&amp;rdquo;, &amp;ldquo;group-details.</description>
+    </item>
+    
+    <item>
+      <title>Managing Organization Users</title>
+      <link>https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-users/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-users/</guid>
+      <description>Adding user to organization [block:embed] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;iframe class=&amp;quot;embedly-embed&amp;quot; src=&amp;quot;//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FrHoZZrYwYa4%3Ffeature%3Doembed&amp;amp;display_name=YouTube&amp;amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DrHoZZrYwYa4&amp;amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FrHoZZrYwYa4%2Fhqdefault.jpg&amp;amp;key=f2aa6fc3595946d0afc3d76cbbd25dc3&amp;amp;type=text%2Fhtml&amp;amp;schema=youtube&amp;quot; width=&amp;quot;854&amp;quot; height=&amp;quot;480&amp;quot; scrolling=&amp;quot;no&amp;quot; title=&amp;quot;YouTube embed&amp;quot; frameborder=&amp;quot;0&amp;quot; allow=&amp;quot;autoplay; fullscreen&amp;quot; allowfullscreen=&amp;quot;true&amp;quot;&amp;gt;&amp;rdquo;, &amp;ldquo;url&amp;rdquo;: &amp;ldquo;https://www.youtube.com/embed/rHoZZrYwYa4&amp;quot;%20title=&amp;quot;YouTube%20video%20player&amp;quot;%20frameborder=&amp;quot;0&amp;quot;%20allow=&amp;quot;accelerometer;%20autoplay;%20clipboard-write;%20encrypted-media;%20gyroscope;%20picture-in-picture&amp;rdquo;, &amp;ldquo;title&amp;rdquo;: &amp;ldquo;Adding a User to a Nexploit Organization&amp;rdquo;, &amp;ldquo;favicon&amp;rdquo;: &amp;ldquo;https://www.youtube.com/favicon.ico&amp;quot;, &amp;ldquo;image&amp;rdquo;: &amp;ldquo;https://i.ytimg.com/vi/rHoZZrYwYa4/hqdefault.jpg&amp;quot;, &amp;ldquo;provider&amp;rdquo;: &amp;ldquo;youtube.com&amp;rdquo;, &amp;ldquo;href&amp;rdquo;: &amp;ldquo;https://www.youtube.com/embed/rHoZZrYwYa4&amp;quot;%20title=&amp;quot;YouTube%20video%20player&amp;quot;%20frameborder=&amp;quot;0&amp;quot;%20allow=&amp;quot;accelerometer;%20autoplay;%20clipboard-write;%20encrypted-media;%20gyroscope;%20picture-in-picture&amp;rdquo; } [/block]
+To add a user, follow these steps:
+In the upper-right corner of the MEMBERS section, click Invite Member. [block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/a543c52-new-user-fullscreen.png&amp;rdquo;, &amp;ldquo;new-user-fullscreen.png&amp;rdquo;, 1892 ], &amp;ldquo;sizing&amp;rdquo;: &amp;ldquo;80&amp;rdquo; } ] } [/block]</description>
+    </item>
+    
+    <item>
+      <title>Managing Personal Account</title>
+      <link>https://example.com/advanced-setup-in-bright-app/manage-your-personal-account/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/advanced-setup-in-bright-app/manage-your-personal-account/</guid>
+      <description>Accessing your personal account To access your personal account, click in the upper-right corner of the Scans page, and then select User Settings.
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/45c0c46-user-settings.png&amp;rdquo;, &amp;ldquo;user-settings.png&amp;rdquo;, 1904 ], &amp;ldquo;sizing&amp;rdquo;: &amp;ldquo;80&amp;rdquo; } ] } [/block]
+On the User Settings page, you can change your personal settings and preferences.
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/f375dee-profile-page.png&amp;rdquo;, &amp;ldquo;profile-page.png&amp;rdquo;, 1912 ], &amp;ldquo;sizing&amp;rdquo;: &amp;ldquo;80&amp;rdquo; } ] } [/block]</description>
+    </item>
+    
+    <item>
+      <title>Managing Projects</title>
+      <link>https://example.com/advanced-setup-in-bright-app/manage-projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/advanced-setup-in-bright-app/manage-projects/</guid>
+      <description>If your organization has multiple groups that work on the development of several applications simultaneously, the best way to separate and manage the scanning flows is to create different Bright projects. You can manage which user groups get access to a project, and have full control over certain permissions and associated ticketing repositories.
+In addition, you can limit the number of concurrent engines (scans) for each project so that each team has equal access to the organization engines.</description>
+    </item>
+    
+    <item>
+      <title>Managing Repeater Scripts</title>
+      <link>https://example.com/advanced-setup-in-bright-app/repeater-scripts/manage-repeater-scripts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/advanced-setup-in-bright-app/repeater-scripts/manage-repeater-scripts/</guid>
+      <description>Creating a script To create a script, follow these steps:
+In the Repeaters section, click &amp;lt;&amp;gt; Repeater Scripts in the upper right corner. [block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/e218401-repeaters-scripts.png&amp;rdquo;, &amp;ldquo;repeaters-scripts.png&amp;rdquo;, 1895 ], &amp;ldquo;sizing&amp;rdquo;: &amp;ldquo;80&amp;rdquo; } ] } [/block]
+In the upper left corner, click + New Repeater Script. In the script dialog box, do the following: In the Name field, enter the name of your script. (Optional) In the Description field, enter some descriptive information about your script.</description>
+    </item>
+    
+    <item>
+      <title>Managing Repeaters</title>
+      <link>https://example.com/advanced-setup-in-bright-app/manage-repeaters/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/advanced-setup-in-bright-app/manage-repeaters/</guid>
+      <description>The Bright Repeater is a scan proxy which provides a secure connection between the Bright cloud engine and a target on a local network. The Repeater mode enables you to securely scan targets on a local network, without having to allowlist the Bright IP address in your firewall for incoming traffic. See Repeater (Scan Proxy) for more information.
+[block:embed] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;iframe class=&amp;quot;embedly-embed&amp;quot; src=&amp;quot;//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FipFkP0od_04%3Ffeature%3Doembed&amp;amp;display_name=YouTube&amp;amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DipFkP0od_04&amp;amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FipFkP0od_04%2Fhqdefault.jpg&amp;amp;key=f2aa6fc3595946d0afc3d76cbbd25dc3&amp;amp;type=text%2Fhtml&amp;amp;schema=youtube&amp;quot; width=&amp;quot;854&amp;quot; height=&amp;quot;480&amp;quot; scrolling=&amp;quot;no&amp;quot; title=&amp;quot;YouTube embed&amp;quot; frameborder=&amp;quot;0&amp;quot; allow=&amp;quot;autoplay; fullscreen&amp;quot; allowfullscreen=&amp;quot;true&amp;quot;&amp;gt;&amp;rdquo;, &amp;ldquo;url&amp;rdquo;: &amp;ldquo;https://www.</description>
+    </item>
+    
+    <item>
+      <title>Media</title>
+      <link>https://example.com/advanced-setup-in-bright-app/media-5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/advanced-setup-in-bright-app/media-5/</guid>
+      <description>[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/fffd419-Group_1335.png&amp;rdquo;, &amp;ldquo;Group 1335.png&amp;rdquo;, 511, 606, &amp;ldquo;#232a2d&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/9f8ff9f-key-popup.png&amp;rdquo;, &amp;ldquo;key-popup.png&amp;rdquo;, 746, 789, &amp;ldquo;#232b2e&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/4e57962-create-repeater.png&amp;rdquo;, &amp;ldquo;create-repeater.png&amp;rdquo;, 503, 761, &amp;ldquo;#242b2e&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/69cba57-create-repeater-prompt.png&amp;rdquo;, &amp;ldquo;create-repeater-prompt.png&amp;rdquo;, 510, 575, &amp;ldquo;#222c2f&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.</description>
+    </item>
+    
+    <item>
+      <title>Organization API Key Scopes</title>
+      <link>https://example.com/advanced-setup-in-bright-app/manage-access-scopes/organization-api-key-scopes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/advanced-setup-in-bright-app/manage-access-scopes/organization-api-key-scopes/</guid>
+      <description>When creating an API key in the organization settings, you can predefine access permissions for this key by selecting the relative scopes. The following table describes the permissions each scope provides.
+Scope Description bot Enables communication between a Repeater and the Bright engine files:read Allows reading files from the storage and verifying targets files:write Allows managing files in the storage, for example, uploading or deleting them groups:admin Provides unrestricted access to all organization groups, including the possibility to assign a role to a group and view all group members.</description>
+    </item>
+    
+    <item>
+      <title>Personal API Key Scopes</title>
+      <link>https://example.com/advanced-setup-in-bright-app/manage-access-scopes/personal-api-key-scopes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/advanced-setup-in-bright-app/manage-access-scopes/personal-api-key-scopes/</guid>
+      <description>When creating a personal API key in the user settings, you can predefine access permissions for this key by selecting the relative scopes. The following table describes the permissions each scope provides.
+Scope Description auth-objects Provides unrestricted access to authentication objects management auth-objects:read Allows to view the basic configuration of authentication objects auth-objects:test Allows testing an authentication object during its configuration auth-objects:write Allows managing authentication objects that have been created by a user bot Enables communication between a Repeater and the Bright engine files:read Allows reading files from the storage and verifying targets files:write Allows managing files in the storage, for example, uploading or deleting them groups:delete Allows deleting groups groups:manage Allow managing groups, for example creating a new group or editing an existing group groups:read Allows viewing information about groups that a user has been added to integration.</description>
+    </item>
+    
+    <item>
+      <title>Project API Key Scopes</title>
+      <link>https://example.com/advanced-setup-in-bright-app/manage-access-scopes/project-api-key-scopes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/advanced-setup-in-bright-app/manage-access-scopes/project-api-key-scopes/</guid>
+      <description>When creating an API key in the project settings, you can predefine access permissions for that key by selecting the relative scopes. The following table describes the permissions that each scope provides.
+Scope Description bot Enables communication between a Repeater and the Bright engine files:read Allows reading files from the storage and verifying targets files:write Allows managing files in the storage, for example, uploading or deleting them integration.repos:read Allows viewing associated repositories, for example, GitHub repositories, Slack channels, or Jira boards issues:read Allows viewing detected issues issues:manage Allows managing detected issues, for example assigning a user to an issue, marking an issue as resolved, or retesting an issue scans:delete Allows deleting scans scans:manage Allows managing scans, for example editing scan settings or retesting a scan scans:read Allows viewing existing scans scans:run Allows running scans scans:stop Allows stopping scans scripts:read Allows viewing repeater’s scripts scripts:write Allows creating, editing, and deleting scripts repeaters:read Allows viewing organization’s repeaters repeaters:write Allows creating, editing, and deleting a repeater, as well as testing repeater connection to a network </description>
+    </item>
+    
+    <item>
+      <title>Role Management Scopes</title>
+      <link>https://example.com/advanced-setup-in-bright-app/manage-access-scopes/role-management-scopes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/advanced-setup-in-bright-app/manage-access-scopes/role-management-scopes/</guid>
+      <description>When creating a custom role to be assigned to a new or an existing user, you can predefine access permissions for this role by selecting the relative scopes. The following table describes the permissions each scope provides.
+Scope Description activities Allows viewing notifications and managing the notification feed api-keys Allows creating personal API keys auth-objects Provides unrestricted access to authentication objects management auth-objects:read Allows to view the basic configuration of authentication objects auth-objects:test Allows testing an authentication object during its configuration auth-objects:write Allows managing authentication objects that have been created by a user auth-providers Allows configuring SSO providers (okta, Google, ADFS) billing Allows viewing billing summary comments Allows viewing and managing comments in scans and issues that a user has access to comments:read Allows viewing comments in scans and issues that a user has access to comments:write Allows managing (editing, deleting) comments in scans and issues that a user has access to entry-points:read Allows viewing all entry points discovered during a scan files:read Allows reading files from the storage and verifying targets files:write Allows managing files in the storage, for example, uploading or deleting them groups:admin Provides unrestricted access to all organization groups, including the possibility to assign a role to a group and view all group members groups:manage Allow managing groups, for example creating a new group or editing an existing group groups:read Allows viewing information about groups that a user has been added to groups:admin Allows viewing information about groups groups:delete Allows deleting groups integrations:read Allows viewing a list of available and enabled integrations integrations:write Allows enabling connection and associating other repositories to be used for a scan (ticketing systems) integration.</description>
+    </item>
+    
+    <item>
+      <title>Use Cases</title>
+      <link>https://example.com/advanced-setup-in-bright-app/repeater-scripts/use-cases/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/advanced-setup-in-bright-app/repeater-scripts/use-cases/</guid>
+      <description>Sample HMAC code The following script provides an example of how to compute an HMAC authorization token.
+The example is taken from the Amazon S3 documentation.
+Suppose your AWS Access Key ID is 44CF9590006BF252F707, AWS Secret Access Key is OtxrzxIsfpFjA7SwPzILwy8Bw21TLhquhboDYROV, and authorization label is AWS.
+The authorization token is a composite of a secure cryptographic algorithm, the AWS Access Key ID and a hash-encoded signature.
+Then you could compute the authorization token as follows:</description>
+    </item>
+    
+    <item>
+      <title>Using Repeater Scripts</title>
+      <link>https://example.com/advanced-setup-in-bright-app/repeater-scripts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/advanced-setup-in-bright-app/repeater-scripts/</guid>
+      <description>If you use the Repeater to scan a target, you can manipulate the scan request before dispatching it to the target. Bright allows you to create a script that can add, change or compute some part of the request after you apply it for a specific Repeater.
+You can load a script file which should modify the requests to the Repeater, either remotely from the Bright app or locally using the relative Bright CLI command.</description>
+    </item>
+    
+  </channel>
+</rss>

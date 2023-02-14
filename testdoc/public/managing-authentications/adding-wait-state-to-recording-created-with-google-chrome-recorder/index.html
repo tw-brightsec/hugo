@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Known Issues (Internal) - Brightsec</title>
+<meta name="generator" content="Hugo 0.109.0">
+<link href="https://example.com/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://example.com/managing-authentications/adding-wait-state-to-recording-created-with-google-chrome-recorder/">
+<link rel="stylesheet" href="https://example.com/css/theme.min.css">
+<link rel="stylesheet" href="https://example.com/css/chroma.min.css">
+<script defer src="https://example.com/js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://example.com/js/bundle.js"></script><style>
+:root {--custom-font-color: black;--custom-background-color: white;}
+</style>
+<meta property="og:title" content="Known Issues (Internal)" />
+<meta property="og:description" content="RAO inconsistency issues Issues affecting OAuth2, OIDC, SPA (Single Page Application) The redirects are not taken into account while asserting. Results in RAO failure.
+📘 Example
+GET https://nexploit.okta.com/login/login.htm?fromURI=/oauth2/v1/authorize/redirect?okta_key=sueOmcIiKdFwyJgkDj0xZO4JWUF8ZAxFVJuyh4rJRPA responds with 302 status and Location header, which value is used in asserted navigation events.
+Await is missing on asserting for navigation event. Results in RAO failure.
+The authentication tester provides the following output: &ldquo;The actual URL doesn&rsquo;t match up to the specified validation URL, please make sure the URL is correct or record again with the correct configuration." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/managing-authentications/adding-wait-state-to-recording-created-with-google-chrome-recorder/" /><meta property="og:image" content="https://example.com/images/og-image.png"/><meta property="article:section" content="Managing Authentications" />
+
+<meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.com/images/og-image.png"/>
+
+<meta name="twitter:title" content="Known Issues (Internal)"/>
+<meta name="twitter:description" content="RAO inconsistency issues Issues affecting OAuth2, OIDC, SPA (Single Page Application) The redirects are not taken into account while asserting. Results in RAO failure.
+📘 Example
+GET https://nexploit.okta.com/login/login.htm?fromURI=/oauth2/v1/authorize/redirect?okta_key=sueOmcIiKdFwyJgkDj0xZO4JWUF8ZAxFVJuyh4rJRPA responds with 302 status and Location header, which value is used in asserted navigation events.
+Await is missing on asserting for navigation event. Results in RAO failure.
+The authentication tester provides the following output: &ldquo;The actual URL doesn&rsquo;t match up to the specified validation URL, please make sure the URL is correct or record again with the correct configuration."/>
+<meta itemprop="name" content="Known Issues (Internal)">
+<meta itemprop="description" content="RAO inconsistency issues Issues affecting OAuth2, OIDC, SPA (Single Page Application) The redirects are not taken into account while asserting. Results in RAO failure.
+📘 Example
+GET https://nexploit.okta.com/login/login.htm?fromURI=/oauth2/v1/authorize/redirect?okta_key=sueOmcIiKdFwyJgkDj0xZO4JWUF8ZAxFVJuyh4rJRPA responds with 302 status and Location header, which value is used in asserted navigation events.
+Await is missing on asserting for navigation event. Results in RAO failure.
+The authentication tester provides the following output: &ldquo;The actual URL doesn&rsquo;t match up to the specified validation URL, please make sure the URL is correct or record again with the correct configuration.">
+
+<meta itemprop="wordCount" content="633"><meta itemprop="image" content="https://example.com/images/og-image.png"/>
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>Brightsec</h1><span class="version">Version 0.9.9</span><a href="https://github.com/thingsym/hugo-theme-techdoc" class="github"><i class="fab fa-github"></i></a>
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li id="home" class=""><a href="/">Home</a></li>
+<li id="changelog" class="twitter-menu-item"><a href="/changelog">Changelog</a></li></ul>
+</nav>
+</div>
+
+<div class="content-container">
+<main><h1>Known Issues (Internal)</h1>
+<h1 id="rao-inconsistency-issues">RAO inconsistency issues</h1>
+<h2 id="issues-affecting-oauth2-oidc-spa-single-page-application">Issues affecting OAuth2, OIDC, SPA (Single Page Application)</h2>
+<h3 id="the-redirects-are-not-taken-into-account-while-asserting">The redirects are not taken into account while asserting.</h3>
+<p>Results in RAO failure.</p>
+<blockquote>
+<p>📘 Example</p>
+<p>GET <a href="https://nexploit.okta.com/login/login.htm?fromURI=/oauth2/v1/authorize/redirect?okta_key=sueOmcIiKdFwyJgkDj0xZO4JWUF8ZAxFVJuyh4rJRPA">https://nexploit.okta.com/login/login.htm?fromURI=/oauth2/v1/authorize/redirect?okta_key=sueOmcIiKdFwyJgkDj0xZO4JWUF8ZAxFVJuyh4rJRPA</a> responds with 302 status and Location header, which value is used in asserted navigation events.</p>
+</blockquote>
+<h3 id="await-is-missing-on-asserting-for-navigation-event">Await is missing on asserting for navigation event.</h3>
+<p>Results in RAO failure.</p>
+<p>The authentication tester provides the following output: &ldquo;<strong>The actual URL doesn&rsquo;t match up to the specified validation URL, please make sure the URL is correct or record again with the correct configuration.</strong>&rdquo;</p>
+<p><strong>Workaround</strong></p>
+<p>Add the timeout step.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>      &#34;type&#34;: &#34;customStep&#34;,
+</span></span><span style="display:flex;"><span>      &#34;name&#34;: &#34;TimeoutStep&#34;,
+</span></span><span style="display:flex;"><span>      &#34;parameters&#34;: {},
+</span></span><span style="display:flex;"><span>      &#34;timeout&#34;: 5000,
+</span></span><span style="display:flex;"><span>      &#34;assertedEvents&#34;: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          &#34;type&#34;: &#34;navigation&#34;,
+</span></span><span style="display:flex;"><span>          &#34;url&#34;: &#34;http://dvwa2.neuralegion.com/index.php&#34;,
+</span></span><span style="display:flex;"><span>          &#34;title&#34;: &#34;&#34;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><blockquote>
+<p>📘 Note</p>
+<p>This workaround may not help.</p>
+</blockquote>
+<h3 id="dynamic-title-in-assertedevent-navigation-causes-ao-failure">Dynamic title in assertedEvent navigation causes AO failure.</h3>
+<p>Results in RAO failure.</p>
+<p>If part of the title in assertedEvents navigation is changed dynamically, Recorded BBAO doesn’t consider the navigation done correctly and fails. In Chrome, the same Recorded BBAO is replayed successfully.</p>
+<p>The following error appears: &ldquo;<strong>Unable to find the specified target page, please make sure that the specified target page exists or record again with the correct configuration.</strong>&rdquo;</p>
+<p><strong>Workaround</strong></p>
+<p>On the client side, change title to static.</p>
+<h3 id="recorded-bbao-fails-to-find-a-frame-if-the-frame-appears-after-some-delay">Recorded BBAO fails to find a frame if the frame appears after some delay.</h3>
+<p>Results in RAO failure.</p>
+<p>If the frame appears after some delay, it isn’t found.</p>
+<p><strong>Root cause:</strong> The frame list is collected before the actual call time, and therefore is outdated by the call time.</p>
+<p>The following error appears: &ldquo;<strong>Unable to find the specified frame in this step, please make sure that the specified frame exists or record again with the correct configuration.</strong>&rdquo;</p>
+<h3 id="the-top-of-the-page-is-displayed-in-screenshots-even-if-action-is-taken-in-the-area-after-scrolling">The top of the page is displayed in screenshots even if action is taken in the area after scrolling.</h3>
+<p>When the action in the Recorded BBAO is taken on the area which is available after scrolling, the screenshot still displays the top of it. Therefore, the screenshot is not informative because it doesn&rsquo;t show the element under action.</p>
+<h3 id="unable-to-interact-with-shadow-dom">Unable to interact with shadow DOM.</h3>
+<p>The engine is unable to interact with web components (e.g., <a href="fast.design/,">fast</a>, <a href="https://lit.dev/">lit</a>, <a href="https://stenciljs.com/">stencil</a>), which are quite often used by tech-giants in different applications (e.g., <a href="https://www.salesforce.com/">https://www.salesforce.com/</a>, <a href="https://www.microsoft.com/">https://www.microsoft.com/</a>, <a href="https://www.ea.com/">https://www.ea.com/</a>, etc.).</p>
+<p>The following error appears: <strong>Unknown error</strong>.</p>
+<h3 id="unable-to-set-the-same-value-that-has-been-typed-while-recording">Unable to set the same value that has been typed while recording.</h3>
+<p>The engine is unable to set the same value that has been typed while recording, which makes it impossible to fill in complex forms.</p>
+<p>The form data sent to the mock server (i.e., POST /login) by clicking the <strong>Log in</strong> button is different from typed.</p>
+<blockquote>
+<p>🚧 Actual result</p>
+<p>username=artem.derevnjuk%40neuralegion.com&amp;password=Qwerty1234%21&amp;consent=on&amp;language=english&amp;organization=neuralegion&amp;dietary-restrictions=gluten&amp;age=22&amp;letter=testest+testest+testtest+test+test</p>
+<p>vs</p>
+<p>username=artem.derevnjuk%40neuralegion.com&amp;password=Qwerty1234%21&amp;consent=on&amp;language=english&amp;organization=bight&amp;dietary-restrictions=gluten&amp;dietary-restrictions=lactose&amp;age=22&amp;letter=test+test+test</p>
+</blockquote>
+<p>As the request body implies, there are multiple issues:</p>
+<ul>
+<li>Chain of _ change_ events for the same element is not handled properly.</li>
+<li><em>select</em> and <em>select[multiple]</em> don’t work at all.</li>
+</ul>
+<h3 id="ticket-duplicates-are-created-in-integrations">Ticket duplicates are created in integrations.</h3>
+<p>Some ticket duplicates sneak through the deduplication mechanism and are created in integrations.</p>
+<p>To reproduce the issue, follow the steps below.</p>
+<ol>
+<li>Ensure that there is an organization with enabled Jira and Gitlab integrations.</li>
+<li>Add Gitlab and Jira boards to the project.</li>
+<li>Run scan under this project with enabled Jira and Gitlab integrations and wait for it to finish.</li>
+<li>Compare scan issues with issues in integrations - only unique tickets should be there.</li>
+<li>Retest this scan and wait for it to finish.</li>
+</ol>
+<h1 id="adding-wait-state-to-recording-created-with-google-chrome-recorder">Adding Wait State to recording created with Google Chrome recorder</h1>
+<p>You can add wait state to Chrome recording manually as a custom step.</p>
+<ol>
+<li>On the tool panel, select <strong>Export as a JSON file</strong> and save the recording on your PC.</li>
+<li>Open the saved JSON file and add the following code snippet for the wait state.</li>
+</ol>
+<pre tabindex="0"><code>{
+      &#34;type&#34;: &#34;customStep&#34;,
+      &#34;name&#34;: &#34;TimeoutStep&#34;,
+      &#34;parameters&#34;: {},
+      &#34;timeout&#34;: 5000
+}
+</code></pre><blockquote>
+<p>📘 Note</p>
+<p>After adding the wait state, Chrome will ignore this custom step when replaying the recording.</p>
+</blockquote>
+<div class="edit-meta">
+
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/Managing%20Authentications/adding-wait-state-to-recording-created-with-google-chrome-recorder.md" class="edit-page"><i class="fas fa-pen-square"></i>&nbsp;Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://example.com/managing-authentications/creating-authentication/" title="Creating Authentication"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Creating Authentication</a>
+<a class="nav nav-next" href="https://example.com/managing-authentications/media-4/" title="Media">Next - Media <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://example.com">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://example.com/about-bright-dast/">About Bright DASTs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/">Deployment Options</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/private-cloud/">Private Cloud Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/on-premises-repeater-local-agent/">Repeater (Scan Proxy)</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/saas-deployment/">SaaS Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/introducing-to-bright/">What is Bright DAST?</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/accounting-and-billing/">Accounting and Billings<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/accounting-and-billing/about-accounting-and-billing/">About Accounting and Billing</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-history/">Managing Payment History</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-information/">Managing Payment Information</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-your-plan/">Managing Plan</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/advanced-integration-use-cases/">Advanced Integration Use Cases<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-integration-use-cases/integrating-a-bright-project-with-webhooks/">Integrating a Bright Project with Webhooks</a></li>
+<li class=""><a href="https://example.com/advanced-integration-use-cases/sending-detected-issues-to-jira-from-cicd-pipelines/">Sending Detected Issues from CI/CD Pipelines to Jira</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/advanced-setup-in-bright-app/">Advanced Setup in Bright Apps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/">Managing Access Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/managing-bright-file-storage/">Managing Bright File Storage</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-custom-roles/">Managing Custom Roles</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/">Managing Organization</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-groups/">Managing Organization Groups</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-users/">Managing Organization Users</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-personal-account/">Managing Personal Account</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-projects/">Managing Projects</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/manage-repeater-scripts/">Managing Repeater Scripts</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-repeaters/">Managing Repeaters</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/organization-api-key-scopes/">Organization API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/personal-api-key-scopes/">Personal API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/project-api-key-scopes/">Project API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/role-management-scopes/">Role Management Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/use-cases/">Use Cases</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/">Using Repeater Scripts</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/ci-pipeline-integrations/">CI Pipeline Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/azure-pipelines/">Azure Pipelines</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/circleci/">CircleCI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/github-actions/">GitHub Actions</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/gitlab/">GitLab</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/gitlab-integration-examples/">GitLab Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/">Integrating Bright with Your CI Pipeline</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/">Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jenkins/">Jenkins</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/jenkins-integration-examples/">Jenkins Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jfrog/">JFrog</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/team-city/">TeamCity</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/travis-ci/">Travis CI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/travis-ci-integration-examples/">Travis CI Integration Examples</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/general/">Generals<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/general/faqs/">FAQs</a></li>
+<li class=""><a href="https://example.com/general/privacy-policy/">Privacy Policy</a></li>
+<li class=""><a href="https://example.com/general/terms-of-use/">Terms of Use</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/getting-started-with-bright/">Getting Started with Brights<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/getting-started-with-bright/quick-tour-of-the-web-interface/">Quick Tour of the User Interface</a></li>
+<li class=""><a href="https://example.com/getting-started-with-bright/quickstart/">Quickstart</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://example.com/managing-authentications/">Managing Authentications<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-authentications/adding-your-authentication-object-to-a-scan/">Adding an Authentication Object to a Scan</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-an-authentication-object-in-bright/">Authentication Types</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-api-call-authentication/">Configuring API Call Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-multi-step-browser-based-form-authentication/">Configuring Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-custom-multi-step-authentication/">Configuring Custom API Authentication Flow</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-form-authentication/">Configuring Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-header-authentication-in-bright/">Configuring Header Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-ntlm-authentication/">Configuring NTLM Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-oidc-connect-oauth/">Configuring OIDC Connect (OAuth)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-recorded-browser-based-form-authentication/">Configuring Recorded Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configuring-recorded-browser-based-form-authentication-internal-copy/">Configuring Recorded Browser-Based Form Authentication (Internal Copy)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/">Creating Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/string-interpolation-syntax/">String Interpolation Syntax</a></li>
+<li class=""><a href="https://example.com/managing-authentications/troubleshooting-authentication-issues-internal/">Troubleshooting Authentication Issues</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/managing-scan-results/">Managing Scan Results<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-scan-results/deleting-a-scan/">Deleting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/exporting-a-scan/">Exporting a Scan Report</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/handling-discovered-issues/">Handling Discovered Issues</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/how-to-add-bright-to-the-waf-allowlist/">How to Add Bright to the WAF Allowlist</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/modifying-future-scan-settings/">Modifying Future Scan Settings</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/retesting-a-scan/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scans/">Reviewing All Scans</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-details/">Reviewing Scan Details</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-history/">Reviewing Scan History</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/troubleshooting-for-problematic-scans/">Troubleshooting Scans</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/pages-after-new-scan-dialog-analytics/">Pages after New scan dialog analytics<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/scanning-from-bright-app/">Scanning from Bright Apps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/configuring-an-api-schema-for-scanning/">Configuring an API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/creating-a-har-file/">Creating a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/creating-a-new-scan/">Creating a Scan</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/edit-an-uploaded-api-schema/">Editing an Uploaded API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/managing-scan-templates/">Managing Scan Templates</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/">Scanning API Endpoints</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/">Scanning with a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/crawler/">Scanning with a Crawler</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/troubleshooting/">Troubleshooting</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/sso-integrations/">SSO Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/azure-sso-and-provisioning/">Azure SSO and Provisioning</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/">Configuring Single Sign-On</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/google-sso/">Google SSO</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/okta-sso-and-provisioning/">Okta SSO and Provisioning</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/ticketing-integrations/">Ticketing Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ticketing-integrations/adding-ticketing-integration-to-a-project/">Adding Ticketing Integration to a Project</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/azure-boards/">Azure Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/github/">GitHub</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/gitlab-boards/">GitLab Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/">Integrating Bright with Your Ticketing System</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/jira/">Jira</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/slack/">Slack</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/using-bright-cli/">Using Bright CLI<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-cli/about-bright-cli/">About Bright CLI</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/checking-scan-status/">Checking Scan Status</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/command-language-syntax/">Command Language Syntax</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/">Command List</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/configuration-files/">Configuration Files</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/generating-an-archive-with-nexmock/">Generating an Archive with NexMock</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/">Getting Started</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/initializing-the-repeater/">Initializing the Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/installation-options/">Installation Guide</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/integrating-with-a-service/">Integrating with an On-Premise Ticketing Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/retesting-a-scan-1/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/running-a-scan/">Running a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-as-part-of-ci-pipeline/">Scanning as Part of CI Pipeline</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-at-the-enterprise-level/">Scanning at the Enterprise Level</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/security-scanning-as-self-service/">Security Scanning as Self-Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/stopping-a-scan/">Stopping a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/testing-network-connectivity/">Testing Network Connectivity</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/repeater-troubleshooting/">Troubleshooting Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/uploading-an-archive/">Uploading an Archive</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/using-bright-rest-api/">Using Bright REST APIs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-rest-api/about-bright-api/">About Bright API</a></li>
+<li class=""><a href="https://example.com/using-bright-rest-api/response-status-codes/">Response Status Codes</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/vulnerability-guide/">Vulnerability Guides<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/vulnerability-guide/vulnerability-guide/">Vulnerability Guide</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/welcome/">Welcomes<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/welcome/about-docs/">About Docs</a></li>
+<li class=""><a href="https://example.com/welcome/accessibility/">Accessibility</a></li>
+<li class=""><a href="https://example.com/welcome/support/">Support</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

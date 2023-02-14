@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Managing Projects - Brightsec</title>
+<meta name="generator" content="Hugo 0.109.0">
+<link href="https://example.com/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://example.com/advanced-setup-in-bright-app/manage-projects/">
+<link rel="stylesheet" href="https://example.com/css/theme.min.css">
+<link rel="stylesheet" href="https://example.com/css/chroma.min.css">
+<script defer src="https://example.com/js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://example.com/js/bundle.js"></script><style>
+:root {--custom-font-color: black;--custom-background-color: white;}
+</style>
+<meta property="og:title" content="Managing Projects" />
+<meta property="og:description" content="If your organization has multiple groups that work on the development of several applications simultaneously, the best way to separate and manage the scanning flows is to create different Bright projects. You can manage which user groups get access to a project, and have full control over certain permissions and associated ticketing repositories.
+In addition, you can limit the number of concurrent engines (scans) for each project so that each team has equal access to the organization engines." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/advanced-setup-in-bright-app/manage-projects/" /><meta property="og:image" content="https://example.com/images/og-image.png"/><meta property="article:section" content="Advanced Setup in Bright App" />
+
+<meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.com/images/og-image.png"/>
+
+<meta name="twitter:title" content="Managing Projects"/>
+<meta name="twitter:description" content="If your organization has multiple groups that work on the development of several applications simultaneously, the best way to separate and manage the scanning flows is to create different Bright projects. You can manage which user groups get access to a project, and have full control over certain permissions and associated ticketing repositories.
+In addition, you can limit the number of concurrent engines (scans) for each project so that each team has equal access to the organization engines."/>
+<meta itemprop="name" content="Managing Projects">
+<meta itemprop="description" content="If your organization has multiple groups that work on the development of several applications simultaneously, the best way to separate and manage the scanning flows is to create different Bright projects. You can manage which user groups get access to a project, and have full control over certain permissions and associated ticketing repositories.
+In addition, you can limit the number of concurrent engines (scans) for each project so that each team has equal access to the organization engines.">
+
+<meta itemprop="wordCount" content="1246"><meta itemprop="image" content="https://example.com/images/og-image.png"/>
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>Brightsec</h1><span class="version">Version 0.9.9</span><a href="https://github.com/thingsym/hugo-theme-techdoc" class="github"><i class="fab fa-github"></i></a>
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li id="home" class=""><a href="/">Home</a></li>
+<li id="changelog" class="twitter-menu-item"><a href="/changelog">Changelog</a></li></ul>
+</nav>
+</div>
+
+<div class="content-container">
+<main><h1>Managing Projects</h1>
+<p>If your organization has multiple groups that work on the development of several applications simultaneously, the best way to separate and manage the scanning flows is to create different Bright projects. You can manage which user groups get access to a project, and have full control over certain permissions and associated ticketing repositories.</p>
+<p>In addition, you can limit the number of concurrent engines (scans) for each project so that each team has equal access to the organization engines. Let’s imagine that your organization has 10 engines and 2 projects, and there is no limitation on concurrent engines for these projects. It means that one project team can run all available engines at once and block the other team from scanning. To prevent such situations, you can, for example, set up the maximum number of concurrent engines to 5 per team, so that each team will be able to run 5 scans simultaneously without blocking each other. If a team decides to run more than 5 scans at once, the scans that exceed the limit will be queued.</p>
+<p>If you have integrated Bright with the ticketing tool a project team uses, the relative repositories (projects, channels) can be associated with a specific project. The integration configuration allows teams of different projects to select the repository associated with their project when creating a new scan. As a result, all the discovered issues will be opened as tickets or messages automatically in the selected repository.</p>
+<p>You can find more information about Bright integration with ticketing systems <a href="https://docs.brightsec.com/docs/integrate-bright-with-your-ticketing-system">here</a>.</p>
+<blockquote>
+<p>📘 Note</p>
+<p>A project is required for the configuration of a new scan, so if you do not have any custom projects, you need to select the default one.</p>
+</blockquote>
+<h2 id="creating-a-project">Creating a project</h2>
+<p>To create a project, follow these steps:</p>
+<ol>
+<li>In the left pane, select <strong>Projects</strong> and click <strong>+ Create Project</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/eb01ab9-create-project.png&rdquo;,
+&ldquo;create-project.png&rdquo;,
+1912
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="2">
+<li>In the <strong>Create project</strong> dialog box, enter a project name and select the groups that can access the project.</li>
+</ol>
+<img src="https://files.readme.io/0979fe2-project-popup.png" width="360" height="470">
+<ol start="3">
+<li>Click <strong>Save</strong>.<br>
+A successfully created project appears in the <strong>MY PROJECTS</strong> table.</li>
+</ol>
+<h2 id="viewing-the-project-scans">Viewing the project scans</h2>
+<p>You can view the scans run within each particular project as well as retest, edit and delete them.  To view and manage project scans, click the raw with the project you need in the <strong>MY PROJECTS</strong> table.</p>
+<blockquote>
+<p>👍 Tip</p>
+<p>You can open a project or a project scan in a new tab by a middle-mouse click or a Ctrl + left-mouse click.</p>
+</blockquote>
+<p>Most features of the scans, such as retesting, stopping, editing, exporting, and deleting, are the same as on the <strong>Scans</strong> page. Find more information <a href="/docs/reviewing-scans">here</a>.</p>
+<h2 id="setting-a-maximum-number-of-concurrent-scans-for-a-project">Setting a maximum number of concurrent scans for a project</h2>
+<p>To set a limit for scans that can be run simultaneously by one project team, do the following:</p>
+<ol>
+<li>In the <strong>MY PROJECTS</strong> table, click <img src="https://files.readme.io/60c9313-dots-button.png" width="23" height="26"> next to the project where you want to set a limit to concurrent scans, and then select <strong>Settings</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/75a4f9d-project-settings.png&rdquo;,
+&ldquo;project-settings.png&rdquo;,
+1907
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="2">
+<li>In the <strong>PROJECT SETTINGS</strong> section, select the check box next to <strong>Limit number of concurrent scans</strong>.</li>
+<li>In the <strong>Max. concurrent scans</strong> field, enter the number of engines that can be run concurrently for this project.<br>
+Please make sure that the number you set does not exceed the total  number of engines available for the entire organization.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/09452e5-limit-conc-scans.png&rdquo;,
+&ldquo;limit-conc-scans.png&rdquo;,
+1899
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="4">
+<li>At the top right of the <strong>Project Settings</strong> page, click <strong>Save</strong>.</li>
+</ol>
+<h2 id="reviewing-the-project-issue-details">Reviewing the project issue details</h2>
+<p>You can view the information about all issues detected during the project scans, as well as check the parent scans. The information includes the issue type, HTTP method, number of times reported, and link to a vulnerable source.</p>
+<p>To view the details and parent scans of a specific issue, you simply need to select this issue from the <strong>PROJECT ISSUES</strong> table on the <strong>Project page</strong>.</p>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/2a61a17-project-issue-details.png&rdquo;,
+&ldquo;project-issue-details.png&rdquo;,
+1896
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<h2 id="configuring-an-issue-and-assign-it-to-a-project-user">Configuring an issue and assign it to a project user</h2>
+<p>You can set a status and severity for all project issues to treat them as tasks and assign them to different members of your project team.</p>
+<p>To configure an issue and assign it to a project user, follow these steps:</p>
+<ol>
+<li>On the <strong>Project</strong> page, scroll down to the <strong>PROJECT ISSUES</strong> table and select the issue you want to configure.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/8dd0ea0-issues-table.png&rdquo;,
+&ldquo;issues-table.png&rdquo;,
+1895
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="2">
+<li>In the <strong>ISSUE CONFIGURATION</strong> section, select the status, severity and assignee for the issue.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/3bf12f3-project-issue-configuration.png&rdquo;,
+&ldquo;project-issue-configuration.png&rdquo;,
+1884
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<h2 id="adding-a-group-to-project">Adding a group to project</h2>
+<p>To add a group to the project, follow these steps:</p>
+<ol>
+<li>In the <strong>MY PROJECTS</strong> table, click <img src="https://files.readme.io/60c9313-dots-button.png" width="23" height="26"> next to the project where you want to delete a group, and then select <strong>Settings</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/215b36f-project-settings.png&rdquo;,
+&ldquo;project-settings.png&rdquo;,
+1907
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="2">
+<li>In the upper-right corner of the <strong>GROUP MANAGEMENT</strong> section, select the group to be added to the project from the <strong>Add group</strong> dropdown list.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/a183793-add-group-project.png&rdquo;,
+&ldquo;add-group-project.png&rdquo;,
+1896
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<h2 id="deleting-a-group-from-project">Deleting a group from project</h2>
+<p>To delete a group from a project, follow these steps:</p>
+<ol>
+<li>In the <strong>MY PROJECTS</strong> table, click <img src="https://files.readme.io/60c9313-dots-button.png" width="23" height="26"> next to the project where you want to delete a group, and then select <strong>Settings</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/64922c5-project-settings.png&rdquo;,
+&ldquo;project-settings.png&rdquo;,
+1907
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="2">
+<li>In the <strong>GROUP MANAGEMENT</strong> table, click <img src="https://files.readme.io/60c9313-dots-button.png" width="23" height="26"> next to the group you want to delete, and then select <strong>Delete</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/0afa790-delete-group-priject.png&rdquo;,
+&ldquo;delete-group-priject.png&rdquo;,
+1903
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<h2 id="managing-project-api-keys">Managing project API keys</h2>
+<p>You can create and manage project-level API keys (also called authentication tokens ) for accessing the Bright API and CLI.</p>
+<p>To create a new API key, follow these steps:</p>
+<ol>
+<li>In the <strong>MY PROJECTS</strong> table, click <img src="https://files.readme.io/60c9313-dots-button.png" width="23" height="26"> next to the project for which you want to create an API key, and then select <strong>Settings</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/2918cc7-project-settings.png&rdquo;,
+&ldquo;project-settings.png&rdquo;,
+1907
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="2">
+<li>Scroll down to the <strong>MANAGE YOU PROJECT API KEYS</strong> and click <strong>+ Create API Key</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/ae2e817-create-key.png&rdquo;,
+&ldquo;create-key.png&rdquo;,
+1907
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="3">
+<li>Assign the API key a name, select which scope(s) of access to allow it and which type of actions (such as read or write) it is permitted to perform.</li>
+</ol>
+<img src="https://files.readme.io/9f8ff9f-key-popup.png" width="400" height="460">
+<ol start="4">
+<li>Click <strong>Create</strong>.<br>
+On the popup, copy the generated key and save it to a safe place since as soon as you navigate away from this popup, you will not be able to restore this key.<br>
+The created keys without the entire values are listed in the <strong>MANAGE YOUR ORGANIZATION PROJECT API KEYS</strong> section.</li>
+</ol>
+<h2 id="deleting-a-project">Deleting a project</h2>
+<p>To delete a  custom project, do the following:</p>
+<ol>
+<li>In the <strong>MY PROJECTS</strong> table, click <img src="https://files.readme.io/60c9313-dots-button.png" width="23" height="26"> next to the project you want to delete, and then select <strong>Delete</strong>.</li>
+</ol>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/2a12ac8-delete-project.png&rdquo;,
+&ldquo;delete-project.png&rdquo;,
+1904
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<ol start="2">
+<li>On the popup, click <strong>Yes, delete</strong>.<br>
+By deleting a project, all the associated scans will be deleted along with their history and detected issues. This data cannot be restored after deletion.</li>
+</ol>
+<div class="edit-meta">
+
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/Advanced%20Setup%20in%20Bright%20App/manage-projects.md" class="edit-page"><i class="fas fa-pen-square"></i>&nbsp;Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://example.com/advanced-setup-in-bright-app/manage-your-personal-account/" title="Managing Personal Account"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Managing Personal Account</a>
+<a class="nav nav-next" href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/manage-repeater-scripts/" title="Managing Repeater Scripts">Next - Managing Repeater Scripts <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://example.com">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://example.com/about-bright-dast/">About Bright DASTs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/">Deployment Options</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/private-cloud/">Private Cloud Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/on-premises-repeater-local-agent/">Repeater (Scan Proxy)</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/saas-deployment/">SaaS Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/introducing-to-bright/">What is Bright DAST?</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/accounting-and-billing/">Accounting and Billings<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/accounting-and-billing/about-accounting-and-billing/">About Accounting and Billing</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-history/">Managing Payment History</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-information/">Managing Payment Information</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-your-plan/">Managing Plan</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/advanced-integration-use-cases/">Advanced Integration Use Cases<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-integration-use-cases/integrating-a-bright-project-with-webhooks/">Integrating a Bright Project with Webhooks</a></li>
+<li class=""><a href="https://example.com/advanced-integration-use-cases/sending-detected-issues-to-jira-from-cicd-pipelines/">Sending Detected Issues from CI/CD Pipelines to Jira</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://example.com/advanced-setup-in-bright-app/">Advanced Setup in Bright Apps<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/">Managing Access Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/managing-bright-file-storage/">Managing Bright File Storage</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-custom-roles/">Managing Custom Roles</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/">Managing Organization</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-groups/">Managing Organization Groups</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-users/">Managing Organization Users</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-personal-account/">Managing Personal Account</a></li>
+<li class="active"><a href="https://example.com/advanced-setup-in-bright-app/manage-projects/">Managing Projects</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/manage-repeater-scripts/">Managing Repeater Scripts</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-repeaters/">Managing Repeaters</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/organization-api-key-scopes/">Organization API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/personal-api-key-scopes/">Personal API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/project-api-key-scopes/">Project API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/role-management-scopes/">Role Management Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/use-cases/">Use Cases</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/">Using Repeater Scripts</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/ci-pipeline-integrations/">CI Pipeline Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/azure-pipelines/">Azure Pipelines</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/circleci/">CircleCI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/github-actions/">GitHub Actions</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/gitlab/">GitLab</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/gitlab-integration-examples/">GitLab Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/">Integrating Bright with Your CI Pipeline</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/">Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jenkins/">Jenkins</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/jenkins-integration-examples/">Jenkins Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jfrog/">JFrog</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/team-city/">TeamCity</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/travis-ci/">Travis CI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/travis-ci-integration-examples/">Travis CI Integration Examples</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/general/">Generals<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/general/faqs/">FAQs</a></li>
+<li class=""><a href="https://example.com/general/privacy-policy/">Privacy Policy</a></li>
+<li class=""><a href="https://example.com/general/terms-of-use/">Terms of Use</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/getting-started-with-bright/">Getting Started with Brights<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/getting-started-with-bright/quick-tour-of-the-web-interface/">Quick Tour of the User Interface</a></li>
+<li class=""><a href="https://example.com/getting-started-with-bright/quickstart/">Quickstart</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/managing-authentications/">Managing Authentications<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-authentications/adding-your-authentication-object-to-a-scan/">Adding an Authentication Object to a Scan</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-an-authentication-object-in-bright/">Authentication Types</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-api-call-authentication/">Configuring API Call Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-multi-step-browser-based-form-authentication/">Configuring Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-custom-multi-step-authentication/">Configuring Custom API Authentication Flow</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-form-authentication/">Configuring Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-header-authentication-in-bright/">Configuring Header Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-ntlm-authentication/">Configuring NTLM Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-oidc-connect-oauth/">Configuring OIDC Connect (OAuth)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-recorded-browser-based-form-authentication/">Configuring Recorded Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configuring-recorded-browser-based-form-authentication-internal-copy/">Configuring Recorded Browser-Based Form Authentication (Internal Copy)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/">Creating Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/string-interpolation-syntax/">String Interpolation Syntax</a></li>
+<li class=""><a href="https://example.com/managing-authentications/troubleshooting-authentication-issues-internal/">Troubleshooting Authentication Issues</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/managing-scan-results/">Managing Scan Results<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-scan-results/deleting-a-scan/">Deleting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/exporting-a-scan/">Exporting a Scan Report</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/handling-discovered-issues/">Handling Discovered Issues</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/how-to-add-bright-to-the-waf-allowlist/">How to Add Bright to the WAF Allowlist</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/modifying-future-scan-settings/">Modifying Future Scan Settings</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/retesting-a-scan/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scans/">Reviewing All Scans</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-details/">Reviewing Scan Details</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-history/">Reviewing Scan History</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/troubleshooting-for-problematic-scans/">Troubleshooting Scans</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/pages-after-new-scan-dialog-analytics/">Pages after New scan dialog analytics<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/scanning-from-bright-app/">Scanning from Bright Apps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/configuring-an-api-schema-for-scanning/">Configuring an API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/creating-a-har-file/">Creating a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/creating-a-new-scan/">Creating a Scan</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/edit-an-uploaded-api-schema/">Editing an Uploaded API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/managing-scan-templates/">Managing Scan Templates</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/">Scanning API Endpoints</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/">Scanning with a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/crawler/">Scanning with a Crawler</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/troubleshooting/">Troubleshooting</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/sso-integrations/">SSO Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/azure-sso-and-provisioning/">Azure SSO and Provisioning</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/">Configuring Single Sign-On</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/google-sso/">Google SSO</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/okta-sso-and-provisioning/">Okta SSO and Provisioning</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/ticketing-integrations/">Ticketing Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ticketing-integrations/adding-ticketing-integration-to-a-project/">Adding Ticketing Integration to a Project</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/azure-boards/">Azure Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/github/">GitHub</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/gitlab-boards/">GitLab Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/">Integrating Bright with Your Ticketing System</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/jira/">Jira</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/slack/">Slack</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/using-bright-cli/">Using Bright CLI<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-cli/about-bright-cli/">About Bright CLI</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/checking-scan-status/">Checking Scan Status</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/command-language-syntax/">Command Language Syntax</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/">Command List</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/configuration-files/">Configuration Files</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/generating-an-archive-with-nexmock/">Generating an Archive with NexMock</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/">Getting Started</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/initializing-the-repeater/">Initializing the Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/installation-options/">Installation Guide</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/integrating-with-a-service/">Integrating with an On-Premise Ticketing Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/retesting-a-scan-1/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/running-a-scan/">Running a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-as-part-of-ci-pipeline/">Scanning as Part of CI Pipeline</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-at-the-enterprise-level/">Scanning at the Enterprise Level</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/security-scanning-as-self-service/">Security Scanning as Self-Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/stopping-a-scan/">Stopping a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/testing-network-connectivity/">Testing Network Connectivity</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/repeater-troubleshooting/">Troubleshooting Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/uploading-an-archive/">Uploading an Archive</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/using-bright-rest-api/">Using Bright REST APIs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-rest-api/about-bright-api/">About Bright API</a></li>
+<li class=""><a href="https://example.com/using-bright-rest-api/response-status-codes/">Response Status Codes</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/vulnerability-guide/">Vulnerability Guides<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/vulnerability-guide/vulnerability-guide/">Vulnerability Guide</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/welcome/">Welcomes<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/welcome/about-docs/">About Docs</a></li>
+<li class=""><a href="https://example.com/welcome/accessibility/">Accessibility</a></li>
+<li class=""><a href="https://example.com/welcome/support/">Support</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

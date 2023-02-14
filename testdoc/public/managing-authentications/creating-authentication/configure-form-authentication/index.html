@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Configuring Form Authentication - Brightsec</title>
+<meta name="generator" content="Hugo 0.109.0">
+<link href="https://example.com/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://example.com/managing-authentications/creating-authentication/configure-form-authentication/">
+<link rel="stylesheet" href="https://example.com/css/theme.min.css">
+<link rel="stylesheet" href="https://example.com/css/chroma.min.css">
+<script defer src="https://example.com/js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://example.com/js/bundle.js"></script><style>
+:root {--custom-font-color: black;--custom-background-color: white;}
+</style>
+<meta property="og:title" content="Configuring Form Authentication" />
+<meta property="og:description" content="❗️ Deprecation notice
+The Form authentication type is deprecated. Your existing authentication objects of this type are currently working, and later will be converted in to the Custom API authentication objects automatically.
+You can use the form authentication if the login-protected resources within the application you want to scan use
+the application/x-www-form-urlencoded content type of the HTTP requests.
+The form authentication type is set by default when you create an authentication object in the Bright app." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/managing-authentications/creating-authentication/configure-form-authentication/" /><meta property="og:image" content="https://example.com/images/og-image.png"/><meta property="article:section" content="Managing Authentications" />
+
+<meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.com/images/og-image.png"/>
+
+<meta name="twitter:title" content="Configuring Form Authentication"/>
+<meta name="twitter:description" content="❗️ Deprecation notice
+The Form authentication type is deprecated. Your existing authentication objects of this type are currently working, and later will be converted in to the Custom API authentication objects automatically.
+You can use the form authentication if the login-protected resources within the application you want to scan use
+the application/x-www-form-urlencoded content type of the HTTP requests.
+The form authentication type is set by default when you create an authentication object in the Bright app."/>
+<meta itemprop="name" content="Configuring Form Authentication">
+<meta itemprop="description" content="❗️ Deprecation notice
+The Form authentication type is deprecated. Your existing authentication objects of this type are currently working, and later will be converted in to the Custom API authentication objects automatically.
+You can use the form authentication if the login-protected resources within the application you want to scan use
+the application/x-www-form-urlencoded content type of the HTTP requests.
+The form authentication type is set by default when you create an authentication object in the Bright app.">
+
+<meta itemprop="wordCount" content="1096"><meta itemprop="image" content="https://example.com/images/og-image.png"/>
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>Brightsec</h1><span class="version">Version 0.9.9</span><a href="https://github.com/thingsym/hugo-theme-techdoc" class="github"><i class="fab fa-github"></i></a>
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li id="home" class=""><a href="/">Home</a></li>
+<li id="changelog" class="twitter-menu-item"><a href="/changelog">Changelog</a></li></ul>
+</nav>
+</div>
+
+<div class="content-container">
+<main><h1>Configuring Form Authentication</h1>
+<blockquote>
+<p>❗️ Deprecation notice</p>
+<p>The <strong>Form authentication</strong> type is deprecated. Your existing authentication objects of this type are currently working, and later will be converted in to the <strong>Custom API authentication</strong> objects automatically.</p>
+</blockquote>
+<p>You can use the form authentication if the login-protected resources within the application you want to scan use<br> the <code>application/x-www-form-urlencoded</code> content type of the HTTP requests.</p>
+<p>The form authentication type is set by default when you create an authentication object in the Bright app.</p>
+<blockquote>
+<p>📘 Note</p>
+<p>This topic describes only how to fill in fields specific for form authentication (the <strong>Setup</strong> tab). For general steps, see <a href="https://docs.brightsec.com/docs/configuring-authentication">Creating Authentication</a>.</p>
+</blockquote>
+<blockquote>
+<p>📘 Note</p>
+<p>Before following the instructions below, ensure that your application and authenticated resources are accessible to the Bright engine, either directly from the Internet or via the Repeater.</p>
+</blockquote>
+<p>From the <strong>Authentication type</strong> dropdown list, select <strong>Form authentication</strong>, and then proceed to the authentication setup.</p>
+<h4 id="authentication-setup">Authentication setup</h4>
+<p>In this section, set up a valid authentication request to be sent to the end-point API by completing the provided fields.</p>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/d65222b-form-auth-setup.png&rdquo;,
+&ldquo;form-auth-setup.png&rdquo;,
+1402
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<p>[block:html]
+{
+&ldquo;html&rdquo;: &ldquo;&lt;table id=&quot;simple-table&quot;&gt;\n<style>\n #simple-table {\n    border-collapse: separate;\n    width: 100%;\n    display: block;\n    display: table;\n  }\n#simple-table th {\n    padding: 1.5%;\n    text-align: left;\n    vertical-align: text-top;\n    background-color: #B2D6DA;\n  }\n\n  #simple-table td {\n    padding: 1.5%;\n    text-align: left;\n    vertical-align: text-top;\n  }\n\n  #simple-table tr:nth-child(odd) {\n    background-color: #FFFFFF;\n  }\n\n  #simple-table tr:nth-child(even) {\n    background-color: #F4F6F7;\n  }\n  </style>\n  <body>\n  <tr>\n    &lt;th width=&quot;25%&quot;&gt;<b>Field</b></th>\n    &lt;th width=&quot;75%&quot;&gt;<b>Guidelines</b></th>\n  </tr>\n  <tr>\n    &lt;td width=&quot;25%&quot;&gt;<b>URL</b></td>\n    &lt;td width=&quot;75%&quot; &gt;\n        Enter the relevant URL for the HTTP request. The POST method is set by default for the form authentication.<br><br>\n        &lt;font color=&quot;green&quot;&gt;<b>Pro Tips:</b></font>\n        <ul>\n            <li>\n                This is <b>not</b> the URL where the login form resides, but the URL where the form request is sent to. The form host URL can be the same as the request URL, but can be different as well. You can get the <b>Request URL</b> in the <b>Headers</b> section of the relevant login request.\n            </li>\n            <li>\n                Form login type will encode any URL-encoded values as required by the protocol, this means that values (user, pass) should be entered without encoding to avoid double encoding issues.\n            </li>\n        </ul>\n    </td>\n  </tr>\n  <tr>\n    &lt;td width=&quot;25%&quot;&gt;<b>Parameter name</b></td>\n    &lt;td width=&quot;75%&quot; &gt;\n        Enter the form parameters from the request body. For example, username and password.\n    </td>\n  </tr>\n  <tr>\n    &lt;td width=&quot;25%&quot;&gt;<b>Parameter value</b></td>\n    &lt;td width=&quot;75%&quot; &gt;\n        Enter the values of the form parameters (credentials) from the request bodies.\n    </td>\n  </tr>\n  <tr>\n    &lt;td width=&quot;25%&quot;&gt;<b>Maximum number of redirects to follow</b></td>\n    &lt;td width=&quot;75%&quot; &gt;\n        Enter the maximum number of redirects that the Bright should follow during the authentication process.<br></br>\n &lt;font color=&quot;green&quot;&gt;<b>Pro Tips:</b></font> Select the checkbox <b>Change redirected method to get</b> for the redirects with code 302, where the server expects the following methods to always be GET during redirects and not the original method that triggered the redirect.\n    </td>\n  </tr>\n  <tr>\n    &lt;td width=&quot;25%&quot;&gt;<b>Additional headers</b></td>\n    &lt;td width=&quot;75%&quot; &gt;\n        <em>(Optional)</em> Select an additional header you need to use for each request and enter its value.  For example, additional cookies that might be needed for the authentication such as host-related metadata.<br> To replace or append the selected header before sending each request, select the corresponding option from the <b>Merge strategy</b> dropdown list.<br><br>\n        &lt;font color=&quot;green&quot;&gt;<b>Pro Tips:</b></font>\n        <ul>\n            <li>\n                Make sure that the values you use for the additional headers are static and must not be changed between scans.\n            </li>\n            <li>\n                If your application uses cookies that are set via the Set-Cookie header in the response, then you do not need to extract and reuse the cookies. Any Set-Cookie header will be automatically used during authentication.  \n            </li>\n             <li>\n                There are cases when MFA is required  ONLY on initial IP login. This means that our scan IP can be validated once and will not require any further MFA validations. For that case, you need to identify which cookie supports the completed MFA/2FA and include a valid cookie as a part of your authentication object, typically using the <b>Additional Headers</b> field.  \n            </li>\n        </ul>\n    </td>\n  </tr>\n</table>\n</body>&rdquo;
+}
+[/block]</p>
+<ul>
+<li>You can add as many parameters as you need by clicking <strong>+ Add item</strong> at the bottom of the <strong>Parameter Name &amp; Value</strong> section.</li>
+<li>To delete a parameter, click <img src="https://files.readme.io/d6f5fdd-delete-icon.png" width="24" height="23"> next to the corresponding parameter field.</li>
+</ul>
+<h4 id="valid-authentication-response">Valid authentication response</h4>
+<p>In this section, select the options you want to use during the application scanning to determine that the authenticated resource has been reached. The options define how the application responds in case a full authentication flow passes successfully.</p>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/37ea796-auth-response.png&rdquo;,
+&ldquo;auth-response.png&rdquo;,
+1556
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<p>[block:html]
+{
+&ldquo;html&rdquo;: &ldquo;&lt;table id=&quot;simple-table&quot;&gt;\n<style>\n #simple-table {\n    border-collapse: separate;\n    width: 100%;\n    display: block;\n    display: table;\n  }\n#simple-table th {\n    padding: 1.5%;\n    text-align: left;\n    vertical-align: text-top;\n    background-color: #B2D6DA;\n  }\n\n  #simple-table td {\n    padding: 1.5%;\n    text-align: left;\n    vertical-align: text-top;\n  }\n\n  #simple-table tr:nth-child(odd) {\n    background-color: #FFFFFF;\n  }\n\n  #simple-table tr:nth-child(even) {\n    background-color: #F4F6F7;\n  }\n  </style>\n  <body>\n  <tr>\n    &lt;th width=&quot;25%&quot;&gt;<b>Field</b></th>\n    &lt;th width=&quot;75%&quot;&gt;<b>Guidelines</b></th>\n  </tr>\n  <tr>\n    &lt;td width=&quot;25%&quot;&gt;&laquo;b&gt;Detect using Response STATUS</b></td>\n    &lt;td width=&quot;75%&quot; &gt;\n       Enter the HTTP response status that will tell you about the authentication success.\n    </td>\n  </tr>\n  <tr>\n    &lt;td width=&quot;25%&quot;&gt;<b>Detect using Response HEADER pattern</b></td>\n    &lt;td width=&quot;75%&quot; &gt;\n        Enter the header name and Regex pattern that will help you identify the authentication success.\n    </td>\n  </tr>\n  <tr>\n    &lt;td width=&quot;25%&quot;&gt;<b>Detect using Response BODY pattern</b></td>\n    &lt;td width=&quot;75%&quot; &gt;\n       Enter the body pattern that will help you identify the authentication success.\n    </td>\n  </tr>\n</table>\n </body>&rdquo;
+}
+[/block]</p>
+<h4 id="authentication-triggers">Authentication triggers</h4>
+<p>In this section, select the options you want to use during the application scanning to determine if the authentication flow is no longer valid and the authenticated resources cannot be reached. The options define how the application responds in case the authentication flow fails.</p>
+<p>[block:image]
+{
+&ldquo;images&rdquo;: [
+{
+&ldquo;image&rdquo;: [
+&ldquo;https://files.readme.io/30c225e-auth-triggers.png&rdquo;,
+&ldquo;auth-triggers.png&rdquo;,
+1410
+],
+&ldquo;sizing&rdquo;: &ldquo;80&rdquo;
+}
+]
+}
+[/block]</p>
+<p>[block:html]
+{
+&ldquo;html&rdquo;: &ldquo;&lt;table id=&quot;simple-table&quot;&gt;\n<style>\n #simple-table {\n    border-collapse: separate;\n    width: 100%;\n    display: block;\n    display: table;\n  }\n#simple-table th {\n    padding: 1.5%;\n    text-align: left;\n    vertical-align: text-top;\n    background-color: #B2D6DA;\n  }\n\n  #simple-table td {\n    padding: 1.5%;\n    text-align: left;\n    vertical-align: text-top;\n  }\n\n  #simple-table tr:nth-child(odd) {\n    background-color: #FFFFFF;\n  }\n\n  #simple-table tr:nth-child(even) {\n    background-color: #F4F6F7;\n  }\n  </style>\n  <body>\n  <tr>\n    &lt;th width=&quot;25%&quot;&gt;<b>Field</b></th>\n    &lt;th width=&quot;75%&quot;&gt;<b>Guidelines</b></th>\n  </tr>\n  <tr>\n    &lt;td width=&quot;25%&quot;&gt;<b>Detect using Response patterns</b></td>\n    &lt;td width=&quot;75%&quot; &gt;\n       Select if your application explicitly indicates the authentication session expiration in the body or headers, or using status codes.\n    </td>\n  </tr>\n  <tr>\n    &lt;td width=&quot;25%&quot;&gt;<ul><li><b>Detect using Response STATUS</b></li></ul></td>\n    &lt;td width=&quot;75%&quot; &gt;\n       Enter the HTTP response status that will tell you about the authentication failure.\n    </td>\n  </tr>\n  <tr>\n    &lt;td width=&quot;25%&quot;&gt;<ul><li><b>Detect using Response HEADER pattern</b></li></ul></td>\n    &lt;td width=&quot;75%&quot; &gt;\n        Enter the header name and Regex pattern that will help you identify the authentication failure.\n    </td>\n  </tr>\n  <tr>\n    &lt;td width=&quot;25%&quot;&gt;<ul><li><b>Detect using Response BODY pattern</b></li></ul></td>\n    &lt;td width=&quot;75%&quot; &gt;\n       Enter the body pattern that will help you identify the authentication failure.\n    </td>\n  </tr>\n  <tr>\n    &lt;td width=&quot;25%&quot;&gt;<b>Detect using Request patterns</b></td>\n    &lt;td width=&quot;75%&quot; &gt;\n           Select if your application does not provide any explicit indication in the body or headers when the session expires, but the client-side code redirects you to the login page, for example, based on absence of cookies or cookies expiration. In this case the only way to detect the re-login requirement is by detecting the redirect to the login URL.\n    </td>\n  </tr>\n  <tr>\n    &lt;td width=&quot;25%&quot;&gt;<ul><li><b>Detect using Request URL pattern</b></li></ul></td>\n    &lt;td width=&quot;75%&quot; &gt;\n       Enter the URL pattern that will help you identify the authentication failure.\n    </td>\n  </tr>\n</table>\n </body>&rdquo;
+}
+[/block]</p>
+<blockquote>
+<p>📘 Note</p>
+<p>Bright allows testing a scan before saving it. For details, see the <a href="https://docs.brightsec.com/docs/configuring-authentication#testing-authentication">Testing Authentication</a>.</p>
+</blockquote>
+<div class="edit-meta">
+
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/Managing%20Authentications/creating-authentication/configure-form-authentication.md" class="edit-page"><i class="fas fa-pen-square"></i>&nbsp;Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://example.com/managing-authentications/configuring-authentication/" title="Creating Authentication"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Creating Authentication</a>
+<a class="nav nav-next" href="https://example.com/managing-authentications/adding-wait-state-to-recording-created-with-google-chrome-recorder/" title="Known Issues (Internal)">Next - Known Issues (Internal) <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://example.com">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://example.com/about-bright-dast/">About Bright DASTs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/">Deployment Options</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/private-cloud/">Private Cloud Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/on-premises-repeater-local-agent/">Repeater (Scan Proxy)</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/deployment-options/saas-deployment/">SaaS Deployment</a></li>
+<li class=""><a href="https://example.com/about-bright-dast/introducing-to-bright/">What is Bright DAST?</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/accounting-and-billing/">Accounting and Billings<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/accounting-and-billing/about-accounting-and-billing/">About Accounting and Billing</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-history/">Managing Payment History</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-payment-information/">Managing Payment Information</a></li>
+<li class=""><a href="https://example.com/accounting-and-billing/manage-your-plan/">Managing Plan</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/advanced-integration-use-cases/">Advanced Integration Use Cases<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-integration-use-cases/integrating-a-bright-project-with-webhooks/">Integrating a Bright Project with Webhooks</a></li>
+<li class=""><a href="https://example.com/advanced-integration-use-cases/sending-detected-issues-to-jira-from-cicd-pipelines/">Sending Detected Issues from CI/CD Pipelines to Jira</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/advanced-setup-in-bright-app/">Advanced Setup in Bright Apps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/">Managing Access Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/managing-bright-file-storage/">Managing Bright File Storage</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-custom-roles/">Managing Custom Roles</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/">Managing Organization</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-groups/">Managing Organization Groups</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-organization/manage-organization-users/">Managing Organization Users</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-your-personal-account/">Managing Personal Account</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-projects/">Managing Projects</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/manage-repeater-scripts/">Managing Repeater Scripts</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-repeaters/">Managing Repeaters</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/organization-api-key-scopes/">Organization API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/personal-api-key-scopes/">Personal API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/project-api-key-scopes/">Project API Key Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/manage-access-scopes/role-management-scopes/">Role Management Scopes</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/use-cases/">Use Cases</a></li>
+<li class=""><a href="https://example.com/advanced-setup-in-bright-app/repeater-scripts/">Using Repeater Scripts</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/ci-pipeline-integrations/">CI Pipeline Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/azure-pipelines/">Azure Pipelines</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/circleci/">CircleCI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/github-actions/">GitHub Actions</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/gitlab/">GitLab</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/gitlab-integration-examples/">GitLab Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/">Integrating Bright with Your CI Pipeline</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/">Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jenkins/">Jenkins</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/jenkins-integration-examples/">Jenkins Integration Examples</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/jfrog/">JFrog</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/team-city/">TeamCity</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integrate-bright-with-your-ci-pipeline/travis-ci/">Travis CI</a></li>
+<li class=""><a href="https://example.com/ci-pipeline-integrations/integration-examples/travis-ci-integration-examples/">Travis CI Integration Examples</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/general/">Generals<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/general/faqs/">FAQs</a></li>
+<li class=""><a href="https://example.com/general/privacy-policy/">Privacy Policy</a></li>
+<li class=""><a href="https://example.com/general/terms-of-use/">Terms of Use</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/getting-started-with-bright/">Getting Started with Brights<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/getting-started-with-bright/quick-tour-of-the-web-interface/">Quick Tour of the User Interface</a></li>
+<li class=""><a href="https://example.com/getting-started-with-bright/quickstart/">Quickstart</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://example.com/managing-authentications/">Managing Authentications<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-authentications/adding-your-authentication-object-to-a-scan/">Adding an Authentication Object to a Scan</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-an-authentication-object-in-bright/">Authentication Types</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-api-call-authentication/">Configuring API Call Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-multi-step-browser-based-form-authentication/">Configuring Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-custom-multi-step-authentication/">Configuring Custom API Authentication Flow</a></li>
+<li class="active"><a href="https://example.com/managing-authentications/creating-authentication/configure-form-authentication/">Configuring Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-header-authentication-in-bright/">Configuring Header Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-ntlm-authentication/">Configuring NTLM Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-oidc-connect-oauth/">Configuring OIDC Connect (OAuth)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configure-recorded-browser-based-form-authentication/">Configuring Recorded Browser-Based Form Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/configuring-recorded-browser-based-form-authentication-internal-copy/">Configuring Recorded Browser-Based Form Authentication (Internal Copy)</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/">Creating Authentication</a></li>
+<li class=""><a href="https://example.com/managing-authentications/creating-authentication/string-interpolation-syntax/">String Interpolation Syntax</a></li>
+<li class=""><a href="https://example.com/managing-authentications/troubleshooting-authentication-issues-internal/">Troubleshooting Authentication Issues</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/managing-scan-results/">Managing Scan Results<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/managing-scan-results/deleting-a-scan/">Deleting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/exporting-a-scan/">Exporting a Scan Report</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/handling-discovered-issues/">Handling Discovered Issues</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/how-to-add-bright-to-the-waf-allowlist/">How to Add Bright to the WAF Allowlist</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/modifying-future-scan-settings/">Modifying Future Scan Settings</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/retesting-a-scan/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scans/">Reviewing All Scans</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-details/">Reviewing Scan Details</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/reviewing-scan-history/">Reviewing Scan History</a></li>
+<li class=""><a href="https://example.com/managing-scan-results/troubleshooting-for-problematic-scans/">Troubleshooting Scans</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/pages-after-new-scan-dialog-analytics/">Pages after New scan dialog analytics<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/scanning-from-bright-app/">Scanning from Bright Apps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/configuring-an-api-schema-for-scanning/">Configuring an API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/creating-a-har-file/">Creating a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/creating-a-new-scan/">Creating a Scan</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/edit-an-uploaded-api-schema/">Editing an Uploaded API Schema</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/managing-scan-templates/">Managing Scan Templates</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/">Scanning API Endpoints</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-with-a-har/">Scanning with a .HAR file</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/crawler/">Scanning with a Crawler</a></li>
+<li class=""><a href="https://example.com/scanning-from-bright-app/scanning-api-endpoints/troubleshooting/">Troubleshooting</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/sso-integrations/">SSO Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/azure-sso-and-provisioning/">Azure SSO and Provisioning</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/">Configuring Single Sign-On</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/google-sso/">Google SSO</a></li>
+<li class=""><a href="https://example.com/sso-integrations/configure-sso/okta-sso-and-provisioning/">Okta SSO and Provisioning</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/ticketing-integrations/">Ticketing Integrations<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/ticketing-integrations/adding-ticketing-integration-to-a-project/">Adding Ticketing Integration to a Project</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/azure-boards/">Azure Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/github/">GitHub</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/gitlab-boards/">GitLab Boards</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/">Integrating Bright with Your Ticketing System</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/jira/">Jira</a></li>
+<li class=""><a href="https://example.com/ticketing-integrations/integrate-bright-with-your-ticketing-system/slack/">Slack</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/using-bright-cli/">Using Bright CLI<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-cli/about-bright-cli/">About Bright CLI</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/checking-scan-status/">Checking Scan Status</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/command-language-syntax/">Command Language Syntax</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/">Command List</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/configuration-files/">Configuration Files</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/generating-an-archive-with-nexmock/">Generating an Archive with NexMock</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/">Getting Started</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/initializing-the-repeater/">Initializing the Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/installation-options/">Installation Guide</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/integrating-with-a-service/">Integrating with an On-Premise Ticketing Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/retesting-a-scan-1/">Retesting a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/running-a-scan/">Running a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-as-part-of-ci-pipeline/">Scanning as Part of CI Pipeline</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/scanning-at-the-enterprise-level/">Scanning at the Enterprise Level</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/getting-started-with-bright-cli/security-scanning-as-self-service/">Security Scanning as Self-Service</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/stopping-a-scan/">Stopping a Scan</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/testing-network-connectivity/">Testing Network Connectivity</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/repeater-troubleshooting/">Troubleshooting Repeater</a></li>
+<li class=""><a href="https://example.com/using-bright-cli/command-list/uploading-an-archive/">Uploading an Archive</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/using-bright-rest-api/">Using Bright REST APIs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/using-bright-rest-api/about-bright-api/">About Bright API</a></li>
+<li class=""><a href="https://example.com/using-bright-rest-api/response-status-codes/">Response Status Codes</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/vulnerability-guide/">Vulnerability Guides<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/vulnerability-guide/vulnerability-guide/">Vulnerability Guide</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://example.com/welcome/">Welcomes<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://example.com/welcome/about-docs/">About Docs</a></li>
+<li class=""><a href="https://example.com/welcome/accessibility/">Accessibility</a></li>
+<li class=""><a href="https://example.com/welcome/support/">Support</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

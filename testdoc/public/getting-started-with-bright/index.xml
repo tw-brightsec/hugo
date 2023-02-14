@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Getting Started with Brights on Brightsec</title>
+    <link>https://example.com/getting-started-with-bright/</link>
+    <description>Recent content in Getting Started with Brights on Brightsec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://example.com/getting-started-with-bright/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Media</title>
+      <link>https://example.com/getting-started-with-bright/media-2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/getting-started-with-bright/media-2/</guid>
+      <description>[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/6d6433a-mdi_shield-account-variant.png&amp;rdquo;, &amp;ldquo;mdi_shield-account-variant.png&amp;rdquo;, 127, 127, &amp;ldquo;#017d94&amp;rdquo; ] } ] } [/block] ##Quick Tour of the Web UI [block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/6c393d3-cloud.png&amp;rdquo;, &amp;ldquo;cloud.png&amp;rdquo;, 74, 54, &amp;ldquo;#08838f&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/5cb0a1e-credit-card.png&amp;rdquo;, &amp;ldquo;credit-card.png&amp;rdquo;, 65, 53, &amp;ldquo;#08838f&amp;rdquo; ] } ] } [/block]
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/2ef333d-folder.png&amp;rdquo;, &amp;ldquo;folder.png&amp;rdquo;, 54, 49, &amp;ldquo;#08838f&amp;rdquo; ] } ] } [/block]</description>
+    </item>
+    
+    <item>
+      <title>Quick Tour of the User Interface</title>
+      <link>https://example.com/getting-started-with-bright/quick-tour-of-the-web-interface/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/getting-started-with-bright/quick-tour-of-the-web-interface/</guid>
+      <description>[block:html] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;&amp;lt;table id=&amp;quot;simple-table&amp;quot;&amp;gt;\n\n \n \n &amp;lt;th width=&amp;quot;25%&amp;quot;&amp;gt;Option\n &amp;lt;th width=&amp;quot;75%&amp;quot;&amp;gt;Description\n \n \n &amp;lt;td width=&amp;quot;25%&amp;quot;&amp;gt;&amp;lt;img src=&amp;quot;https://files.readme.io/2d67c8a-scans.png&amp;quot; width=&amp;quot;23&amp;quot; height=&amp;quot;21&amp;quot;&amp;gt;&amp;amp;nbsp&amp;amp;nbsp&amp;amp;nbspScans\n &amp;lt;td width=&amp;quot;75%&amp;quot;&amp;gt;\n This option enables you to view a list of previously run scans, currently run scans and future scheduled scans. It also allows you to define and schedule new scans, as well as to modify and rerun existing scans. \n You can save and reuse a set of scan settings as a template to start another scan quickly.</description>
+    </item>
+    
+    <item>
+      <title>Quickstart</title>
+      <link>https://example.com/getting-started-with-bright/quickstart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/getting-started-with-bright/quickstart/</guid>
+      <description>Log in to the Bright app and install the Bright CLI using one of the following options: [block:html] { &amp;ldquo;html&amp;rdquo;: &amp;ldquo;\n \n \n &amp;lt;iframe width=&amp;quot;100%&amp;quot; src=&amp;quot;https://www.youtube.com/embed/6_dD77nrkVY&amp;quot; \n title=&amp;quot;Docker install&amp;quot; frameborder=&amp;quot;0&amp;quot; allow=&amp;quot;accelerometer; autoplay; \n clipboard-write; encrypted-media; gyroscope; picture-in-picture&amp;quot; \n allowfullscreen&amp;gt;\n \n Docker install\n \n\n \n &amp;lt;iframe width=&amp;quot;100%&amp;quot; src=&amp;quot;https://www.youtube.com/embed/fqaeqIWrOTE&amp;quot; \n title=&amp;quot;NPM install&amp;quot; frameborder=&amp;quot;0&amp;quot; allow=&amp;quot;accelerometer; autoplay; \n clipboard-write; encrypted-media; gyroscope; picture-in-picture&amp;quot; \n allowfullscreen&amp;gt;\n \n NPM install\n \n\n \n &amp;lt;iframe width=&amp;quot;100%&amp;quot; src=&amp;quot;https://www.youtube.com/embed/JmsojpJD5uE&amp;quot; \n title=&amp;quot;Windows install&amp;quot; frameborder=&amp;quot;0&amp;quot; allow=&amp;quot;accelerometer; autoplay; \n clipboard-write; encrypted-media; gyroscope; picture-in-picture&amp;quot; \n allowfullscreen&amp;gt;\n \n Windows install\n \n \n&amp;rdquo; } [/block]</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Using Bright REST APIs on Brightsec</title>
+    <link>https://example.com/using-bright-rest-api/</link>
+    <description>Recent content in Using Bright REST APIs on Brightsec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://example.com/using-bright-rest-api/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Bright API</title>
+      <link>https://example.com/using-bright-rest-api/about-bright-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/using-bright-rest-api/about-bright-api/</guid>
+      <description>To enable full automation in to your CI/CD pipeline, you can use the Bright API to fully configure your development and testing flows.
+More information is provided on our API documentation page.
+[block:image] { &amp;ldquo;images&amp;rdquo;: [ { &amp;ldquo;image&amp;rdquo;: [ &amp;ldquo;https://files.readme.io/79d0816-swagger-logo.png&amp;rdquo;, &amp;ldquo;swagger-logo.png&amp;rdquo;, 3578 ], &amp;ldquo;sizing&amp;rdquo;: &amp;ldquo;80&amp;rdquo; } ] } [/block]</description>
+    </item>
+    
+    <item>
+      <title>Response Status Codes</title>
+      <link>https://example.com/using-bright-rest-api/response-status-codes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/using-bright-rest-api/response-status-codes/</guid>
+      <description>The error status codes are what Bright app returns when an API request or call fails. This topic provides a table of error codes with possible causes and troubleshooting actions.
+[block:parameters] { &amp;ldquo;data&amp;rdquo;: { &amp;ldquo;h-0&amp;rdquo;: &amp;ldquo;Code&amp;rdquo;, &amp;ldquo;h-1&amp;rdquo;: &amp;ldquo;Description&amp;rdquo;, &amp;ldquo;h-2&amp;rdquo;: &amp;ldquo;How to fix&amp;rdquo;, &amp;ldquo;0-0&amp;rdquo;: &amp;ldquo;1005&amp;rdquo;, &amp;ldquo;0-1&amp;rdquo;: &amp;ldquo;The connection request that the client is sending to the server is being blocked by the server and the content is not being sent to the client.</description>
+    </item>
+    
+  </channel>
+</rss>
