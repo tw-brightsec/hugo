@@ -3,7 +3,7 @@ baseURL = "https://whimsical-nasturtium-a82580.netlify.app/"
 languageCode = "en-us"
 DefaultContentLanguage = "en"
 title = "Brightsec"
-theme = "techdoc"
+theme = "techdoc2"
 
 hasCJKLanguage = true
 metaDataFormat = "yaml"
@@ -16,13 +16,13 @@ enableMissingTranslationPlaceholders = false
 
     # Source Code repository section
     # description = "put your description"
-    github_repository = "https://github.com/thingsym/hugo-theme-techdoc"
-    version = "0.9.9"
+    # github_repository = "https://github.com/thingsym/hugo-theme-techdoc"
+    # version = "0.9.9"
 
     # Documentation repository section
     # documentation repository (set edit link to documentation repository)
-    github_doc_repository = "https://github.com/thingsym/hugo-theme-techdoc"
-    github_doc_repository_path = ""
+    # github_doc_repository = "https://github.com/thingsym/hugo-theme-techdoc"
+    # github_doc_repository_path = ""
 
     # Analytic section
     google_analytics_id = "" # Your Google Analytics tracking id
@@ -96,7 +96,8 @@ enableMissingTranslationPlaceholders = false
     [markup.tableOfContents]
         startLevel = 2
         endLevel = 6
-        ordered = false
+        ordered = true
+
 
 [outputs]
     home = ["HTML", "RSS", "Algolia"]
